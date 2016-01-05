@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+
+	<!-- mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate -->
+	
+	<properties resource="jdbc.properties" />
+
+	<!-- 指定驱动的路径 -->
+	<classPathEntry location="C:\Users\yecl\.m2\repository\mysql\mysql-connector-java\5.1.37\mysql-connector-java-5.1.37.jar" />
+	
+	<!-- 指定生成一组对象的环境 -->
+	<context id="mysql" targetRuntime="MyBatis3" defaultModelType="flat">
+
+		<!-- 该元素有一个可选属性type,可以指定用户的实现类，该类需要实现org.mybatis.generator.api.CommentGenerator接口。
+			而且必有一个默认的构造方法。这个属性接收默认的特殊值DEFAULT，会使用默认的实现类org.mybatis.generator.internal.DefaultCommentGenerator。 
+		-->
+		<commentGenerator>
+			<!-- suppressAllComments:阻止生成注释，默认为false -->
+			<property name="suppressAllComments" value="true" />
+			<!-- suppressDate:阻止生成的注释包含时间戳，默认为false -->
+			<property name="suppressDate" value="true" />
+		</commentGenerator>
+
+		<!-- 用于指定数据库连接信息，该元素必选，并且只能有一个。 -->
+		<!-- 该元素有两个必选属性: 
+			driverClass:访问数据库的JDBC驱动程序的完全限定类名
+		 	connectionURL:访问数据库的JDBC连接URL 
+			该元素还有两个可选属性: 
+			userId:访问数据库的用户ID 
+			password:访问数据库的密码
+		 -->
+		<jdbcConnection driverClass="${jdbc.driverClassName}"
+			connectionURL="${jdbc.url}" userId="${jdbc.username}"
+			password="${jdbc.password}">
+		</jdbcConnection>
+
+		<!-- 控制生成的实体类.该元素必须配置一个，并且最多一个.-->
+		<javaModelGenerator targetPackage="com.asiainfo.draw.domain" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="true" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator targetPackage="com.asiainfo.draw.persistence" targetProject="src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+		<!-- <property name="enableSubPackages" value="true" /> -->
+		<javaClientGenerator type="XMLMAPPER" targetPackage="com.asiainfo.draw.persistence" targetProject="src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		<table tableName="test">
+		</table>
+	</context>
+</generatorConfiguration>
