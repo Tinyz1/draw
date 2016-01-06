@@ -1,6 +1,6 @@
 package com.asiainfo.draw.domain;
 
-public class DrawPrizes {
+public class DrawPrize {
     private Integer prizeId;
 
     private Integer linkId;

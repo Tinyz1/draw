@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.asiainfo.draw.persistence.ParticipantsMapper" >
-  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.Participants" >
-    <id column="participant_id" property="participantId" jdbcType="INTEGER" />
-    <result column="participant_name" property="participantName" jdbcType="VARCHAR" />
-    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
-    <result column="participant_number" property="participantNumber" jdbcType="VARCHAR" />
+<mapper namespace="com.asiainfo.draw.persistence.DrawLinkMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.DrawLink" >
+    <id column="link_id" property="linkId" jdbcType="INTEGER" />
+    <result column="link_name" property="linkName" jdbcType="VARCHAR" />
+    <result column="open_state" property="openState" jdbcType="INTEGER" />
+    <result column="state" property="state" jdbcType="INTEGER" />
+    <result column="link_order" property="linkOrder" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -66,15 +67,15 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    participant_id, participant_name, telphone, participant_number
+    link_id, link_name, open_state, state, link_order
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.ParticipantsExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.DrawLinkExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from participants
+    from draw_link
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,76 +86,85 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from participants
-    where participant_id = #{participantId,jdbcType=INTEGER}
+    from draw_link
+    where link_id = #{linkId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from participants
-    where participant_id = #{participantId,jdbcType=INTEGER}
+    delete from draw_link
+    where link_id = #{linkId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.ParticipantsExample" >
-    delete from participants
+  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.DrawLinkExample" >
+    delete from draw_link
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.asiainfo.draw.domain.Participants" >
-    insert into participants (participant_id, participant_name, telphone, 
-      participant_number)
-    values (#{participantId,jdbcType=INTEGER}, #{participantName,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, 
-      #{participantNumber,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.asiainfo.draw.domain.DrawLink" >
+    insert into draw_link (link_id, link_name, open_state, 
+      state, link_order)
+    values (#{linkId,jdbcType=INTEGER}, #{linkName,jdbcType=VARCHAR}, #{openState,jdbcType=INTEGER}, 
+      #{state,jdbcType=INTEGER}, #{linkOrder,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.Participants" >
-    insert into participants
+  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.DrawLink" >
+    insert into draw_link
     <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="participantId != null" >
-        participant_id,
+      <if test="linkId != null" >
+        link_id,
       </if>
-      <if test="participantName != null" >
-        participant_name,
+      <if test="linkName != null" >
+        link_name,
       </if>
-      <if test="telphone != null" >
-        telphone,
+      <if test="openState != null" >
+        open_state,
       </if>
-      <if test="participantNumber != null" >
-        participant_number,
+      <if test="state != null" >
+        state,
+      </if>
+      <if test="linkOrder != null" >
+        link_order,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="participantId != null" >
-        #{participantId,jdbcType=INTEGER},
+      <if test="linkId != null" >
+        #{linkId,jdbcType=INTEGER},
       </if>
-      <if test="participantName != null" >
-        #{participantName,jdbcType=VARCHAR},
+      <if test="linkName != null" >
+        #{linkName,jdbcType=VARCHAR},
       </if>
-      <if test="telphone != null" >
-        #{telphone,jdbcType=VARCHAR},
+      <if test="openState != null" >
+        #{openState,jdbcType=INTEGER},
       </if>
-      <if test="participantNumber != null" >
-        #{participantNumber,jdbcType=VARCHAR},
+      <if test="state != null" >
+        #{state,jdbcType=INTEGER},
+      </if>
+      <if test="linkOrder != null" >
+        #{linkOrder,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.asiainfo.draw.domain.ParticipantsExample" resultType="java.lang.Integer" >
-    select count(*) from participants
+  <select id="countByExample" parameterType="com.asiainfo.draw.domain.DrawLinkExample" resultType="java.lang.Integer" >
+    select count(*) from draw_link
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update participants
+    update draw_link
     <set >
-      <if test="record.participantId != null" >
-        participant_id = #{record.participantId,jdbcType=INTEGER},
+      <if test="record.linkId != null" >
+        link_id = #{record.linkId,jdbcType=INTEGER},
       </if>
-      <if test="record.participantName != null" >
-        participant_name = #{record.participantName,jdbcType=VARCHAR},
+      <if test="record.linkName != null" >
+        link_name = #{record.linkName,jdbcType=VARCHAR},
       </if>
-      <if test="record.telphone != null" >
-        telphone = #{record.telphone,jdbcType=VARCHAR},
+      <if test="record.openState != null" >
+        open_state = #{record.openState,jdbcType=INTEGER},
       </if>
-      <if test="record.participantNumber != null" >
-        participant_number = #{record.participantNumber,jdbcType=VARCHAR},
+      <if test="record.state != null" >
+        state = #{record.state,jdbcType=INTEGER},
+      </if>
+      <if test="record.linkOrder != null" >
+        link_order = #{record.linkOrder,jdbcType=INTEGER},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -162,35 +172,40 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update participants
-    set participant_id = #{record.participantId,jdbcType=INTEGER},
-      participant_name = #{record.participantName,jdbcType=VARCHAR},
-      telphone = #{record.telphone,jdbcType=VARCHAR},
-      participant_number = #{record.participantNumber,jdbcType=VARCHAR}
+    update draw_link
+    set link_id = #{record.linkId,jdbcType=INTEGER},
+      link_name = #{record.linkName,jdbcType=VARCHAR},
+      open_state = #{record.openState,jdbcType=INTEGER},
+      state = #{record.state,jdbcType=INTEGER},
+      link_order = #{record.linkOrder,jdbcType=INTEGER}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.Participants" >
-    update participants
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.DrawLink" >
+    update draw_link
     <set >
-      <if test="participantName != null" >
-        participant_name = #{participantName,jdbcType=VARCHAR},
+      <if test="linkName != null" >
+        link_name = #{linkName,jdbcType=VARCHAR},
       </if>
-      <if test="telphone != null" >
-        telphone = #{telphone,jdbcType=VARCHAR},
+      <if test="openState != null" >
+        open_state = #{openState,jdbcType=INTEGER},
       </if>
-      <if test="participantNumber != null" >
-        participant_number = #{participantNumber,jdbcType=VARCHAR},
+      <if test="state != null" >
+        state = #{state,jdbcType=INTEGER},
+      </if>
+      <if test="linkOrder != null" >
+        link_order = #{linkOrder,jdbcType=INTEGER},
       </if>
     </set>
-    where participant_id = #{participantId,jdbcType=INTEGER}
+    where link_id = #{linkId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.Participants" >
-    update participants
-    set participant_name = #{participantName,jdbcType=VARCHAR},
-      telphone = #{telphone,jdbcType=VARCHAR},
-      participant_number = #{participantNumber,jdbcType=VARCHAR}
-    where participant_id = #{participantId,jdbcType=INTEGER}
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.DrawLink" >
+    update draw_link
+    set link_name = #{linkName,jdbcType=VARCHAR},
+      open_state = #{openState,jdbcType=INTEGER},
+      state = #{state,jdbcType=INTEGER},
+      link_order = #{linkOrder,jdbcType=INTEGER}
+    where link_id = #{linkId,jdbcType=INTEGER}
   </update>
 </mapper>

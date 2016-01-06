@@ -3,14 +3,14 @@ package com.asiainfo.draw.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ParticipantsExample {
+public class ParticipantExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public ParticipantsExample() {
+    public ParticipantExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

@@ -1,6 +1,6 @@
 package com.asiainfo.draw.domain;
 
-public class Participants {
+public class Participant {
     private Integer participantId;
 
     private String participantName;

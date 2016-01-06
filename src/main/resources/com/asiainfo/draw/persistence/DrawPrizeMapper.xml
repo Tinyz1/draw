@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.asiainfo.draw.persistence.DrawPrizesMapper" >
-  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.DrawPrizes" >
+<mapper namespace="com.asiainfo.draw.persistence.DrawPrizeMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.DrawPrize" >
     <id column="prize_id" property="prizeId" jdbcType="INTEGER" />
     <result column="link_id" property="linkId" jdbcType="INTEGER" />
     <result column="prize_name" property="prizeName" jdbcType="VARCHAR" />
@@ -69,13 +69,13 @@
   <sql id="Base_Column_List" >
     prize_id, link_id, prize_name, size, provider
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.DrawPrizesExample" >
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.DrawPrizeExample" >
     select
     <if test="distinct" >
       distinct
     </if>
     <include refid="Base_Column_List" />
-    from draw_prizes
+    from draw_prize
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
@@ -86,27 +86,27 @@
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from draw_prizes
+    from draw_prize
     where prize_id = #{prizeId,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from draw_prizes
+    delete from draw_prize
     where prize_id = #{prizeId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.DrawPrizesExample" >
-    delete from draw_prizes
+  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.DrawPrizeExample" >
+    delete from draw_prize
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.asiainfo.draw.domain.DrawPrizes" >
-    insert into draw_prizes (prize_id, link_id, prize_name, 
+  <insert id="insert" parameterType="com.asiainfo.draw.domain.DrawPrize" >
+    insert into draw_prize (prize_id, link_id, prize_name, 
       size, provider)
     values (#{prizeId,jdbcType=INTEGER}, #{linkId,jdbcType=INTEGER}, #{prizeName,jdbcType=VARCHAR}, 
       #{size,jdbcType=INTEGER}, #{provider,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.DrawPrizes" >
-    insert into draw_prizes
+  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.DrawPrize" >
+    insert into draw_prize
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="prizeId != null" >
         prize_id,
@@ -142,14 +142,14 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.asiainfo.draw.domain.DrawPrizesExample" resultType="java.lang.Integer" >
-    select count(*) from draw_prizes
+  <select id="countByExample" parameterType="com.asiainfo.draw.domain.DrawPrizeExample" resultType="java.lang.Integer" >
+    select count(*) from draw_prize
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map" >
-    update draw_prizes
+    update draw_prize
     <set >
       <if test="record.prizeId != null" >
         prize_id = #{record.prizeId,jdbcType=INTEGER},
@@ -172,7 +172,7 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map" >
-    update draw_prizes
+    update draw_prize
     set prize_id = #{record.prizeId,jdbcType=INTEGER},
       link_id = #{record.linkId,jdbcType=INTEGER},
       prize_name = #{record.prizeName,jdbcType=VARCHAR},
@@ -182,8 +182,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.DrawPrizes" >
-    update draw_prizes
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.DrawPrize" >
+    update draw_prize
     <set >
       <if test="linkId != null" >
         link_id = #{linkId,jdbcType=INTEGER},
@@ -200,8 +200,8 @@
     </set>
     where prize_id = #{prizeId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.DrawPrizes" >
-    update draw_prizes
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.DrawPrize" >
+    update draw_prize
     set link_id = #{linkId,jdbcType=INTEGER},
       prize_name = #{prizeName,jdbcType=VARCHAR},
       size = #{size,jdbcType=INTEGER},

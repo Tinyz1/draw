@@ -2,7 +2,7 @@ package com.asiainfo.draw.domain;
 
 import java.util.Date;
 
-public class WinningRecords {
+public class WinningRecord {
     private Integer recordId;
 
     private Integer sceneId;

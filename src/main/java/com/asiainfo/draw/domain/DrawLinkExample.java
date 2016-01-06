@@ -3,14 +3,14 @@ package com.asiainfo.draw.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrawLinksExample {
+public class DrawLinkExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DrawLinksExample() {
+    public DrawLinkExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 

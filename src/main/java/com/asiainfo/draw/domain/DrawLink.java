@@ -1,6 +1,6 @@
 package com.asiainfo.draw.domain;
 
-public class DrawLinks {
+public class DrawLink {
     private Integer linkId;
 
     private String linkName;

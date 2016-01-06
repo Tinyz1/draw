@@ -53,11 +53,11 @@
 		</javaClientGenerator>
 		
 		<!-- tables -->
-		<table tableName="participants" />
+		<table tableName="participant" />
 		<table tableName="draw_scene" />
-		<table tableName="draw_links" />
-		<table tableName="draw_prizes" />
-		<table tableName="winning_records" />
+		<table tableName="draw_link" />
+		<table tableName="draw_prize" />
+		<table tableName="winning_record" />
 		
 	</context>
 </generatorConfiguration>
