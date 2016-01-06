@@ -52,7 +52,12 @@
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 		
-		<table tableName="test">
-		</table>
+		<!-- tables -->
+		<table tableName="participants" />
+		<table tableName="draw_scene" />
+		<table tableName="draw_links" />
+		<table tableName="draw_prizes" />
+		<table tableName="winning_records" />
+		
 	</context>
 </generatorConfiguration>
