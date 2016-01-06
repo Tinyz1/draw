@@ -8,7 +8,7 @@
     </appender>
 
     <!-- 打印SQL -->
-    <logger name="com.asiainfo.draw.persistence" level="debug"/>
+    <logger name="com.asiainfo.draw" level="debug"/>
     
     <root level="info">
         <appender-ref ref="console"/>

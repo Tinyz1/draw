@@ -40,4 +40,11 @@ public class Participant {
     public void setParticipantNumber(String participantNumber) {
         this.participantNumber = participantNumber == null ? null : participantNumber.trim();
     }
+
+	@Override
+	public String toString() {
+		return "Participant [participantId=" + participantId + ", participantName=" + participantName + ", telphone=" + telphone
+				+ ", participantNumber=" + participantNumber + "]";
+	}
+    
 }
