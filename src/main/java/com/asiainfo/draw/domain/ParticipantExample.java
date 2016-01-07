@@ -234,73 +234,63 @@ public class ParticipantExample {
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneIsNull() {
-            addCriterion("telphone is null");
+        public Criteria andParticipantNumIsNull() {
+            addCriterion("participant_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneIsNotNull() {
-            addCriterion("telphone is not null");
+        public Criteria andParticipantNumIsNotNull() {
+            addCriterion("participant_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneEqualTo(String value) {
-            addCriterion("telphone =", value, "telphone");
+        public Criteria andParticipantNumEqualTo(Integer value) {
+            addCriterion("participant_num =", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneNotEqualTo(String value) {
-            addCriterion("telphone <>", value, "telphone");
+        public Criteria andParticipantNumNotEqualTo(Integer value) {
+            addCriterion("participant_num <>", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneGreaterThan(String value) {
-            addCriterion("telphone >", value, "telphone");
+        public Criteria andParticipantNumGreaterThan(Integer value) {
+            addCriterion("participant_num >", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneGreaterThanOrEqualTo(String value) {
-            addCriterion("telphone >=", value, "telphone");
+        public Criteria andParticipantNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("participant_num >=", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneLessThan(String value) {
-            addCriterion("telphone <", value, "telphone");
+        public Criteria andParticipantNumLessThan(Integer value) {
+            addCriterion("participant_num <", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneLessThanOrEqualTo(String value) {
-            addCriterion("telphone <=", value, "telphone");
+        public Criteria andParticipantNumLessThanOrEqualTo(Integer value) {
+            addCriterion("participant_num <=", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneLike(String value) {
-            addCriterion("telphone like", value, "telphone");
+        public Criteria andParticipantNumIn(List<Integer> values) {
+            addCriterion("participant_num in", values, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneNotLike(String value) {
-            addCriterion("telphone not like", value, "telphone");
+        public Criteria andParticipantNumNotIn(List<Integer> values) {
+            addCriterion("participant_num not in", values, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneIn(List<String> values) {
-            addCriterion("telphone in", values, "telphone");
+        public Criteria andParticipantNumBetween(Integer value1, Integer value2) {
+            addCriterion("participant_num between", value1, value2, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andTelphoneNotIn(List<String> values) {
-            addCriterion("telphone not in", values, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneBetween(String value1, String value2) {
-            addCriterion("telphone between", value1, value2, "telphone");
-            return (Criteria) this;
-        }
-
-        public Criteria andTelphoneNotBetween(String value1, String value2) {
-            addCriterion("telphone not between", value1, value2, "telphone");
+        public Criteria andParticipantNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("participant_num not between", value1, value2, "participantNum");
             return (Criteria) this;
         }
     }

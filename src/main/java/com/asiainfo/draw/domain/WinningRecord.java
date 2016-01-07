@@ -5,13 +5,11 @@ import java.util.Date;
 public class WinningRecord {
     private Integer recordId;
 
-    private Integer sceneId;
-
     private Integer linkId;
 
     private Integer prizeId;
 
-    private Integer participantId;
+    private Integer participantNum;
 
     private Date createDate;
 
@@ -21,14 +19,6 @@ public class WinningRecord {
 
     public void setRecordId(Integer recordId) {
         this.recordId = recordId;
-    }
-
-    public Integer getSceneId() {
-        return sceneId;
-    }
-
-    public void setSceneId(Integer sceneId) {
-        this.sceneId = sceneId;
     }
 
     public Integer getLinkId() {
@@ -47,12 +37,12 @@ public class WinningRecord {
         this.prizeId = prizeId;
     }
 
-    public Integer getParticipantId() {
-        return participantId;
+    public Integer getParticipantNum() {
+        return participantNum;
     }
 
-    public void setParticipantId(Integer participantId) {
-        this.participantId = participantId;
+    public void setParticipantNum(Integer participantNum) {
+        this.participantNum = participantNum;
     }
 
     public Date getCreateDate() {

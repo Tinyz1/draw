@@ -25,7 +25,6 @@ public class ParticipantServiceImpl implements ParticipantService {
 		participant = Preconditions.checkNotNull(participant);
 		// 组装查询条件。根据手机号码查询
 		ParticipantExample participantExample = new ParticipantExample();
-		participantExample.createCriteria().andTelphoneEqualTo(participant.getTelphone());
 		List<Participant> participants = participantMapper.selectByExample(participantExample);
 		// 一般情况下，手机号码不会重复
 		if (participants != null && participants.size() == 1) {

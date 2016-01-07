@@ -294,66 +294,6 @@ public class DrawLinkExample {
             return (Criteria) this;
         }
 
-        public Criteria andStateIsNull() {
-            addCriterion("state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateIsNotNull() {
-            addCriterion("state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateEqualTo(Integer value) {
-            addCriterion("state =", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotEqualTo(Integer value) {
-            addCriterion("state <>", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateGreaterThan(Integer value) {
-            addCriterion("state >", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("state >=", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateLessThan(Integer value) {
-            addCriterion("state <", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateLessThanOrEqualTo(Integer value) {
-            addCriterion("state <=", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateIn(List<Integer> values) {
-            addCriterion("state in", values, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotIn(List<Integer> values) {
-            addCriterion("state not in", values, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateBetween(Integer value1, Integer value2) {
-            addCriterion("state between", value1, value2, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("state not between", value1, value2, "state");
-            return (Criteria) this;
-        }
-
         public Criteria andLinkOrderIsNull() {
             addCriterion("link_order is null");
             return (Criteria) this;
@@ -414,63 +354,63 @@ public class DrawLinkExample {
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdIsNull() {
-            addCriterion("room_id is null");
+        public Criteria andLinkStateIsNull() {
+            addCriterion("link_state is null");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdIsNotNull() {
-            addCriterion("room_id is not null");
+        public Criteria andLinkStateIsNotNull() {
+            addCriterion("link_state is not null");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdEqualTo(Integer value) {
-            addCriterion("room_id =", value, "roomId");
+        public Criteria andLinkStateEqualTo(Integer value) {
+            addCriterion("link_state =", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdNotEqualTo(Integer value) {
-            addCriterion("room_id <>", value, "roomId");
+        public Criteria andLinkStateNotEqualTo(Integer value) {
+            addCriterion("link_state <>", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdGreaterThan(Integer value) {
-            addCriterion("room_id >", value, "roomId");
+        public Criteria andLinkStateGreaterThan(Integer value) {
+            addCriterion("link_state >", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("room_id >=", value, "roomId");
+        public Criteria andLinkStateGreaterThanOrEqualTo(Integer value) {
+            addCriterion("link_state >=", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdLessThan(Integer value) {
-            addCriterion("room_id <", value, "roomId");
+        public Criteria andLinkStateLessThan(Integer value) {
+            addCriterion("link_state <", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdLessThanOrEqualTo(Integer value) {
-            addCriterion("room_id <=", value, "roomId");
+        public Criteria andLinkStateLessThanOrEqualTo(Integer value) {
+            addCriterion("link_state <=", value, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdIn(List<Integer> values) {
-            addCriterion("room_id in", values, "roomId");
+        public Criteria andLinkStateIn(List<Integer> values) {
+            addCriterion("link_state in", values, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdNotIn(List<Integer> values) {
-            addCriterion("room_id not in", values, "roomId");
+        public Criteria andLinkStateNotIn(List<Integer> values) {
+            addCriterion("link_state not in", values, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdBetween(Integer value1, Integer value2) {
-            addCriterion("room_id between", value1, value2, "roomId");
+        public Criteria andLinkStateBetween(Integer value1, Integer value2) {
+            addCriterion("link_state between", value1, value2, "linkState");
             return (Criteria) this;
         }
 
-        public Criteria andRoomIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("room_id not between", value1, value2, "roomId");
+        public Criteria andLinkStateNotBetween(Integer value1, Integer value2) {
+            addCriterion("link_state not between", value1, value2, "linkState");
             return (Criteria) this;
         }
     }

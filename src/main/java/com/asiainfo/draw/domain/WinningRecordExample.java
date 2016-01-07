@@ -165,66 +165,6 @@ public class WinningRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdIsNull() {
-            addCriterion("scene_id is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdIsNotNull() {
-            addCriterion("scene_id is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdEqualTo(Integer value) {
-            addCriterion("scene_id =", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdNotEqualTo(Integer value) {
-            addCriterion("scene_id <>", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdGreaterThan(Integer value) {
-            addCriterion("scene_id >", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("scene_id >=", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdLessThan(Integer value) {
-            addCriterion("scene_id <", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdLessThanOrEqualTo(Integer value) {
-            addCriterion("scene_id <=", value, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdIn(List<Integer> values) {
-            addCriterion("scene_id in", values, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdNotIn(List<Integer> values) {
-            addCriterion("scene_id not in", values, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdBetween(Integer value1, Integer value2) {
-            addCriterion("scene_id between", value1, value2, "sceneId");
-            return (Criteria) this;
-        }
-
-        public Criteria andSceneIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("scene_id not between", value1, value2, "sceneId");
-            return (Criteria) this;
-        }
-
         public Criteria andLinkIdIsNull() {
             addCriterion("link_id is null");
             return (Criteria) this;
@@ -345,63 +285,63 @@ public class WinningRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdIsNull() {
-            addCriterion("participant_id is null");
+        public Criteria andParticipantNumIsNull() {
+            addCriterion("participant_num is null");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdIsNotNull() {
-            addCriterion("participant_id is not null");
+        public Criteria andParticipantNumIsNotNull() {
+            addCriterion("participant_num is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdEqualTo(Integer value) {
-            addCriterion("participant_id =", value, "participantId");
+        public Criteria andParticipantNumEqualTo(Integer value) {
+            addCriterion("participant_num =", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdNotEqualTo(Integer value) {
-            addCriterion("participant_id <>", value, "participantId");
+        public Criteria andParticipantNumNotEqualTo(Integer value) {
+            addCriterion("participant_num <>", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdGreaterThan(Integer value) {
-            addCriterion("participant_id >", value, "participantId");
+        public Criteria andParticipantNumGreaterThan(Integer value) {
+            addCriterion("participant_num >", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("participant_id >=", value, "participantId");
+        public Criteria andParticipantNumGreaterThanOrEqualTo(Integer value) {
+            addCriterion("participant_num >=", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdLessThan(Integer value) {
-            addCriterion("participant_id <", value, "participantId");
+        public Criteria andParticipantNumLessThan(Integer value) {
+            addCriterion("participant_num <", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdLessThanOrEqualTo(Integer value) {
-            addCriterion("participant_id <=", value, "participantId");
+        public Criteria andParticipantNumLessThanOrEqualTo(Integer value) {
+            addCriterion("participant_num <=", value, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdIn(List<Integer> values) {
-            addCriterion("participant_id in", values, "participantId");
+        public Criteria andParticipantNumIn(List<Integer> values) {
+            addCriterion("participant_num in", values, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdNotIn(List<Integer> values) {
-            addCriterion("participant_id not in", values, "participantId");
+        public Criteria andParticipantNumNotIn(List<Integer> values) {
+            addCriterion("participant_num not in", values, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdBetween(Integer value1, Integer value2) {
-            addCriterion("participant_id between", value1, value2, "participantId");
+        public Criteria andParticipantNumBetween(Integer value1, Integer value2) {
+            addCriterion("participant_num between", value1, value2, "participantNum");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("participant_id not between", value1, value2, "participantId");
+        public Criteria andParticipantNumNotBetween(Integer value1, Integer value2) {
+            addCriterion("participant_num not between", value1, value2, "participantNum");
             return (Criteria) this;
         }
 

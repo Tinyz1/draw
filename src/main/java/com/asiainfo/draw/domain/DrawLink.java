@@ -7,11 +7,9 @@ public class DrawLink {
 
     private Integer openState;
 
-    private Integer state;
-
     private Integer linkOrder;
 
-    private Integer roomId;
+    private Integer linkState;
 
     public Integer getLinkId() {
         return linkId;
@@ -37,14 +35,6 @@ public class DrawLink {
         this.openState = openState;
     }
 
-    public Integer getState() {
-        return state;
-    }
-
-    public void setState(Integer state) {
-        this.state = state;
-    }
-
     public Integer getLinkOrder() {
         return linkOrder;
     }
@@ -53,11 +43,11 @@ public class DrawLink {
         this.linkOrder = linkOrder;
     }
 
-    public Integer getRoomId() {
-        return roomId;
+    public Integer getLinkState() {
+        return linkState;
     }
 
-    public void setRoomId(Integer roomId) {
-        this.roomId = roomId;
+    public void setLinkState(Integer linkState) {
+        this.linkState = linkState;
     }
 }

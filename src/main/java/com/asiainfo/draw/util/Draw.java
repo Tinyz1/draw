@@ -1,8 +1,6 @@
 package com.asiainfo.draw.util;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
@@ -115,17 +113,6 @@ public final class Draw {
 		public String toString() {
 			return "Prize [type=" + type + ", sepc=" + sepc + ", mess=" + mess + "]";
 		}
-		
-	}
-	
-	
-	public static void main(String[] args) {
-		PrizePool pool = PrizePool.createPool();
-		List<DrawPrize> prizes = new ArrayList<DrawPrize>();
-		prizes.add(new DrawPrize());
-		pool.init(2, prizes);
-		
-		System.out.println(Draw.pick(new Participant(), pool));
-	}
 
+	}
 }

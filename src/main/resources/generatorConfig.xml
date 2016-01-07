@@ -57,7 +57,7 @@
 		<table tableName="draw_link" />
 		<table tableName="draw_prize" />
 		<table tableName="winning_record" />
-		<table tableName="room" />
-		<table tableName="room_member" />
+		<table tableName="link_member" />
+		 
 	</context>
 </generatorConfiguration>

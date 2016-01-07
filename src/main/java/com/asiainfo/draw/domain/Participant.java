@@ -5,7 +5,7 @@ public class Participant {
 
     private String participantName;
 
-    private String telphone;
+    private Integer participantNum;
 
     public Integer getParticipantId() {
         return participantId;
@@ -23,11 +23,11 @@ public class Participant {
         this.participantName = participantName == null ? null : participantName.trim();
     }
 
-    public String getTelphone() {
-        return telphone;
+    public Integer getParticipantNum() {
+        return participantNum;
     }
 
-    public void setTelphone(String telphone) {
-        this.telphone = telphone == null ? null : telphone.trim();
+    public void setParticipantNum(Integer participantNum) {
+        this.participantNum = participantNum;
     }
 }

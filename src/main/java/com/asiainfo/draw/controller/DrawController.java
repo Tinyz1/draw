@@ -1,5 +1,7 @@
 package com.asiainfo.draw.controller;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,13 +14,15 @@ import com.asiainfo.draw.util.Draw.Prize;
 @RequestMapping("/draw")
 public class DrawController {
 
+	private final Logger logger = LoggerFactory.getLogger(DrawController.class);
+
 	@Autowired
 	private DrawService drawService;
 
-	@RequestMapping
+	@RequestMapping("/pick")
 	@ResponseBody
-	public Prize pick() {
-
+	public Prize pick(Integer participantNum) {
+		logger.debug("<---------- participantNum: " + participantNum);
 		return null;
 	}
 

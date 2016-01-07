@@ -164,63 +164,73 @@ public class DrawPrizeExample {
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdIsNull() {
-            addCriterion("link_id is null");
+        public Criteria andPrizeTypeIsNull() {
+            addCriterion("prize_type is null");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdIsNotNull() {
-            addCriterion("link_id is not null");
+        public Criteria andPrizeTypeIsNotNull() {
+            addCriterion("prize_type is not null");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdEqualTo(Integer value) {
-            addCriterion("link_id =", value, "linkId");
+        public Criteria andPrizeTypeEqualTo(String value) {
+            addCriterion("prize_type =", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdNotEqualTo(Integer value) {
-            addCriterion("link_id <>", value, "linkId");
+        public Criteria andPrizeTypeNotEqualTo(String value) {
+            addCriterion("prize_type <>", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdGreaterThan(Integer value) {
-            addCriterion("link_id >", value, "linkId");
+        public Criteria andPrizeTypeGreaterThan(String value) {
+            addCriterion("prize_type >", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("link_id >=", value, "linkId");
+        public Criteria andPrizeTypeGreaterThanOrEqualTo(String value) {
+            addCriterion("prize_type >=", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdLessThan(Integer value) {
-            addCriterion("link_id <", value, "linkId");
+        public Criteria andPrizeTypeLessThan(String value) {
+            addCriterion("prize_type <", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdLessThanOrEqualTo(Integer value) {
-            addCriterion("link_id <=", value, "linkId");
+        public Criteria andPrizeTypeLessThanOrEqualTo(String value) {
+            addCriterion("prize_type <=", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdIn(List<Integer> values) {
-            addCriterion("link_id in", values, "linkId");
+        public Criteria andPrizeTypeLike(String value) {
+            addCriterion("prize_type like", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdNotIn(List<Integer> values) {
-            addCriterion("link_id not in", values, "linkId");
+        public Criteria andPrizeTypeNotLike(String value) {
+            addCriterion("prize_type not like", value, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdBetween(Integer value1, Integer value2) {
-            addCriterion("link_id between", value1, value2, "linkId");
+        public Criteria andPrizeTypeIn(List<String> values) {
+            addCriterion("prize_type in", values, "prizeType");
             return (Criteria) this;
         }
 
-        public Criteria andLinkIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("link_id not between", value1, value2, "linkId");
+        public Criteria andPrizeTypeNotIn(List<String> values) {
+            addCriterion("prize_type not in", values, "prizeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrizeTypeBetween(String value1, String value2) {
+            addCriterion("prize_type between", value1, value2, "prizeType");
+            return (Criteria) this;
+        }
+
+        public Criteria andPrizeTypeNotBetween(String value1, String value2) {
+            addCriterion("prize_type not between", value1, value2, "prizeType");
             return (Criteria) this;
         }
 
@@ -291,6 +301,66 @@ public class DrawPrizeExample {
 
         public Criteria andPrizeNameNotBetween(String value1, String value2) {
             addCriterion("prize_name not between", value1, value2, "prizeName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdIsNull() {
+            addCriterion("link_id is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdIsNotNull() {
+            addCriterion("link_id is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdEqualTo(Integer value) {
+            addCriterion("link_id =", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdNotEqualTo(Integer value) {
+            addCriterion("link_id <>", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdGreaterThan(Integer value) {
+            addCriterion("link_id >", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("link_id >=", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdLessThan(Integer value) {
+            addCriterion("link_id <", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdLessThanOrEqualTo(Integer value) {
+            addCriterion("link_id <=", value, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdIn(List<Integer> values) {
+            addCriterion("link_id in", values, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdNotIn(List<Integer> values) {
+            addCriterion("link_id not in", values, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdBetween(Integer value1, Integer value2) {
+            addCriterion("link_id between", value1, value2, "linkId");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("link_id not between", value1, value2, "linkId");
             return (Criteria) this;
         }
 
@@ -421,6 +491,76 @@ public class DrawPrizeExample {
 
         public Criteria andProviderNotBetween(String value1, String value2) {
             addCriterion("provider not between", value1, value2, "provider");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionIsNull() {
+            addCriterion("provider_position is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionIsNotNull() {
+            addCriterion("provider_position is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionEqualTo(String value) {
+            addCriterion("provider_position =", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionNotEqualTo(String value) {
+            addCriterion("provider_position <>", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionGreaterThan(String value) {
+            addCriterion("provider_position >", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionGreaterThanOrEqualTo(String value) {
+            addCriterion("provider_position >=", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionLessThan(String value) {
+            addCriterion("provider_position <", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionLessThanOrEqualTo(String value) {
+            addCriterion("provider_position <=", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionLike(String value) {
+            addCriterion("provider_position like", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionNotLike(String value) {
+            addCriterion("provider_position not like", value, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionIn(List<String> values) {
+            addCriterion("provider_position in", values, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionNotIn(List<String> values) {
+            addCriterion("provider_position not in", values, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionBetween(String value1, String value2) {
+            addCriterion("provider_position between", value1, value2, "providerPosition");
+            return (Criteria) this;
+        }
+
+        public Criteria andProviderPositionNotBetween(String value1, String value2) {
+            addCriterion("provider_position not between", value1, value2, "providerPosition");
             return (Criteria) this;
         }
     }
