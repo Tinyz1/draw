@@ -11,5 +11,14 @@ public interface ParticipantService {
 	 * @return
 	 */
 	public Participant authParticipant(Participant participant);
+	
+	/**
+	 * 根据参与人员ID查询人员
+	 * 
+	 * @param participantId 参与人员ID
+	 * 
+	 * @return 参与人员
+	 */
+	public Participant getByParticipantId(Integer participantId);
 
 }

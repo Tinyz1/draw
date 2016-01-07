@@ -1,31 +1,30 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.asiainfo.draw.persistence.ParticipantMapper" >
-  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.Participant" >
-    <id column="participant_id" property="participantId" jdbcType="INTEGER" />
-    <result column="participant_name" property="participantName" jdbcType="VARCHAR" />
-    <result column="telphone" property="telphone" jdbcType="VARCHAR" />
-    <result column="participant_number" property="participantNumber" jdbcType="VARCHAR" />
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.asiainfo.draw.persistence.ParticipantMapper">
+  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.Participant">
+    <id column="participant_id" jdbcType="INTEGER" property="participantId" />
+    <result column="participant_name" jdbcType="VARCHAR" property="participantName" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
   </resultMap>
-  <sql id="Example_Where_Clause" >
-    <where >
-      <foreach collection="oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -36,25 +35,25 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Update_By_Example_Where_Clause" >
-    <where >
-      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
-        <if test="criteria.valid" >
-          <trim prefix="(" suffix=")" prefixOverrides="and" >
-            <foreach collection="criteria.criteria" item="criterion" >
-              <choose >
-                <when test="criterion.noValue" >
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
                   and ${criterion.condition}
                 </when>
-                <when test="criterion.singleValue" >
+                <when test="criterion.singleValue">
                   and ${criterion.condition} #{criterion.value}
                 </when>
-                <when test="criterion.betweenValue" >
+                <when test="criterion.betweenValue">
                   and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
                 </when>
-                <when test="criterion.listValue" >
+                <when test="criterion.listValue">
                   and ${criterion.condition}
-                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
                     #{listItem}
                   </foreach>
                 </when>
@@ -65,128 +64,306 @@
       </foreach>
     </where>
   </sql>
-  <sql id="Base_Column_List" >
-    participant_id, participant_name, telphone, participant_number
+  <sql id="Base_Column_List">
+    participant_id, participant_name, telphone
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.ParticipantExample" >
+  <select id="selectByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" resultMap="BaseResultMap">
     select
-    <if test="distinct" >
+    <if test="distinct">
       distinct
     </if>
     <include refid="Base_Column_List" />
     from participant
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
-    <if test="orderByClause != null" >
+    <if test="orderByClause != null">
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
     from participant
     where participant_id = #{participantId,jdbcType=INTEGER}
   </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from participant
     where participant_id = #{participantId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" >
+  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample">
     delete from participant
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.asiainfo.draw.domain.Participant" >
+  <insert id="insert" parameterType="com.asiainfo.draw.domain.Participant">
+    insert into participant (participant_id, participant_name, telphone
+      )
+    values (#{participantId,jdbcType=INTEGER}, #{participantName,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.Participant">
+    insert into participant
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="participantId != null">
+        participant_id,
+      </if>
+      <if test="participantName != null">
+        participant_name,
+      </if>
+      <if test="telphone != null">
+        telphone,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="participantId != null">
+        #{participantId,jdbcType=INTEGER},
+      </if>
+      <if test="participantName != null">
+        #{participantName,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null">
+        #{telphone,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" resultType="java.lang.Integer">
+    select count(*) from participant
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map">
+    update participant
+    <set>
+      <if test="record.participantId != null">
+        participant_id = #{record.participantId,jdbcType=INTEGER},
+      </if>
+      <if test="record.participantName != null">
+        participant_name = #{record.participantName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.telphone != null">
+        telphone = #{record.telphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map">
+    update participant
+    set participant_id = #{record.participantId,jdbcType=INTEGER},
+      participant_name = #{record.participantName,jdbcType=VARCHAR},
+      telphone = #{record.telphone,jdbcType=VARCHAR}
+    <if test="_parameter != null">
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.Participant">
+    update participant
+    <set>
+      <if test="participantName != null">
+        participant_name = #{participantName,jdbcType=VARCHAR},
+      </if>
+      <if test="telphone != null">
+        telphone = #{telphone,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where participant_id = #{participantId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.Participant">
+    update participant
+    set participant_name = #{participantName,jdbcType=VARCHAR},
+      telphone = #{telphone,jdbcType=VARCHAR}
+    where participant_id = #{participantId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.Participant">
+    <id column="participant_id" jdbcType="INTEGER" property="participantId" />
+    <result column="participant_name" jdbcType="VARCHAR" property="participantName" />
+    <result column="telphone" jdbcType="VARCHAR" property="telphone" />
+    <result column="participant_number" jdbcType="VARCHAR" property="participantNumber" />
+  </resultMap>
+  <sql id="Example_Where_Clause">
+    <where>
+      <foreach collection="oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause">
+    <where>
+      <foreach collection="example.oredCriteria" item="criteria" separator="or">
+        <if test="criteria.valid">
+          <trim prefix="(" prefixOverrides="and" suffix=")">
+            <foreach collection="criteria.criteria" item="criterion">
+              <choose>
+                <when test="criterion.noValue">
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue">
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue">
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue">
+                  and ${criterion.condition}
+                  <foreach close=")" collection="criterion.value" item="listItem" open="(" separator=",">
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List">
+    participant_id, participant_name, telphone, participant_number
+  </sql>
+  <select id="selectByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" resultMap="BaseResultMap">
+    select
+    <if test="distinct">
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from participant
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null">
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from participant
+    where participant_id = #{participantId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from participant
+    where participant_id = #{participantId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample">
+    delete from participant
+    <if test="_parameter != null">
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.draw.domain.Participant">
     insert into participant (participant_id, participant_name, telphone, 
       participant_number)
     values (#{participantId,jdbcType=INTEGER}, #{participantName,jdbcType=VARCHAR}, #{telphone,jdbcType=VARCHAR}, 
       #{participantNumber,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.Participant" >
+  <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.Participant">
     insert into participant
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="participantId != null" >
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="participantId != null">
         participant_id,
       </if>
-      <if test="participantName != null" >
+      <if test="participantName != null">
         participant_name,
       </if>
-      <if test="telphone != null" >
+      <if test="telphone != null">
         telphone,
       </if>
-      <if test="participantNumber != null" >
+      <if test="participantNumber != null">
         participant_number,
       </if>
     </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="participantId != null" >
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="participantId != null">
         #{participantId,jdbcType=INTEGER},
       </if>
-      <if test="participantName != null" >
+      <if test="participantName != null">
         #{participantName,jdbcType=VARCHAR},
       </if>
-      <if test="telphone != null" >
+      <if test="telphone != null">
         #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="participantNumber != null" >
+      <if test="participantNumber != null">
         #{participantNumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" resultType="java.lang.Integer" >
+  <select id="countByExample" parameterType="com.asiainfo.draw.domain.ParticipantExample" resultType="java.lang.Integer">
     select count(*) from participant
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
-  <update id="updateByExampleSelective" parameterType="map" >
+  <update id="updateByExampleSelective" parameterType="map">
     update participant
-    <set >
-      <if test="record.participantId != null" >
+    <set>
+      <if test="record.participantId != null">
         participant_id = #{record.participantId,jdbcType=INTEGER},
       </if>
-      <if test="record.participantName != null" >
+      <if test="record.participantName != null">
         participant_name = #{record.participantName,jdbcType=VARCHAR},
       </if>
-      <if test="record.telphone != null" >
+      <if test="record.telphone != null">
         telphone = #{record.telphone,jdbcType=VARCHAR},
       </if>
-      <if test="record.participantNumber != null" >
+      <if test="record.participantNumber != null">
         participant_number = #{record.participantNumber,jdbcType=VARCHAR},
       </if>
     </set>
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByExample" parameterType="map" >
+  <update id="updateByExample" parameterType="map">
     update participant
     set participant_id = #{record.participantId,jdbcType=INTEGER},
       participant_name = #{record.participantName,jdbcType=VARCHAR},
       telphone = #{record.telphone,jdbcType=VARCHAR},
       participant_number = #{record.participantNumber,jdbcType=VARCHAR}
-    <if test="_parameter != null" >
+    <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.Participant" >
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.draw.domain.Participant">
     update participant
-    <set >
-      <if test="participantName != null" >
+    <set>
+      <if test="participantName != null">
         participant_name = #{participantName,jdbcType=VARCHAR},
       </if>
-      <if test="telphone != null" >
+      <if test="telphone != null">
         telphone = #{telphone,jdbcType=VARCHAR},
       </if>
-      <if test="participantNumber != null" >
+      <if test="participantNumber != null">
         participant_number = #{participantNumber,jdbcType=VARCHAR},
       </if>
     </set>
     where participant_id = #{participantId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.Participant" >
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.Participant">
     update participant
     set participant_name = #{participantName,jdbcType=VARCHAR},
       telphone = #{telphone,jdbcType=VARCHAR},

@@ -3,14 +3,14 @@ package com.asiainfo.draw.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-public class DrawSceneExample {
+public class RoomMemberExample {
     protected String orderByClause;
 
     protected boolean distinct;
 
     protected List<Criteria> oredCriteria;
 
-    public DrawSceneExample() {
+    public RoomMemberExample() {
         oredCriteria = new ArrayList<Criteria>();
     }
 
@@ -104,253 +104,193 @@ public class DrawSceneExample {
             criteria.add(new Criterion(condition, value1, value2));
         }
 
-        public Criteria andSceneIdIsNull() {
-            addCriterion("scene_id is null");
+        public Criteria andMemberIdIsNull() {
+            addCriterion("member_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdIsNotNull() {
-            addCriterion("scene_id is not null");
+        public Criteria andMemberIdIsNotNull() {
+            addCriterion("member_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdEqualTo(Integer value) {
-            addCriterion("scene_id =", value, "sceneId");
+        public Criteria andMemberIdEqualTo(Integer value) {
+            addCriterion("member_id =", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdNotEqualTo(Integer value) {
-            addCriterion("scene_id <>", value, "sceneId");
+        public Criteria andMemberIdNotEqualTo(Integer value) {
+            addCriterion("member_id <>", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdGreaterThan(Integer value) {
-            addCriterion("scene_id >", value, "sceneId");
+        public Criteria andMemberIdGreaterThan(Integer value) {
+            addCriterion("member_id >", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdGreaterThanOrEqualTo(Integer value) {
-            addCriterion("scene_id >=", value, "sceneId");
+        public Criteria andMemberIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("member_id >=", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdLessThan(Integer value) {
-            addCriterion("scene_id <", value, "sceneId");
+        public Criteria andMemberIdLessThan(Integer value) {
+            addCriterion("member_id <", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdLessThanOrEqualTo(Integer value) {
-            addCriterion("scene_id <=", value, "sceneId");
+        public Criteria andMemberIdLessThanOrEqualTo(Integer value) {
+            addCriterion("member_id <=", value, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdIn(List<Integer> values) {
-            addCriterion("scene_id in", values, "sceneId");
+        public Criteria andMemberIdIn(List<Integer> values) {
+            addCriterion("member_id in", values, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdNotIn(List<Integer> values) {
-            addCriterion("scene_id not in", values, "sceneId");
+        public Criteria andMemberIdNotIn(List<Integer> values) {
+            addCriterion("member_id not in", values, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdBetween(Integer value1, Integer value2) {
-            addCriterion("scene_id between", value1, value2, "sceneId");
+        public Criteria andMemberIdBetween(Integer value1, Integer value2) {
+            addCriterion("member_id between", value1, value2, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneIdNotBetween(Integer value1, Integer value2) {
-            addCriterion("scene_id not between", value1, value2, "sceneId");
+        public Criteria andMemberIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("member_id not between", value1, value2, "memberId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameIsNull() {
-            addCriterion("scene_name is null");
+        public Criteria andRoomIdIsNull() {
+            addCriterion("room_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameIsNotNull() {
-            addCriterion("scene_name is not null");
+        public Criteria andRoomIdIsNotNull() {
+            addCriterion("room_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameEqualTo(String value) {
-            addCriterion("scene_name =", value, "sceneName");
+        public Criteria andRoomIdEqualTo(Integer value) {
+            addCriterion("room_id =", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameNotEqualTo(String value) {
-            addCriterion("scene_name <>", value, "sceneName");
+        public Criteria andRoomIdNotEqualTo(Integer value) {
+            addCriterion("room_id <>", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameGreaterThan(String value) {
-            addCriterion("scene_name >", value, "sceneName");
+        public Criteria andRoomIdGreaterThan(Integer value) {
+            addCriterion("room_id >", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameGreaterThanOrEqualTo(String value) {
-            addCriterion("scene_name >=", value, "sceneName");
+        public Criteria andRoomIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("room_id >=", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameLessThan(String value) {
-            addCriterion("scene_name <", value, "sceneName");
+        public Criteria andRoomIdLessThan(Integer value) {
+            addCriterion("room_id <", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameLessThanOrEqualTo(String value) {
-            addCriterion("scene_name <=", value, "sceneName");
+        public Criteria andRoomIdLessThanOrEqualTo(Integer value) {
+            addCriterion("room_id <=", value, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameLike(String value) {
-            addCriterion("scene_name like", value, "sceneName");
+        public Criteria andRoomIdIn(List<Integer> values) {
+            addCriterion("room_id in", values, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameNotLike(String value) {
-            addCriterion("scene_name not like", value, "sceneName");
+        public Criteria andRoomIdNotIn(List<Integer> values) {
+            addCriterion("room_id not in", values, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameIn(List<String> values) {
-            addCriterion("scene_name in", values, "sceneName");
+        public Criteria andRoomIdBetween(Integer value1, Integer value2) {
+            addCriterion("room_id between", value1, value2, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameNotIn(List<String> values) {
-            addCriterion("scene_name not in", values, "sceneName");
+        public Criteria andRoomIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("room_id not between", value1, value2, "roomId");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameBetween(String value1, String value2) {
-            addCriterion("scene_name between", value1, value2, "sceneName");
+        public Criteria andPhoneIsNull() {
+            addCriterion("phone is null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneNameNotBetween(String value1, String value2) {
-            addCriterion("scene_name not between", value1, value2, "sceneName");
+        public Criteria andPhoneIsNotNull() {
+            addCriterion("phone is not null");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderIsNull() {
-            addCriterion("scene_order is null");
+        public Criteria andPhoneEqualTo(String value) {
+            addCriterion("phone =", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderIsNotNull() {
-            addCriterion("scene_order is not null");
+        public Criteria andPhoneNotEqualTo(String value) {
+            addCriterion("phone <>", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderEqualTo(Integer value) {
-            addCriterion("scene_order =", value, "sceneOrder");
+        public Criteria andPhoneGreaterThan(String value) {
+            addCriterion("phone >", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderNotEqualTo(Integer value) {
-            addCriterion("scene_order <>", value, "sceneOrder");
+        public Criteria andPhoneGreaterThanOrEqualTo(String value) {
+            addCriterion("phone >=", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderGreaterThan(Integer value) {
-            addCriterion("scene_order >", value, "sceneOrder");
+        public Criteria andPhoneLessThan(String value) {
+            addCriterion("phone <", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderGreaterThanOrEqualTo(Integer value) {
-            addCriterion("scene_order >=", value, "sceneOrder");
+        public Criteria andPhoneLessThanOrEqualTo(String value) {
+            addCriterion("phone <=", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderLessThan(Integer value) {
-            addCriterion("scene_order <", value, "sceneOrder");
+        public Criteria andPhoneLike(String value) {
+            addCriterion("phone like", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderLessThanOrEqualTo(Integer value) {
-            addCriterion("scene_order <=", value, "sceneOrder");
+        public Criteria andPhoneNotLike(String value) {
+            addCriterion("phone not like", value, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderIn(List<Integer> values) {
-            addCriterion("scene_order in", values, "sceneOrder");
+        public Criteria andPhoneIn(List<String> values) {
+            addCriterion("phone in", values, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderNotIn(List<Integer> values) {
-            addCriterion("scene_order not in", values, "sceneOrder");
+        public Criteria andPhoneNotIn(List<String> values) {
+            addCriterion("phone not in", values, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderBetween(Integer value1, Integer value2) {
-            addCriterion("scene_order between", value1, value2, "sceneOrder");
+        public Criteria andPhoneBetween(String value1, String value2) {
+            addCriterion("phone between", value1, value2, "phone");
             return (Criteria) this;
         }
 
-        public Criteria andSceneOrderNotBetween(Integer value1, Integer value2) {
-            addCriterion("scene_order not between", value1, value2, "sceneOrder");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateIsNull() {
-            addCriterion("state is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateIsNotNull() {
-            addCriterion("state is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateEqualTo(Integer value) {
-            addCriterion("state =", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotEqualTo(Integer value) {
-            addCriterion("state <>", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateGreaterThan(Integer value) {
-            addCriterion("state >", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateGreaterThanOrEqualTo(Integer value) {
-            addCriterion("state >=", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateLessThan(Integer value) {
-            addCriterion("state <", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateLessThanOrEqualTo(Integer value) {
-            addCriterion("state <=", value, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateIn(List<Integer> values) {
-            addCriterion("state in", values, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotIn(List<Integer> values) {
-            addCriterion("state not in", values, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateBetween(Integer value1, Integer value2) {
-            addCriterion("state between", value1, value2, "state");
-            return (Criteria) this;
-        }
-
-        public Criteria andStateNotBetween(Integer value1, Integer value2) {
-            addCriterion("state not between", value1, value2, "state");
+        public Criteria andPhoneNotBetween(String value1, String value2) {
+            addCriterion("phone not between", value1, value2, "phone");
             return (Criteria) this;
         }
     }

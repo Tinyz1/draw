@@ -11,6 +11,8 @@ public class DrawLink {
 
     private Integer linkOrder;
 
+    private Integer roomId;
+
     public Integer getLinkId() {
         return linkId;
     }
@@ -49,5 +51,13 @@ public class DrawLink {
 
     public void setLinkOrder(Integer linkOrder) {
         this.linkOrder = linkOrder;
+    }
+
+    public Integer getRoomId() {
+        return roomId;
+    }
+
+    public void setRoomId(Integer roomId) {
+        this.roomId = roomId;
     }
 }

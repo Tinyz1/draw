@@ -54,10 +54,10 @@
 		
 		<!-- tables -->
 		<table tableName="participant" />
-		<table tableName="draw_scene" />
 		<table tableName="draw_link" />
 		<table tableName="draw_prize" />
 		<table tableName="winning_record" />
-		
+		<table tableName="room" />
+		<table tableName="room_member" />
 	</context>
 </generatorConfiguration>

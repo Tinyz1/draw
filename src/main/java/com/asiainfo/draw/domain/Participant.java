@@ -7,8 +7,6 @@ public class Participant {
 
     private String telphone;
 
-    private String participantNumber;
-
     public Integer getParticipantId() {
         return participantId;
     }
@@ -32,19 +30,4 @@ public class Participant {
     public void setTelphone(String telphone) {
         this.telphone = telphone == null ? null : telphone.trim();
     }
-
-    public String getParticipantNumber() {
-        return participantNumber;
-    }
-
-    public void setParticipantNumber(String participantNumber) {
-        this.participantNumber = participantNumber == null ? null : participantNumber.trim();
-    }
-
-	@Override
-	public String toString() {
-		return "Participant [participantId=" + participantId + ", participantName=" + participantName + ", telphone=" + telphone
-				+ ", participantNumber=" + participantNumber + "]";
-	}
-    
 }
