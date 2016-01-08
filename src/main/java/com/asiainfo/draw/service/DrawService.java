@@ -5,14 +5,12 @@ import com.asiainfo.draw.util.Draw.Prize;
 public interface DrawService {
 
 	/**
-	 * 根据房间号码和手机号码抽奖
+	 * 根据用户编号进行抽奖
 	 * 
-	 * @param roomId
-	 *            房间号码
-	 * @param phone
-	 *            手机号码
-	 * @return 抽奖结果
+	 * @param participantNum
+	 *            参与人员编号
+	 * @return 抽奖信息
 	 */
-	Prize pick(Integer roomId, String phone);
+	Prize pick(Integer participantNum);
 
 }

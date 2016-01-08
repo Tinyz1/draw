@@ -22,8 +22,15 @@ public class DrawController {
 	@RequestMapping("/pick")
 	@ResponseBody
 	public Prize pick(Integer participantNum) {
-		logger.debug("<---------- participantNum: " + participantNum);
-		return null;
+		logger.debug("participantNum: " + participantNum);
+		Prize prize = null;
+		try {
+			drawService.pick(participantNum);
+		} catch (Exception e) {
+			logger.error("系统错误，错误信息：{}", e);
+			prize = Prize.createMissPrize();
+		}
+		return prize;
 	}
 
 }

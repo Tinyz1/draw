@@ -59,6 +59,11 @@ public final class Draw {
 		public static final String SPEC_MISS = "再接再厉";
 
 		/**
+		 * 未中奖信息
+		 */
+		public static final String MESS_MISS = "使劲摇还是要有的，万一中奖了呢？";
+
+		/**
 		 * 抽奖结束
 		 */
 		public static final int OVER = 3;
@@ -67,6 +72,11 @@ public final class Draw {
 		 * 活动结束规格
 		 */
 		public static final String SPEC_OVER = "活动结束";
+
+		/**
+		 * 活动结束信息
+		 */
+		public static final String MESS_OVER = "放松一下，马上回来！";
 
 		private int type;
 
@@ -83,6 +93,22 @@ public final class Draw {
 			this.type = type;
 			this.sepc = sepc;
 			this.mess = mess;
+		}
+
+		public static Prize createMissPrize() {
+			return createMissPrize(Prize.MESS_MISS);
+		}
+
+		public static Prize createMissPrize(String mess) {
+			return new Prize(Prize.MISS, Prize.SPEC_MISS, mess);
+		}
+
+		public static Prize createOverPrize() {
+			return createOverPrize(Prize.MESS_OVER);
+		}
+
+		public static Prize createOverPrize(String mess) {
+			return new Prize(Prize.OVER, Prize.SPEC_OVER, mess);
 		}
 
 		public int getType() {

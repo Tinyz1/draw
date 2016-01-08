@@ -18,9 +18,8 @@ public class DrawServiceImpl implements DrawService {
 	private ParticipantMapper participantMapper;
 
 	@Override
-	public Prize pick(Integer roomId, String phone) {
-		checkNotNull(roomId);
-		checkNotNull(phone);
+	public Prize pick(Integer participantNum) {
+		checkNotNull(participantNum);
 		// 1、根据手机号码获取用户信息
 
 		// 2、判断当前环节是否对所有用户开放

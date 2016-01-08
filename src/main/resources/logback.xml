@@ -27,12 +27,7 @@
 
 	<root level="DEBUG">
 		<appender-ref ref="FILE" />
-	</root>
-
-	<!--
-	<root level="DEBUG">
 		<appender-ref ref="STDOUT" />
 	</root>
-	-->
 
 </configuration>
