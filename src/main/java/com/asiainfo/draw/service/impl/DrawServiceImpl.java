@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.DrawService;
 import com.asiainfo.draw.util.Draw.Prize;
@@ -21,7 +22,8 @@ public class DrawServiceImpl implements DrawService {
 	public Prize pick(Integer participantNum) {
 		checkNotNull(participantNum);
 		// 1、根据手机号码获取用户信息
-
+		Participant participant = participantMapper.selectByParticipantNum(participantNum);
+		checkNotNull(participant, "根据用户编号: %s获取不到用户信息！", participantNum);
 		// 2、判断当前环节是否对所有用户开放
 
 		// 3、如果当前环节只对未中奖的用户开放，那么当前用户不参与抽奖

@@ -1,39 +1,60 @@
 package com.asiainfo.draw.util;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
+import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
-import com.asiainfo.draw.exception.NoMorePrizeException;
 import com.google.common.base.Preconditions;
 
 public final class Draw {
 
-	public static Prize pick(Participant participant, PrizePool pool) {
+	public static Prize pick(Participant participant) {
 		participant = Preconditions.checkNotNull(participant);
-		pool = Preconditions.checkNotNull(pool);
-		Prize _prize = new Prize(Prize.OVER, Prize.SPEC_OVER, "");
-		if (pool.hasPrize()) {
-			try {
-				DrawPrize prize = pool.getOnePrize();
-				// 此时表示中奖了
-				if (prize != null) {
-					// 记录中奖信息
-					_prize.setType(Prize.HIT);
-					_prize.setSepc("一等奖");
-					_prize.setMess("1000");
-				} else {
-					_prize.setType(Prize.MISS);
-					_prize.setSepc(Prize.SPEC_MISS);
-					_prize.setMess("");
-				}
-			} catch (NoMorePrizeException e) {
-				// 活动结束
-			} finally {
-				// 记录抽奖记录
-			}
+		Prize prize = Prize.createMissPrize();
+
+		// 活动结束
+
+		@SuppressWarnings("unchecked")
+		List<PrizePool> pools = (List<PrizePool>) CurrentLinkCache.get("pools");
+		int index = new Random().nextInt(pools.size());
+		DrawPrize drawPrize = pools.get(index).pop(null);
+		// 此时表示中奖了
+		if (drawPrize != null) {
+			// 记录中奖信息
+			prize.setType(Prize.HIT);
+			prize.setSepc(drawPrize.getPrizeType());
+			prize.setMess(drawPrize.getPrizeName());
+		} else {
+			prize = Prize.createMissPrize();
 		}
-		return _prize;
+		// 记录抽奖记录
+		return prize;
+	}
+
+	public static void main(String[] args) {
+		List<DrawPrize> prizes = new ArrayList<DrawPrize>();
+		DrawPrize prize1 = new DrawPrize();
+		prize1.setPrizeName("1000元现金");
+		prizes.add(prize1);
+		DrawPrize prize2 = new DrawPrize();
+		prize2.setPrizeName("10000元现金");
+		prizes.add(prize2);
+		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
+		List<PrizePool> pools = poolFactory.createPrizePools(101, prizes);
+		CurrentLinkCache.put("pools", pools);
+
+		Participant participant = new Participant();
+		Prize prize = Draw.pick(participant);
+		int i = 1;
+		while (prize.getType() != 1) {
+			prize = Draw.pick(participant);
+			System.out.println(++i);
+		}
+		System.out.println(prize);
 	}
 
 	public static class Prize implements Serializable {

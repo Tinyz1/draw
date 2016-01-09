@@ -6,25 +6,46 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface ParticipantMapper {
-    int countByExample(ParticipantExample example);
+	int countByExample(ParticipantExample example);
 
-    int deleteByExample(ParticipantExample example);
+	int deleteByExample(ParticipantExample example);
 
-    int deleteByPrimaryKey(Integer participantId);
+	int deleteByPrimaryKey(Integer participantId);
 
-    int insert(Participant record);
+	int insert(Participant record);
 
-    int insertSelective(Participant record);
+	int insertSelective(Participant record);
 
-    List<Participant> selectByExample(ParticipantExample example);
+	List<Participant> selectByExample(ParticipantExample example);
 
-    Participant selectByPrimaryKey(Integer participantId);
+	Participant selectByPrimaryKey(Integer participantId);
 
-    int updateByExampleSelective(@Param("record") Participant record, @Param("example") ParticipantExample example);
+	/**
+	 * 根据用户编号获取用户信息
+	 * 
+	 * @param participantNum
+	 *            用户编号
+	 * 
+	 * @return 用户信息
+	 */
+	Participant selectByParticipantNum(Integer participantNum);
 
-    int updateByExample(@Param("record") Participant record, @Param("example") ParticipantExample example);
+	/**
+	 * 根据用户编号和用户名称获取用户信息
+	 * 
+	 * @param participantNum
+	 *            用户编号
+	 * @param participantName
+	 *            用户名称
+	 * @return 用户信息
+	 */
+	Participant findParticipantByNumAndName(@Param("participantNum") Integer participantNum, @Param("participantName") String participantName);
 
-    int updateByPrimaryKeySelective(Participant record);
+	int updateByExampleSelective(@Param("record") Participant record, @Param("example") ParticipantExample example);
 
-    int updateByPrimaryKey(Participant record);
+	int updateByExample(@Param("record") Participant record, @Param("example") ParticipantExample example);
+
+	int updateByPrimaryKeySelective(Participant record);
+
+	int updateByPrimaryKey(Participant record);
 }

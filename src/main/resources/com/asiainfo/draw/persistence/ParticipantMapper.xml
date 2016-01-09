@@ -87,6 +87,24 @@
     from participant
     where participant_id = #{participantId,jdbcType=INTEGER}
   </select>
+  
+  <!-- 根据用户编号获取用户信息 -->
+  <select id="selectByParticipantNum" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from participant
+    where participant_num = #{participantNum,jdbcType=INTEGER}
+  </select>
+  
+   <!-- 根据用户编号获取用户信息 -->
+  <select id="findParticipantByNumAndName" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from participant
+    where participant_num = #{participantNum,jdbcType=INTEGER}
+    and participant_name = #{participantName,jdbcType=VARCHAR}
+  </select>
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from participant
     where participant_id = #{participantId,jdbcType=INTEGER}
