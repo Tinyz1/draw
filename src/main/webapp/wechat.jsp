@@ -74,79 +74,169 @@
 </head>
 <body>
 
-	<div id="show2">
-		<audio style="display:none" id="music1"  controls src="resources/wechat-h5/images/5018.mp3">  
+	<!-- login page -->
+	<div class="container-fluid" id="login-container">
+		<img alt="" src="">
+		<form class="form-horizontal" id="login-form">
+			<div class="control-group">
+				<label class="sr-only" for="login-num">用户编号</label>
+              	<input class="form-control" name="participantNum" placeholder="输入你的编号" id="login-num" type="text">
+            </div>
+
+            <div class="control-group">
+            	<label class="sr-only" for="login-num">用户名字</label>
+              	<input class="form-control" name="participantName" placeholder="输入你的名字" id="login-name" type="text">
+            </div>
+            <button class="btn btn-primary btn-large btn-block" type="submit" id="subBtn">确定</button>
+       </form>
+	</div>
+	
+	<div class="container-fluid" id="hand-container">
+		<audio style="display:none" id="music" controls src="resources/wechat-h5/images/5018.mp3">  
 		</audio>  
 		<div id="hand" class="hand hand-animate"></div>
 		<div id="loading" class="loading"></div>
 		<div id="result" class="result">
 			<div class="pic"></div>
-			<div class="con">摇晃结果<br/><div id="reshtml">大奖一个</div></div>
+			<div class="con"><strong id="spec"></strong><br/><div id="mess"></div></div>
 		</div>
 	</div>
+	
+	<button id="pickBtn">点击</button>
 	
 	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script src="resources/Flat-UI/js/vendor/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="resources/Flat-UI/js/flat-ui.min.js"></script>
- <script>
-	init();
-    var SHAKE_THRESHOLD = 3000;
-    var last_update = 0;
-    var x = y = z = last_x = last_y = last_z = 0;
+ 
+ 	<script type="text/javascript">
+ 
+ 	(function($){
+ 		
+ 		function getLocalStorage(){
+ 			if(typeof localStorage == 'object'){
+ 				return localStorage;
+ 			}else if(typeof globalStorage == 'object'){
+ 				return globalStorage[location.host];
+ 			}else{
+ 				throw new Error('Local storage not available.')
+ 			}
+ 		}
+ 		
+ 		// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
+ 		var storage = getLocalStorage();
+ 		var participantNum = storage.getItem('participantNum');
+ 		var participantNum = storage.getItem('participantNum');
+ 		// 如果存在用户编号，说明用户已经验证过了，可以直接进入摇一摇抽奖界面
+ 		if(participantNum === undefined){
+ 			showLogin();
+ 		}else{
+ 			showHand();
+ 		}
+ 		
+ 		// 验证
+ 		$('#login-form').submit(function(event){
+    		event.preventDefault();
+    		var participantNum = $('#login-num').val();
+    		var participantName = $('#login-name').val();
+    		$('#subBtn').showLoading();
+    		$.post("participant/auth", {participantNum: participantNum, participantName: participantName},function(data){
+    			$('#subBtn').hideLoading();
+    			if(data.returnCode == 1){
+    				// 验证成功时，保存参与人员编号到本地数据缓存中
+    				var storage = getLocalStorage();
+    				storage.setItem('participantNum', participantNum);
+    				showHand();
+    			}else{
+    				alert(data.resultMsg);
+    			}
+    		});
+    	});
+ 		
+ 		var SHAKE_THRESHOLD = 3000;
+ 	    var last_update = 0;
+ 	    var x = y = z = last_x = last_y = last_z = 0;
 
-    if (window.DeviceMotionEvent) {
-        window.addEventListener('devicemotion', deviceMotionHandler, false);
-    } else {
-        alert('本设备不支持devicemotion事件');
-    }
+ 	    if (window.DeviceMotionEvent) {
+ 	        window.addEventListener('devicemotion', deviceMotionHandler, false);
+ 	    } else {
+ 	        alert('本设备不支持devicemotion事件');
+ 	    }
 
-    function deviceMotionHandler(eventData) {
-        var acceleration = eventData.accelerationIncludingGravity;
-        var curTime = new Date().getTime();
+ 	    function deviceMotionHandler(e) {
+ 	    	
+ 	        var acceleration = e.accelerationIncludingGravity;
+ 	        var curTime = new Date().getTime();
 
-        if ((curTime - last_update) > 100) {
-            var diffTime = curTime - last_update;
-            last_update = curTime;
-            x = acceleration.x;
-            y = acceleration.y;
-            z = acceleration.z;
-            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
-            var status = document.getElementById("status");
-			if(SHAKE_THRESHOLD == 1000000){
-				document.getElementById("hand").className = "hand";
-				return ;
-			}
-			if(speed > 400){
-				 document.getElementById("hand").className = "hand hand-animate";
-			}
-			if(speed > 1000){
-				if ($("#show1").is(":visible") == false){
-					document.getElementById('music1').play(); 
-				}
-			}
-			if(speed <=400){
-				document.getElementById("hand").className = "hand";
-			}
-			if (speed > SHAKE_THRESHOLD) {
-				if ($("#show1").is(":visible") == false){
-					doResult();
-				}
-            }
-            last_x = x;
-            last_y = y;
-            last_z = z;
-        }
-    }
-    function doResult() {
-		var arr = ['恭喜，摇得一等奖：保时捷卡宴','恭喜，摇得二等奖：奔驰 320','恭喜，摇得三等奖：奇瑞QQ','恭喜，摇得优秀奖：iphone6s','悲伤逆流成河,继续努力']; 
-        var num = Math.floor(Math.random()*5); 
-		if(num <1){
-			SHAKE_THRESHOLD = 1000000;
-		}
-       var html = arr[num]+"！";
-    }
-	
+ 	        if ((curTime - last_update) > 100) {
+ 	            var diffTime = curTime - last_update;
+ 	            last_update = curTime;
+ 	            x = acceleration.x;
+ 	            y = acceleration.y;
+ 	            z = acceleration.z;
+ 	            
+ 	            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+
+ 				if(speed > 400){
+ 					$('#hand').addClass('hand-animate');
+ 				}
+ 				
+ 				if(speed <=400){
+ 					$('#hand').removeClass('hand-animate');
+ 				}
+ 				
+ 				if (speed > SHAKE_THRESHOLD) {
+ 					if ($("#hand-container").is(":visible") == false){
+ 						pick();
+ 					}
+ 	            }
+ 				
+ 	            last_x = x;
+ 	            last_y = y;
+ 	            last_z = z;
+ 	        }
+ 	    }
+ 	    
+ 	    function pick() {
+ 	    	playMusic();
+ 	    	loading();
+ 	        $.post("draw/pick", {participantNum: participantNum},function(data){
+ 	        	$('#spec').text(data.spec);
+ 				$('#mess').text(data.mess);
+ 				show();
+ 			});
+ 	    }
+ 	    
+ 	    $('#pickBtn').click(pick);
+ 	    
+ 	    function playMusic(){
+ 	    	$('#music')[0].play();
+ 	    }
+ 	    
+ 	    function loading(){
+ 	    	$('#loading').addClass('loading-show');
+ 	    	$('#result').removeClass('result-show');
+ 	    }
+ 	    
+ 	    function show(){
+ 	    	$('#loading').removeClass('loading-show');
+ 	    	$('#result').addClass('result-show');
+ 	    }
+ 		
+ 		// 显示验证
+ 		function showLogin(){
+ 			$('#login-container').show();
+ 			$('#hand-container').hide();
+ 		}
+ 		
+ 		// 显示摇奖
+ 		function showHand(){
+ 			$('#login-container').hide();
+ 			$('#hand-container').show();
+ 		}
+ 		
+ 	})(jQuery);
+ 	
   </script>
 </body>
 </html>

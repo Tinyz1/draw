@@ -61,7 +61,7 @@ public final class Prize implements Serializable {
 
 	private int type;
 
-	private String sepc;
+	private String spec;
 
 	private String mess;
 
@@ -72,7 +72,7 @@ public final class Prize implements Serializable {
 	public Prize(int type, String sepc, String mess) {
 		super();
 		this.type = type;
-		this.sepc = sepc;
+		this.spec = sepc;
 		this.mess = mess;
 	}
 
@@ -108,12 +108,12 @@ public final class Prize implements Serializable {
 		this.type = type;
 	}
 
-	public String getSepc() {
-		return sepc;
+	public String getSpec() {
+		return spec;
 	}
 
-	public void setSepc(String sepc) {
-		this.sepc = sepc;
+	public void setSpec(String spec) {
+		this.spec = spec;
 	}
 
 	public String getMess() {
@@ -126,7 +126,7 @@ public final class Prize implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Prize [type=" + type + ", sepc=" + sepc + ", mess=" + mess + "]";
+		return "Prize [type=" + type + ", sepc=" + spec + ", mess=" + mess + "]";
 	}
 
 }
