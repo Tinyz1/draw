@@ -1,6 +1,6 @@
 package com.asiainfo.draw.service;
 
-import com.asiainfo.draw.util.Draw.Prize;
+import com.asiainfo.draw.util.Prize;
 
 public interface DrawService {
 

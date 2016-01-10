@@ -2,39 +2,144 @@ package com.asiainfo.draw.service.impl;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.asiainfo.draw.cache.CurrentLinkCache;
+import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
+import com.asiainfo.draw.cache.HitPrizeCache;
+import com.asiainfo.draw.cache.ParticipantCache;
+import com.asiainfo.draw.domain.DrawLink;
+import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
-import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.DrawService;
-import com.asiainfo.draw.util.Draw.Prize;
+import com.asiainfo.draw.service.LinkService;
+import com.asiainfo.draw.util.Draw;
+import com.asiainfo.draw.util.Prize;
+import com.asiainfo.draw.util.PrizePool;
 
 @Service("drawService")
 @Transactional
 public class DrawServiceImpl implements DrawService {
 
+	private final Logger logger = LoggerFactory.getLogger(DrawServiceImpl.class);
+
 	@Autowired
-	private ParticipantMapper participantMapper;
+	private ParticipantCache participantCache;
+
+	@Autowired
+	private CurrentLinkCache currentLinkCache;
+
+	@Autowired
+	private HitPrizeCache hitPrizeCache;
+
+	@Autowired
+	private LinkService linkService;
 
 	@Override
 	public Prize pick(Integer participantNum) {
+
 		checkNotNull(participantNum);
-		// 1、根据手机号码获取用户信息
-		Participant participant = participantMapper.selectByParticipantNum(participantNum);
-		checkNotNull(participant, "根据用户编号: %s获取不到用户信息！", participantNum);
-		// 2、判断当前环节是否对所有用户开放
 
-		// 3、如果当前环节只对未中奖的用户开放，那么当前用户不参与抽奖
+		// 判断当前环节是否开始了
+		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
+		switch (linkState) {
+		// 环节未开始
+		case INIT:
+			logger.info("<<===========当前环节未开始！");
+			return Prize.createInitPrize();
+			// 环节运行中
+		case RUN: {
+			// 1、根据手机号码获取用户信息
+			Participant participant = participantCache.get(participantNum);
+			checkNotNull(participant, "根据用户编号: %s获取不到用户信息！", participantNum);
 
-		// 4、获取当前房间的抽奖池
+			// 判断当前环节是否对所有人开放
+			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 
-		// 5、开始抽奖
+			// 判断当前环节是否对当前人员开发
+			@SuppressWarnings("unchecked")
+			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
+			if (allowParticipants != null && !allowParticipants.contains(participant)) {
+				// 对于不在人员列表的用户，直接返回不中奖
+				return Prize.createMissPrize();
+			}
 
-		// 6、返回抽奖结果
+			// 只对未中奖的人开放
+			if (link.getLinkState() == DrawLink.LINK_CLOSE_TO_HIT_PRTICIPANT) {
+				// 判断当前用户是否已中奖
+				Set<DrawPrize> links = hitPrizeCache.get(participantNum);
+				if (links != null && links.size() > 0) {
+					// 环节对中奖人员不开放，且已中奖的用户。直接返回没有中奖
+					return Prize.createMissPrize();
+				}
+				// 当前人员未中奖时，可以继续抽奖
+			}
 
-		return null;
+			// 对于任何一种情况，任何一个人，同一个环节最多能够中奖一次。
+			@SuppressWarnings("unchecked")
+			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			if (currentHits.containsKey(participant.getParticipantNum())) {
+				// 该人员当前环节已中奖，不能参与本次抽奖了
+				return Prize.createMissPrize();
+			}
+
+			// 满足抽奖条件的人员参与抽奖
+			@SuppressWarnings("unchecked")
+			List<PrizePool> pools = (List<PrizePool>) currentLinkCache.get(CurrentLinkCache.CURRENT_POOLS);
+
+			// 随机抽奖
+			DrawPrize drawPrize = Draw.pick(pools, null);
+
+			@SuppressWarnings("unchecked")
+			// 当前环节剩余的奖品
+			List<DrawPrize> currentPrizes = (List<DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_PRIZES);
+			// 当前环节没有中奖的人数 = 1 并且 只剩下一个奖品时。那么对于没有中奖的人，当前抽奖需要必中
+			if (allowParticipants != null && allowParticipants.size() > 0) {// 该要求只对有人数限制的环节
+				if (allowParticipants.size() - currentHits.size() == 1 && currentPrizes.size() == 1) {
+					drawPrize = Draw.pick(pools, true); // 给这个人一次必中的机会
+				}
+			}
+
+			if (drawPrize == null) {
+				// 未中奖
+				return Prize.createMissPrize();
+			}
+
+			// 已中奖
+			Prize prize = new Prize(Prize.HIT, drawPrize.getPrizeType(), drawPrize.getPrizeName());
+
+			// 记录环节中奖记录
+			currentHits.put(participantNum, drawPrize);
+
+			// 环节剩余奖品数-1
+			currentPrizes.remove(drawPrize);
+
+			// 当前环节剩余的奖品没有了时，结束当前环节。
+			if (currentPrizes.size() == 0) {
+				linkService.finishCurrentLink();
+			}
+
+			// 记录中奖记录
+			hitPrizeCache.put(participantNum, drawPrize);
+
+			return prize;
+
+		}
+		// 环节已结束
+		case FINISH:
+			logger.info("<<===========当前环节已结束！");
+			return Prize.createOverPrize();
+		}
+
+		return Prize.createOverPrize();
+
 	}
-
 }

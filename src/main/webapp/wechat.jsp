@@ -5,16 +5,8 @@
 	<meta charset="utf-8">
     <!-- Loading Bootstrap -->
     <link href="resources/Flat-UI/css/vendor/bootstrap.min.css" rel="stylesheet">
-
     <!-- Loading Flat UI -->
     <link href="resources/Flat-UI/css/flat-ui.min.css" rel="stylesheet">
-
-    <!-- HTML5 shim, for IE6-8 support of HTML5 elements. All other JS at the end of file. -->
-    <!--[if lt IE 9]>
-      <script src="resources/Flat-UI/js/vendor/html5shiv.js"></script>
-      <script src="resources/Flat-UI/js/vendor/respond.min.js"></script>
-    <![endif]-->
-
     <style>
     * { margin: 0; padding: 0; }
     body { background: #292D2E; }
@@ -79,92 +71,9 @@
     }
 
     </style>
-
-	<script>
-		function init(){
-			var userid = getCookie("userid");
-			if(userid == null || "" == userid || "undefined" == typeof userid){
-				 document.getElementById("show1").style.visibility='visible';
-				 document.getElementById("show2").style.visibility='hidden';
-				 document.getElementById("hand").style.visibility='hidden';
-				 document.getElementById('music1').pause();
-			}else{
-				 document.getElementById("show1").style.display='none';
-				 document.getElementById("show2").style.visibility='visible';
-			}
-	}
-	//设置cookie的值，根据名字，value,time
-	function setCookie(name,value,time){ 
-		var str = name + "=" + escape(value);
-		if(time > 0){
-			var date = new Date();
-			var ms = time*1000*3600;
-			date.setTime(date.getTime() + ms);
-			str += "; expires=" + date.toGMTString();
-    }
-		document.cookie = str;
-	}
-	//获取cookie  
-	function getCookie(name){  
-    //cookie中的数据都是以分号加空格区分开  
-    var arr = document.cookie.split("; ");  
-    for(var i=0; i<arr.length; i++){  
-        if(arr[i].split("=")[0] == name){  
-            return arr[i].split("=")[1];  
-        }
-    }
-    //未找到对应的cookie则返回空字符串  
-    return '';  
-	}
-	//删除cookie  
-	function removeCookie(name){   
-		document.cookie = name+"=;expires="+(new Date(0)).toGMTString();
-	}
-	function submitbtn(){
-		var userid = document.getElementById("userid").value;
-		setCookie("userid",userid,24);
-		document.getElementById("form").submit();
-/*		$.ajax({
-                cache: true,
-                type: "POST",
-                url:ajaxCallUrl,
-                data:$('#form').serialize(),// 你的formid
-                async: false,
-                error: function(request) {
-                    alert("Connection error");
-                },
-                success: function(data) {
-                   var userid =  $("#userid").val();
-				   setCookie("userid",userid,24);
-				   window.location.reload();
-                }
-            });*/
-	}	
-	</script>
 </head>
 <body>
-	<div id="show1" class="text-center">
-	<div style="padding: 60px 60px 40px;">
-   <form class="bs-example bs-example-form" role="form"  id="form">
-      <div class="input-group">
-         <span class="input-group-addon">姓名</span>
-         <input type="text" class="form-control"  placeholder="如：马云">
-      </div>
-      <br>
 
-      <div class="input-group">
-		 <span class="input-group-addon">编号</span>
-         <input type="text" class="form-control" placeholder="如：0001" id="userid">
-      </div>
-      <br>
-	  <div class="control-group" >
-          <div class="controls">
-            <button class="btn btn-success" onclick="submitbtn()">提交</button>
-          </div>
-        </div>
-   </form>
-</div>
-	</div>
 	<div id="show2">
 		<audio style="display:none" id="music1"  controls src="resources/wechat-h5/images/5018.mp3">  
 		</audio>  
@@ -235,29 +144,7 @@
 		if(num <1){
 			SHAKE_THRESHOLD = 1000000;
 		}
-        var html = arr[num]+"！"; 
-		$("#reshtml").html(html);
-	/*	$.ajax({
-                cache: true,
-                type: "POST",
-                url:ajaxCallUrl,
-                data:$('#form').serialize(),// 你的formid
-                async: false,
-                error: function(request) {
-                    alert("没有中奖哦，加油！");
-                },
-                success: function(data) {
-					判断是否中奖，中奖信息是什么
-					var html ="恭喜您，获得"+data; 
-                    $("#reshtml").html(html);
-                }
-            });*/
-        document.getElementById("result").className = "result";
-        document.getElementById("loading").className = "loading loading-show";
-        setTimeout(function(){
-            document.getElementById("result").className = "result result-show";
-            document.getElementById("loading").className = "loading";
-        }, 1000);
+       var html = arr[num]+"！";
     }
 	
   </script>

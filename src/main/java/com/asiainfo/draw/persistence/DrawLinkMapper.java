@@ -27,4 +27,12 @@ public interface DrawLinkMapper {
     int updateByPrimaryKeySelective(DrawLink record);
 
     int updateByPrimaryKey(DrawLink record);
+    
+    /**
+     * 查询下一环节
+     * 
+     * @return
+     */
+    DrawLink selectNextLink();
+    
 }

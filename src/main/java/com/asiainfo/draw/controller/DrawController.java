@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asiainfo.draw.service.DrawService;
-import com.asiainfo.draw.util.Draw.Prize;
+import com.asiainfo.draw.util.Prize;
 
 @Controller
 @RequestMapping("/draw")
@@ -25,10 +25,10 @@ public class DrawController {
 		logger.debug("participantNum: " + participantNum);
 		Prize prize = null;
 		try {
-			drawService.pick(participantNum);
+			prize = drawService.pick(participantNum);
 		} catch (Exception e) {
 			logger.error("系统错误，错误信息：{}", e);
-			prize = Prize.createMissPrize();
+			prize = Prize.createOverPrize();
 		}
 		return prize;
 	}

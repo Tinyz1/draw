@@ -89,6 +89,16 @@
     from draw_link
     where link_id = #{linkId,jdbcType=INTEGER}
   </select>
+  
+  <!-- 查询下一个环节 -->
+  <select id="selectNextLink" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM draw_link 
+    WHERE link_state = 1 AND link_order &lt;= (SELECT MIN(link_order) FROM draw_link WHERE link_state = 1)
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from draw_link
     where link_id = #{linkId,jdbcType=INTEGER}
