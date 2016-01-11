@@ -4,12 +4,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.exception.AuthenticationExceptioin;
 import com.asiainfo.draw.service.ParticipantService;
 import com.asiainfo.draw.util.DefaultResult;
@@ -44,12 +42,5 @@ public class ParticipantController {
 			result = DefaultResult.newErrorInstance(2, "身份验证失败！");
 		}
 		return result;
-	}
-
-	@RequestMapping("/{participantId}")
-	@ResponseBody
-	public Participant authParticipantByTelphone(@PathVariable Integer participantId) {
-		logger.debug("<<--" + participantId);
-		return participantService.getByParticipantId(participantId);
 	}
 }

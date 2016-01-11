@@ -5,11 +5,13 @@ import static com.google.common.base.Preconditions.checkNotNull;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
@@ -18,16 +20,19 @@ import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.DrawPrizeExample;
 import com.asiainfo.draw.domain.Participant;
+import com.asiainfo.draw.domain.WinningRecord;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.persistence.DrawLinkMapper;
 import com.asiainfo.draw.persistence.DrawPrizeMapper;
 import com.asiainfo.draw.persistence.LinkMemberMapper;
+import com.asiainfo.draw.persistence.WinningRecordMapper;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
 import com.asiainfo.draw.util.PrizePool;
 import com.asiainfo.draw.util.PrizePoolFactory;
 
 @Service("linkService")
+@Transactional
 public class LinkServiceImpl implements LinkService {
 
 	private final Logger logger = LoggerFactory.getLogger(LinkServiceImpl.class);
@@ -46,45 +51,46 @@ public class LinkServiceImpl implements LinkService {
 
 	@Autowired
 	private ParticipantCache participantCache;
-
+	
+	@Autowired
+	private WinningRecordMapper winningRecordMapper;
+	
 	@Override
 	public void initNextLink() {
+		logger.info("<<===========读取新的环节...");
 		// 获取下一环节
 		DrawLink currentLink = nextLink();
 		if (currentLink == null) {
-			throw new RuntimeException("没有下一个抽奖环节了！");
+			logger.warn("<<==============没有下一个抽奖环节了！");
+			return;
 		}
-		logger.info("<<===========开始新的环节：{}", currentLink.getLinkName());
+		logger.info("<<===========已读取新的环节：{}...", currentLink.getLinkName());
 		logger.info("<<===========把当前环节加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_LINK, currentLink);
 
+		logger.info("<<===========读取新的环节奖品...");
 		List<DrawPrize> currentPrizes = getPrizeByLink(currentLink.getLinkId());
-		logger.info("<<===========查询到当前环节的奖品：{}", currentPrizes);
-
-		if (currentPrizes == null || currentPrizes.size() == 0) {
-			throw new RuntimeException("当前环节不能没有奖品！");
-		}
 
 		logger.info("<<===========把当前环节剩余的奖品放入缓存中");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
 
+		// 初始化当前环节参与人员
 		List<Participant> participants = getParticipantByLink(currentLink.getLinkId());
-		logger.info("<<===========查询到当前环节的参与人员：{}", participants);
-		logger.info("<<===========把当前环节参与人员放入缓存中");
+		int numberOfPeople = 0;
+		if (participants == null || participants.size() == 0) {
+			participants = participantCache.getAll();
+			numberOfPeople = participants.size();
+		} else {
+			numberOfPeople = participants.size();
+		}
+		logger.info("<<===========当前环节的参与人员：{}", participants);
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
 
-		// 当前环节中奖人员
 		logger.info("<<===========初始化当前环节已中奖人员...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<String, DrawPrize>());
 
-		// 初始化奖品池
+		logger.info("<<===========初始化奖品池...");
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
-		logger.info("<<===========创建当前环节的奖品池...");
-
-		int numberOfPeople = participantCache.getAll().size();
-		if (participants != null && participants.size() > 0) {
-			numberOfPeople = participants.size();
-		}
 
 		logger.info("<<===========当今环节参与人数：{}...", numberOfPeople);
 		List<PrizePool> pools = poolFactory.createPrizePools(numberOfPeople, currentPrizes);
@@ -139,15 +145,26 @@ public class LinkServiceImpl implements LinkService {
 	public void finishCurrentLink() {
 
 		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-		logger.info("<<===========当前环节：{}开始结束...", currentLink.getLinkName());
-
-		logger.info("<<===========设置当前环节的状态为：{}", LinkState.FINISH);
-		// 把当前环节的开关打开
+		logger.info("<<=========结束环节{}...", currentLink.getLinkName());
+		// 把当前环节的开关关闭
 		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
-		// 记录环节开始时间
+		// 记录环节
 		currentLinkCache.put(CurrentLinkCache.CURRENT_FINISH_DATE, new Date());
 		// 把环节中奖记录写入库中
-
+		@SuppressWarnings("unchecked")
+		Map<String, DrawPrize> currentHits = (Map<String, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+		if(currentHits != null) {
+			for(Map.Entry<String, DrawPrize> hit : currentHits.entrySet()) {
+				WinningRecord winningRecord = new WinningRecord();
+				winningRecord.setLinkId(currentLink.getLinkId());
+				winningRecord.setParticipantName(hit.getKey());
+				winningRecord.setPrizeId(hit.getValue().getPrizeId());
+				winningRecordMapper.insert(winningRecord);
+			}
+		}
+		// 把当前环节设置的状态设置为已结束
+		currentLink.setLinkState(3);
+		linkMapper.updateByPrimaryKey(currentLink);
 		// 清空当前缓存
 		currentLinkCache.clear();
 		// 初始化下一个环节
@@ -164,19 +181,19 @@ public class LinkServiceImpl implements LinkService {
 			String msg = "当前环节已经处于启动状态，启动失败...";
 			logger.info(msg);
 			throw new StartLinkException(msg);
-		}
-		if (linkState == LinkState.FINISH) {
+		} else if (linkState == LinkState.FINISH) {
 			String msg = "新的环节未初始化，启动失败...";
 			logger.info(msg);
 			throw new StartLinkException(msg);
+		} else if (linkState == LinkState.INIT) {
+			logger.info("<<==========把当前环节的状态设置为：{}" + LinkState.RUN);
+			// 把当前环节的开关打开
+			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.RUN);
+			Date start = new Date();
+			logger.info("完成新的环节启动，启动时间：{}" + start);
+			// 记录环节开始时间
+			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
 		}
-		logger.info("<<==========把当前环节的状态设置为：{}" + LinkState.RUN);
-		// 把当前环节的开关打开
-		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.RUN);
-		Date start = new Date();
-		logger.info("完成新的环节启动，启动时间：{}" + start);
-		// 记录环节开始时间
-		currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
 	}
 
 }

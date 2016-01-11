@@ -49,16 +49,10 @@ public class ParticipantServiceImpl implements ParticipantService {
 	}
 
 	@Override
-	@Transactional(readOnly = true)
-	public Participant getByParticipantId(Integer participantId) {
-		checkNotNull(participantId);
-		return participantMapper.selectByPrimaryKey(participantId);
-	}
-
-	@Override
 	public void authParticipant(String participantName) {
 		logger("校验用户：{}", participantName);
-		Participant participant = getByParticipantName(participantName);
+		// 缓存中读取用户
+		Participant participant = participantCache.get(participantName);
 		if (participant == null) {
 			logger("用户：{}不存在！", participantName);
 			throw new AuthenticationExceptioin("用户不存在");

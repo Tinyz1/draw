@@ -22,7 +22,6 @@ public class DrawController {
 	@RequestMapping("/pick")
 	@ResponseBody
 	public Prize pick(String participantName) {
-		logger.debug("participantName: " + participantName);
 		Prize prize = null;
 		try {
 			prize = drawService.pick(participantName);

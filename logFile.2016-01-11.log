@@ -3277,3 +3277,259 @@ Caused by: java.lang.IllegalArgumentException: Result Maps collection does not c
 189470 [http-bio-8080-exec-2] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
 196692 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
 196700 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+409  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+617  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 11 20:15:24 CST 2016]; root of context hierarchy
+709  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1785 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1806 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2844 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3485 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3488 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3489 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3490 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3531 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+3531 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========开始新的环节：第一轮抽奖
+3531 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3550 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的奖品：[DrawPrize [prizeId=1, prizeType=一等奖, prizeName=10000元红包, linkId=1, size=3, provider=X战警, providerPosition=BOSS]]
+3551 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3554 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的参与人员：[]
+3554 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节参与人员放入缓存中
+3554 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3556 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========创建当前环节的奖品池...
+3561 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3561 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3561 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖品数量：1
+3562 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3562 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3562 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool--1010592859真实的奖品数量为：1
+3563 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3564 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3702 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3287 ms
+3760 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3764 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 20:15:27 CST 2016]; parent: Root WebApplicationContext
+3766 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4061 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4318 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4323 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4325 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4326 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/{participantId}]}" onto public com.asiainfo.draw.domain.Participant com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.Integer)
+5039 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 20:15:27 CST 2016]; parent: Root WebApplicationContext
+5190 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 20:15:27 CST 2016]; parent: Root WebApplicationContext
+5397 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5682 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1922 ms
+17329 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+17335 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+68793 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+68804 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：不存在！
+68808 [http-bio-8080-exec-5] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
+76459 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+76462 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：不存在！
+76464 [http-bio-8080-exec-5] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
+109566 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+109568 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：不存在！
+109570 [http-bio-8080-exec-5] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
+112412 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+112417 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：不存在！
+112421 [http-bio-8080-exec-5] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
+118809 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+118812 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：不存在！
+118814 [http-bio-8080-exec-5] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 用户不存在
+436  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+634  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 11 23:09:10 CST 2016]; root of context hierarchy
+717  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1598 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1610 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2548 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3239 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3242 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3244 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3245 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3299 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+3300 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========开始新的环节：第一轮抽奖
+3300 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3321 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的奖品：[DrawPrize [prizeId=1, prizeType=一等奖, prizeName=10000元红包, linkId=1, size=3, provider=X战警, providerPosition=BOSS]]
+3321 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3325 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的参与人员：[]
+3325 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节参与人员放入缓存中
+3326 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3328 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========创建当前环节的奖品池...
+3332 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3332 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3333 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖品数量：1
+3333 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3334 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3334 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-35977806真实的奖品数量为：1
+3335 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3336 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3537 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3096 ms
+3601 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3606 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:09:13 CST 2016]; parent: Root WebApplicationContext
+3607 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3834 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4074 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4078 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4080 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4081 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/{participantId}]}" onto public com.asiainfo.draw.domain.Participant com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.Integer)
+4809 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:09:13 CST 2016]; parent: Root WebApplicationContext
+4943 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:09:13 CST 2016]; parent: Root WebApplicationContext
+5153 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5450 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1849 ms
+256  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+379  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 11 23:11:05 CST 2016]; root of context hierarchy
+432  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1141 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1155 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2123 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+2838 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+2841 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+2844 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+2844 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+2844 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+2845 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+2845 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+2845 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+2845 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+2894 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+2894 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========开始新的环节：第一轮抽奖
+2894 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+2925 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的奖品：[DrawPrize [prizeId=1, prizeType=一等奖, prizeName=10000元红包, linkId=1, size=3, provider=X战警, providerPosition=BOSS]]
+2926 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+2933 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的参与人员：[]
+2934 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节参与人员放入缓存中
+2935 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+2938 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========创建当前环节的奖品池...
+2944 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+2944 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+2944 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖品数量：1
+2945 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+2945 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+2945 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-1988698167真实的奖品数量为：1
+2946 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+2947 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3153 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2894 ms
+3238 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3255 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:11:08 CST 2016]; parent: Root WebApplicationContext
+3257 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3480 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3779 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+3784 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+3787 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+3788 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/{participantId}]}" onto public com.asiainfo.draw.domain.Participant com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.Integer)
+4576 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:11:08 CST 2016]; parent: Root WebApplicationContext
+4750 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:11:08 CST 2016]; parent: Root WebApplicationContext
+4945 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5162 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1924 ms
+33209 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+33233 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+518  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+738  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 11 23:25:03 CST 2016]; root of context hierarchy
+830  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1504 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1517 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2491 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3087 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3089 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3090 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3091 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3091 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3091 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3091 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3091 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3092 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3129 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+3133 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+3134 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第一轮抽奖...
+3134 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3134 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+3154 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3158 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========查询到当前环节的参与人员：[]
+3158 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节参与人员放入缓存中
+3158 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3158 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+3163 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3163 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3164 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3164 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3165 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-484988075真实的奖品数量为：1
+3165 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3166 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3314 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2789 ms
+3396 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3400 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:25:05 CST 2016]; parent: Root WebApplicationContext
+3401 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3644 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3909 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+3912 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+3913 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4849 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:25:05 CST 2016]; parent: Root WebApplicationContext
+4973 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 11 23:25:05 CST 2016]; parent: Root WebApplicationContext
+5160 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5373 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1976 ms
+64724 [http-bio-8080-exec-1] ERROR c.a.draw.controller.DrawController - 系统错误，错误信息：{}
+java.lang.NullPointerException: null
+	at com.google.common.base.Preconditions.checkNotNull(Preconditions.java:210) ~[guava-18.0.jar:na]
+	at com.asiainfo.draw.service.impl.DrawServiceImpl.pick(DrawServiceImpl.java:48) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:302) ~[spring-aop-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:157) ~[spring-aop-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:99) ~[spring-tx-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:281) ~[spring-tx-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:96) ~[spring-tx-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:207) ~[spring-aop-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at com.sun.proxy.$Proxy42.pick(Unknown Source) ~[na:na]
+	at com.asiainfo.draw.controller.DrawController.pick(DrawController.java:28) ~[classes/:na]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_45]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_45]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_45]
+	at java.lang.reflect.Method.invoke(Method.java:497) ~[na:1.8.0_45]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:221) [spring-web-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:137) [spring-web-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:110) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:806) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:729) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:85) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:959) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:893) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:621) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:846) [spring-webmvc-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:728) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:305) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:85) [spring-web-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:107) [spring-web-4.2.2.RELEASE.jar:4.2.2.RELEASE]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:243) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:210) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:222) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:123) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:502) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:171) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:100) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.valves.AccessLogValve.invoke(AccessLogValve.java:953) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:118) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:408) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.http11.AbstractHttp11Processor.process(AbstractHttp11Processor.java:1041) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.coyote.AbstractProtocol$AbstractConnectionHandler.process(AbstractProtocol.java:603) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at org.apache.tomcat.util.net.JIoEndpoint$SocketProcessor.run(JIoEndpoint.java:310) [tomcat-embed-core-7.0.47.jar:7.0.47]
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142) [na:1.8.0_45]
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617) [na:1.8.0_45]
+	at java.lang.Thread.run(Thread.java:745) [na:1.8.0_45]

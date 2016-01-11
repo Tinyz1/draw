@@ -9,7 +9,7 @@ public class WinningRecord {
 
     private Integer prizeId;
 
-    private Integer participantNum;
+    private String participantName;
 
     private Date createDate;
 
@@ -37,12 +37,12 @@ public class WinningRecord {
         this.prizeId = prizeId;
     }
 
-    public Integer getParticipantNum() {
-        return participantNum;
+    public String getParticipantName() {
+        return participantName;
     }
 
-    public void setParticipantNum(Integer participantNum) {
-        this.participantNum = participantNum;
+    public void setParticipantName(String participantName) {
+        this.participantName = participantName == null ? null : participantName.trim();
     }
 
     public Date getCreateDate() {

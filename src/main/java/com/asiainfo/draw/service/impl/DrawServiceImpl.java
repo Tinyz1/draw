@@ -59,17 +59,15 @@ public class DrawServiceImpl implements DrawService {
 			Participant participant = participantCache.get(participantName);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 
-			// 判断当前环节是否对所有人开放
-			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-
 			// 判断当前环节是否对当前人员开发
 			@SuppressWarnings("unchecked")
 			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
-			if (allowParticipants != null && !allowParticipants.contains(participant)) {
+			if (!allowParticipants.contains(participant)) {
 				// 对于不在人员列表的用户，直接返回不中奖
 				return Prize.createMissPrize();
 			}
 
+			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 			// 只对未中奖的人开放
 			if (link.getLinkState() == DrawLink.LINK_CLOSE_TO_HIT_PRTICIPANT) {
 				// 判断当前用户是否已中奖
@@ -100,10 +98,8 @@ public class DrawServiceImpl implements DrawService {
 			// 当前环节剩余的奖品
 			List<DrawPrize> currentPrizes = (List<DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_PRIZES);
 			// 当前环节没有中奖的人数 = 1 并且 只剩下一个奖品时。那么对于没有中奖的人，当前抽奖需要必中
-			if (allowParticipants != null && allowParticipants.size() > 0) {// 该要求只对有人数限制的环节
-				if (allowParticipants.size() - currentHits.size() == 1 && currentPrizes.size() == 1) {
-					drawPrize = Draw.pick(pools, true); // 给这个人一次必中的机会
-				}
+			if (allowParticipants.size() - currentHits.size() == 1 && currentPrizes.size() == 1) {
+				drawPrize = Draw.pick(pools, true); // 给这个人一次必中的机会
 			}
 
 			if (drawPrize == null) {
@@ -113,31 +109,30 @@ public class DrawServiceImpl implements DrawService {
 
 			// 已中奖
 			Prize prize = new Prize(Prize.HIT, drawPrize.getPrizeType(), drawPrize.getPrizeName());
+			logger.info("<<====参与人员：{},中奖：{}", participant, prize);
 
-			// 记录环节中奖记录
+			// 更新当前环节中奖记录
 			currentHits.put(participantName, drawPrize);
+			currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, currentHits);
 
-			// 环节剩余奖品数-1
+			// 更新环节剩余奖品数
 			currentPrizes.remove(drawPrize);
-
-			// 当前环节剩余的奖品没有了时，结束当前环节。
+			currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
+			
 			if (currentPrizes.size() == 0) {
+				logger.info("<<====当前环节剩余的奖品没有了时，结束当前环节");
 				linkService.finishCurrentLink();
 			}
 
 			// 记录中奖记录
 			hitPrizeCache.put(participantName, drawPrize);
-
 			return prize;
-
 		}
 		// 环节已结束
 		case FINISH:
 			logger.info("<<===========当前环节已结束！");
 			return Prize.createOverPrize();
 		}
-
 		return Prize.createOverPrize();
-
 	}
 }

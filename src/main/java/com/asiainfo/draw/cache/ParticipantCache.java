@@ -7,11 +7,11 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutionException;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.asiainfo.draw.domain.Participant;
@@ -20,12 +20,14 @@ import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
 @Component
-@Scope("singleton")
 public class ParticipantCache implements InitializingBean {
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 
 	private final Cache<String, Participant> cache = CacheBuilder.newBuilder().build();
+
+	@Autowired
+	private ParticipantService participantService;
 
 	public synchronized void put(String key, Participant value) {
 		logger.info("写入缓存，key: {}, value: {}", key, value);
@@ -40,7 +42,7 @@ public class ParticipantCache implements InitializingBean {
 					logger.info("<<============执行了吗？");
 					Participant selParticipant = participantService.getByParticipantName(key);
 					if (selParticipant != null) {
-						put(key, selParticipant);
+						put(key.trim(), selParticipant);
 						return selParticipant;
 					}
 					return null;
@@ -54,17 +56,12 @@ public class ParticipantCache implements InitializingBean {
 		return null;
 	}
 
-	@Autowired
-	private ParticipantService participantService;
-
 	public List<Participant> getAll() {
 		ConcurrentMap<String, Participant> maps = cache.asMap();
-
 		List<Participant> participants = new ArrayList<Participant>();
 		for (Map.Entry<String, Participant> map : maps.entrySet()) {
 			participants.add(map.getValue());
 		}
-
 		return participants;
 	}
 
@@ -74,8 +71,12 @@ public class ParticipantCache implements InitializingBean {
 		List<Participant> participants = participantService.queryAllParticipant();
 		if (participants != null && participants.size() > 0) {
 			for (Participant participant : participants) {
-				logger.info("<<======用户：{}加入缓存...", participant.getParticipantName());
-				put(participant.getParticipantName(), participant);
+				if (participant != null) {
+					String participantName = participant.getParticipantName();
+					if (StringUtils.isNotBlank(participantName))
+						logger.info("<<======用户：{}加入缓存...", participantName.trim());
+					put(participantName.trim(), participant);
+				}
 			}
 		}
 		logger.info("<<==============参与人员信息加载完毕");

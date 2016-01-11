@@ -1,6 +1,14 @@
 package com.asiainfo.draw.domain;
 
-public class Participant {
+import java.io.Serializable;
+
+public class Participant implements Serializable{
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -6008173806152636940L;
+
 	private Integer participantId;
 
 	private String participantName;

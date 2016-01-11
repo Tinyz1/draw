@@ -19,11 +19,8 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 	public List<PrizePool> createPrizePools(int numberOfPeople, List<DrawPrize> prizes) {
 		checkArgument(numberOfPeople > 0, "参与人数不能小于0");
 		logger.info("<<==参与人员：" + numberOfPeople);
-		checkArgument(prizes != null && prizes.size() > 0, "奖品池不能没有可中奖的奖品！");
-		logger.info("<<==奖品数量：" + prizes.size());
 		
 		List<PrizePool> pools = new ArrayList<PrizePool>();
-		
 		// 一个奖池满足100个人
 		int i = 0;
 		DefaultPrizePool prePool = null;
@@ -41,13 +38,16 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 		
 		int numberOfPool = pools.size();
 		logger.info("<<=====产生的奖池数量：" + numberOfPool);
-		// 放入真实的奖品
-		for (int j = 0, len = prizes.size(); j < len; j++) {
-			int poolNum = j % numberOfPool;
-			PrizePool pool = pools.get(poolNum);
-			pool.push(prizes.get(j));
-			// 真实的奖品数量加1
-			pool.setTruePrize(pool.getTruePrize() + 1);
+		
+		if(prizes != null && prizes.size() > 0) {
+			// 放入真实的奖品
+			for (int j = 0, len = prizes.size(); j < len; j++) {
+				int poolNum = j % numberOfPool;
+				PrizePool pool = pools.get(poolNum);
+				pool.push(prizes.get(j));
+				// 真实的奖品数量加1
+				pool.setTruePrize(pool.getTruePrize() + 1);
+			}
 		}
 		
 		int times = 10;
