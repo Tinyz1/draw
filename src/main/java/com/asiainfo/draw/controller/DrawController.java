@@ -29,6 +29,7 @@ public class DrawController {
 			logger.error("系统错误，错误信息：{}", e);
 			prize = Prize.createOverPrize();
 		}
+		logger.info("中奖信息：{}", prize);
 		return prize;
 	}
 

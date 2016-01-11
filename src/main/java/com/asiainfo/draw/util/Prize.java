@@ -126,7 +126,7 @@ public final class Prize implements Serializable {
 
 	@Override
 	public String toString() {
-		return "Prize [type=" + type + ", sepc=" + spec + ", mess=" + mess + "]";
+		return "Prize [type=" + type + ", spec=" + spec + ", mess=" + mess + "]";
 	}
 
 }

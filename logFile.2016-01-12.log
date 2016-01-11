@@ -1,0 +1,412 @@
+487  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+761  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 12 00:02:15 CST 2016]; root of context hierarchy
+860  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1618 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1637 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3010 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3577 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3579 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3581 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3613 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+3615 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+3615 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第一轮抽奖...
+3615 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3616 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+3635 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3642 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当前环节的参与人员：[Participant [participantId=1, participantName=叶春林], Participant [participantId=3, participantName=赵林刚], Participant [participantId=4, participantName=汪小峰], Participant [participantId=2, participantName=魏波]]
+3643 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3643 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+3645 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3645 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3645 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3645 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3645 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-549523818真实的奖品数量为：1
+3646 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3646 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3789 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3294 ms
+3846 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3850 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:02:19 CST 2016]; parent: Root WebApplicationContext
+3850 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4181 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4449 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4451 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4452 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+5234 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:02:19 CST 2016]; parent: Root WebApplicationContext
+5342 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:02:19 CST 2016]; parent: Root WebApplicationContext
+5502 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5658 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1812 ms
+27494 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+27498 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+27499 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+41809 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+41809 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+41809 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+55854 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+55855 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+55855 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+79772 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+79773 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+79773 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+82526 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+82526 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+82527 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+409  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+634  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 12 00:13:04 CST 2016]; root of context hierarchy
+735  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1593 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1608 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3164 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3167 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3168 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3168 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3169 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3169 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3169 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3169 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3169 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3207 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+3210 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=1, linkName=第一轮抽奖, openState=1, linkOrder=1, linkState=1]
+3210 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第一轮抽奖...
+3210 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3210 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+3227 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3234 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当前环节的参与人员：[Participant [participantId=1, participantName=叶春林], Participant [participantId=3, participantName=赵林刚], Participant [participantId=4, participantName=汪小峰], Participant [participantId=2, participantName=魏波]]
+3234 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3235 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+3236 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3237 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3238 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3238 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3238 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool--2067849264真实的奖品数量为：1
+3238 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3239 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3403 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 2988 ms
+3456 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3459 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:13:07 CST 2016]; parent: Root WebApplicationContext
+3460 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3689 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4026 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4034 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4036 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4905 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:13:07 CST 2016]; parent: Root WebApplicationContext
+5033 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:13:07 CST 2016]; parent: Root WebApplicationContext
+5209 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5390 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1934 ms
+16035 [http-bio-8080-exec-6] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+16039 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+16039 [http-bio-8080-exec-6] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+20404 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+20404 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+20405 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+33354 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+33355 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+33355 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+37107 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+37107 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+37107 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+761972 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+771595 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+778362 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+782109 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+787879 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+833110 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+846706 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+965699 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+969995 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+973087 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+975726 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+980931 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+983694 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1122962 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1125498 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1147905 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1149892 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1151368 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1152983 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1154448 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1155944 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1157422 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1159063 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1175634 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1177969 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1184511 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1368667 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1371734 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1373844 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1375964 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1378082 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+1394127 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<========尝试启动新的抽奖环节...
+1394127 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<=============当前环节状态：{}INIT
+1394127 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<==========把当前环节的状态设置为：{}RUN
+1394132 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 完成新的环节启动，启动时间：{}Tue Jan 12 00:36:18 CST 2016
+1400377 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1429792 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1433157 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1435750 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1438321 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1477702 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1477704 [http-bio-8080-exec-2] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1486316 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1486320 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1489683 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1489691 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1492802 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1492806 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1495128 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1495131 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1497481 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1497484 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1499767 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1499771 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1502053 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1502057 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1504473 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1504476 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1506841 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1506842 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1509172 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1509176 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1511370 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1511373 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1513657 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1513658 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1516054 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1516062 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, sepc=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+1518454 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+1518455 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<====参与人员：Participant [participantId=1, participantName=叶春林],中奖：Prize [type=1, sepc=一等奖, mess=10000元红包]
+1518456 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<====当前环节剩余的奖品没有了时，结束当前环节
+1518458 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<=========结束环节第一轮抽奖...
+1518500 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+1518504 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=2, linkName=第二轮抽奖, openState=1, linkOrder=2, linkState=1]
+1518504 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第二轮抽奖...
+1518505 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+1518505 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+1518507 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+1518508 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当前环节的参与人员：[Participant [participantId=1, participantName=叶春林], Participant [participantId=3, participantName=赵林刚], Participant [participantId=4, participantName=汪小峰], Participant [participantId=2, participantName=魏波]]
+1518508 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-2099725767真实的奖品数量为：0
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+1518509 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+1518510 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，participantName: 叶春林, linkId: DrawPrize [prizeId=1, prizeType=一等奖, prizeName=10000元红包, linkId=1, size=3, provider=X战警, providerPosition=BOSS]
+1518542 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=1, sepc=一等奖, mess=10000元红包]
+417  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+621  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 12 00:47:48 CST 2016]; root of context hierarchy
+723  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1664 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1676 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2638 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3268 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3270 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3272 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3272 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3273 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3273 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3273 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3273 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3273 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3303 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+3315 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=2, linkName=第二轮抽奖, openState=1, linkOrder=2, linkState=1]
+3315 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第二轮抽奖...
+3315 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3318 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+3341 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3349 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当前环节的参与人员：[Participant [participantId=1, participantName=叶春林], Participant [participantId=3, participantName=赵林刚], Participant [participantId=4, participantName=汪小峰], Participant [participantId=2, participantName=魏波]]
+3349 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3349 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+3351 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3351 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3351 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3352 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3352 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool-519215613真实的奖品数量为：0
+3353 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3354 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3513 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3091 ms
+3576 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3580 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:47:51 CST 2016]; parent: Root WebApplicationContext
+3581 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3812 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4056 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4060 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4062 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4799 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:47:51 CST 2016]; parent: Root WebApplicationContext
+4933 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 00:47:51 CST 2016]; parent: Root WebApplicationContext
+5181 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5459 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1883 ms
+12145 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+12147 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, sepc=抽奖未开始, mess=请稍等，马上开始！]
+92995 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+93007 [http-bio-8080-exec-3] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, sepc=抽奖未开始, mess=请稍等，马上开始！]
+175729 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+175732 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, spec=抽奖未开始, mess=请稍等，马上开始！]
+178259 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+178262 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, spec=抽奖未开始, mess=请稍等，马上开始！]
+180648 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+180649 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, spec=抽奖未开始, mess=请稍等，马上开始！]
+226239 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+226242 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, spec=抽奖未开始, mess=请稍等，马上开始！]
+230498 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.DrawServiceImpl - <<===========当前环节未开始！
+230503 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=4, spec=抽奖未开始, mess=请稍等，马上开始！]
+232572 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<========尝试启动新的抽奖环节...
+232572 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<=============当前环节状态：{}INIT
+232573 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<==========把当前环节的状态设置为：{}RUN
+232582 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 完成新的环节启动，启动时间：{}Tue Jan 12 00:51:40 CST 2016
+237396 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+237411 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+243386 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+243392 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+245652 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+245655 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+247742 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+247746 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+249861 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+249863 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+252007 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+252010 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+254237 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+254241 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+256468 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+256470 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+258640 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+258643 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+260922 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+260922 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+263216 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+263223 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+265490 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+265500 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+267723 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+267726 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+270012 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+270017 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+272311 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+272324 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+274598 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+274601 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+276983 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+276985 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+279521 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+279526 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+281762 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+281767 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+284140 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+284143 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+286417 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+286422 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+288708 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+288710 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+290982 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+290984 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+293306 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+293311 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+295516 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+295519 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+297909 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+297911 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+300214 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+300215 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+302489 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+302497 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+304813 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+304818 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+307526 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+307531 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+309968 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+309971 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+312596 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+312597 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+315025 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+315028 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+317375 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+317380 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+319655 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+319658 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+321901 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+321906 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+324242 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+324245 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+326962 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+326966 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+329245 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+329249 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+331594 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+331595 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+333973 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+333992 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+336251 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+336254 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+338334 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+338337 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+340407 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+340411 [http-bio-8080-exec-5] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+342569 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+342571 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+344671 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+344679 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+346718 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+346720 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+348892 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+348896 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+350975 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+350977 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+353109 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+353111 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+355200 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+355203 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+357397 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+357399 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+359613 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+359618 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+361716 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+361717 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+363774 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+363776 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+366029 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+366030 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+368226 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+368228 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+370595 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+370597 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+372810 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+372811 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+374915 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+374917 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+377079 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+377081 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+379327 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+379329 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+381551 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+381554 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+383703 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+383707 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+385898 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+385899 [http-bio-8080-exec-8] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+453691 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+453696 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+456387 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+456388 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+458705 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+458706 [http-bio-8080-exec-10] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+485607 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+485610 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+488008 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+488011 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+490286 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+490288 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+492805 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+492806 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+495073 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+495075 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]
+497365 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据key: 叶春林，获取到参与人员信息 value: Participant [participantId=1, participantName=叶春林]
+497366 [http-bio-8080-exec-7] INFO  c.a.draw.controller.DrawController - 中奖信息：Prize [type=2, spec=再接再厉, mess=使劲摇还是要有的，万一中奖了呢？]

@@ -97,7 +97,9 @@ public class DefaultPrizePool extends PrizePool {
 				}
 			}
 			// 当前奖池剔除当前奖品
-			getPrizes().remove(prize);
+			List<DrawPrize> prizes = getPrizes();
+			prizes.remove(index);
+			setPrizes(prizes);
 			// 已中奖时，需要把当前奖品池的真实奖品-1
 			if (prize != null) {
 				setTruePrize(getTruePrize() - 1);

@@ -159,6 +159,7 @@ public class LinkServiceImpl implements LinkService {
 				winningRecord.setLinkId(currentLink.getLinkId());
 				winningRecord.setParticipantName(hit.getKey());
 				winningRecord.setPrizeId(hit.getValue().getPrizeId());
+				winningRecord.setCreateDate(new Date());
 				winningRecordMapper.insert(winningRecord);
 			}
 		}
