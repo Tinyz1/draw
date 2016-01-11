@@ -102,7 +102,6 @@
 		</div>
 	</div>
 	
-	<button id="pickBtn">点击</button>
 	
 	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
     <script src="resources/Flat-UI/js/vendor/jquery.min.js"></script>
@@ -164,7 +163,6 @@
  	    }
 
  	    function deviceMotionHandler(e) {
- 	    	
  	        var acceleration = e.accelerationIncludingGravity;
  	        var curTime = new Date().getTime();
 
@@ -186,9 +184,7 @@
  				}
  				
  				if (speed > SHAKE_THRESHOLD) {
- 					if ($("#hand-container").is(":visible") == false){
  						pick();
- 					}
  	            }
  				
  	            last_x = x;
@@ -206,8 +202,6 @@
  				show();
  			});
  	    }
- 	    
- 	    $('#pickBtn').click(pick);
  	    
  	    function playMusic(){
  	    	$('#music')[0].play();

@@ -75,7 +75,7 @@ public class LinkServiceImpl implements LinkService {
 
 		// 当前环节中奖人员
 		logger.info("<<===========初始化当前环节已中奖人员...");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
+		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<String, DrawPrize>());
 
 		// 初始化奖品池
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();

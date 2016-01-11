@@ -233,66 +233,6 @@ public class ParticipantExample {
             addCriterion("participant_name not between", value1, value2, "participantName");
             return (Criteria) this;
         }
-
-        public Criteria andParticipantNumIsNull() {
-            addCriterion("participant_num is null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumIsNotNull() {
-            addCriterion("participant_num is not null");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumEqualTo(Integer value) {
-            addCriterion("participant_num =", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumNotEqualTo(Integer value) {
-            addCriterion("participant_num <>", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumGreaterThan(Integer value) {
-            addCriterion("participant_num >", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumGreaterThanOrEqualTo(Integer value) {
-            addCriterion("participant_num >=", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumLessThan(Integer value) {
-            addCriterion("participant_num <", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumLessThanOrEqualTo(Integer value) {
-            addCriterion("participant_num <=", value, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumIn(List<Integer> values) {
-            addCriterion("participant_num in", values, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumNotIn(List<Integer> values) {
-            addCriterion("participant_num not in", values, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumBetween(Integer value1, Integer value2) {
-            addCriterion("participant_num between", value1, value2, "participantNum");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNumNotBetween(Integer value1, Integer value2) {
-            addCriterion("participant_num not between", value1, value2, "participantNum");
-            return (Criteria) this;
-        }
     }
 
     public static class Criteria extends GeneratedCriteria {

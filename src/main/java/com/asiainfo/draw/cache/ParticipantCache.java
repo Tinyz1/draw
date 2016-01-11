@@ -27,18 +27,18 @@ public class ParticipantCache implements InitializingBean {
 
 	private final Cache<String, Participant> cache = CacheBuilder.newBuilder().build();
 
-	public synchronized void put(Integer key, Participant value) {
+	public synchronized void put(String key, Participant value) {
 		logger.info("写入缓存，key: {}, value: {}", key, value);
-		cache.put(String.valueOf(key), value);
+		cache.put(key, value);
 	}
 
-	public Participant get(final Integer key) {
+	public Participant get(final String key) {
 		try {
-			Participant participant = (Participant) cache.get(String.valueOf(key), new Callable<Participant>() {
+			Participant participant = (Participant) cache.get(key, new Callable<Participant>() {
 				@Override
 				public Participant call() throws Exception {
 					logger.info("<<============执行了吗？");
-					Participant selParticipant = participantService.getByParticipantNum(key);
+					Participant selParticipant = participantService.getByParticipantName(key);
 					if (selParticipant != null) {
 						put(key, selParticipant);
 						return selParticipant;
@@ -57,8 +57,6 @@ public class ParticipantCache implements InitializingBean {
 	@Autowired
 	private ParticipantService participantService;
 
-	private static int i = 0;
-
 	public List<Participant> getAll() {
 		ConcurrentMap<String, Participant> maps = cache.asMap();
 
@@ -72,16 +70,12 @@ public class ParticipantCache implements InitializingBean {
 
 	@Override
 	public void afterPropertiesSet() throws Exception {
-		if (++i > 1) {
-			return;
-		}
 		logger.info("<<==============开始初始化参与人员信息");
-		logger.info("<<==============查询数据库中信息");
 		List<Participant> participants = participantService.queryAllParticipant();
-
 		if (participants != null && participants.size() > 0) {
 			for (Participant participant : participants) {
-				put(participant.getParticipantNum(), participant);
+				logger.info("<<======用户：{}加入缓存...", participant.getParticipantName());
+				put(participant.getParticipantName(), participant);
 			}
 		}
 		logger.info("<<==============参与人员信息加载完毕");

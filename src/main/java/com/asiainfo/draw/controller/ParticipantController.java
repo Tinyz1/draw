@@ -31,10 +31,10 @@ public class ParticipantController {
 
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	@ResponseBody
-	public DefaultResult authParticipantByTelphone(Integer participantNum, String participantName) {
+	public DefaultResult authParticipantByTelphone(String participantName) {
 		DefaultResult result = null;
 		try {
-			participantService.authParticipant(participantNum, participantName);
+			participantService.authParticipant(participantName);
 			result = DefaultResult.newSuccessInstance(1, "身份验证成功！");
 		} catch (AuthenticationExceptioin e) {
 			logger.error(e.toString());

@@ -1,18 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.asiainfo.draw.persistence.LinkMemberMapper" >
-
   <resultMap id="BaseResultMap" type="com.asiainfo.draw.domain.LinkMember" >
     <id column="member_id" property="memberId" jdbcType="INTEGER" />
     <result column="link_id" property="linkId" jdbcType="INTEGER" />
-    <result column="participant_num" property="participantNum" jdbcType="INTEGER" />
+    <result column="participant_name" property="participantName" jdbcType="VARCHAR" />
   </resultMap>
   
-  <!-- 参与人员ResultMap -->
   <resultMap id="participantResultMap" type="com.asiainfo.draw.domain.Participant" >
     <id column="participant_id" property="participantId" jdbcType="INTEGER" />
     <result column="participant_name" property="participantName" jdbcType="VARCHAR" />
-    <result column="participant_num" property="participantNum" jdbcType="INTEGER" />
   </resultMap>
   
   <sql id="Example_Where_Clause" >
@@ -73,11 +70,9 @@
       </foreach>
     </where>
   </sql>
-  
   <sql id="Base_Column_List" >
-    member_id, link_id, participant_num
+    member_id, link_id, participant_name
   </sql>
-  
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.LinkMemberExample" >
     select
     <if test="distinct" >
@@ -101,11 +96,12 @@
   
   <!-- 获取指定环节的参与人员列表 -->
   <select id="selectParticipantByLink" resultMap="participantResultMap">
-    select b.participant_id,b.participant_name,b.participant_num
+    select b.participant_id,b.participant_name
     from link_member a, participant b
-    where a.participant_num = b.participant_num
+    where a.participant_name = b.participant_name
     and link_id = #{linkId,jdbcType=INTEGER}
   </select>
+  
   
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from link_member
@@ -118,9 +114,9 @@
     </if>
   </delete>
   <insert id="insert" parameterType="com.asiainfo.draw.domain.LinkMember" >
-    insert into link_member (member_id, link_id, participant_num
+    insert into link_member (member_id, link_id, participant_name
       )
-    values (#{memberId,jdbcType=INTEGER}, #{linkId,jdbcType=INTEGER}, #{participantNum,jdbcType=INTEGER}
+    values (#{memberId,jdbcType=INTEGER}, #{linkId,jdbcType=INTEGER}, #{participantName,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.LinkMember" >
@@ -132,8 +128,8 @@
       <if test="linkId != null" >
         link_id,
       </if>
-      <if test="participantNum != null" >
-        participant_num,
+      <if test="participantName != null" >
+        participant_name,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -143,8 +139,8 @@
       <if test="linkId != null" >
         #{linkId,jdbcType=INTEGER},
       </if>
-      <if test="participantNum != null" >
-        #{participantNum,jdbcType=INTEGER},
+      <if test="participantName != null" >
+        #{participantName,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -163,8 +159,8 @@
       <if test="record.linkId != null" >
         link_id = #{record.linkId,jdbcType=INTEGER},
       </if>
-      <if test="record.participantNum != null" >
-        participant_num = #{record.participantNum,jdbcType=INTEGER},
+      <if test="record.participantName != null" >
+        participant_name = #{record.participantName,jdbcType=VARCHAR},
       </if>
     </set>
     <if test="_parameter != null" >
@@ -175,7 +171,7 @@
     update link_member
     set member_id = #{record.memberId,jdbcType=INTEGER},
       link_id = #{record.linkId,jdbcType=INTEGER},
-      participant_num = #{record.participantNum,jdbcType=INTEGER}
+      participant_name = #{record.participantName,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -186,8 +182,8 @@
       <if test="linkId != null" >
         link_id = #{linkId,jdbcType=INTEGER},
       </if>
-      <if test="participantNum != null" >
-        participant_num = #{participantNum,jdbcType=INTEGER},
+      <if test="participantName != null" >
+        participant_name = #{participantName,jdbcType=VARCHAR},
       </if>
     </set>
     where member_id = #{memberId,jdbcType=INTEGER}
@@ -195,7 +191,7 @@
   <update id="updateByPrimaryKey" parameterType="com.asiainfo.draw.domain.LinkMember" >
     update link_member
     set link_id = #{linkId,jdbcType=INTEGER},
-      participant_num = #{participantNum,jdbcType=INTEGER}
+      participant_name = #{participantName,jdbcType=VARCHAR}
     where member_id = #{memberId,jdbcType=INTEGER}
   </update>
 </mapper>

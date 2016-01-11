@@ -5,8 +5,6 @@ public class Participant {
 
 	private String participantName;
 
-	private Integer participantNum;
-
 	public Integer getParticipantId() {
 		return participantId;
 	}
@@ -23,12 +21,9 @@ public class Participant {
 		this.participantName = participantName == null ? null : participantName.trim();
 	}
 
-	public Integer getParticipantNum() {
-		return participantNum;
-	}
-
-	public void setParticipantNum(Integer participantNum) {
-		this.participantNum = participantNum;
+	@Override
+	public String toString() {
+		return "Participant [participantId=" + participantId + ", participantName=" + participantName + "]";
 	}
 
 	@Override
@@ -36,7 +31,6 @@ public class Participant {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((participantName == null) ? 0 : participantName.hashCode());
-		result = prime * result + ((participantNum == null) ? 0 : participantNum.hashCode());
 		return result;
 	}
 
@@ -54,18 +48,7 @@ public class Participant {
 				return false;
 		} else if (!participantName.equals(other.participantName))
 			return false;
-		if (participantNum == null) {
-			if (other.participantNum != null)
-				return false;
-		} else if (!participantNum.equals(other.participantNum))
-			return false;
 		return true;
-	}
-
-	@Override
-	public String toString() {
-		return "Participant [participantId=" + participantId + ", participantName=" + participantName + ", participantNum="
-				+ participantNum + "]";
 	}
 
 }

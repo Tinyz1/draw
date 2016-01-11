@@ -17,14 +17,13 @@ public interface ParticipantService {
 	public Participant getByParticipantId(Integer participantId);
 
 	/**
-	 * 根据参与人员编号查询人员
+	 * 根据参与人员姓名获取参与人员
 	 * 
-	 * @param participantNum
-	 *            参与人员编号
-	 * 
+	 * @param participantName
+	 *            参与人员姓名
 	 * @return 参与人员
 	 */
-	public Participant getByParticipantNum(Integer participantNum);
+	public Participant getByParticipantName(String participantName);
 
 	/**
 	 * 根据用户编号和用户名验证用户是否能够参与活动
@@ -34,7 +33,7 @@ public interface ParticipantService {
 	 * @param participantName
 	 *            用户名
 	 */
-	public void authParticipant(Integer participantNum, String participantName);
+	public void authParticipant(String participantName);
 
 	/**
 	 * 查询所有的参与人员信息。

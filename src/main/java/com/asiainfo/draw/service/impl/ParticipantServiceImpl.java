@@ -4,7 +4,6 @@ import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,30 +31,15 @@ public class ParticipantServiceImpl implements ParticipantService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Participant getByParticipantId(Integer participantId) {
-		checkNotNull(participantId);
-		return participantMapper.selectByPrimaryKey(participantId);
-	}
-
-	@Override
-	public void authParticipant(Integer participantNum, String participantName) {
-		checkNotNull(participantNum);
-		logger.debug("用户编号：" + participantNum);
+	public Participant getByParticipantName(String participantName) {
 		checkNotNull(participantName);
-		logger.debug("用户名称：" + participantName);
-		Participant participant;
-		try {
-			participant = participantCache.get(participantNum);
-		} catch (Exception e) {
-			logger.error("错误信息：" + e.toString());
-			throw new AuthenticationExceptioin("用户编号不存在！");
+		ParticipantExample participantExample = new ParticipantExample();
+		participantExample.createCriteria().andParticipantNameEqualTo(participantName);
+		List<Participant> participants = participantMapper.selectByExample(participantExample);
+		if (participants != null && participants.size() > 0) {
+			return participants.get(0);
 		}
-		if (participant == null) {
-			throw new AuthenticationExceptioin("用户编号不存在！");
-		}
-		if (!StringUtils.equals(participantName, participant.getParticipantName())) {
-			throw new AuthenticationExceptioin("用户姓名错误！");
-		}
+		return null;
 	}
 
 	@Override
@@ -66,8 +50,24 @@ public class ParticipantServiceImpl implements ParticipantService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public Participant getByParticipantNum(Integer participantNum) {
-		checkNotNull(participantNum);
-		return participantMapper.selectByParticipantNum(participantNum);
+	public Participant getByParticipantId(Integer participantId) {
+		checkNotNull(participantId);
+		return participantMapper.selectByPrimaryKey(participantId);
 	}
+
+	@Override
+	public void authParticipant(String participantName) {
+		logger("校验用户：{}", participantName);
+		Participant participant = getByParticipantName(participantName);
+		if (participant == null) {
+			logger("用户：{}不存在！", participantName);
+			throw new AuthenticationExceptioin("用户不存在");
+		}
+		logger("用户：{}校验通过", participantName);
+	}
+
+	private void logger(String mess, Object... args) {
+		logger.info("<<================" + mess, args);
+	}
+
 }

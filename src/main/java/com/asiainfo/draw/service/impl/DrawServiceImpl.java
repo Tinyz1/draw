@@ -44,10 +44,8 @@ public class DrawServiceImpl implements DrawService {
 	private LinkService linkService;
 
 	@Override
-	public Prize pick(Integer participantNum) {
-
-		checkNotNull(participantNum);
-
+	public Prize pick(String participantName) {
+		checkNotNull(participantName);
 		// 判断当前环节是否开始了
 		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
 		switch (linkState) {
@@ -58,8 +56,8 @@ public class DrawServiceImpl implements DrawService {
 			// 环节运行中
 		case RUN: {
 			// 1、根据手机号码获取用户信息
-			Participant participant = participantCache.get(participantNum);
-			checkNotNull(participant, "根据用户编号: %s获取不到用户信息！", participantNum);
+			Participant participant = participantCache.get(participantName);
+			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 
 			// 判断当前环节是否对所有人开放
 			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
@@ -75,7 +73,7 @@ public class DrawServiceImpl implements DrawService {
 			// 只对未中奖的人开放
 			if (link.getLinkState() == DrawLink.LINK_CLOSE_TO_HIT_PRTICIPANT) {
 				// 判断当前用户是否已中奖
-				Set<DrawPrize> links = hitPrizeCache.get(participantNum);
+				Set<DrawPrize> links = hitPrizeCache.get(participantName);
 				if (links != null && links.size() > 0) {
 					// 环节对中奖人员不开放，且已中奖的用户。直接返回没有中奖
 					return Prize.createMissPrize();
@@ -85,8 +83,8 @@ public class DrawServiceImpl implements DrawService {
 
 			// 对于任何一种情况，任何一个人，同一个环节最多能够中奖一次。
 			@SuppressWarnings("unchecked")
-			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-			if (currentHits.containsKey(participant.getParticipantNum())) {
+			Map<String, DrawPrize> currentHits = (Map<String, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			if (currentHits.containsKey(participant.getParticipantName())) {
 				// 该人员当前环节已中奖，不能参与本次抽奖了
 				return Prize.createMissPrize();
 			}
@@ -117,7 +115,7 @@ public class DrawServiceImpl implements DrawService {
 			Prize prize = new Prize(Prize.HIT, drawPrize.getPrizeType(), drawPrize.getPrizeName());
 
 			// 记录环节中奖记录
-			currentHits.put(participantNum, drawPrize);
+			currentHits.put(participantName, drawPrize);
 
 			// 环节剩余奖品数-1
 			currentPrizes.remove(drawPrize);
@@ -128,7 +126,7 @@ public class DrawServiceImpl implements DrawService {
 			}
 
 			// 记录中奖记录
-			hitPrizeCache.put(participantNum, drawPrize);
+			hitPrizeCache.put(participantName, drawPrize);
 
 			return prize;
 

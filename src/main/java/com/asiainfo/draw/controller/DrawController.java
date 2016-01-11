@@ -21,11 +21,11 @@ public class DrawController {
 
 	@RequestMapping("/pick")
 	@ResponseBody
-	public Prize pick(Integer participantNum) {
-		logger.debug("participantNum: " + participantNum);
+	public Prize pick(String participantName) {
+		logger.debug("participantName: " + participantName);
 		Prize prize = null;
 		try {
-			prize = drawService.pick(participantNum);
+			prize = drawService.pick(participantName);
 		} catch (Exception e) {
 			logger.error("系统错误，错误信息：{}", e);
 			prize = Prize.createOverPrize();

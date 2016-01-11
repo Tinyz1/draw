@@ -5,7 +5,7 @@ public class LinkMember {
 
     private Integer linkId;
 
-    private Integer participantNum;
+    private String participantName;
 
     public Integer getMemberId() {
         return memberId;
@@ -23,11 +23,11 @@ public class LinkMember {
         this.linkId = linkId;
     }
 
-    public Integer getParticipantNum() {
-        return participantNum;
+    public String getParticipantName() {
+        return participantName;
     }
 
-    public void setParticipantNum(Integer participantNum) {
-        this.participantNum = participantNum;
+    public void setParticipantName(String participantName) {
+        this.participantName = participantName == null ? null : participantName.trim();
     }
 }
