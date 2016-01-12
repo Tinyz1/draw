@@ -42,11 +42,11 @@
 				</div>
 				<div class="tips3 hidden tip">
 					<div class="redPackage">
-						<p class="prize">一等奖</p>
-						<p class="money">￥5000</p>
+						<p class="prize ptip">一等奖</p>
+						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<!-- <button id="shakeBtn">摇一摇</button> -->
+				<button id="shakeBtn">摇一摇</button>
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -55,7 +55,7 @@
 	<script type="text/javascript">
 		(function($){
 			
-			$(".username").html(participantName);
+			$(".username").html(participantName.slice(0,1));
 			
 			var SHAKE_THRESHOLD = 3000;
 	 	    var last_update = 0;
@@ -106,17 +106,15 @@
 			
 			function record(){
 				$.post("draw/pick",{participantName: participantName},function(data){
-					$(".tips").hide();
+					$(".tips").addClass("hidden");
 					$(".audio")[1].play();
-					if(data.type == 1){
-			 			$('.prize').text(data.spec);
-			 			$('.money').text(data.mess);
-			 			$(".tips3").show();
-			 		}else{
-			 			$('.ptip').text(data.spec);
-		 				$('.pptip').text(data.mess);
-			 			$(".tips2").show();
-			 		}
+					$(".ptip").html(data.spec);
+			 		$(".pptip").html(data.mess);
+					if(data.type ==1){
+				 		$(".tips3").show();
+				 	}else{
+				 		$(".tips2").show();
+				 	}
 			 	});
 			}
 			
@@ -125,9 +123,9 @@
 				window.open("mobileLuckDraw.jsp","_self");
 			})
 			
-			/* $('#shakeBtn').click(function(){
+			$('#shakeBtn').click(function(){
 				shake();
-			}); */
+			});
 		})(jQuery);
 	</script>
 </body>

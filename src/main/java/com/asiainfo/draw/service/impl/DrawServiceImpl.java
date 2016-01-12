@@ -82,7 +82,7 @@ public class DrawServiceImpl implements DrawService {
 
 			// 对于任何一种情况，任何一个人，同一个环节最多能够中奖一次。
 			@SuppressWarnings("unchecked")
-			Map<String, DrawPrize> currentHits = (Map<String, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
 			if (currentHits.containsKey(participant.getParticipantName())) {
 				// 该人员当前环节已中奖，不能参与本次抽奖了
 				return Prize.createMissPrize();
@@ -113,7 +113,7 @@ public class DrawServiceImpl implements DrawService {
 			logger.info("<<====参与人员：{},中奖：{}", participant, prize);
 
 			// 更新当前环节中奖记录
-			currentHits.put(participantName, drawPrize);
+			currentHits.put(participant.getParticipantId(), drawPrize);
 			currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, currentHits);
 
 			// 更新环节剩余奖品数
