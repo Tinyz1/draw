@@ -64,6 +64,7 @@ public class DrawServiceImpl implements DrawService {
 			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
 			if (!allowParticipants.contains(participant)) {
 				// 对于不在人员列表的用户，直接返回不中奖
+				logger.info("用户：{}不在参与人员列表中，直接返回不中奖！");
 				return Prize.createMissPrize();
 			}
 

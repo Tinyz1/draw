@@ -10,7 +10,8 @@
 	<script src="resources/js/login.js"></script>
 </head>
 <body>
-	<audio src="resources/music/5018.mp3" class="audio" loop></audio> 
+	<audio src="resources/music/5018.mp3" class="audio" loop></audio>
+	<audio src="resources/music/5012.mp3" class="audio" ></audio>
 	<div class="wrap">
 		<div class="header">
 			<img src="resources/image/sheader.jpg">
@@ -46,7 +47,7 @@
 			var storage = getLocalStorage();
 			var participantName = storage.getItem('participantName');
 			
-			var SHAKE_THRESHOLD = 2000;
+			var SHAKE_THRESHOLD = 3000;
 	 	    var last_update = 0;
 	 	    var x = y = z = last_x = last_y = last_z = 0;
 
@@ -60,7 +61,7 @@
 	 	        var acceleration = e.accelerationIncludingGravity;
 	 	        var curTime = new Date().getTime();
 
-	 	        if ((curTime - last_update) > 100) {
+	 	        if ((curTime - last_update) > 300) {
 	 	            var diffTime = curTime - last_update;
 	 	            last_update = curTime;
 	 	            x = acceleration.x;
@@ -94,6 +95,7 @@
 			function record(){
 				$.post("draw/pick",{participantName: participantName},function(data){
 					$(".tips").hide();
+					$(".audio")[1].play();
 					if(data.type == 1){
 			 			$('.prize').text(data.spec);
 			 			$('.money').text(data.mess);
