@@ -58,7 +58,7 @@ public class DrawServiceImpl implements DrawService {
 			logger.info("<<=================用户:{}参与抽奖...", participantName);
 			Participant participant = participantCache.get(participantName);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
-
+			
 			// 判断当前环节是否对当前人员开发
 			@SuppressWarnings("unchecked")
 			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
@@ -66,6 +66,19 @@ public class DrawServiceImpl implements DrawService {
 				// 对于不在人员列表的用户，直接返回不中奖
 				logger.info("用户：{}不在参与人员列表中，直接返回不中奖！");
 				return Prize.createMissPrize();
+			}
+
+			// 一个人一个环节只能摇奖一次
+			@SuppressWarnings("unchecked")
+			Set<Integer> currentShake = (Set<Integer>) currentLinkCache.get(CurrentLinkCache.CURRENT_SHAKE);
+			if (currentShake.contains(participant.getParticipantId())) {
+				// 该人员当前环节已参与过抽奖，不能参与本次抽奖了
+				logger.info("<<=================用户：{}当前环节已参与过抽奖，不能继续参与");
+				return Prize.createMissPrize();
+			} else {
+				// 当前用户已经摇奖了
+				currentShake.add(participant.getParticipantId());
+				currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, currentShake);
 			}
 
 			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);

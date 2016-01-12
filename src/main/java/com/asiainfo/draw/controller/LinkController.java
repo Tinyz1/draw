@@ -36,4 +36,20 @@ public class LinkController {
 		}
 		return result;
 	}
+
+	@RequestMapping("/initPool")
+	@ResponseBody
+	public DefaultResult initPool() {
+		DefaultResult result = null;
+		try {
+			linkService.initPool();
+			result = DefaultResult.newSuccessInstance(1, "奖池已经初始化完毕，可以开始抽奖了。");
+		} catch (StartLinkException e) {
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			result = DefaultResult.newErrorInstance(2, "奖池已经初始化失败！");
+		}
+		return result;
+	}
+
 }

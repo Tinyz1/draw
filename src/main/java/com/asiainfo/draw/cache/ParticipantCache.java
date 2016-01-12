@@ -1,10 +1,7 @@
 package com.asiainfo.draw.cache;
 
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 import java.util.concurrent.Callable;
-import java.util.concurrent.ConcurrentMap;
 import java.util.concurrent.ExecutionException;
 
 import org.slf4j.Logger;
@@ -89,15 +86,6 @@ public class ParticipantCache implements InitializingBean {
 			logger.error(e.toString());
 		}
 		return null;
-	}
-
-	public List<Participant> getAll() {
-		ConcurrentMap<String, Participant> maps = nameCache.asMap();
-		List<Participant> participants = new ArrayList<Participant>();
-		for (Map.Entry<String, Participant> map : maps.entrySet()) {
-			participants.add(map.getValue());
-		}
-		return participants;
 	}
 
 	@Override

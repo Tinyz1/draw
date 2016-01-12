@@ -1,5 +1,7 @@
 package com.asiainfo.draw.controller;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.exception.AuthenticationExceptioin;
 import com.asiainfo.draw.service.ParticipantService;
 import com.asiainfo.draw.util.DefaultResult;
@@ -40,6 +43,51 @@ public class ParticipantController {
 		} catch (Exception e) {
 			logger.error(e.toString());
 			result = DefaultResult.newErrorInstance(2, "身份验证失败！");
+		}
+		logger.info(result.toString());
+		return result;
+	}
+
+	/**
+	 * 获取可进行抽人的人员。用于人员抽取
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/current/participants")
+	@ResponseBody
+	public List<Participant> getCurrentlinkParticipant() {
+		return participantService.getCurrentlinkParticipant();
+	}
+
+	/**
+	 * 获取当前环节可进行抽奖的人员。用于人员展示
+	 */
+	@RequestMapping("/current/pickParticipants")
+	@ResponseBody
+	public List<Participant> getCurrentPickParticipant() {
+		return participantService.getCurrentPickParticipant();
+	}
+
+	/**
+	 * 把摇中的人员加入当前可摇奖的人员中
+	 * 
+	 * @param ids
+	 *            人员id,人员id,...
+	 * @return
+	 */
+	@RequestMapping("/current/addPickParticipant")
+	@ResponseBody
+	public DefaultResult addPickParticipant(String ids) {
+		DefaultResult result = null;
+		try {
+			participantService.addPickParticipant(ids);
+			result = DefaultResult.newSuccessInstance(1, "人员添加成功！");
+		} catch (AuthenticationExceptioin e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "人员添加失败！");
 		}
 		logger.info(result.toString());
 		return result;

@@ -41,4 +41,26 @@ public interface ParticipantService {
 	 */
 	public List<Participant> queryAllParticipant();
 
+	/**
+	 * 获取可进行抽人的人员
+	 * 
+	 * @return
+	 */
+	public List<Participant> getCurrentlinkParticipant();
+
+	/**
+	 * 获取当前环节可进行抽奖的人员
+	 * 
+	 * @return
+	 */
+	public List<Participant> getCurrentPickParticipant();
+
+	/**
+	 * 把摇中的人员加入当前可摇奖的人员中
+	 * 
+	 * @param ids
+	 *            人员id,人员id,...
+	 */
+	public void addPickParticipant(String ids);
+
 }

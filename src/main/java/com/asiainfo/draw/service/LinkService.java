@@ -27,4 +27,9 @@ public interface LinkService {
 	 */
 	void startCurrentLink();
 
+	/**
+	 * ≥ı ºªØΩ±≥ÿ
+	 */
+	void initPool();
+
 }

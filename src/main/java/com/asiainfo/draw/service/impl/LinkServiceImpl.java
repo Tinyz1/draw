@@ -2,8 +2,10 @@ package com.asiainfo.draw.service.impl;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.ParticipantCache;
@@ -55,6 +58,9 @@ public class LinkServiceImpl implements LinkService {
 	@Autowired
 	private RecordService recordService;
 
+	@Autowired
+	private AllPickCache allPickCache;
+
 	@Override
 	public void initNextLink() {
 		logger.info("<<===========读取新的环节...");
@@ -68,6 +74,28 @@ public class LinkServiceImpl implements LinkService {
 		logger.info("<<===========把当前环节加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_LINK, currentLink);
 
+		logger.info("<<===========初始化当前环节可参与人员列表为空...");
+		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, new ArrayList<Participant>());
+
+		logger.info("<<===========初始化当前环节已中奖人员...");
+		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
+
+		logger.info("<<===========初始化当前环节摇奖记录...");
+		currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, new HashSet<Integer>());
+
+		// 刚初始化时，当前环节不能抽奖
+		logger.info("<<===========初始化环节状态为：{}...", LinkState.INIT);
+		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.INIT);
+	}
+
+	/**
+	 * 初始化奖品池，一般在选人后才进行初始化
+	 */
+	@Override
+	public void initPool() {
+
+		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+
 		logger.info("<<===========读取新的环节奖品...");
 		List<DrawPrize> currentPrizes = getPrizeByLink(currentLink.getLinkId());
 
@@ -75,19 +103,9 @@ public class LinkServiceImpl implements LinkService {
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
 
 		// 初始化当前环节参与人员
-		List<Participant> participants = getParticipantByLink(currentLink.getLinkId());
-		int numberOfPeople = 0;
-		if (participants == null || participants.size() == 0) {
-			participants = participantCache.getAll();
-			numberOfPeople = participants.size();
-		} else {
-			numberOfPeople = participants.size();
-		}
-		logger.info("<<===========当前环节的参与人员：{}", participants);
-		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
-
-		logger.info("<<===========初始化当前环节已中奖人员...");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
+		@SuppressWarnings("unchecked")
+		List<Participant> participants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
+		int numberOfPeople = participants.size();
 
 		logger.info("<<===========初始化奖品池...");
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
@@ -97,23 +115,6 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("<<===========把奖品池加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_POOLS, pools);
-
-		// 刚初始化时，当前环节不能抽奖
-		logger.info("<<===========初始化环节状态为：{}...", LinkState.INIT);
-		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.INIT);
-	}
-
-	/**
-	 * 获取当前环节能够参与的人员。
-	 * 
-	 * @param linkId
-	 *            环节ID
-	 * @return 参与人员列表
-	 */
-	private List<Participant> getParticipantByLink(Integer linkId) {
-		checkNotNull(linkId);
-		List<Participant> participants = memberMapper.selectParticipantByLink(linkId);
-		return participants;
 	}
 
 	@Override
