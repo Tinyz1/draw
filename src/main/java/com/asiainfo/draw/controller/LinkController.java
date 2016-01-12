@@ -1,5 +1,7 @@
 package com.asiainfo.draw.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.DefaultResult;
+import com.asiainfo.draw.util.ParticipantPrize;
 
 /**
  * 环节控制器
@@ -50,6 +53,19 @@ public class LinkController {
 			result = DefaultResult.newErrorInstance(2, "奖池已经初始化失败！");
 		}
 		return result;
+	}
+
+	/**
+	 * 获取环节的用户中奖记录
+	 * 
+	 * @param linkId
+	 *            环节ID
+	 * @return
+	 */
+	@RequestMapping("/hitPrize")
+	@ResponseBody
+	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
+		return linkService.getLinkHitPrize(linkId);
 	}
 
 }

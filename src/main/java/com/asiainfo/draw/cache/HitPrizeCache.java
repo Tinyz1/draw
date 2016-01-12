@@ -7,7 +7,6 @@ import java.util.concurrent.ExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.asiainfo.draw.domain.DrawPrize;
@@ -21,7 +20,6 @@ import com.google.common.cache.CacheBuilder;
  *
  */
 @Component
-@Scope("singleton")
 public class HitPrizeCache {
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
@@ -40,7 +38,7 @@ public class HitPrizeCache {
 			links = new HashSet<DrawPrize>();
 		}
 		links.add(drawPrize);
-		logger.info("用户：{}已中奖：{}", participantId, drawPrize);
+		logger.info("用户：{}在所有环节中的中奖结果为：", participantId, links);
 
 		// 更新缓存
 		cache.put(participantId, links);

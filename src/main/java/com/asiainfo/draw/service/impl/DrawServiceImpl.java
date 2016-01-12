@@ -2,6 +2,7 @@ package com.asiainfo.draw.service.impl;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -15,6 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.HitPrizeCache;
+import com.asiainfo.draw.cache.LinkHitPrizeCache;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
@@ -43,6 +45,9 @@ public class DrawServiceImpl implements DrawService {
 	@Autowired
 	private LinkService linkService;
 
+	@Autowired
+	private LinkHitPrizeCache linkHitPrizeCache;
+
 	@Override
 	public Prize pick(String participantName) {
 		checkNotNull(participantName);
@@ -58,7 +63,7 @@ public class DrawServiceImpl implements DrawService {
 			logger.info("<<=================用户:{}参与抽奖...", participantName);
 			Participant participant = participantCache.get(participantName);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
-			
+
 			// 判断当前环节是否对当前人员开发
 			@SuppressWarnings("unchecked")
 			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
@@ -132,6 +137,14 @@ public class DrawServiceImpl implements DrawService {
 			// 更新环节剩余奖品数
 			currentPrizes.remove(drawPrize);
 			currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
+
+			// 更新环节用户中奖记录
+			Map<String, String> hitPrize = linkHitPrizeCache.get(link.getLinkId());
+			if (hitPrize == null) {
+				hitPrize = new HashMap<String, String>();
+			}
+			hitPrize.put(participantName, drawPrize.getPrizeName());
+			linkHitPrizeCache.put(link.getLinkId(), hitPrize);
 
 			if (currentPrizes.size() == 0) {
 				logger.info("<<====当前环节剩余的奖品没有了时，结束当前环节");

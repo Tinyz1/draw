@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
+import com.asiainfo.draw.cache.LinkHitPrizeCache;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
@@ -31,6 +32,7 @@ import com.asiainfo.draw.persistence.LinkMemberMapper;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.service.RecordService;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
+import com.asiainfo.draw.util.ParticipantPrize;
 import com.asiainfo.draw.util.PrizePool;
 import com.asiainfo.draw.util.PrizePoolFactory;
 
@@ -60,6 +62,9 @@ public class LinkServiceImpl implements LinkService {
 
 	@Autowired
 	private AllPickCache allPickCache;
+
+	@Autowired
+	private LinkHitPrizeCache linkHitPrizeCache;
 
 	@Override
 	public void initNextLink() {
@@ -198,6 +203,32 @@ public class LinkServiceImpl implements LinkService {
 			// 记录环节开始时间
 			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
 		}
+	}
+
+	@Override
+	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
+		checkNotNull(linkId);
+		Map<String, String> hitPrize = linkHitPrizeCache.get(linkId);
+		if (hitPrize == null) {
+			hitPrize = new HashMap<String, String>();
+		}
+
+		List<ParticipantPrize> hitPrizes = new ArrayList<ParticipantPrize>();
+		if (hitPrize != null) {
+			for (Map.Entry<String, String> hpriz : hitPrize.entrySet()) {
+				ParticipantPrize ppr = new ParticipantPrize(getLinkByLinkId(linkId).getLinkName(), hpriz.getKey(), hpriz.getValue());
+				hitPrizes.add(ppr);
+			}
+		}
+		return hitPrizes;
+	}
+
+	private DrawLink getLinkByLinkId(Integer linkId) {
+		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		if (currentLink.getLinkId().intValue() == linkId.intValue()) {
+			return currentLink;
+		}
+		return linkMapper.selectByPrimaryKey(linkId);
 	}
 
 }
