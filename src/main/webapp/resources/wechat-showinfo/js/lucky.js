@@ -2,23 +2,19 @@
 var colors = ["#f6366d", "#19a3dc", "#9057cb", "#f47119"];
 
 /*
-	name 用户姓名
-	prize 奖项等级
-	prizeName 奖项名称
-	
-	wh 设置气泡宽度大小
-	lh 设置气泡高度
-	delay 设置气泡浮动速度
- */
-function newDiv(name,prize,number,prizeName) {
-	var color = colors[prize - 1];
+name 名字
+prize 奖项
+number 唯一标识
+*/
+function newDiv(name,prizeName,number) {
 	var wh;
 	var delay;
-	var prizes;
+	var prize = number % 3 + 1;
+	var color = colors[prize - 1];
 	if (prize == 1) {
 		wh = 220 + "px";
 		lh=60+"px";
-		delay = 7500;	
+		delay = 7500;
 	} else if (prize == 2) {
 		wh = 200 + 'px';
 		delay = 7000;
@@ -32,8 +28,7 @@ function newDiv(name,prize,number,prizeName) {
 		delay = 6000;
 		lh=20+"px";
 	}
-	var html = '<div class="bubble" style="display:block" id=' + number + '><p class="number">'+name +
-						 '</p><p class="money"> ' + prizeName + '</p></div>';
+	var html = '<div class="bubble" style="display:block" id=' + number + '><p class="number">'+name +'</p><p class="money"> ' + prizeName + '</p></div>';
 	var li2p="<li><p>"+name+"</p><p> "+ prizeName+"</p></li>";
 	$("#d1").append(li2p);
 	$("body").append(html);
@@ -58,20 +53,49 @@ function bubble(ele, delay) {
 
 var i = 0;
 
-var timer = setInterval(function(){
-	
-	i += 1;
-	var prize = Math.floor(Math.random() * 4) + 1;
-	//var name = request.getParameter("name");
-	var name = "汪小峰";var prizeName = "无人机";
-	
-	//var prize = request.getParameter("prize");
-	//var prizeName = request.getParameter("prizeName");
-	newDiv(name, prize, i, prizeName)
-	if(i>19){
-		clearInterval(timer);
+var storeData = [];
+
+var flag = true;
+
+function contains(arr, item){
+	if(arr.length){
+		for(var i = 0, len = arr.length; i < len; i++){
+			if(arr[i] == item){
+				return true;
+			}
+		}
 	}
-},3000);
+	return false;
+}
+
+setInterval("redirect()",1000);
+function redirect(){
+	if(flag){
+		$.post("link/hitPrize?linkId="+linkId,function (data){
+			flag = false;
+			for(var i = 0, len = data.length; i < len; i++){
+				var name = data[i].participantName;
+				var prizeName = data[i].prizeName;
+				if(!contains(storeData, name)){
+					storeData.push(name);
+					newDiv(name, prizeName, storeData.length)
+				}
+			}
+			flag = true;
+		});
+	}
+	$.get('center/getCommand', function(data){
+		if(data.type == 'NULL'){
+			// 空指令，不做任何事情
+		}else if(data.type == 'REDIRECT'){
+			//跳转到指定页面
+			window.open(data.url,"_self");
+		}
+	});		
+}
+
+
+
 
 $(function() {
 	//后去当前环节数

@@ -20,17 +20,15 @@
 			<img src="resources/wechat-showinfo/img/w2016.png">
 			<p>CMC&BDX上海年会</p>
 			<h1>万众一信 · 筑梦起航</h1>
-			<div class="btn-s">
+			<!-- <div class="btn-s">
 				开始抽奖
-			</div>
+			</div> -->
 		</div>
 	</div>
-	
 	<script type="text/javascript">
 		setInterval("redirect()",1000);
 		function redirect(){
 			$.get('center/getCommand', function(data){
-				console.log(data);
 				if(data.type == 'NULL'){
 					// 空指令，不做任何事情
 				}else if(data.type == 'REDIRECT'){
@@ -38,6 +36,7 @@
 				}
 			});
 		}
+	
 	</script>
 </body>
 </html>

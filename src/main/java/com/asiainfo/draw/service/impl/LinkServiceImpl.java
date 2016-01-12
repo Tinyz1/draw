@@ -16,6 +16,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.asiainfo.draw.cache.AllPickCache;
+import com.asiainfo.draw.cache.CommandCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.LinkHitPrizeCache;
@@ -31,6 +32,7 @@ import com.asiainfo.draw.persistence.DrawPrizeMapper;
 import com.asiainfo.draw.persistence.LinkMemberMapper;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.service.RecordService;
+import com.asiainfo.draw.util.Command;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
 import com.asiainfo.draw.util.ParticipantPrize;
 import com.asiainfo.draw.util.PrizePool;
@@ -65,6 +67,9 @@ public class LinkServiceImpl implements LinkService {
 
 	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
+	
+	@Autowired
+	private CommandCache redirectCache;
 
 	@Override
 	public void initNextLink() {
@@ -120,6 +125,12 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("<<===========把奖品池加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_POOLS, pools);
+		
+		// 界面跳转指令
+		Command command = new Command();
+		command.setType(Command.COMMAND_REDIRECT);
+		command.setUrl("/draw/LuckyList.jsp");
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
 	}
 
 	@Override
@@ -202,6 +213,12 @@ public class LinkServiceImpl implements LinkService {
 			logger.info("完成新的环节启动，启动时间：{}" + start);
 			// 记录环节开始时间
 			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
+			
+			// 界面跳转指令
+			Command command = new Command();
+			command.setType(Command.COMMAND_REDIRECT);
+			command.setUrl("/draw/LuckBubble.jsp");
+			redirectCache.put(CommandCache.CURRENT_COMMAND, command);
 		}
 	}
 
@@ -229,6 +246,11 @@ public class LinkServiceImpl implements LinkService {
 			return currentLink;
 		}
 		return linkMapper.selectByPrimaryKey(linkId);
+	}
+
+	@Override
+	public DrawLink getCurrentLink() {
+		return (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 	}
 
 }

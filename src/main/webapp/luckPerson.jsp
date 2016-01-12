@@ -25,8 +25,6 @@
 				</tr>			
 			</table>
 		</div>
-		<input class="btn" type="button" value="开始" id="stat"/>
-		<input class="btn" type="button" value="结束" id="end"/>
 	</div>
 	
 	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
@@ -40,9 +38,11 @@
 		
 		setInterval("redirect()",1000);
 		function redirect(){
-			$.get('center/getRedirect', function(data){
+			$.get('center/getCommand', function(data){
 				if(data.type == 'NULL'){
 					// 空指令，不做任何事情
+				}else if(data.type == "INIT_POOL"){
+					$.post("link/initPool");
 				}else if(data.type == 'REDIRECT'){
 					window.open(data.url,"_self");
 				}else if(data.type == 'PICK_START'){
@@ -82,13 +82,12 @@
 		}
 		function endCommand(){
 			var ids = "";
-			for(var i = 0;i<list2.length;i++){
+			for(var i = 0;i< list2.length;i++){
 				var obj = list2[i];
 				var id = obj.participantId;
 				$('#' + id).addClass('info');
 				ids += list2[i].participantId+",";
 			}
-			
 			$.post("participant/current/addPickParticipant",{"ids":ids},function(data){});
 		}
 	</script>

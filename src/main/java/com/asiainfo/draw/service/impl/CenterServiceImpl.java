@@ -29,10 +29,31 @@ public class CenterServiceImpl implements CenterService {
 	}
 
 	@Override
-	public Command getRedirect() {
-		Command redirect = redirectCache.get(CommandCache.CURRENT_COMMAND);
+	public Command getCommand() {
+		Command command = redirectCache.get(CommandCache.CURRENT_COMMAND);
 		redirectCache.invalidate();
-		return redirect;
+		return command;
+	}
+
+	@Override
+	public void startPickNum() {
+		Command command = new Command();
+		command.setType(Command.ACTION_PICK_START);
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
+	}
+
+	@Override
+	public void endPickNum() {
+		Command command = new Command();
+		command.setType(Command.ACTION_PICK_END);
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
+	}
+
+	@Override
+	public void commitPicNum() {
+		Command command = new Command();
+		command.setType(Command.ACTION_INIT_POOL);
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
 	}
 
 }

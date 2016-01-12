@@ -39,10 +39,64 @@ public class CenterController {
 		return result;
 	}
 
-	@RequestMapping("/getRedirect")
+	@RequestMapping("/getCommand")
 	@ResponseBody
-	public Command getRedirect() {
-		return centerService.getRedirect();
+	public Command getCommand() {
+		return centerService.getCommand();
+	}
+
+	@RequestMapping(value = "/pick/start")
+	@ResponseBody
+	public DefaultResult pickStart() {
+		DefaultResult result = null;
+		try {
+			centerService.startPickNum();
+			result = DefaultResult.newSuccessInstance(1, "开始成功！");
+		} catch (AuthenticationExceptioin e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "开始失败！");
+		}
+		logger.info(result.toString());
+		return result;
+	}
+
+	@RequestMapping(value = "/pick/end")
+	@ResponseBody
+	public DefaultResult pickEnd() {
+		DefaultResult result = null;
+		try {
+			centerService.endPickNum();
+			result = DefaultResult.newSuccessInstance(1, "结束选人成功！");
+		} catch (AuthenticationExceptioin e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "结束选人失败！");
+		}
+		logger.info(result.toString());
+		return result;
+	}
+
+	@RequestMapping(value = "/pick/commit")
+	@ResponseBody
+	public DefaultResult pickCommit() {
+		DefaultResult result = null;
+		try {
+			centerService.commitPicNum();
+			result = DefaultResult.newSuccessInstance(1, "提交选人成功！");
+		} catch (AuthenticationExceptioin e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "提交选人失败！");
+		}
+		logger.info(result.toString());
+		return result;
 	}
 
 }

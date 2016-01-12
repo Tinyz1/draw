@@ -30,6 +30,11 @@ public class Command implements Serializable {
 	public static final String ACTION_PICK_END = "PICK_END";
 
 	/**
+	 * 初始化奖池指令
+	 */
+	public static final String ACTION_INIT_POOL = "INIT_POOL";
+
+	/**
 	 * 控制界面是否需要跳转
 	 */
 	private String type = COMMAND_NULL;

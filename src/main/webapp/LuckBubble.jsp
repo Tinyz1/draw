@@ -27,12 +27,26 @@
 					<ul id="d1">
 					</ul>
 				</div>
-				<div class="btn-next">
+				<!-- <div class="btn-next">
 					下轮抽奖 >
-				</div>
+				</div> -->
 			</div>			
 		</div>
 	</div>
+	<script type="text/javascript">
+		init();
+		var linkId = "";
+		function init(){
+			$.post("link/current",function (data){
+				//获取当前环节的环节ID
+				linkId = data.linkId;
+				linkId = 1;
+			});
+		}
+	</script>
+	
+	
+	
 </body>
 <script type="text/javascript" src="resources/wechat-showinfo/js/lucky.js"></script>
 </html>

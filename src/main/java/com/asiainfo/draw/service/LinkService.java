@@ -44,4 +44,12 @@ public interface LinkService {
 	 */
 	List<ParticipantPrize> getLinkHitPrize(Integer linkId);
 
+	/**
+	 * 获取当前环节
+	 * 
+	 * @return
+	 * 
+	 */
+	DrawLink getCurrentLink();
+
 }

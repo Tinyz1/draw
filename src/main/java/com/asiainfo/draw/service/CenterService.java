@@ -13,10 +13,25 @@ public interface CenterService {
 	void pickNum(Integer partnum);
 
 	/**
+	 * 开始选人
+	 */
+	void startPickNum();
+
+	/**
+	 * 结束选人
+	 */
+	void endPickNum();
+
+	/**
+	 * 提交选人
+	 */
+	void commitPicNum();
+
+	/**
 	 * 取指令
 	 * 
 	 * @return
 	 */
-	Command getRedirect();
+	Command getCommand();
 
 }

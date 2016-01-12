@@ -1,145 +1,215 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page language="java" import="java.util.*" pageEncoding="GBK" contentType="text/html; charset=UTF-8"%>
-<script src="resources/js/jquery-1.10.2.min.js"></script>
+<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
-<title>³é½±ÅäÖÃ½çÃæ</title>
+	<meta charset="utf-8">
+    <!-- Loading Bootstrap -->
+    <link href="resources/Flat-UI/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <!-- Loading Flat UI -->
+    <link href="resources/Flat-UI/css/flat-ui.min.css" rel="stylesheet">
+    
+    <title>ä¸­å¤®æ§åˆ¶</title>
+    
 </head>
 
 <body>
 <table id="tb1" width="100%" border="1" cellspacing="1" cellpadding="1" height="639">
   <tr>
     <td height="135" colspan="2">
-		<h1>&nbsp;&nbsp;ÅäÖÃÒ³Ãæ</h1>
+		<h1>&nbsp;&nbsp;é…ç½®é¡µé¢</h1>
 	</td>
   </tr>
   <tr>
     <td width="21%" height="490" valign="top">
 		<div align = "center">
-			<h3>²Ù×÷²Ëµ¥</h3>
-			<button id="ÅäÖÃ" onclick="config()">²Î½±ÈËÔ±</button>
-			<br/>
-			<br/>
-			<button id="ĞÂÔö" onclick="addp()">½±ÏîĞÂÔö</button>
-			<br/>
-			<br/>
-			<button id="»·½Ú" onclick="linkcontrl()">»·½Ú¿ØÖÆ</button>
-			<br/>
-			<br/>
-			<button id="ÓÃ»§" onclick="addnew1()">ĞÂÔöÓÃ»§</button>
-			<br/>
-			<br/>
-			<button id="Ìá½»" onclick="tijiao()">²ÎÈüÈËÔ±Ìá½»</button>
-			<br/>
-			<br/>
+			<br>
+			<br>
+			<button id="é…ç½®" class="btn btn-default" onclick="config()">æ­£å¸¸æµç¨‹</button>
+			<br>
+			<br>
+			<button id="æ–°å¢" class="btn btn-default" onclick="addp()">åŠ å¥–æµç¨‹</button>
+			<br>
+			<br>
+			<button id="ç¯èŠ‚" class="btn btn-default" onclick="linkcontrl()">ç¯èŠ‚æ§åˆ¶</button>
+			<br>
+			<br>
+			<button id="ç”¨æˆ·" class="btn btn-default" onclick="addnew1()">æ–°å¢ç”¨æˆ·</button>
+			<br>
+			<br>
 		</div>
 	</td>
     <td width="79%" valign="top">
-		<div id = "ÅäÖÃ2" align = "center">
-			<form action="center/pick/num" method="post">
-			<h2  align = "center">²Î½±ÈËÔ±</h2>
-      	²Î½±ÈËÔ±¸öÊı£º<input type="text" id="123456" name="partnum" />
-			<br />
-			<br />
-			<input type="submit"  value="Éú³É" />
-			</form>
+		<div id = "é…ç½®2" align = "center">
+			
+			<div class="container">
+				<div class="row" style="margin-top: 20px;">
+					<div class="col-md-12">
+						<form class="form-inline">
+						  <div class="form-group">
+						    <label class="sr-only" for="exampleInputAmount">å‚ä¸äººå‘˜ä¸ªæ•°</label>
+						    <div class="input-group">
+						      <input type="text" class="form-control" name="partnum" id="partnum" placeholder="è¾“å…¥å‚ä¸äººå‘˜ä¸ªæ•°">
+						    </div>
+						  </div>
+						  <button type="submit" id="partBtn" class="btn btn-primary">ç¡®å®šå¹¶è¿›å…¥æŠ½äººç•Œé¢</button>
+						</form>						
+					</div>
+				</div>
+				<div class="row" style="margin-top: 20px;">
+					<div class="col-md-12">
+						  <button id="startBtn" class="btn btn-primary">å¼€å§‹</button>
+						  <button id="endBtn" class="btn btn-primary">ç»“æŸ</button>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 20px;">
+					<div class="col-md-12">
+						  <button id="commitBtn" class="btn btn-primary">ç¡®è®¤æäº¤æŠ½å¥–äººå‘˜å¹¶è¿›å…¥äººå‘˜ç¡®è®¤ç•Œé¢</button>
+					</div>
+				</div>
+				<div class="row" style="margin-top: 20px;">
+					<div class="col-md-12">
+						  <button id="linkBtn" class="btn btn-primary">å¯åŠ¨æŠ½å¥–ç¯èŠ‚å¹¶å¼€å§‹æŠ½å¥–</button>
+					</div>
+				</div>
 			</div>
-		<div id="ĞÂÔö2"  align = "center">
+		</div>
+		<div id="æ–°å¢2"  align = "center">
 			<form action="prize/addprize" method="post">
-			<h2>½±ÏîĞÂÔö</h2>
-			»·½ÚÃû×Ö£º<input type="text" name="linkname" />&nbsp;&nbsp;&nbsp;
-			½±Æ·ÊıÁ¿£º<input type="text" name="prizenum" />&nbsp;&nbsp;&nbsp;
-			²ÎÈüÈËÊı£º<input type="text" name="provider" />&nbsp;&nbsp;&nbsp;
-			 ÊÇ·ñ¶ÔËùÓĞÈË¿ª·Å<select name="course">
-				<option value="2">·ñ</option>
-				<option value="1" >ÊÇ</option>
+			<h2>å¥–é¡¹æ–°å¢</h2>
+			ç¯èŠ‚åå­—ï¼š<input type="text" name="linkname" />&nbsp;&nbsp;&nbsp;
+			å¥–å“æ•°é‡ï¼š<input type="text" name="prizenum" />&nbsp;&nbsp;&nbsp;
+			å‚èµ›äººæ•°ï¼š<input type="text" name="provider" />&nbsp;&nbsp;&nbsp;
+			 æ˜¯å¦å¯¹æ‰€æœ‰äººå¼€æ”¾<select name="course">
+				<option value="2">å¦</option>
+				<option value="1" >æ˜¯</option>
 	  			</select>
 			<br />
 			<br />
-			<input type="submit"  value="·¢½±"/>&nbsp;&nbsp;&nbsp;
-			<input type="reset" id="button1" value="ÖØÖÃ" />
+			<input type="submit"  value="å‘å¥–"/>&nbsp;&nbsp;&nbsp;
+			<input type="reset" id="button1" value="é‡ç½®" />
 			</form>
 		</div>
-		<div id="»·½Ú2" align = "center">
-		<h1>»·½Ú¿ØÖÆ</h1>
-			<input type="submit"  value="»·½Ú¿ªÊ¼" onclick="startlink()"/>&nbsp;&nbsp;&nbsp;
-			<input type="submit"  value="»·½ÚÖÕÖ¹"/>&nbsp;&nbsp;&nbsp;
-			<input type="submit"  value="ÖØĞÂ¼ÓÔØ»·½Ú"/>&nbsp;&nbsp;&nbsp;
+		<div id="ç¯èŠ‚2" align = "center">
+		<h1>ç¯èŠ‚æ§åˆ¶</h1>
+			<input type="submit"  value="ç¯èŠ‚å¼€å§‹" onclick="startlink()"/>&nbsp;&nbsp;&nbsp;
+			<input type="submit"  value="ç¯èŠ‚ç»ˆæ­¢"/>&nbsp;&nbsp;&nbsp;
+			<input type="submit"  value="é‡æ–°åŠ è½½ç¯èŠ‚"/>&nbsp;&nbsp;&nbsp;
 		</div>
-		<div id="ÓÃ»§2"  align = "center">
+		<div id="ç”¨æˆ·2"  align = "center">
 			<form action="<%=request.getContextPath()%>/participant/addnewpart" method="post">
-				<h2>ÓÃ»§×¢²á</h2>
-				ÓÃ»§êÇ³Æ£º<input type="text" name="name" /> <br />
-	  			<input type="submit" value="Ìá½»">&nbsp;&nbsp;&nbsp;
-	  			<input type="reset" value="ÖØÖÃ"></input>
+				<h2>ç”¨æˆ·æ³¨å†Œ</h2>
+				ç”¨æˆ·æ˜µç§°ï¼š<input type="text" name="name" /> <br />
+	  			<input type="submit" value="æäº¤">&nbsp;&nbsp;&nbsp;
+	  			<input type="reset" value="é‡ç½®"></input>
 			</form>
 		</div>
-		<div id="Ìá½»2" align = "center">
-			<input type="submit"  value="ÈËÔ±Ìá½»" style="width: 200px;height: 40px"/>&nbsp;&nbsp;&nbsp;
+		<div id="æäº¤2" align = "center">
+			<input type="submit"  value="äººå‘˜æäº¤" style="width: 200px;height: 40px"/>&nbsp;&nbsp;&nbsp;
 		</div>
 	</td>
   </tr>
 </table>
+
+	<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
+    <script src="resources/Flat-UI/js/vendor/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="resources/Flat-UI/js/flat-ui.min.js"></script>
+    
+    <script type="text/javascript">
+    
+    (function($){
+    	$('#partBtn').click(function(e){
+    		e.preventDefault();
+    		var partnum = $('#partnum').val();
+    		$.post('center/pick/num', {partnum: partnum}, function(data){
+    			alert(data.resultMsg);
+    		});
+    	});
+    	
+    	$('#startBtn').click(function(e){
+    		$.post('center/pick/start', function(data){
+    			alert(data.resultMsg);
+    		});
+    	});
+    	
+    	$('#endBtn').click(function(e){
+    		$.post('center/pick/end', function(data){
+    			alert(data.resultMsg);
+    		});
+    	});
+    	
+    	$('#commitBtn').click(function(e){
+    		$.post('center/pick/commit', function(data){
+    			alert(data.resultMsg);
+    		});
+    	});
+    	
+    	$('#linkBtn').click(function(e){
+    		$.post('link/start', function(data){
+    			alert(data.resultMsg);
+    		});
+    	});
+    	
+    	
+    })(jQuery);
+    
+	//åˆå§‹åŒ–ï¼Œä¸å±•ç¤ºé¡µé¢
+	window.onload = function(){
+		document.getElementById("é…ç½®2").style.display="none";
+		document.getElementById("æ–°å¢2").style.display="none";
+		document.getElementById("ç”¨æˆ·2").style.display="none";
+		document.getElementById("ç¯èŠ‚2").style.display="none";
+		document.getElementById("æäº¤2").style.display="none";
+	}
+	//å±•ç¤ºé…ç½®ç•Œé¢
+	function config(){
+		document.getElementById("é…ç½®2").style.display="block";
+		document.getElementById("æ–°å¢2").style.display="none";
+		document.getElementById("ç”¨æˆ·2").style.display="none";
+		document.getElementById("ç¯èŠ‚2").style.display="none";
+		document.getElementById("æäº¤2").style.display="none";
+	}
+	//å±•ç¤ºæ–°å¢ç•Œé¢
+	function addp(){
+		document.getElementById("é…ç½®2").style.display="none";
+		document.getElementById("æ–°å¢2").style.display="block";
+		document.getElementById("ç”¨æˆ·2").style.display="none";
+		document.getElementById("ç¯èŠ‚2").style.display="none";
+		document.getElementById("æäº¤2").style.display="none";
+	 }
+	
+	
+	//ç”¨æˆ·æ–°å¢
+	function addnew1(){
+		document.getElementById("é…ç½®2").style.display="none";
+		document.getElementById("æ–°å¢2").style.display="none";
+		document.getElementById("ç”¨æˆ·2").style.display="block";
+		document.getElementById("ç¯èŠ‚2").style.display="none";
+		document.getElementById("æäº¤2").style.display="none";
+	}
+	
+	//ç¯èŠ‚æ§åˆ¶
+	function linkcontrl(){
+		document.getElementById("é…ç½®2").style.display="none";
+		document.getElementById("æ–°å¢2").style.display="none";
+		document.getElementById("ç”¨æˆ·2").style.display="none";
+		document.getElementById("ç¯èŠ‚2").style.display="block";
+		document.getElementById("æäº¤2").style.display="none";
+	}
+	
+	//äººå‘˜æäº¤æ§åˆ¶
+	function tijiao(){
+		document.getElementById("é…ç½®2").style.display="none";
+		document.getElementById("æ–°å¢2").style.display="none";
+		document.getElementById("ç”¨æˆ·2").style.display="none";
+		document.getElementById("ç¯èŠ‚2").style.display="none";
+		document.getElementById("æäº¤2").style.display="block";
+	}
+	//ç¯èŠ‚å¼€å§‹
+	function startlink(){
+		location.href="/draw/link/start";
+	}
+	
+	</script>
 </body>
 </html>
-<script type="text/javascript">
-//³õÊ¼»¯£¬²»Õ¹Ê¾Ò³Ãæ
-window.onload = function(){
-	document.getElementById("ÅäÖÃ2").style.display="none";
-	document.getElementById("ĞÂÔö2").style.display="none";
-	document.getElementById("ÓÃ»§2").style.display="none";
-	document.getElementById("»·½Ú2").style.display="none";
-	document.getElementById("Ìá½»2").style.display="none";
-}
-//Õ¹Ê¾ÅäÖÃ½çÃæ
-function config(){
-	document.getElementById("ÅäÖÃ2").style.display="block";
-	document.getElementById("ĞÂÔö2").style.display="none";
-	document.getElementById("ÓÃ»§2").style.display="none";
-	document.getElementById("»·½Ú2").style.display="none";
-	document.getElementById("Ìá½»2").style.display="none";
-}
-//Õ¹Ê¾ĞÂÔö½çÃæ
-function addp(){
-	document.getElementById("ÅäÖÃ2").style.display="none";
-	document.getElementById("ĞÂÔö2").style.display="block";
-	document.getElementById("ÓÃ»§2").style.display="none";
-	document.getElementById("»·½Ú2").style.display="none";
-	document.getElementById("Ìá½»2").style.display="none";
- }
-
-
-//ÓÃ»§ĞÂÔö
-function addnew1(){
-	document.getElementById("ÅäÖÃ2").style.display="none";
-	document.getElementById("ĞÂÔö2").style.display="none";
-	document.getElementById("ÓÃ»§2").style.display="block";
-	document.getElementById("»·½Ú2").style.display="none";
-	document.getElementById("Ìá½»2").style.display="none";
-}
-
-//»·½Ú¿ØÖÆ
-function linkcontrl(){
-	document.getElementById("ÅäÖÃ2").style.display="none";
-	document.getElementById("ĞÂÔö2").style.display="none";
-	document.getElementById("ÓÃ»§2").style.display="none";
-	document.getElementById("»·½Ú2").style.display="block";
-	document.getElementById("Ìá½»2").style.display="none";
-}
-
-//ÈËÔ±Ìá½»¿ØÖÆ
-function tijiao(){
-	document.getElementById("ÅäÖÃ2").style.display="none";
-	document.getElementById("ĞÂÔö2").style.display="none";
-	document.getElementById("ÓÃ»§2").style.display="none";
-	document.getElementById("»·½Ú2").style.display="none";
-	document.getElementById("Ìá½»2").style.display="block";
-}
-//»·½Ú¿ªÊ¼
-function startlink(){
-	location.href="/draw/link/start";
-}
-
-</script>
