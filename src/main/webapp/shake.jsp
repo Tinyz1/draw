@@ -24,6 +24,14 @@
 		<span class="username exit"></span>
 	</div>
 	<div class="wrap">
+	<div class="leaf">
+		<img alt="" src="resources/image/scolor1.png">	
+		<img alt="" src="resources/image/scolor2.png">	
+		<img alt="" src="resources/image/scolor3.png">	
+		<img alt="" src="resources/image/scolor4.png">	
+		<img alt="" src="resources/image/scolor5.png">	
+		<img alt="" src="resources/image/scolor3.png">
+		</div>
 		<div class="header">
 			<img src="resources/image/sheader.jpg">
 			<img class="sshake" src="resources/image/sshake.png">
@@ -46,7 +54,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<button id="shakeBtn">摇一摇</button>
+				<!-- <button id="shakeBtn">摇一摇</button> -->
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -54,7 +62,7 @@
 	
 	<script type="text/javascript">
 		(function($){
-			
+			var topsArr=[];
 			$(".username").html(participantName.slice(0,1));
 			
 			var SHAKE_THRESHOLD = 3000;
@@ -92,6 +100,11 @@
 	 	    }
 			
 			function shake() {
+				$(".leaf img").each(function(i){
+					$(this).css({
+						top:topsArr[i]
+					})
+				});
 				$(".tips2").hide();
 				$(".tips3").hide();
 				$(".sshake").addClass("shake");
@@ -115,6 +128,12 @@
 				 	}else{
 				 		$(".tips2").show();
 				 	}
+					$(".leaf img").each(function(i){
+						var top=parseInt($(this).css("top"))+130;
+						$(this).animate({
+							top:top+"px"
+						},800)
+					})
 			 	});
 			}
 			
@@ -123,9 +142,13 @@
 				window.open("mobileLuckDraw.jsp","_self");
 			})
 			
-			$('#shakeBtn').click(function(){
+			/* $('#shakeBtn').click(function(){
 				shake();
-			});
+				
+			}); */
+			$(".leaf img").each(function(i){
+				topsArr.push($(this).css("top"));
+			})
 		})(jQuery);
 	</script>
 </body>
