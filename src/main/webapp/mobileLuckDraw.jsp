@@ -12,7 +12,7 @@
 	// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
 	var storage = getLocalStorage();
 	var participantName = storage.getItem('participantName');
-	if(participantName !== undefined){
+	if(participantName !== null){
 		window.open("shake.jsp","_self");
 	}
 	</script>

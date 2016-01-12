@@ -36,10 +36,10 @@ public class ParticipantCache implements InitializingBean {
 
 	public Participant get(final String key) {
 		try {
+			logger.info("根据用户名称:{}从缓存中获取用户信息...", key );
 			Participant participant = (Participant) cache.get(key, new Callable<Participant>() {
 				@Override
 				public Participant call() throws Exception {
-					logger.info("<<============执行了吗？");
 					Participant selParticipant = participantService.getByParticipantName(key);
 					if (selParticipant != null) {
 						put(key.trim(), selParticipant);
@@ -48,7 +48,6 @@ public class ParticipantCache implements InitializingBean {
 					return null;
 				}
 			});
-			logger.info("根据key: {}，获取到参与人员信息 value: {}", key, participant);
 			return participant;
 		} catch (ExecutionException e) {
 

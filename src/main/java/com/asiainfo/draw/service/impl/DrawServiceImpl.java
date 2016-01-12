@@ -55,7 +55,7 @@ public class DrawServiceImpl implements DrawService {
 			return Prize.createInitPrize();
 			// 环节运行中
 		case RUN: {
-			// 1、根据手机号码获取用户信息
+			logger.info("<<=================用户:{}参与抽奖...", participantName);
 			Participant participant = participantCache.get(participantName);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 

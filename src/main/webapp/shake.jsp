@@ -8,6 +8,14 @@
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/css/style.css">
 	<script src="resources/js/login.js"></script>
+	<script type="text/javascript">
+	// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
+	var storage = getLocalStorage();
+	var participantName = storage.getItem('participantName');
+	if(participantName === null){
+		window.open("mobileLuckDraw.jsp","_self");
+	}
+	</script>
 </head>
 <body>
 	<audio src="resources/music/5018.mp3" class="audio" loop></audio>
@@ -35,6 +43,7 @@
 						<p class="money">￥5000</p>
 					</div>
 				</div>
+				<!-- <button id="shakeBtn">摇一摇</button> -->
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -42,10 +51,6 @@
 	
 	<script type="text/javascript">
 		(function($){
-			
-			// 获取本地缓存中的用户名称
-			var storage = getLocalStorage();
-			var participantName = storage.getItem('participantName');
 			
 			var SHAKE_THRESHOLD = 3000;
 	 	    var last_update = 0;
@@ -107,6 +112,10 @@
 			 		}
 			 	});
 			}
+			
+			/* $('#shakeBtn').click(function(){
+				shake();
+			}); */
 		})(jQuery);
 	</script>
 </body>
