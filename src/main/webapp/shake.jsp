@@ -54,7 +54,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<button id="shakeBtn">摇一摇</button>
+				<!-- <button id="shakeBtn">摇一摇</button> -->
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -142,10 +142,10 @@
 				window.open("mobileLuckDraw.jsp","_self");
 			})
 			
-			$('#shakeBtn').click(function(){
+			/* $('#shakeBtn').click(function(){
 				shake();
 				
-			});
+			}); */
 			
 			$(".leaf img").each(function(i){
 				topsArr.push($(this).css("top"));

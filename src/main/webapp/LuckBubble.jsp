@@ -40,7 +40,6 @@
 			$.post("link/current",function (data){
 				//获取当前环节的环节ID
 				linkId = data.linkId;
-				linkId = 1;
 			});
 		}
 	</script>

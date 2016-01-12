@@ -38,15 +38,15 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 
 		int numberOfPool = pools.size();
 		logger.info("<<=====产生的奖池数量：" + numberOfPool);
-
+		
 		if (prizes != null && prizes.size() > 0) {
 			// 放入真实的奖品
 			for (int j = 0, len = prizes.size(); j < len; j++) {
 				int poolNum = j % numberOfPool;
 				PrizePool pool = pools.get(poolNum);
 				pool.push(prizes.get(j));
-				// 真实的奖品数量加1
-				pool.setTruePrize(pool.getTruePrize() + 1);
+				// 真实的奖品数量
+				pool.setTruePrize(pool.getTruePrize() + prizes.get(j).getSize());
 			}
 		}
 
