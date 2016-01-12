@@ -26,7 +26,7 @@ public class HitPrizeCache {
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 
-	private final Cache<String, Set<DrawPrize>> cache = CacheBuilder.newBuilder().build();
+	private final Cache<Integer, Set<DrawPrize>> cache = CacheBuilder.newBuilder().build();
 
 	/**
 	 * 记录用户中奖记录
@@ -34,19 +34,21 @@ public class HitPrizeCache {
 	 * @param participantNum
 	 * @param linkId
 	 */
-	public synchronized void put(String participantName, DrawPrize drawPrize) {
-		Set<DrawPrize> links = get(participantName);
+	public synchronized void put(Integer participantId, DrawPrize drawPrize) {
+		Set<DrawPrize> links = get(participantId);
 		if (links == null) {
 			links = new HashSet<DrawPrize>();
 		}
 		links.add(drawPrize);
-		logger.info("写入缓存，participantName: {}, linkId: {}", participantName, drawPrize);
-		cache.put(participantName, links);
+		logger.info("用户：{}已中奖：{}", participantId, drawPrize);
+
+		// 更新缓存
+		cache.put(participantId, links);
 	}
 
-	public Set<DrawPrize> get(String participantName) {
+	public Set<DrawPrize> get(Integer participantId) {
 		try {
-			Set<DrawPrize> links = cache.get(participantName, new Callable<Set<DrawPrize>>() {
+			Set<DrawPrize> links = cache.get(participantId, new Callable<Set<DrawPrize>>() {
 				@Override
 				public Set<DrawPrize> call() throws Exception {
 					return new HashSet<DrawPrize>();
@@ -54,8 +56,8 @@ public class HitPrizeCache {
 			});
 			return links;
 		} catch (ExecutionException e) {
+			logger.error(e.toString());
 		}
-
 		return null;
 	}
 }

@@ -25,8 +25,8 @@ import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.persistence.DrawLinkMapper;
 import com.asiainfo.draw.persistence.DrawPrizeMapper;
 import com.asiainfo.draw.persistence.LinkMemberMapper;
-import com.asiainfo.draw.persistence.WinningRecordMapper;
 import com.asiainfo.draw.service.LinkService;
+import com.asiainfo.draw.service.RecordService;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
 import com.asiainfo.draw.util.PrizePool;
 import com.asiainfo.draw.util.PrizePoolFactory;
@@ -51,10 +51,10 @@ public class LinkServiceImpl implements LinkService {
 
 	@Autowired
 	private ParticipantCache participantCache;
-	
+
 	@Autowired
-	private WinningRecordMapper winningRecordMapper;
-	
+	private RecordService recordService;
+
 	@Override
 	public void initNextLink() {
 		logger.info("<<===========读取新的环节...");
@@ -87,7 +87,7 @@ public class LinkServiceImpl implements LinkService {
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
 
 		logger.info("<<===========初始化当前环节已中奖人员...");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<String, DrawPrize>());
+		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
 
 		logger.info("<<===========初始化奖品池...");
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
@@ -152,15 +152,17 @@ public class LinkServiceImpl implements LinkService {
 		currentLinkCache.put(CurrentLinkCache.CURRENT_FINISH_DATE, new Date());
 		// 把环节中奖记录写入库中
 		@SuppressWarnings("unchecked")
-		Map<String, DrawPrize> currentHits = (Map<String, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-		if(currentHits != null) {
-			for(Map.Entry<String, DrawPrize> hit : currentHits.entrySet()) {
+		Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+		if (currentHits != null) {
+			for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
 				WinningRecord winningRecord = new WinningRecord();
+				// 中奖环节
 				winningRecord.setLinkId(currentLink.getLinkId());
-				winningRecord.setParticipantName(hit.getKey());
+				// 用户ID
+				winningRecord.setParticipantId(hit.getKey());
+				// 奖品ID
 				winningRecord.setPrizeId(hit.getValue().getPrizeId());
-				winningRecord.setCreateDate(new Date());
-				winningRecordMapper.insert(winningRecord);
+				recordService.saveRecord(winningRecord);
 			}
 		}
 		// 把当前环节设置的状态设置为已结束

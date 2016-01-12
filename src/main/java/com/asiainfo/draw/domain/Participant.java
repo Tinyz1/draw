@@ -1,17 +1,11 @@
 package com.asiainfo.draw.domain;
 
-import java.io.Serializable;
-
-public class Participant implements Serializable{
-	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -6008173806152636940L;
-
+public class Participant {
 	private Integer participantId;
 
 	private String participantName;
+
+	private Integer state;
 
 	public Integer getParticipantId() {
 		return participantId;
@@ -29,15 +23,24 @@ public class Participant implements Serializable{
 		this.participantName = participantName == null ? null : participantName.trim();
 	}
 
+	public Integer getState() {
+		return state;
+	}
+
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
 	@Override
 	public String toString() {
-		return "Participant [participantId=" + participantId + ", participantName=" + participantName + "]";
+		return "Participant [participantId=" + participantId + ", participantName=" + participantName + ", state=" + state + "]";
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((participantId == null) ? 0 : participantId.hashCode());
 		result = prime * result + ((participantName == null) ? 0 : participantName.hashCode());
 		return result;
 	}
@@ -51,6 +54,11 @@ public class Participant implements Serializable{
 		if (getClass() != obj.getClass())
 			return false;
 		Participant other = (Participant) obj;
+		if (participantId == null) {
+			if (other.participantId != null)
+				return false;
+		} else if (!participantId.equals(other.participantId))
+			return false;
 		if (participantName == null) {
 			if (other.participantName != null)
 				return false;

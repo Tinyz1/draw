@@ -285,73 +285,63 @@ public class WinningRecordExample {
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameIsNull() {
-            addCriterion("participant_name is null");
+        public Criteria andParticipantIdIsNull() {
+            addCriterion("participant_id is null");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameIsNotNull() {
-            addCriterion("participant_name is not null");
+        public Criteria andParticipantIdIsNotNull() {
+            addCriterion("participant_id is not null");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameEqualTo(String value) {
-            addCriterion("participant_name =", value, "participantName");
+        public Criteria andParticipantIdEqualTo(Integer value) {
+            addCriterion("participant_id =", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameNotEqualTo(String value) {
-            addCriterion("participant_name <>", value, "participantName");
+        public Criteria andParticipantIdNotEqualTo(Integer value) {
+            addCriterion("participant_id <>", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameGreaterThan(String value) {
-            addCriterion("participant_name >", value, "participantName");
+        public Criteria andParticipantIdGreaterThan(Integer value) {
+            addCriterion("participant_id >", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameGreaterThanOrEqualTo(String value) {
-            addCriterion("participant_name >=", value, "participantName");
+        public Criteria andParticipantIdGreaterThanOrEqualTo(Integer value) {
+            addCriterion("participant_id >=", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameLessThan(String value) {
-            addCriterion("participant_name <", value, "participantName");
+        public Criteria andParticipantIdLessThan(Integer value) {
+            addCriterion("participant_id <", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameLessThanOrEqualTo(String value) {
-            addCriterion("participant_name <=", value, "participantName");
+        public Criteria andParticipantIdLessThanOrEqualTo(Integer value) {
+            addCriterion("participant_id <=", value, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameLike(String value) {
-            addCriterion("participant_name like", value, "participantName");
+        public Criteria andParticipantIdIn(List<Integer> values) {
+            addCriterion("participant_id in", values, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameNotLike(String value) {
-            addCriterion("participant_name not like", value, "participantName");
+        public Criteria andParticipantIdNotIn(List<Integer> values) {
+            addCriterion("participant_id not in", values, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameIn(List<String> values) {
-            addCriterion("participant_name in", values, "participantName");
+        public Criteria andParticipantIdBetween(Integer value1, Integer value2) {
+            addCriterion("participant_id between", value1, value2, "participantId");
             return (Criteria) this;
         }
 
-        public Criteria andParticipantNameNotIn(List<String> values) {
-            addCriterion("participant_name not in", values, "participantName");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNameBetween(String value1, String value2) {
-            addCriterion("participant_name between", value1, value2, "participantName");
-            return (Criteria) this;
-        }
-
-        public Criteria andParticipantNameNotBetween(String value1, String value2) {
-            addCriterion("participant_name not between", value1, value2, "participantName");
+        public Criteria andParticipantIdNotBetween(Integer value1, Integer value2) {
+            addCriterion("participant_id not between", value1, value2, "participantId");
             return (Criteria) this;
         }
 

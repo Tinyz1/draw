@@ -36,10 +36,14 @@ public class ParticipantServiceImpl implements ParticipantService {
 		ParticipantExample participantExample = new ParticipantExample();
 		participantExample.createCriteria().andParticipantNameEqualTo(participantName);
 		List<Participant> participants = participantMapper.selectByExample(participantExample);
+
+		Participant participant = null;
 		if (participants != null && participants.size() > 0) {
-			return participants.get(0);
+			participant = participants.get(0);
 		}
-		return null;
+		logger.info("<<==========根据用户名称:{}获取到用户:{}.", participantName, participant);
+		return participant;
+
 	}
 
 	@Override
@@ -50,18 +54,20 @@ public class ParticipantServiceImpl implements ParticipantService {
 
 	@Override
 	public void authParticipant(String participantName) {
-		logger("校验用户：{}", participantName);
 		// 缓存中读取用户
 		Participant participant = participantCache.get(participantName);
 		if (participant == null) {
-			logger("用户：{}不存在！", participantName);
-			throw new AuthenticationExceptioin("用户不存在");
+			String message = "用户名为:{}的用户不存在！";
+			logger.error(message, participantName);
+			throw new AuthenticationExceptioin(message);
 		}
-		logger("用户：{}校验通过", participantName);
+		logger.info("用户{}校验通过", participantName);
 	}
 
-	private void logger(String mess, Object... args) {
-		logger.info("<<================" + mess, args);
+	@Override
+	public Participant getByParticipantId(Integer participantId) {
+		checkNotNull(participantId);
+		return participantMapper.selectByPrimaryKey(participantId);
 	}
 
 }

@@ -19,7 +19,7 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 	public List<PrizePool> createPrizePools(int numberOfPeople, List<DrawPrize> prizes) {
 		checkArgument(numberOfPeople > 0, "参与人数不能小于0");
 		logger.info("<<==参与人员：" + numberOfPeople);
-		
+
 		List<PrizePool> pools = new ArrayList<PrizePool>();
 		// 一个奖池满足100个人
 		int i = 0;
@@ -32,14 +32,14 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 			pools.add(currPool);
 			i += 100;
 		} while (i < numberOfPeople);
-		
+
 		DefaultPrizePool firstPoll = (DefaultPrizePool) pools.get(0);
 		firstPoll.setPrePool(currPool);
-		
+
 		int numberOfPool = pools.size();
 		logger.info("<<=====产生的奖池数量：" + numberOfPool);
-		
-		if(prizes != null && prizes.size() > 0) {
+
+		if (prizes != null && prizes.size() > 0) {
 			// 放入真实的奖品
 			for (int j = 0, len = prizes.size(); j < len; j++) {
 				int poolNum = j % numberOfPool;
@@ -49,9 +49,9 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 				pool.setTruePrize(pool.getTruePrize() + 1);
 			}
 		}
-		
-		int times = 10;
-		int perPoolPrize = numberOfPeople * times / pools.size();
+
+		int perPoolPrize = numberOfPeople / pools.size();
+
 		logger.info("<<==每个奖池的总的奖品数量（包括空奖品）：" + perPoolPrize);
 
 		for (PrizePool pool : pools) {
@@ -62,7 +62,7 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 			// 打乱奖品顺序
 			Collections.shuffle(pool.getPrizes());
 		}
-		
+
 		// 打乱奖池顺序
 		Collections.shuffle(pools);
 		return pools;

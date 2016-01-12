@@ -20,6 +20,9 @@
 <body>
 	<audio src="resources/music/5018.mp3" class="audio" loop></audio>
 	<audio src="resources/music/5012.mp3" class="audio" ></audio>
+	<div class="nav">
+		<span class="username exit"></span>
+	</div>
 	<div class="wrap">
 		<div class="header">
 			<img src="resources/image/sheader.jpg">
@@ -52,6 +55,8 @@
 	<script type="text/javascript">
 		(function($){
 			
+			$(".username").html(participantName);
+			
 			var SHAKE_THRESHOLD = 3000;
 	 	    var last_update = 0;
 	 	    var x = y = z = last_x = last_y = last_z = 0;
@@ -66,7 +71,7 @@
 	 	        var acceleration = e.accelerationIncludingGravity;
 	 	        var curTime = new Date().getTime();
 
-	 	        if ((curTime - last_update) > 300) {
+	 	        if ((curTime - last_update) > 100) {
 	 	            var diffTime = curTime - last_update;
 	 	            last_update = curTime;
 	 	            x = acceleration.x;
@@ -76,6 +81,7 @@
 	 	            var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
 
 	 				if (speed > SHAKE_THRESHOLD) {
+	 					SHAKE_THRESHOLD = 200000;
 	 					shake();
 	 	            }
 	 				
@@ -94,6 +100,7 @@
 					record();
 					$(".audio")[0].pause();
 					$(".sshake").removeClass("shake");
+					SHAKE_THRESHOLD = 3000;
 				},1500);
 			}
 			
@@ -112,6 +119,11 @@
 			 		}
 			 	});
 			}
+			
+			$(".exit").click(function(){
+				localStorage.removeItem('participantName');
+				window.open("mobileLuckDraw.jsp","_self");
+			})
 			
 			/* $('#shakeBtn').click(function(){
 				shake();

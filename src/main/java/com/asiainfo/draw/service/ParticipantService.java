@@ -7,6 +7,15 @@ import com.asiainfo.draw.domain.Participant;
 public interface ParticipantService {
 
 	/**
+	 * 根据用户ID获取用户信息
+	 * 
+	 * @param ParticipantId
+	 *            用户ID
+	 * @return 参与人员信息
+	 */
+	public Participant getByParticipantId(Integer participantId);
+
+	/**
 	 * 根据参与人员姓名获取参与人员
 	 * 
 	 * @param participantName

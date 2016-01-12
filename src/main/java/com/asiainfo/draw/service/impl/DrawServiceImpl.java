@@ -72,7 +72,7 @@ public class DrawServiceImpl implements DrawService {
 			// 只对未中奖的人开放
 			if (link.getLinkState() == DrawLink.LINK_CLOSE_TO_HIT_PRTICIPANT) {
 				// 判断当前用户是否已中奖
-				Set<DrawPrize> links = hitPrizeCache.get(participantName);
+				Set<DrawPrize> links = hitPrizeCache.get(participant.getParticipantId());
 				if (links != null && links.size() > 0) {
 					// 环节对中奖人员不开放，且已中奖的用户。直接返回没有中奖
 					return Prize.createMissPrize();
@@ -119,14 +119,14 @@ public class DrawServiceImpl implements DrawService {
 			// 更新环节剩余奖品数
 			currentPrizes.remove(drawPrize);
 			currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
-			
+
 			if (currentPrizes.size() == 0) {
 				logger.info("<<====当前环节剩余的奖品没有了时，结束当前环节");
 				linkService.finishCurrentLink();
 			}
 
 			// 记录中奖记录
-			hitPrizeCache.put(participantName, drawPrize);
+			hitPrizeCache.put(participant.getParticipantId(), drawPrize);
 			return prize;
 		}
 		// 环节已结束
