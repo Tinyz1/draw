@@ -32,7 +32,7 @@
 				<button id="loginBtn">确定</button>
 				<div class="tips">
 					小猴温馨提示 :
-					<p>为了您能顺利临到奖品，请输入正确的姓名和编号</p>
+					<p>为了您能顺利临到奖品，请输入正确的姓名</p>
 				</div>
 			</div>
 			<p>CMC&BDX上海年会</p>
@@ -45,10 +45,11 @@
 				var participantName = $("#participantName").val();
 				if(!participantName.length){
 					alert('请输入用户名！');
+					return;
 				}
 				$.post("participant/auth", {participantName: participantName},function(data){
 					if(data.returnCode === 1){
-						localStorage.setItem('participantName', username);
+						localStorage.setItem('participantName', participantName);
 						window.open("shake.jsp","_self");
 					}else{
 						alert("请输入正确的姓名!");

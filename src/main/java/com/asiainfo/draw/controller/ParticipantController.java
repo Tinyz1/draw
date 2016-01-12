@@ -41,6 +41,7 @@ public class ParticipantController {
 			logger.error(e.toString());
 			result = DefaultResult.newErrorInstance(2, "身份验证失败！");
 		}
+		logger.info(result.toString());
 		return result;
 	}
 }

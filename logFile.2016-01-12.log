@@ -5211,3 +5211,115 @@ java.lang.NullPointerException: null
 582344 [http-bio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Last-Modified value for [/draw/resources/music/5012.mp3] is: -1
 582345 [http-bio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Null ModelAndView returned to DispatcherServlet with name 'appServlet': assuming HandlerAdapter completed request handling
 582345 [http-bio-8080-exec-6] DEBUG o.s.web.servlet.DispatcherServlet - Successfully completed request
+425  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+985  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 12 12:59:15 CST 2016]; root of context hierarchy
+1168 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1952 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1962 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3033 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============开始初始化参与人员信息
+3661 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：叶春林加入缓存...
+3663 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 叶春林, value: Participant [participantId=1, participantName=叶春林]
+3665 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：汪小峰加入缓存...
+3665 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 汪小峰, value: Participant [participantId=4, participantName=汪小峰]
+3665 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：赵林刚加入缓存...
+3666 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 赵林刚, value: Participant [participantId=3, participantName=赵林刚]
+3666 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<======用户：魏波加入缓存...
+3666 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存，key: 魏波, value: Participant [participantId=2, participantName=魏波]
+3666 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - <<==============参与人员信息加载完毕
+3710 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+3721 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<==下一环节：DrawLink [linkId=2, linkName=第二轮抽奖, openState=1, linkOrder=2, linkState=1]
+3722 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========已读取新的环节：第二轮抽奖...
+3722 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节加入缓存中...
+3722 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+3747 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节剩余的奖品放入缓存中
+3758 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当前环节的参与人员：[Participant [participantId=1, participantName=叶春林], Participant [participantId=3, participantName=赵林刚], Participant [participantId=4, participantName=汪小峰], Participant [participantId=2, participantName=魏波]]
+3758 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化当前环节已中奖人员...
+3758 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+3761 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：4...
+3761 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==参与人员：4
+3762 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<=====产生的奖池数量：1
+3763 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==每个奖池的总的奖品数量（包括空奖品）：40
+3763 [localhost-startStop-1] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==奖池DefaultPrizePool--1062610074真实的奖品数量为：0
+3763 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+3765 [localhost-startStop-1] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化环节状态为：INIT...
+3888 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3136 ms
+3953 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3956 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 12:59:18 CST 2016]; parent: Root WebApplicationContext
+3957 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4222 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4519 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String)
+4524 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4526 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+5574 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 12:59:18 CST 2016]; parent: Root WebApplicationContext
+5722 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 12 12:59:18 CST 2016]; parent: Root WebApplicationContext
+5919 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+6132 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 2179 ms
+36184 [http-bio-8080-exec-12] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+36185 [http-bio-8080-exec-12] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:从缓存中获取用户信息...
+36230 [http-bio-8080-exec-12] ERROR c.a.d.c.ParticipantController - com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key .
+40139 [http-bio-8080-exec-12] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+40139 [http-bio-8080-exec-12] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:从缓存中获取用户信息...
+40182 [http-bio-8080-exec-12] ERROR c.a.d.c.ParticipantController - com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key .
+43860 [http-bio-8080-exec-12] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+43861 [http-bio-8080-exec-12] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:从缓存中获取用户信息...
+43897 [http-bio-8080-exec-12] ERROR c.a.d.c.ParticipantController - com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key .
+69624 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+69625 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+69625 [http-bio-8080-exec-5] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+134468 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+134468 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+134468 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+136275 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+136275 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+136279 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+136723 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+136723 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+136723 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+136916 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+136917 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+136917 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+146520 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+146520 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+146520 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+149280 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+149281 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+149281 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+150008 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+150008 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+150009 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+150223 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+150223 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+150223 [http-bio-8080-exec-8] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+208087 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+208087 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:从缓存中获取用户信息...
+208122 [http-bio-8080-exec-4] ERROR c.a.d.c.ParticipantController - com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key .
+211750 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：
+211751 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:从缓存中获取用户信息...
+211771 [http-bio-8080-exec-4] ERROR c.a.d.c.ParticipantController - com.google.common.cache.CacheLoader$InvalidCacheLoadException: CacheLoader returned null for key .
+257849 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+257849 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+257849 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+304507 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+304507 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+304508 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+304509 [http-bio-8080-exec-4] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+341266 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+341266 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+341266 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+341269 [http-bio-8080-exec-1] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+371562 [http-bio-8080-exec-12] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+371563 [http-bio-8080-exec-12] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+371563 [http-bio-8080-exec-12] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+371565 [http-bio-8080-exec-12] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+402495 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+402495 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+402495 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+402496 [http-bio-8080-exec-1] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+443174 [http-bio-8080-exec-6] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+443174 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+443174 [http-bio-8080-exec-6] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+443175 [http-bio-8080-exec-6] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+456768 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================校验用户：叶春林
+456768 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 根据用户名称:叶春林从缓存中获取用户信息...
+456768 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<================用户：叶春林校验通过
+456769 [http-bio-8080-exec-7] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
