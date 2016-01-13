@@ -139,9 +139,11 @@
     	});
     	
     	$('#commitBtn').click(function(e){
-    		$.post('center/pick/commit', function(data){
-    			alert(data.resultMsg);
-    		});
+    		if(confirm("确认提交后，本环节将不能继续加人。是否确认？")){
+        		$.post('center/pick/commit', function(data){
+        			alert(data.resultMsg);
+        		});
+    		}
     	});
     	
     	$('#linkBtn').click(function(e){

@@ -2,7 +2,6 @@ package com.asiainfo.draw.util;
 
 import static com.google.common.base.Preconditions.checkArgument;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -16,56 +15,45 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 	private final Logger logger = LoggerFactory.getLogger(DefaultPrizePoolFactory.class);
 
 	@Override
-	public List<PrizePool> createPrizePools(int numberOfPeople, List<DrawPrize> prizes) {
+	public PrizePool createPrizePools(int numberOfPeople, List<DrawPrize> prizes) {
+		logger.info("<<==========开始创建奖池...");
+		logger.info("<<====本环节参与人员数量:{}", numberOfPeople);
 		checkArgument(numberOfPeople > 0, "参与人数不能小于0");
-		logger.info("<<==参与人员：" + numberOfPeople);
 
-		List<PrizePool> pools = new ArrayList<PrizePool>();
-		// 一个奖池满足100个人
-		int i = 0;
-		DefaultPrizePool prePool = null;
-		DefaultPrizePool currPool = null;
-		do {
-			currPool = new DefaultPrizePool();
-			currPool.setPrePool(prePool);
-			prePool = currPool;
-			pools.add(currPool);
-			i += 100;
-		} while (i < numberOfPeople);
+		PrizePool pool = new DefaultPrizePool();
 
-		DefaultPrizePool firstPoll = (DefaultPrizePool) pools.get(0);
-		firstPoll.setPrePool(currPool);
-
-		int numberOfPool = pools.size();
-		logger.info("<<=====产生的奖池数量：" + numberOfPool);
-		
 		if (prizes != null && prizes.size() > 0) {
-			// 放入真实的奖品
-			for (int j = 0, len = prizes.size(); j < len; j++) {
-				int poolNum = j % numberOfPool;
-				PrizePool pool = pools.get(poolNum);
-				pool.push(prizes.get(j));
-				// 真实的奖品数量
-				pool.setTruePrize(pool.getTruePrize() + prizes.get(j).getSize());
+
+			logger.info("<<============开始放入真实的奖品...");
+			for (int i = 0, len = prizes.size(); i < len; i++) {
+
+				DrawPrize prize = prizes.get(i);
+
+				int k = prize.getSize();
+				logger.info("<<========奖品:{}含有奖品数量:{}", prize.getPrizeName(), k);
+
+				if (k > 0) {
+					for (int j = 0; j < k; j++) {
+						prize.setSize(1);
+						pool.push(prize);
+						pool.setTruePrize(pool.getTruePrize() + 1);
+					}
+				}
 			}
 		}
 
-		int perPoolPrize = numberOfPeople / pools.size();
-
-		logger.info("<<==每个奖池的总的奖品数量（包括空奖品）：" + perPoolPrize);
-
-		for (PrizePool pool : pools) {
-			for (int k = 0, len = perPoolPrize - pool.size(); k < len; k++) {
-				pool.push(null);
-			}
-			logger.info("<<==奖池" + pool.getName() + "真实的奖品数量为：" + pool.getTruePrize());
-			// 打乱奖品顺序
-			Collections.shuffle(pool.getPrizes());
+		if (numberOfPeople < pool.getTruePrize()) {
+			throw new RuntimeException("参与抽奖人员不能小于奖池的真实奖品数!");
 		}
 
-		// 打乱奖池顺序
-		Collections.shuffle(pools);
-		return pools;
+		for (int k = 0, len = numberOfPeople - pool.getTruePrize(); k < len; k++) {
+			pool.push(null);
+		}
+
+		// 打乱奖品顺序
+		Collections.shuffle(pool.getPrizes());
+		logger.info("<<==========奖池创建完毕...");
+		return pool;
 	}
 
 }

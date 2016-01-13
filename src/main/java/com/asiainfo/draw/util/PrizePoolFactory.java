@@ -19,8 +19,8 @@ public abstract class PrizePoolFactory {
 	 *            抽奖人数
 	 * @param prizes
 	 *            奖品数
-	 * @return 一些奖池
+	 * @return 奖池
 	 */
-	public abstract List<PrizePool> createPrizePools(int numberOfPeople, List<DrawPrize> prizes);
+	public abstract PrizePool createPrizePools(int numberOfPeople, List<DrawPrize> prizes);
 
 }

@@ -64,7 +64,6 @@ public class AllPickCache implements InitializingBean {
 	public Participant get(final Integer id) {
 		try {
 			Participant participant = (Participant) allPickCache.get(id, new Callable<Participant>() {
-
 				@Override
 				public Participant call() throws Exception {
 					return null;

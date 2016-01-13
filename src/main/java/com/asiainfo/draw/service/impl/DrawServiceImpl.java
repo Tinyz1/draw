@@ -107,18 +107,17 @@ public class DrawServiceImpl implements DrawService {
 			}
 
 			// 满足抽奖条件的人员参与抽奖
-			@SuppressWarnings("unchecked")
-			List<PrizePool> pools = (List<PrizePool>) currentLinkCache.get(CurrentLinkCache.CURRENT_POOLS);
+			PrizePool pool = (PrizePool) currentLinkCache.get(CurrentLinkCache.CURRENT_POOL);
 
 			// 随机抽奖
-			DrawPrize drawPrize = Draw.pick(pools, null);
+			DrawPrize drawPrize = Draw.pick(pool, null);
 
 			@SuppressWarnings("unchecked")
 			// 当前环节剩余的奖品
 			List<DrawPrize> currentPrizes = (List<DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_PRIZES);
 			// 当前环节没有中奖的人数 = 1 并且 只剩下一个奖品时。那么对于没有中奖的人，当前抽奖需要必中
 			if (allowParticipants.size() - currentHits.size() == 1 && currentPrizes.size() == 1) {
-				drawPrize = Draw.pick(pools, true); // 给这个人一次必中的机会
+				drawPrize = Draw.pick(pool, true); // 给这个人一次必中的机会
 			}
 
 			if (drawPrize == null) {

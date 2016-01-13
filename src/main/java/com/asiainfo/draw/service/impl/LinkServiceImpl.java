@@ -67,7 +67,7 @@ public class LinkServiceImpl implements LinkService {
 
 	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
-	
+
 	@Autowired
 	private CommandCache redirectCache;
 
@@ -121,11 +121,11 @@ public class LinkServiceImpl implements LinkService {
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
 
 		logger.info("<<===========当今环节参与人数：{}...", numberOfPeople);
-		List<PrizePool> pools = poolFactory.createPrizePools(numberOfPeople, currentPrizes);
+		PrizePool pool = poolFactory.createPrizePools(numberOfPeople, currentPrizes);
 
 		logger.info("<<===========把奖品池加入缓存中...");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_POOLS, pools);
-		
+		currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
+
 		// 界面跳转指令
 		Command command = new Command();
 		command.setType(Command.COMMAND_REDIRECT);
@@ -213,7 +213,7 @@ public class LinkServiceImpl implements LinkService {
 			logger.info("完成新的环节启动，启动时间：{}" + start);
 			// 记录环节开始时间
 			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
-			
+
 			// 界面跳转指令
 			Command command = new Command();
 			command.setType(Command.COMMAND_REDIRECT);

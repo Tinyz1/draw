@@ -33,7 +33,7 @@ public class CurrentLinkCache implements InitializingBean {
 	/**
 	 * 环节奖品池
 	 */
-	public static final String CURRENT_POOLS = KEY_PRE + "pools";
+	public static final String CURRENT_POOL = KEY_PRE + "pool";
 
 	/**
 	 * 当前环节是否开始
