@@ -15,8 +15,8 @@ public final class Draw {
 	 *            本次抽奖是否需要中奖。true:需要中奖，false:不能中奖；null：随机中奖。
 	 * @return
 	 */
-	public static DrawPrize pick(PrizePool pool, Boolean isHit) {
+	public static DrawPrize pick(PrizePool pool) {
 		checkNotNull(pool);
-		return pool.pop(isHit);
+		return pool.pop();
 	}
 }

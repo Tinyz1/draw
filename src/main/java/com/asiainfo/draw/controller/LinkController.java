@@ -25,6 +25,26 @@ public class LinkController {
 
 	@Autowired
 	private LinkService linkService;
+	
+	/**
+	 * 
+	 * @param enterNmuber
+	 * @return
+	 */
+	@RequestMapping("/authLinkNumber")
+	@ResponseBody
+	public DefaultResult auth(String enterNmuber) {
+		DefaultResult result = null;
+		try {
+			linkService.authLinkNumber(enterNmuber);
+			result = DefaultResult.newSuccessInstance(1, "环节编号验证成功！");
+		} catch (StartLinkException e) {
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			result = DefaultResult.newErrorInstance(2, "环节编号验证失败！");
+		}
+		return result;
+	}
 
 	@RequestMapping("/start")
 	@ResponseBody

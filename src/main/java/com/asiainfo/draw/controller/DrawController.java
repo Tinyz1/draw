@@ -21,10 +21,10 @@ public class DrawController {
 
 	@RequestMapping("/pick")
 	@ResponseBody
-	public Prize pick(String participantName) {
+	public Prize pick(String participantName, String enterNmuber) {
 		Prize prize = null;
 		try {
-			prize = drawService.pick(participantName);
+			prize = drawService.pick(participantName, enterNmuber);
 		} catch (Exception e) {
 			logger.error("系统错误，错误信息：{}", e);
 			prize = Prize.createOverPrize();

@@ -7,7 +7,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.asiainfo.draw.service.LinkService;
@@ -21,7 +20,6 @@ import com.google.common.cache.CacheBuilder;
  *
  */
 @Component
-@Scope("singleton")
 public class CurrentLinkCache implements InitializingBean {
 
 	private static final String KEY_PRE = "com.asiainfo.draw.cache.CurrentLinkCache.";
@@ -36,7 +34,7 @@ public class CurrentLinkCache implements InitializingBean {
 	public static final String CURRENT_POOL = KEY_PRE + "pool";
 
 	/**
-	 * 当前环节是否开始
+	 * 环节状态
 	 */
 	public static final String CURRENT_STATE = KEY_PRE + "state";
 
@@ -63,7 +61,7 @@ public class CurrentLinkCache implements InitializingBean {
 	public static final String CURRENT_FINISH_DATE = KEY_PRE + "finishDate";
 
 	/**
-	 * 环节参与人数
+	 * 环节参与人
 	 */
 	public static final String CURRENT_PARTICIPANTS = KEY_PRE + "participants";
 
@@ -78,14 +76,19 @@ public class CurrentLinkCache implements InitializingBean {
 	public static final String CURRENT_HIT = KEY_PRE + "hit";
 
 	/**
-	 * 当前环节摇奖记录
+	 * 环节摇奖记录
 	 */
 	public static final String CURRENT_SHAKE = KEY_PRE + "shake";
 
 	/**
-	 * 当前环节选取参与的人员数量
+	 * 环节参与人数
 	 */
 	public static final String CURRENT_PICK_NUM = KEY_PRE + "pickNum";
+
+	/**
+	 * 环节进入编号
+	 */
+	public static final String CURRENT_ENTER_NUMBER = KEY_PRE + "enterNumber";
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 

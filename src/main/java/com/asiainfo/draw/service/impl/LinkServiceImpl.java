@@ -9,6 +9,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,6 +102,7 @@ public class LinkServiceImpl implements LinkService {
 	/**
 	 * 初始化奖品池，一般在选人后才进行初始化
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initPool() {
 
@@ -109,11 +111,10 @@ public class LinkServiceImpl implements LinkService {
 		logger.info("<<===========读取新的环节奖品...");
 		List<DrawPrize> currentPrizes = getPrizeByLink(currentLink.getLinkId());
 
-		logger.info("<<===========把当前环节剩余的奖品放入缓存中");
+		logger.info("<<===========把当前环节奖品放入缓存中");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
 
 		// 初始化当前环节参与人员
-		@SuppressWarnings("unchecked")
 		List<Participant> participants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
 		int numberOfPeople = participants.size();
 
@@ -251,6 +252,18 @@ public class LinkServiceImpl implements LinkService {
 	@Override
 	public DrawLink getCurrentLink() {
 		return (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+	}
+
+	@Override
+	public void authLinkNumber(String enterNmuber) {
+		checkNotNull(enterNmuber);
+		String currentLinkEnterNumber = (String) currentLinkCache.get(CurrentLinkCache.CURRENT_ENTER_NUMBER);
+		if (!StringUtils.equalsIgnoreCase(enterNmuber, currentLinkEnterNumber)) {
+			String mess = "环节进入编号错误，不能参与抽奖";
+			logger.warn(mess);
+			throw new RuntimeException(mess);
+		}
+
 	}
 
 }

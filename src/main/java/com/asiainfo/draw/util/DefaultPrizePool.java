@@ -40,47 +40,26 @@ public class DefaultPrizePool extends PrizePool {
 	}
 
 	@Override
-	public synchronized DrawPrize pop(Boolean isHit) throws NoMorePrizeException {
+	public synchronized DrawPrize pop() throws NoMorePrizeException {
+		logger.info("奖池:{}拥有奖品数量:{}，用户真实的奖品数量:{}", size(), getTruePrize());
 		DrawPrize prize = null;
 		if (hasPrize()) {
 			int index = new Random().nextInt(size());
-			prize = getPrizes().get(index);
-			if (isHit != null) {
-				// 要求必中奖
-				if (isHit && prize == null) {
-					logger.warn("<<==警告!!!!!!本次操作可能是作弊行为！！！需要必中！！！！开始执行必中逻辑！！！！！");
-					if (getTruePrize() > 0) {
-						while (prize == null) {
-							index++;
-							prize = getPrizes().get(index % getPrizes().size());
-						}
-					}
-				}
-				// 要求不能中奖
-				if (!isHit && prize != null) {
-					logger.warn("<<==警告!!!!!!本次操作可能是作弊行为！！！需要不中！！！！开始执行不中逻辑！！！！！");
-					while (prize != null) {
-						index++;
-						prize = getPrizes().get(index % getPrizes().size());
-					}
-				}
-			}
-			// 当前奖池剔除当前奖品
-			List<DrawPrize> prizes = getPrizes();
-			prizes.remove(index);
-			setPrizes(prizes);
-			// 已中奖时，需要把当前奖品池的真实奖品-1
+			// 获取一个奖品
+			prize = getPrizes().remove(index);
+			logger.info("本次抽取的奖品:{}", prize);
 			if (prize != null) {
 				setTruePrize(getTruePrize() - 1);
 			}
+		} else {
+			throw new NoMorePrizeException("奖池里面没有更多的奖品了！");
 		}
-		logger.info("<<==" + getName() + " pop " + String.valueOf(prize));
 		return prize;
 	}
 
 	@Override
 	public void push(DrawPrize prize) {
-		logger.debug("<<==" + getName() + " push " + String.valueOf(prize));
+		logger.info("奖池:{}放入奖品:{}", getName(), prize);
 		getPrizes().add(prize);
 	}
 

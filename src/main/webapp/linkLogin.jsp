@@ -12,8 +12,8 @@
 	// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
 	var storage = getLocalStorage();
 	var participantName = storage.getItem('participantName');
-	if(participantName !== null){
-		window.open("linkLogin.jsp","_self");
+	if(participantName == null){
+		window.open("mobileLuckDraw.jsp","_self");
 	}
 	</script>
 </head>
@@ -28,11 +28,12 @@
 		<div class="content">
 			<img src="resources/image/s2016.png">
 			<div class="form">
-				<input type="text" id="participantName" class="username" placeholder="请输入姓名">
+				<input type="text" id="linkNum" class="linkNum" placeholder="请输入该环节验证码">
 				<button id="loginBtn">确定</button>
 				<div class="tips">
 					小猴温馨提示 :
-					<p>为了您能顺利临到奖品，请输入正确的姓名</p>
+					<p>为了您能顺利领到奖品，请输入正确的验证码</p>
+					<p>主持人会告诉你验证码哦！！！</p>
 				</div>
 			</div>
 			<p>CMC&BDX上海年会</p>
@@ -42,17 +43,16 @@
 	<script type="text/javascript">
 		(function($){
 			$('#loginBtn').click(function(){
-				var participantName = $("#participantName").val();
-				if(!participantName.length){
-					alert('请输入用户名！');
+				var linkNum = $("#linkNum").val();
+				if(!linkNum.length){
+					alert('请输入验证码！');
 					return;
 				}
-				$.post("participant/auth", {participantName: participantName},function(data){
+				$.post("link/authLinkNumber", {participantName: participantName, enterNmuber: linkNum},function(data){
 					if(data.returnCode === 1){
-						localStorage.setItem('participantName', participantName);
 						window.open("shake.jsp","_self");
 					}else{
-						alert("请输入正确的姓名!");
+						alert("请输入正确的环节验证码!");
 					}
 				});
 			});

@@ -5,12 +5,14 @@ import com.asiainfo.draw.util.Prize;
 public interface DrawService {
 
 	/**
-	 * 根据用户姓名进行抽奖
+	 * 用户抽奖
 	 * 
 	 * @param participantName
-	 *            参与人员姓名
-	 * @return 抽奖信息
+	 *            抽奖用户
+	 * @param enterNumber
+	 *            抽奖编号
+	 * @return 奖品信息
 	 */
-	Prize pick(String participantName);
+	Prize pick(String participantName, String enterNumber);
 
 }

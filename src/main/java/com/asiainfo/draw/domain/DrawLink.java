@@ -57,14 +57,4 @@ public class DrawLink {
 				+ ", linkState=" + linkState + "]";
 	}
 
-	/**
-	 * 环节对已中奖的人不开放
-	 */
-	public static final int LINK_CLOSE_TO_HIT_PRTICIPANT = 1;
-
-	/**
-	 * 环节对已中奖的人开放
-	 */
-	public static final int LINK_OPEN_TO_HIT_PRTICIPANT = 2;
-
 }

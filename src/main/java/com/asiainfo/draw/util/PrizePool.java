@@ -13,10 +13,13 @@ import com.asiainfo.draw.exception.NoMorePrizeException;
  */
 public abstract class PrizePool {
 
+	/**
+	 * 奖池名称
+	 */
 	private String name;
 
 	/**
-	 * 奖池里面的奖品
+	 * 奖池里面的所有奖品（包括空的奖品）
 	 */
 	private List<DrawPrize> prizes;
 
@@ -75,13 +78,11 @@ public abstract class PrizePool {
 	/**
 	 * 从奖池里面随机弹出一个奖品
 	 * 
-	 * @param isHit
-	 *            本次是否需要中奖
 	 * @return 返回一个奖品，有可能为空
 	 * @throws NoMorePrizeException
 	 *             奖品池没有奖品时，会抛出此异常
 	 */
-	public abstract DrawPrize pop(Boolean isHit) throws NoMorePrizeException;
+	public abstract DrawPrize pop() throws NoMorePrizeException;
 
 	/**
 	 * 往奖品池里面增加奖品

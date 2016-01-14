@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -48,11 +49,15 @@ public class DrawServiceImpl implements DrawService {
 	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
 
+	@SuppressWarnings("unchecked")
 	@Override
-	public Prize pick(String participantName) {
+	public Prize pick(String participantName, String enterNumber) {
 		checkNotNull(participantName);
-		// 判断当前环节是否开始了
+
+		DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
+		logger.info("抽奖环节:{}的状态:{}", link.getLinkName(), linkState);
+
 		switch (linkState) {
 		// 环节未开始
 		case INIT:
@@ -60,65 +65,47 @@ public class DrawServiceImpl implements DrawService {
 			return Prize.createInitPrize();
 			// 环节运行中
 		case RUN: {
-			logger.info("<<=================用户:{}参与抽奖...", participantName);
+
+			// 信息
+			String mess;
+
+			// 当前环节的进入编号
+			String currentLinkEnterNumber = (String) currentLinkCache.get(CurrentLinkCache.CURRENT_ENTER_NUMBER);
+			if (!StringUtils.equalsIgnoreCase(enterNumber, currentLinkEnterNumber)) {
+				mess = "环节进入编号错误，不能参与抽奖";
+				logger.warn(mess);
+				throw new RuntimeException(mess);
+			}
+
+			// 获取当前用户
 			Participant participant = participantCache.get(participantName);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 
-			// 判断当前环节是否对当前人员开发
-			@SuppressWarnings("unchecked")
+			// 判断当前用户是否能够参与本环节抽奖
 			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
 			if (!allowParticipants.contains(participant)) {
 				// 对于不在人员列表的用户，直接返回不中奖
-				logger.info("用户：{}不在参与人员列表中，直接返回不中奖！");
+				logger.info("用户：{}不在参与人员列表中，直接返回不中奖！", participantName);
 				return Prize.createMissPrize();
 			}
 
 			// 一个人一个环节只能摇奖一次
-			@SuppressWarnings("unchecked")
-			Set<Integer> currentShake = (Set<Integer>) currentLinkCache.get(CurrentLinkCache.CURRENT_SHAKE);
-			if (currentShake.contains(participant.getParticipantId())) {
+			Set<Participant> currentShake = (Set<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_SHAKE);
+			if (currentShake.contains(participant)) {
 				// 该人员当前环节已参与过抽奖，不能参与本次抽奖了
-				logger.info("<<=================用户：{}当前环节已参与过抽奖，不能继续参与");
+				logger.info("用户：{}当前环节已参与过抽奖，不能继续参与", participantName);
 				return Prize.createMissPrize();
 			} else {
 				// 当前用户已经摇奖了
-				currentShake.add(participant.getParticipantId());
+				currentShake.add(participant);
 				currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, currentShake);
-			}
-
-			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-			// 只对未中奖的人开放
-			if (link.getLinkState() == DrawLink.LINK_CLOSE_TO_HIT_PRTICIPANT) {
-				// 判断当前用户是否已中奖
-				Set<DrawPrize> links = hitPrizeCache.get(participant.getParticipantId());
-				if (links != null && links.size() > 0) {
-					// 环节对中奖人员不开放，且已中奖的用户。直接返回没有中奖
-					return Prize.createMissPrize();
-				}
-				// 当前人员未中奖时，可以继续抽奖
-			}
-
-			// 对于任何一种情况，任何一个人，同一个环节最多能够中奖一次。
-			@SuppressWarnings("unchecked")
-			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-			if (currentHits.containsKey(participant.getParticipantName())) {
-				// 该人员当前环节已中奖，不能参与本次抽奖了
-				return Prize.createMissPrize();
 			}
 
 			// 满足抽奖条件的人员参与抽奖
 			PrizePool pool = (PrizePool) currentLinkCache.get(CurrentLinkCache.CURRENT_POOL);
 
 			// 随机抽奖
-			DrawPrize drawPrize = Draw.pick(pool, null);
-
-			@SuppressWarnings("unchecked")
-			// 当前环节剩余的奖品
-			List<DrawPrize> currentPrizes = (List<DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_PRIZES);
-			// 当前环节没有中奖的人数 = 1 并且 只剩下一个奖品时。那么对于没有中奖的人，当前抽奖需要必中
-			if (allowParticipants.size() - currentHits.size() == 1 && currentPrizes.size() == 1) {
-				drawPrize = Draw.pick(pool, true); // 给这个人一次必中的机会
-			}
+			DrawPrize drawPrize = Draw.pick(pool);
 
 			if (drawPrize == null) {
 				// 未中奖
@@ -129,13 +116,10 @@ public class DrawServiceImpl implements DrawService {
 			Prize prize = new Prize(Prize.HIT, drawPrize.getPrizeType(), drawPrize.getPrizeName());
 			logger.info("<<====参与人员：{},中奖：{}", participant, prize);
 
+			// 记录环节中奖记录
+			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
 			// 更新当前环节中奖记录
 			currentHits.put(participant.getParticipantId(), drawPrize);
-			currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, currentHits);
-
-			// 更新环节剩余奖品数
-			currentPrizes.remove(drawPrize);
-			currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
 
 			// 更新环节用户中奖记录
 			Map<String, String> hitPrize = linkHitPrizeCache.get(link.getLinkId());
@@ -145,7 +129,7 @@ public class DrawServiceImpl implements DrawService {
 			hitPrize.put(participantName, drawPrize.getPrizeName());
 			linkHitPrizeCache.put(link.getLinkId(), hitPrize);
 
-			if (currentPrizes.size() == 0) {
+			if (!pool.hasPrize()) {
 				logger.info("<<====当前环节剩余的奖品没有了时，结束当前环节");
 				linkService.finishCurrentLink();
 			}

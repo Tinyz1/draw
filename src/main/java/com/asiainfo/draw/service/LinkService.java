@@ -52,4 +52,12 @@ public interface LinkService {
 	 */
 	DrawLink getCurrentLink();
 
+	/**
+	 * 验证环节编号是否正确
+	 * 
+	 * @param enterNmuber
+	 *            环节编号
+	 */
+	void authLinkNumber(String enterNmuber);
+
 }
