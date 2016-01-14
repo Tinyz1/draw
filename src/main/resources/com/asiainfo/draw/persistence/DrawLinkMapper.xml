@@ -7,6 +7,7 @@
     <result column="open_state" property="openState" jdbcType="INTEGER" />
     <result column="link_order" property="linkOrder" jdbcType="INTEGER" />
     <result column="link_state" property="linkState" jdbcType="INTEGER" />
+    <result column="enter_number" property="enterNumber" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Example_Where_Clause" >
     <where >
@@ -67,7 +68,7 @@
     </where>
   </sql>
   <sql id="Base_Column_List" >
-    link_id, link_name, open_state, link_order, link_state
+    link_id, link_name, open_state, link_order, link_state, enter_number
   </sql>
   <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.asiainfo.draw.domain.DrawLinkExample" >
     select
@@ -89,16 +90,6 @@
     from draw_link
     where link_id = #{linkId,jdbcType=INTEGER}
   </select>
-  
-  <!-- 查询下一个环节 -->
-  <select id="selectNextLink" resultMap="BaseResultMap">
-    SELECT
-    <include refid="Base_Column_List" />
-    FROM draw_link 
-    WHERE link_state = 1 AND link_order &lt;= (SELECT MIN(link_order) FROM draw_link WHERE link_state = 1)
-  </select>
-  
-  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from draw_link
     where link_id = #{linkId,jdbcType=INTEGER}
@@ -111,9 +102,11 @@
   </delete>
   <insert id="insert" parameterType="com.asiainfo.draw.domain.DrawLink" >
     insert into draw_link (link_id, link_name, open_state, 
-      link_order, link_state)
+      link_order, link_state, enter_number
+      )
     values (#{linkId,jdbcType=INTEGER}, #{linkName,jdbcType=VARCHAR}, #{openState,jdbcType=INTEGER}, 
-      #{linkOrder,jdbcType=INTEGER}, #{linkState,jdbcType=INTEGER})
+      #{linkOrder,jdbcType=INTEGER}, #{linkState,jdbcType=INTEGER}, #{enterNumber,jdbcType=VARCHAR}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.asiainfo.draw.domain.DrawLink" >
     insert into draw_link
@@ -133,6 +126,9 @@
       <if test="linkState != null" >
         link_state,
       </if>
+      <if test="enterNumber != null" >
+        enter_number,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="linkId != null" >
@@ -149,6 +145,9 @@
       </if>
       <if test="linkState != null" >
         #{linkState,jdbcType=INTEGER},
+      </if>
+      <if test="enterNumber != null" >
+        #{enterNumber,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -176,6 +175,9 @@
       <if test="record.linkState != null" >
         link_state = #{record.linkState,jdbcType=INTEGER},
       </if>
+      <if test="record.enterNumber != null" >
+        enter_number = #{record.enterNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
@@ -187,7 +189,8 @@
       link_name = #{record.linkName,jdbcType=VARCHAR},
       open_state = #{record.openState,jdbcType=INTEGER},
       link_order = #{record.linkOrder,jdbcType=INTEGER},
-      link_state = #{record.linkState,jdbcType=INTEGER}
+      link_state = #{record.linkState,jdbcType=INTEGER},
+      enter_number = #{record.enterNumber,jdbcType=VARCHAR}
     <if test="_parameter != null" >
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -207,6 +210,9 @@
       <if test="linkState != null" >
         link_state = #{linkState,jdbcType=INTEGER},
       </if>
+      <if test="enterNumber != null" >
+        enter_number = #{enterNumber,jdbcType=VARCHAR},
+      </if>
     </set>
     where link_id = #{linkId,jdbcType=INTEGER}
   </update>
@@ -215,7 +221,17 @@
     set link_name = #{linkName,jdbcType=VARCHAR},
       open_state = #{openState,jdbcType=INTEGER},
       link_order = #{linkOrder,jdbcType=INTEGER},
-      link_state = #{linkState,jdbcType=INTEGER}
+      link_state = #{linkState,jdbcType=INTEGER},
+      enter_number = #{enterNumber,jdbcType=VARCHAR}
     where link_id = #{linkId,jdbcType=INTEGER}
   </update>
+  
+  <!-- 查询下一个环节 -->
+  <select id="selectNextLink" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List" />
+    FROM draw_link 
+    WHERE link_state = 1 AND link_order &lt;= (SELECT MIN(link_order) FROM draw_link WHERE link_state = 1)
+  </select>
+  
 </mapper>

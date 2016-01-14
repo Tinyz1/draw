@@ -33,10 +33,10 @@ public class LinkController {
 	 */
 	@RequestMapping("/authLinkNumber")
 	@ResponseBody
-	public DefaultResult auth(String enterNmuber) {
+	public DefaultResult auth(String enterNumber) {
 		DefaultResult result = null;
 		try {
-			linkService.authLinkNumber(enterNmuber);
+			linkService.authLinkNumber(enterNumber);
 			result = DefaultResult.newSuccessInstance(1, "环节编号验证成功！");
 		} catch (StartLinkException e) {
 			result = DefaultResult.newErrorInstance(1, e.getMessage());

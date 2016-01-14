@@ -43,13 +43,14 @@
 	<script type="text/javascript">
 		(function($){
 			$('#loginBtn').click(function(){
-				var linkNum = $("#linkNum").val();
-				if(!linkNum.length){
+				var enterNumber = $("#linkNum").val();
+				if(!enterNumber.length){
 					alert('请输入验证码！');
 					return;
 				}
-				$.post("link/authLinkNumber", {participantName: participantName, enterNmuber: linkNum},function(data){
+				$.post("link/authLinkNumber", {enterNumber: enterNumber},function(data){
 					if(data.returnCode === 1){
+						storage.setItem('enterNumber', enterNumber);
 						window.open("shake.jsp","_self");
 					}else{
 						alert("请输入正确的环节验证码!");

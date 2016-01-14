@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.HitPrizeCache;
@@ -22,6 +23,7 @@ import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
+import com.asiainfo.draw.exception.EnterNumberErrorException;
 import com.asiainfo.draw.service.DrawService;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.Draw;
@@ -49,11 +51,14 @@ public class DrawServiceImpl implements DrawService {
 	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
 
+	@Autowired
+	private AllPickCache allpickCache;
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public Prize pick(String participantName, String enterNumber) {
 		checkNotNull(participantName);
-
+		logger.info("参与抽奖用户:{},环节编码:{}", participantName, enterNumber);
 		DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
 		logger.info("抽奖环节:{}的状态:{}", link.getLinkName(), linkState);
@@ -70,11 +75,10 @@ public class DrawServiceImpl implements DrawService {
 			String mess;
 
 			// 当前环节的进入编号
-			String currentLinkEnterNumber = (String) currentLinkCache.get(CurrentLinkCache.CURRENT_ENTER_NUMBER);
-			if (!StringUtils.equalsIgnoreCase(enterNumber, currentLinkEnterNumber)) {
+			if (!StringUtils.equalsIgnoreCase(enterNumber, link.getEnterNumber())) {
 				mess = "环节进入编号错误，不能参与抽奖";
 				logger.warn(mess);
-				throw new RuntimeException(mess);
+				throw new EnterNumberErrorException(mess);
 			}
 
 			// 获取当前用户
@@ -99,6 +103,12 @@ public class DrawServiceImpl implements DrawService {
 				// 当前用户已经摇奖了
 				currentShake.add(participant);
 				currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, currentShake);
+			}
+
+			// 判断用户是否还有中奖的机会
+			int times = allpickCache.get(participant.getParticipantId());
+			if (times < 1) {
+				throw new RuntimeException("用户没有中奖的机会了！");
 			}
 
 			// 满足抽奖条件的人员参与抽奖
@@ -129,8 +139,10 @@ public class DrawServiceImpl implements DrawService {
 			hitPrize.put(participantName, drawPrize.getPrizeName());
 			linkHitPrizeCache.put(link.getLinkId(), hitPrize);
 
-			if (!pool.hasPrize()) {
-				logger.info("<<====当前环节剩余的奖品没有了时，结束当前环节");
+			int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
+			currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, --remainNum);
+			if (!pool.hasPrize() || remainNum == 0) {
+				logger.info("<<====当前环节剩余的奖品没有了时或所有人都摇奖了，结束当前环节");
 				linkService.finishCurrentLink();
 			}
 

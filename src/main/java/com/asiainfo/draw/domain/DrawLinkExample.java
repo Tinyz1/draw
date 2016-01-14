@@ -413,6 +413,76 @@ public class DrawLinkExample {
             addCriterion("link_state not between", value1, value2, "linkState");
             return (Criteria) this;
         }
+
+        public Criteria andEnterNumberIsNull() {
+            addCriterion("enter_number is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberIsNotNull() {
+            addCriterion("enter_number is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberEqualTo(String value) {
+            addCriterion("enter_number =", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberNotEqualTo(String value) {
+            addCriterion("enter_number <>", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberGreaterThan(String value) {
+            addCriterion("enter_number >", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberGreaterThanOrEqualTo(String value) {
+            addCriterion("enter_number >=", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberLessThan(String value) {
+            addCriterion("enter_number <", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberLessThanOrEqualTo(String value) {
+            addCriterion("enter_number <=", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberLike(String value) {
+            addCriterion("enter_number like", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberNotLike(String value) {
+            addCriterion("enter_number not like", value, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberIn(List<String> values) {
+            addCriterion("enter_number in", values, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberNotIn(List<String> values) {
+            addCriterion("enter_number not in", values, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberBetween(String value1, String value2) {
+            addCriterion("enter_number between", value1, value2, "enterNumber");
+            return (Criteria) this;
+        }
+
+        public Criteria andEnterNumberNotBetween(String value1, String value2) {
+            addCriterion("enter_number not between", value1, value2, "enterNumber");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {

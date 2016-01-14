@@ -7,6 +7,8 @@ public class LinkMember {
 
     private String participantName;
 
+    private Integer state;
+
     public Integer getMemberId() {
         return memberId;
     }
@@ -29,5 +31,13 @@ public class LinkMember {
 
     public void setParticipantName(String participantName) {
         this.participantName = participantName == null ? null : participantName.trim();
+    }
+
+    public Integer getState() {
+        return state;
+    }
+
+    public void setState(Integer state) {
+        this.state = state;
     }
 }

@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.asiainfo.draw.exception.EnterNumberErrorException;
 import com.asiainfo.draw.service.DrawService;
 import com.asiainfo.draw.util.Prize;
 
@@ -21,10 +22,12 @@ public class DrawController {
 
 	@RequestMapping("/pick")
 	@ResponseBody
-	public Prize pick(String participantName, String enterNmuber) {
+	public Prize pick(String participantName, String enterNumber) {
 		Prize prize = null;
 		try {
-			prize = drawService.pick(participantName, enterNmuber);
+			prize = drawService.pick(participantName, enterNumber);
+		} catch (EnterNumberErrorException e) {
+			prize = new Prize(Prize.EXT, "环节编码错误", "开始新的环节了，请点击右上角的姓，退出重新登录验证！");
 		} catch (Exception e) {
 			logger.error("系统错误，错误信息：{}", e);
 			prize = Prize.createOverPrize();

@@ -42,10 +42,6 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 			}
 		}
 
-		if (numberOfPeople < pool.getTruePrize()) {
-			throw new RuntimeException("参与抽奖人员不能小于奖池的真实奖品数!");
-		}
-
 		for (int k = 0, len = numberOfPeople - pool.getTruePrize(); k < len; k++) {
 			pool.push(null);
 		}

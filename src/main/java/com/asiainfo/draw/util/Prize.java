@@ -38,6 +38,11 @@ public final class Prize implements Serializable {
 	 * 当前抽奖环节未开始
 	 */
 	public static final int INIT = 4;
+	
+	/**
+	 * 其他信息
+	 */
+	public static final int EXT = 5;
 
 	/**
 	 * 活动结束规格

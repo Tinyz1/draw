@@ -1,12 +1,9 @@
 package com.asiainfo.draw.persistence;
 
-import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
-
 import com.asiainfo.draw.domain.LinkMember;
 import com.asiainfo.draw.domain.LinkMemberExample;
-import com.asiainfo.draw.domain.Participant;
+import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface LinkMemberMapper {
     int countByExample(LinkMemberExample example);
@@ -30,13 +27,4 @@ public interface LinkMemberMapper {
     int updateByPrimaryKeySelective(LinkMember record);
 
     int updateByPrimaryKey(LinkMember record);
-    
-  	/**
-	 * 查询指定环节的参与人员列表
-	 * 
-	 * @param linkId
-	 *            环节ID
-	 * @return 参与人员列表
-	 */
-	List<Participant> selectParticipantByLink(@Param("linkId") Integer linkId);
 }

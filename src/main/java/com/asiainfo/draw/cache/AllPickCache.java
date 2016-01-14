@@ -33,13 +33,12 @@ public class AllPickCache implements InitializingBean {
 	private ParticipantService participantService;
 
 	/**
-	 * 保存所有能够参与抽人的人员
+	 * 参与人员能够参与的次数
 	 */
-	private Cache<Integer, Participant> allPickCache = CacheBuilder.newBuilder().build();
+	private Cache<Integer, Integer> allPickCache = CacheBuilder.newBuilder().build();
 
-	public synchronized void put(Integer id, Participant value) {
-		logger.info("把用户：{}加入可抽人员列表缓存中...", value);
-		allPickCache.put(id, value);
+	public synchronized void put(Integer id, Integer times) {
+		allPickCache.put(id, times);
 	}
 
 	/**
@@ -48,33 +47,48 @@ public class AllPickCache implements InitializingBean {
 	 * @param key
 	 *            用户ID
 	 */
-	public void invalidate(Integer key) {
-		allPickCache.invalidate(key);
+	public void subTimes(Integer id) {
+		Integer times = get(id);
+		if (--times == 0) {
+			allPickCache.invalidate(id);
+		} else {
+			put(id, times);
+		}
 	}
 
-	public List<Participant> getAll() {
-		ConcurrentMap<Integer, Participant> maps = allPickCache.asMap();
-		List<Participant> participants = new ArrayList<Participant>();
-		for (Map.Entry<Integer, Participant> map : maps.entrySet()) {
-			participants.add(map.getValue());
+	public void plusTimes(Integer id) {
+		Integer times = get(id);
+		put(id, ++times);
+	}
+
+	public List<Integer> getAll() {
+		ConcurrentMap<Integer, Integer> participantTimes = allPickCache.asMap();
+		List<Integer> participants = new ArrayList<Integer>();
+		for (Map.Entry<Integer, Integer> participant : participantTimes.entrySet()) {
+			int times = participant.getValue();
+			if (times > 0) {
+				for (int i = 0; i < times; i++) {
+					participants.add(participant.getKey());
+				}
+			}
 		}
 		return participants;
 	}
 
-	public Participant get(final Integer id) {
+	public Integer get(final Integer id) {
+		Integer times = 0;
 		try {
-			Participant participant = (Participant) allPickCache.get(id, new Callable<Participant>() {
+			times = allPickCache.get(id, new Callable<Integer>() {
 				@Override
-				public Participant call() throws Exception {
-					return null;
+				public Integer call() throws Exception {
+					return 0;
 				}
 			});
-			return participant;
-
 		} catch (ExecutionException e) {
-			logger.error(e.toString());
+			return 0;
 		}
-		return null;
+		return times;
+
 	}
 
 	@Override
@@ -83,8 +97,10 @@ public class AllPickCache implements InitializingBean {
 		if (participants != null && participants.size() > 0) {
 			for (Participant participant : participants) {
 				if (participant != null) {
-					logger.info("<<--------------用户：{}加入缓存中...", participant);
-					put(participant.getParticipantId(), participant);
+					logger.info("<<--------------用户:{}含有{}次中奖机会...", participant.getParticipantName(), participant.getState());
+					for (int i = 0, len = participant.getState(); i < len; i++) {
+						plusTimes(participant.getParticipantId());
+					}
 				}
 			}
 		}

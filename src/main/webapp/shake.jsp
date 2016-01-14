@@ -12,7 +12,8 @@
 	// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
 	var storage = getLocalStorage();
 	var participantName = storage.getItem('participantName');
-	if(participantName === null){
+	var enterNumber = storage.getItem('enterNumber');
+	if(participantName === null || enterNumber === null){
 		window.open("mobileLuckDraw.jsp","_self");
 	}
 	</script>
@@ -54,7 +55,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<!-- <button id="shakeBtn">摇一摇</button> -->
+				<button id="shakeBtn">摇一摇</button>
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -118,7 +119,7 @@
 			}
 			
 			function record(){
-				$.post("draw/pick",{participantName: participantName},function(data){
+				$.post("draw/pick",{participantName: participantName, enterNumber: enterNumber},function(data){
 					$(".tips").addClass("hidden");
 					$(".audio")[1].play();
 					$(".ptip").html(data.spec);
@@ -142,10 +143,10 @@
 				window.open("mobileLuckDraw.jsp","_self");
 			})
 			
-			/* $('#shakeBtn').click(function(){
+			$('#shakeBtn').click(function(){
 				shake();
 				
-			}); */
+			});
 			
 			$(".leaf img").each(function(i){
 				topsArr.push($(this).css("top"));

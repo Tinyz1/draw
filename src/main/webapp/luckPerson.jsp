@@ -63,22 +63,29 @@
 				$('#tr1').append(html);
 			});
 		}
-
+		
+		var doCommand = false;
+		
 		setInterval("redirect()", 1000);
 		function redirect() {
-			$.get('center/getCommand', function(data) {
-				if (data.type == 'NULL') {
-					// 空指令，不做任何事情
-				} else if (data.type == "INIT_POOL") {
-					$.post("link/initPool");
-				} else if (data.type == 'REDIRECT') {
-					window.open(data.url, "_self");
-				} else if (data.type == 'PICK_START') {
-					startCommand();
-				} else if (data.type == 'PICK_END') {
-					endCommand();
-				}
-			});
+			
+			if(!doCommand){
+				doCommand = true;
+				$.get('center/getCommand', function(data) {
+					if (data.type == 'NULL') {
+						// 空指令，不做任何事情
+					} else if (data.type == "INIT_POOL") {
+						$.post("link/initPool");
+					} else if (data.type == 'REDIRECT') {
+						window.open(data.url, "_self");
+					} else if (data.type == 'PICK_START') {
+						startCommand();
+					} else if (data.type == 'PICK_END') {
+						endCommand();
+					}
+					doCommand = false;
+				});
+			}
 		}
 		
 		var list = [];
@@ -102,11 +109,7 @@
 				$('#' + id).addClass('info');
 				ids += list2[i].participantId + ",";
 			}
-			console.log(ids);
-			$.post("participant/current/addPickParticipant", {
-				"ids" : ids
-			}, function(data) {
-			});
+			$.post("participant/current/addPickParticipant", {"ids" : ids});
 		}
 	</script>
 

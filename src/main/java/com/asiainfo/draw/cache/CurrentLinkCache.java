@@ -81,14 +81,9 @@ public class CurrentLinkCache implements InitializingBean {
 	public static final String CURRENT_SHAKE = KEY_PRE + "shake";
 
 	/**
-	 * 环节参与人数
+	 * 环节剩余未摇奖人数
 	 */
-	public static final String CURRENT_PICK_NUM = KEY_PRE + "pickNum";
-
-	/**
-	 * 环节进入编号
-	 */
-	public static final String CURRENT_ENTER_NUMBER = KEY_PRE + "enterNumber";
+	public static final String CURRENT_REMAIN_NUM = KEY_PRE + "remainNum";
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 

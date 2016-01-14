@@ -49,8 +49,8 @@
 				}
 				$.post("participant/auth", {participantName: participantName},function(data){
 					if(data.returnCode === 1){
-						localStorage.setItem('participantName', participantName);
-						window.open("shake.jsp","_self");
+						storage.setItem('participantName', participantName);
+						window.open("linkLogin.jsp","_self");
 					}else{
 						alert("请输入正确的姓名!");
 					}
