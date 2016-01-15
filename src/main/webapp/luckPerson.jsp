@@ -26,9 +26,9 @@
 			<img class="smallImg" src="resources/image/w2016.png">
 			<ul class="listUl">
 			</ul>
-			<div class="btn-s">
+			<!-- <div class="btn-s">
 				开始抽奖
-			</div>
+			</div> -->
 		</div>
 			<p class="footP">CMC&BDX上海年会</p>
 			<h1 class="footH">万众一信 · 筑梦起航</h1>
@@ -72,8 +72,7 @@ function endCommand() {
 		ids += id + ",";
 	}
 	ids = ids.substring(0,ids.lastIndexOf(','));
-	console.log(ids);
-	//$.post("participant/current/addPickParticipant", {"ids" : ids});
+	$.post("participant/current/addPickParticipant", {"ids" : ids});
 }
 function lotteryDraw(arr, number) {
 	while(personArr.length<number) {

@@ -24,6 +24,7 @@ import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.exception.EnterNumberErrorException;
+import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.DrawService;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.Draw;
@@ -52,7 +53,10 @@ public class DrawServiceImpl implements DrawService {
 	private LinkHitPrizeCache linkHitPrizeCache;
 
 	@Autowired
-	private AllPickCache allpickCache;
+	private AllPickCache allPickCache;
+
+	@Autowired
+	private ParticipantMapper participantMapper;
 
 	@SuppressWarnings("unchecked")
 	@Override
@@ -106,10 +110,16 @@ public class DrawServiceImpl implements DrawService {
 			}
 
 			// 判断用户是否还有中奖的机会
-			int times = allpickCache.get(participant.getParticipantId());
-			if (times < 1) {
+			int times = allPickCache.get(participant.getParticipantId());
+			logger.info("用户剩下的中奖机会:{}", times);
+			if (times == 0) {
 				throw new RuntimeException("用户没有中奖的机会了！");
 			}
+			allPickCache.subTimes(participant.getParticipantId());
+			// 更新库,机会减少一次
+			participant.setState(allPickCache.get(participant.getParticipantId()));
+			participant.setState(participant.getState() - 1);
+			participantMapper.updateByPrimaryKey(participant);
 
 			// 满足抽奖条件的人员参与抽奖
 			PrizePool pool = (PrizePool) currentLinkCache.get(CurrentLinkCache.CURRENT_POOL);

@@ -136,13 +136,6 @@ public class LinkServiceImpl implements LinkService {
 		for (LinkMember member : linkMembers) {
 			Participant participant = participantCache.get(member.getParticipantId());
 			participants.add(participant);
-
-			// 中奖机会减少一次
-			allPickCache.subTimes(participant.getParticipantId());
-
-			// 更新库,机会减少一次
-			participant.setState(allPickCache.get(participant.getParticipantId()));
-			participantMapper.updateByPrimaryKey(participant);
 		}
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
 

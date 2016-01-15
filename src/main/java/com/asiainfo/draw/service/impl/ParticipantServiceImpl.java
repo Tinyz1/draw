@@ -136,11 +136,10 @@ public class ParticipantServiceImpl implements ParticipantService {
 				if (StringUtils.isNotBlank(id)) {
 					Integer iid = Integer.parseInt(id);
 					try {
-						allPickCache.subTimes(iid);
 						Participant participant = participantCache.get(iid);
-
 						LinkMemberExample memberExample = new LinkMemberExample();
-						memberExample.createCriteria().andLinkIdEqualTo(currentLink.getLinkId()).andStateEqualTo(1);
+						memberExample.createCriteria().andLinkIdEqualTo(currentLink.getLinkId()).andStateEqualTo(1)
+								.andParticipantIdEqualTo(iid);
 						List<LinkMember> members = memberMapper.selectByExample(memberExample);
 						if (members != null && members.size() > 0) {
 							logger.warn("用户:{}已经参加当前环节，不能继续添加！", participant.getParticipantName());
