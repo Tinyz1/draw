@@ -8,7 +8,7 @@
 	<script src="resources/wechat-showinfo/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/wechat-showinfo/css/style.css">
 </head>
-<body onclick="init()">
+<body>
 	<div class="wrap">
 		<div class="header">
 			<img src="resources/wechat-showinfo/img/bg.png">	
