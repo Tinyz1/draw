@@ -1,43 +1,49 @@
 package com.asiainfo.draw.domain;
 
 public class LinkMember {
-    private Integer memberId;
+	private Integer memberId;
 
-    private Integer linkId;
+	private Integer linkId;
 
-    private String participantName;
+	private Integer participantId;
 
-    private Integer state;
+	private Integer state;
 
-    public Integer getMemberId() {
-        return memberId;
-    }
+	public Integer getMemberId() {
+		return memberId;
+	}
 
-    public void setMemberId(Integer memberId) {
-        this.memberId = memberId;
-    }
+	public void setMemberId(Integer memberId) {
+		this.memberId = memberId;
+	}
 
-    public Integer getLinkId() {
-        return linkId;
-    }
+	public Integer getLinkId() {
+		return linkId;
+	}
 
-    public void setLinkId(Integer linkId) {
-        this.linkId = linkId;
-    }
+	public void setLinkId(Integer linkId) {
+		this.linkId = linkId;
+	}
 
-    public String getParticipantName() {
-        return participantName;
-    }
+	public Integer getParticipantId() {
+		return participantId;
+	}
 
-    public void setParticipantName(String participantName) {
-        this.participantName = participantName == null ? null : participantName.trim();
-    }
+	public void setParticipantId(Integer participantId) {
+		this.participantId = participantId;
+	}
 
-    public Integer getState() {
-        return state;
-    }
+	public Integer getState() {
+		return state;
+	}
 
-    public void setState(Integer state) {
-        this.state = state;
-    }
+	public void setState(Integer state) {
+		this.state = state;
+	}
+
+	@Override
+	public String toString() {
+		return "LinkMember [memberId=" + memberId + ", linkId=" + linkId + ", participantId=" + participantId + ", state=" + state + "]";
+	}
+
 }

@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<title>获奖人员展示</title>
 	<script src="resources/wechat-showinfo/js/jquery-1.10.2.min.js"></script>
-	<link rel="stylesheet" href="resources/wechat-showinfo/css/style.css">
+	<link rel="stylesheet" href="resources/wechat-showinfo/css/web.css">
 </head>
 <body>
 	<div class="wrap">

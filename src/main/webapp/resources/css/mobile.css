@@ -1,0 +1,262 @@
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "微软雅黑";
+	box-sizing: border-box;
+} 
+
+ul,li{
+  	list-style: none;
+}
+
+html,body{
+	height: 100%;
+	overflow: hidden;
+}
+.imgBg{
+	position:absolute;
+	z-index:2;
+	opacity:.5;
+}
+.wrap{
+	width: 100%;
+	height: 100%;
+  box-sizing: border-box;
+}
+
+.header >img{
+	width: 113%;
+	position: fixed;
+	top: -20%;
+}
+
+.footer >img{
+	width: 100%;
+	position: fixed;
+	bottom: 0;
+}
+
+.content >img{
+  width: 80%;
+  left: 10%;
+  top: 9%;
+  position: fixed;
+}
+
+.content >p{
+  width: 80%;
+  left: 10%;
+  text-align: center;
+  color: #fff;
+  bottom: 18px;
+  position: fixed;
+  font-size: 18px;
+}
+
+.form{
+	width: 100%;
+	height: 45%;
+	padding: 0 10%;
+	position: absolute;
+	top: 42%
+}
+
+.form>input {
+  width: 100%;
+  padding: 10px 30px;
+  margin-top: 20px;
+  border:1px solid rgba(146,105,103,1);
+  border-radius: 5px;
+}
+
+.form>input[type=button]{
+	width: 70%;
+  padding: 10px 0px;
+  background: #FF2B2B;
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 8px;
+  margin: 17% 0 0 15%;
+}
+
+.tips {
+  width: 100%;
+  margin: 14% 0 0 0px;
+    padding: 5px 0 0 38px;
+  background: url(../image/smonkey.png) no-repeat left center;
+  background-size: 30px;
+  color: #FF2B2B;
+  font-size: 12px;
+}
+
+/*shake*/
+.tips1{
+  width: 100%;
+  margin: 60px 0 0 14%;
+  padding: 55px 0 55px 26%;
+  background: url(../image/smonkey.png) no-repeat left center;
+  background-size: 50px;
+  color: #FF2B2B;
+	font-size: 16px;
+}
+
+.sshake{
+	margin-top: 35%;
+  z-index: 100;
+  width: 100% !important
+}
+
+.tips2{
+    width: 100%;
+    margin: 38px 0 0 14%;
+    padding: 55px 0 55px 24%;
+    background: url(../image/smonkey.png) no-repeat left center;
+    background-size: 46px;
+    color: #FF2B2B;
+    font-size: 16px;
+}
+.ptip{
+	font-weight: bold;
+    line-height: 36px;
+}
+.redPackage{
+	width: 200px;
+	height: 126px;
+	margin:70px auto;
+	padding:0;
+	background: url(../image/sred.png) no-repeat center center;
+	background-size: cover;
+	position: relative;
+}
+
+.redPackage .prize,.redPackage .money{
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	color:RGB(250,253,162);
+  text-shadow: 2px 2px 0px #D41D1E;
+}
+
+.redPackage .prize{
+	top:50px;
+	font-size: 18px;
+}
+
+.redPackage .money{
+  bottom: 25px;
+  font-size: 25px;
+  line-height: 20px;
+}
+
+.hidden{
+	display: none;
+}
+
+.shake{
+  position:absolute;
+  left:0px;
+  top:0px;
+  width:400px;
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  -webkit-transform: rotateX(0) rotateY(0) rotateZ(0);
+     -moz-transform: rotateX(0) rotateY(0) rotateZ(0);
+          transform: rotateX(0) rotateY(0) rotateZ(0);
+  -webkit-animation: run 500ms infinite linear;
+   -moz-animation: run 500ms infinite linear;
+      animation: run 500ms infinite linear;
+}
+
+
+@-webkit-keyframes run {
+  0% {   -webkit-transform:rotateX(0) rotateY(0) rotatez(0) ;}
+  25% {  -webkit-transform:rotateX(0deg)  rotateY(0deg) rotatez(10deg) ; }
+  50% {  -webkit-transform:rotateX(0deg)  rotateY(0deg) rotatez(0) ; }
+  75% {  -webkit-transform:rotateX(-0deg)  rotateY(-0deg) rotatez(-10deg) ; }
+  100% { -webkit-transform:rotateX(0deg)  rotateY(0) rotatez(0) ; }
+
+}
+@-moz-keyframes run {
+  0% {   -moz-transform:rotateX(0) rotateY(0) rotatez(0) ;}
+  25% {  -moz-transform:rotateX(0deg)  rotateY(0deg) rotatez(10deg) ; }
+  50% {  -moz-transform:rotateX(0deg)  rotateY(0deg) rotatez(0) ; }
+  75% {  -moz-transform:rotateX(-0deg)  rotateY(-0deg) rotatez(-10deg) ; }
+  100% { -moz-transform:rotateX(0deg)  rotateY(0) rotatez(0) ; }
+}
+@-ms-keyframes run {
+  0% {   -ms-transform:rotateX(0) rotateY(0) rotatez(0) ;}
+  25% {  -ms-transform:rotateX(0deg)  rotateY(0deg) rotatez(10deg) ; }
+  50% {  -ms-transform:rotateX(0deg)  rotateY(0deg) rotatez(0) ; }
+  75% {  -ms-transform:rotateX(-0deg)  rotateY(-0deg) rotatez(-10deg) ; }
+  100% { -ms-transform:rotateX(0deg)  rotateY(0) rotatez(0) ; }
+}
+
+.form>button{
+  width: 70%;
+  padding: 8px 0px;
+  background: #FF2B2B;
+  border:none;
+  border-radius: 5px;
+  color: #fff;
+  font-size: 16px;
+  letter-spacing: 8px;
+  margin: 30px 0 0 15%;
+}
+
+.btns{
+	position: absolute;
+	bottom:60px;
+	width: 100%;
+}
+.nav{
+  position: absolute;
+  z-index: 1000;
+  right:10px;
+  top:10px;
+  cursor: pointer;
+}
+
+.nav .username{
+  color: #fff;
+  border-radius: 100px;
+  background: #FF5E5E;
+  width: 50px;
+  height: 30px;
+  display: block;
+  text-align: center;
+  line-height: 30px;
+}
+.leaf > img{
+	position:absolute;
+	left:1%;
+	top:1%;
+	z-index:100;
+	width:30px
+}
+.leaf > img:nth-child(1){
+	left: 16%;
+    top: 10%;
+}
+.leaf > img:nth-child(2){
+	left: 79%;
+    top: 28%;
+}
+.leaf > img:nth-child(3){
+	left: 65%;
+    top: 54%;
+}
+.leaf > img:nth-child(4){
+	left: 12%;
+    top: 35%;
+}
+.leaf > img:nth-child(5){
+	left: 25%;
+    top: 46%;
+}
+.leaf > img:nth-child(5){
+	left: 25%;
+    top: 46%;
+}

@@ -134,7 +134,7 @@ public class LinkServiceImpl implements LinkService {
 
 		List<Participant> participants = new ArrayList<Participant>();
 		for (LinkMember member : linkMembers) {
-			Participant participant = participantCache.get(member.getParticipantName());
+			Participant participant = participantCache.get(member.getParticipantId());
 			participants.add(participant);
 
 			// 中奖机会减少一次

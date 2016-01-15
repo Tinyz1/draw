@@ -6,7 +6,7 @@
 	<meta charset="UTF-8">
 	<title>人员选择</title>
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
-	<link rel="stylesheet" href="resources/css/style.css">
+	<link rel="stylesheet" href="resources/wechat-showinfo/css/web.css">
 <%
 	// 当前选取人员个数
 	String partnum = request.getParameter("partnum");
@@ -72,7 +72,8 @@ function endCommand() {
 		ids += id + ",";
 	}
 	ids = ids.substring(0,ids.lastIndexOf(','));
-	$.post("participant/current/addPickParticipant", {"ids" : ids});
+	console.log(ids);
+	//$.post("participant/current/addPickParticipant", {"ids" : ids});
 }
 function lotteryDraw(arr, number) {
 	while(personArr.length<number) {
@@ -120,10 +121,10 @@ function start(){
 			$(".listUl").append(html);
 		}
 		$(".ran").each(function(i) {
-			var t = Math.random() + 1;
+			var t=Math.random()+1;
 			$(this).css({
 				top: 3 * (++i) + "px",
-				left: t * 110 + "%"
+				left: t*110+"%",
 			});
 		});
 		arr.forEach(function(item) {
@@ -135,14 +136,13 @@ function start(){
 				fontSize: fontSize + "px"
 			});
 			var left = parseInt($(str).css("left"));
-			var mleft = left;
 			timer[item.index] = setInterval(function() {
-				left -= 5;
-				if (left == -300) {
-					left = mleft;
+				left -= 10;
+				if (left < -200) {
+					left = 1000;
 				}
-				$(str).css("left", left + "px")
-			}, 5);
+				$(str).css({"left": left + "px"})
+			},1);
 		});
 	}
 }

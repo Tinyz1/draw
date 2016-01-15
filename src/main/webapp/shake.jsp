@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
 	<title>摇一摇抽奖</title>
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
-	<link rel="stylesheet" href="resources/css/style.css">
+	<link rel="stylesheet" href="resources/css/mobile.css">
 	<script src="resources/js/login.js"></script>
 	<script type="text/javascript">
 	// 从本地缓存中获取用户编号（已成功登陆的用户才会保存用户编号）
@@ -55,7 +55,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<button id="shakeBtn">摇一摇</button>
+				<!-- <button id="shakeBtn">摇一摇</button> -->
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -143,10 +143,9 @@
 				window.open("mobileLuckDraw.jsp","_self");
 			})
 			
-			$('#shakeBtn').click(function(){
+			/* $('#shakeBtn').click(function(){
 				shake();
-				
-			});
+			}); */
 			
 			$(".leaf img").each(function(i){
 				topsArr.push($(this).css("top"));

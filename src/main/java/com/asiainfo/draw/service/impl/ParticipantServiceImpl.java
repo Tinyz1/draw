@@ -18,6 +18,7 @@ import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.LinkMember;
+import com.asiainfo.draw.domain.LinkMemberExample;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.domain.ParticipantExample;
 import com.asiainfo.draw.exception.AuthenticationExceptioin;
@@ -96,8 +97,19 @@ public class ParticipantServiceImpl implements ParticipantService {
 	public List<Participant> getCurrentlinkParticipant() {
 		List<Integer> ids = allPickCache.getAll();
 		List<Participant> participants = new ArrayList<Participant>();
+
+		// 环节
+		DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+
 		for (Integer id : ids) {
-			participants.add(participantCache.get(id));
+			LinkMemberExample memberExample = new LinkMemberExample();
+			memberExample.createCriteria().andLinkIdEqualTo(link.getLinkId()).andStateEqualTo(1).andParticipantIdEqualTo(id);
+			List<LinkMember> members = memberMapper.selectByExample(memberExample);
+			if (members != null && members.size() > 0) {
+				continue;
+			} else {
+				participants.add(participantCache.get(id));
+			}
 		}
 		return participants;
 	}
@@ -126,12 +138,20 @@ public class ParticipantServiceImpl implements ParticipantService {
 					try {
 						allPickCache.subTimes(iid);
 						Participant participant = participantCache.get(iid);
-						// 当前人员入库
-						LinkMember member = new LinkMember();
-						member.setLinkId(currentLink.getLinkId());
-						member.setParticipantName(participant.getParticipantName());
-						member.setState(1);
-						memberMapper.insert(member);
+
+						LinkMemberExample memberExample = new LinkMemberExample();
+						memberExample.createCriteria().andLinkIdEqualTo(currentLink.getLinkId()).andStateEqualTo(1);
+						List<LinkMember> members = memberMapper.selectByExample(memberExample);
+						if (members != null && members.size() > 0) {
+							logger.warn("用户:{}已经参加当前环节，不能继续添加！", participant.getParticipantName());
+						} else {
+							// 当前人员入库
+							LinkMember member = new LinkMember();
+							member.setLinkId(currentLink.getLinkId());
+							member.setParticipantId(participant.getParticipantId());
+							member.setState(1);
+							memberMapper.insert(member);
+						}
 					} catch (Exception e) {
 						logger.error("当前人员已参与抽奖，不能继续参与！");
 					}
