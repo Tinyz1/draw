@@ -147,7 +147,7 @@ function start(){
 	}
 }
 
-// 页面是否已初始化完毕
+//页面是否已初始化完毕
 var isInit = false;
 // 初始化人员数据
 // 初始化界面
@@ -167,19 +167,35 @@ function init() {
 				var html = "<li class='ran' id=" + arr[i].index + ">" + arr[i].participantName + "</li>";
 				$(".listUl").append(html);
 			}
-			$(".ran").each(function(i) {
-				var t = Math.random()-0.1;
-				
-				if(i>100){
-					i=i%100;
+			for(var i=0;i<90;i++){
+				var lefts = [];
+				for(var m=-1;m<91;m+=9){
+					var str=m+"%";
+					lefts.push(str);
 				}
-				if(i%5==0){
-					$(this).css({
-						top: 3 * (++i) + "px",
-						left: t * 90 + "%"
-					});
+				var tops = [];
+				for(var l=10;l<100;l+=9){
+					var str=l+"%";
+					tops.push(str)
 				}
-			});
+					var color = "rgb(" + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + "," + Math.floor(Math.random() * 256) + ")";
+				var fontSize = Math.floor(Math.random() * 30) + 21;
+				var j=parseInt(i/9);
+				if(j>9){
+					j=parseInt(j/9);
+				}
+				var k=i%9;
+				if(k>13){
+					k=k%13;
+				}
+				var top=tops[j];
+				var left=lefts[k];
+				$(".ran").eq(i).css({
+					top:top,
+					left:left,	"color": color,
+					fontSize: fontSize + "px"
+				});
+			}
 		});
 	}
 }

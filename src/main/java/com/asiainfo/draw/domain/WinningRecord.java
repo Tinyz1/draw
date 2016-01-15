@@ -3,53 +3,60 @@ package com.asiainfo.draw.domain;
 import java.util.Date;
 
 public class WinningRecord {
-    private Integer recordId;
+	private Integer recordId;
 
-    private Integer linkId;
+	private Integer linkId;
 
-    private Integer prizeId;
+	private Integer prizeId;
 
-    private Integer participantId;
+	private Integer participantId;
 
-    private Date createDate;
+	private Date createDate;
 
-    public Integer getRecordId() {
-        return recordId;
-    }
+	public Integer getRecordId() {
+		return recordId;
+	}
 
-    public void setRecordId(Integer recordId) {
-        this.recordId = recordId;
-    }
+	public void setRecordId(Integer recordId) {
+		this.recordId = recordId;
+	}
 
-    public Integer getLinkId() {
-        return linkId;
-    }
+	public Integer getLinkId() {
+		return linkId;
+	}
 
-    public void setLinkId(Integer linkId) {
-        this.linkId = linkId;
-    }
+	public void setLinkId(Integer linkId) {
+		this.linkId = linkId;
+	}
 
-    public Integer getPrizeId() {
-        return prizeId;
-    }
+	public Integer getPrizeId() {
+		return prizeId;
+	}
 
-    public void setPrizeId(Integer prizeId) {
-        this.prizeId = prizeId;
-    }
+	public void setPrizeId(Integer prizeId) {
+		this.prizeId = prizeId;
+	}
 
-    public Integer getParticipantId() {
-        return participantId;
-    }
+	public Integer getParticipantId() {
+		return participantId;
+	}
 
-    public void setParticipantId(Integer participantId) {
-        this.participantId = participantId;
-    }
+	public void setParticipantId(Integer participantId) {
+		this.participantId = participantId;
+	}
 
-    public Date getCreateDate() {
-        return createDate;
-    }
+	public Date getCreateDate() {
+		return createDate;
+	}
 
-    public void setCreateDate(Date createDate) {
-        this.createDate = createDate;
-    }
+	public void setCreateDate(Date createDate) {
+		this.createDate = createDate;
+	}
+
+	@Override
+	public String toString() {
+		return "WinningRecord [recordId=" + recordId + ", linkId=" + linkId + ", prizeId=" + prizeId + ", participantId=" + participantId
+				+ ", createDate=" + createDate + "]";
+	}
+
 }

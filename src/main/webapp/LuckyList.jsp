@@ -10,15 +10,18 @@
 </head>
 <body>
 	<div class="wrap">
+	
 		<div class="header">
 			<img src="resources/wechat-showinfo/img/bg.png">	
 			<div class="header-div">
-			<h1 class="header-h1"><h1>
+				<h1 class="header-h1"></h1>
 			</div>		
 		</div>
+		
 		<div class="footer">
 			<img src="resources/wechat-showinfo/img/foot.png">
 		</div>
+		
 		<div class="content list">
 			<ul class="listUl" id="listUl">
 			</ul>
@@ -26,8 +29,10 @@
 				开始抽奖
 			</div> -->
 		</div>
-			<p class="footP">CMC&BDX上海年会</p>
-			<h1 class="footH">万众一信 · 筑梦起航</h1>
+		
+		<p class="footP">CMC&BDX上海年会</p>
+		<h1 class="footH">万众一信 · 筑梦起航</h1>
+		
 	</div>
 	<script type="text/javascript">
 		init();
@@ -42,8 +47,8 @@
 				}
 			});		
 		}
+		
 		function init(){
-			
 			$.post("link/current",function (data){
 				// 后去当前环节数
 				var link = data.linkName;
@@ -66,8 +71,6 @@
 		}
 	
 	</script>
-	
-	
 	
 </body>
 

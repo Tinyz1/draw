@@ -4,7 +4,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no" />
-	<title>摇一摇抽奖</title>
+	<title>摇一摇抽奖-身份校验</title>
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/css/style.css">
 	<script src="resources/js/login.js"></script>
