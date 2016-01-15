@@ -93,22 +93,24 @@ public class CurrentLinkCache implements InitializingBean {
 	private Cache<String, Object> cache = CacheBuilder.newBuilder().build();
 
 	public synchronized void put(String key, Object value) {
-		logger.debug("push-->key:{},value:{}", key, value);
+		logger.info("加入缓存->key:{},value:{}", key, value);
 		cache.put(key, value);
 	}
 
 	public Object get(String key) {
+		Object value = null;
 		try {
-			return cache.get(key, new Callable<Object>() {
+			value = cache.get(key, new Callable<Object>() {
 				@Override
 				public Object call() throws Exception {
-					return null;
+					return "";
 				}
 			});
 		} catch (ExecutionException e) {
-
+			logger.error(e.toString());
 		}
-		return null;
+		logger.info("获取缓存->key:{},value:{}", key, value);
+		return value;
 	}
 
 	/**
@@ -122,8 +124,16 @@ public class CurrentLinkCache implements InitializingBean {
 	/**
 	 * 清空当前环节缓存
 	 */
-	public void clear() {
-		cache = CacheBuilder.newBuilder().build();
+	public void invalidateAll() {
+		cache.invalidateAll();
+	}
+
+	/**
+	 * 
+	 * @param key
+	 */
+	public void invalidata(String key) {
+		cache.invalidate(key);
 	}
 
 }

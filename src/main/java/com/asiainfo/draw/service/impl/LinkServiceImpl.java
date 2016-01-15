@@ -87,25 +87,32 @@ public class LinkServiceImpl implements LinkService {
 			logger.warn("<<==============没有下一个抽奖环节了！");
 			return;
 		}
-		logger.info("<<===========已读取新的环节：{}...", currentLink.getLinkName());
-		logger.info("<<===========把当前环节加入缓存中...");
+
+		logger.info("环节初始化->当前环节:{}", currentLink.getLinkName());
 		currentLinkCache.put(CurrentLinkCache.CURRENT_LINK, currentLink);
 
-		logger.info("<<===========初始化当前环节可参与人员列表为空...");
+		logger.info("环节初始化->环节参与人员列表默认为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, new ArrayList<Participant>());
 
-		logger.info("<<===========初始化当前环节剩余未抽奖人员为0");
+		logger.info("环节初始化->剩余未抽奖人员为0.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, 0);
 
-		logger.info("<<===========初始化当前环节已中奖人员...");
+		logger.info("环节初始化->环节中奖记录为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
 
-		logger.info("<<===========初始化当前环节摇奖记录...");
+		logger.info("环节初始化->环节摇奖记录为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, new HashSet<Integer>());
 
 		// 刚初始化时，当前环节不能抽奖
-		logger.info("<<===========初始化环节状态为：{}...", LinkState.INIT);
+		logger.info("环节初始化->环节状态设置为：{}.", LinkState.INIT);
 		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.INIT);
+	}
+
+	/**
+	 * 重新加载当前环节
+	 */
+	public void reloadCurrentLink() {
+		currentLinkCache.invalidateAll();
 	}
 
 	/**
@@ -165,8 +172,9 @@ public class LinkServiceImpl implements LinkService {
 	@Override
 	public DrawLink nextLink() {
 		// 环节顺序最小且未开始的为下一个开始环节
+		logger.info("读取环节->下一个未开始的环节.");
 		DrawLink nextLink = linkMapper.selectNextLink();
-		logger.info("<<==下一环节：" + nextLink);
+		logger.info("读取环节->环节名称：{}.", nextLink.getLinkName());
 		return nextLink;
 	}
 
@@ -215,7 +223,7 @@ public class LinkServiceImpl implements LinkService {
 		currentLink.setLinkState(3);
 		linkMapper.updateByPrimaryKey(currentLink);
 		// 清空当前缓存
-		currentLinkCache.clear();
+		currentLinkCache.invalidateAll();
 		// 初始化下一个环节
 		initNextLink();
 	}

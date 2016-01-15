@@ -87,6 +87,7 @@ public class DrawServiceImpl implements DrawService {
 
 			// 获取当前用户
 			Participant participant = participantCache.get(participantName);
+			logger.info("获取用户信息->根据用户名称：{}获取到用户信息：{}", participantName, participant);
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 
 			// 判断当前用户是否能够参与本环节抽奖
@@ -118,8 +119,8 @@ public class DrawServiceImpl implements DrawService {
 			allPickCache.subTimes(participant.getParticipantId());
 			// 更新库,机会减少一次
 			participant.setState(allPickCache.get(participant.getParticipantId()));
-			participant.setState(participant.getState() - 1);
-			participantMapper.updateByPrimaryKey(participant);
+			logger.info("更新参与人员->参与人员：{}摇奖次数-1", participant.getParticipantName());
+			participantMapper.updateByPrimaryKeySelective(participant);
 
 			// 满足抽奖条件的人员参与抽奖
 			PrizePool pool = (PrizePool) currentLinkCache.get(CurrentLinkCache.CURRENT_POOL);
