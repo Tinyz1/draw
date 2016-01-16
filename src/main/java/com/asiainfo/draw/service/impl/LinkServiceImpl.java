@@ -243,14 +243,23 @@ public class LinkServiceImpl implements LinkService {
 			logger.info(msg);
 			throw new StartLinkException(msg);
 		} else if (linkState == LinkState.INIT) {
-			logger.info("<<==========把当前环节的状态设置为:{}", LinkState.RUN);
+			logger.info("环节开始->把当前环节的状态设置为:{}", LinkState.RUN);
+
+			// ----------------------------------------------------------------------------
+			// 修改数据库的环节状态为2(进行中)
+			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+			link.setLinkState(2);
+			linkMapper.updateByPrimaryKeySelective(link);
+
 			// 把当前环节的开关打开
 			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.RUN);
 			Date start = new Date();
-			logger.info("完成新的环节启动，启动时间:{}", start);
+			logger.info("环节开始->环节启动时间:{}", start);
 			// 记录环节开始时间
 			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
 
+			// ----------------------------------------------------------------------------
+			logger.info("环节开始->中央屏幕页面跳转至中奖展示界面（LuckBubble.jsp）");
 			// 界面跳转指令
 			Command command = new Command();
 			command.setType(Command.COMMAND_REDIRECT);
