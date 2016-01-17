@@ -12,18 +12,18 @@ import com.asiainfo.draw.util.ParticipantPrize;
  *
  */
 public interface LinkService {
-
-	DrawLink nextLink();
-
 	/**
 	 * 结束当前环节
 	 */
 	void finishCurrentLink();
 
 	/**
-	 * 初始化下一环节为当前环节
+	 * 初始化环节
+	 * 
+	 * @param linkId
+	 *            环节id
 	 */
-	void initNextLink();
+	void initLink(Integer linkId);
 
 	/**
 	 * 开始当前环节
@@ -59,5 +59,20 @@ public interface LinkService {
 	 *            环节编号
 	 */
 	void authLinkNumber(String enterNmuber);
+
+	/**
+	 * 获取所有环节
+	 * 
+	 * @return
+	 */
+	List<DrawLink> getAll();
+
+	/**
+	 * 初始化新的环节
+	 * 
+	 * @param linkId
+	 *            环节ID
+	 */
+	void resetLink(Integer linkId);
 
 }

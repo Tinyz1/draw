@@ -32,7 +32,7 @@
 				<button id="loginBtn">确定</button>
 				<div class="tips">
 					小猴温馨提示 :
-					<p>为了您能顺利临到奖品，请输入正确的姓名</p>
+					<p>为了您能顺利领到奖品，请输入正确的姓名！</p>
 				</div>
 			</div>
 			<p>CMC&BDX上海年会</p>

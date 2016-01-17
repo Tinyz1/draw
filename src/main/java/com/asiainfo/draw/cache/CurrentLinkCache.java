@@ -5,7 +5,6 @@ import java.util.concurrent.ExecutionException;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -20,7 +19,7 @@ import com.google.common.cache.CacheBuilder;
  *
  */
 @Component
-public class CurrentLinkCache implements InitializingBean {
+public class CurrentLinkCache{
 
 	private static final String KEY_PRE = "com.asiainfo.draw.cache.CurrentLinkCache.";
 	/**
@@ -111,14 +110,6 @@ public class CurrentLinkCache implements InitializingBean {
 		}
 		logger.info("获取缓存->key:{},value:{}", key, value);
 		return value;
-	}
-
-	/**
-	 * 初始化第一个环节
-	 */
-	@Override
-	public void afterPropertiesSet() throws Exception {
-		linkService.initNextLink();
 	}
 
 	/**

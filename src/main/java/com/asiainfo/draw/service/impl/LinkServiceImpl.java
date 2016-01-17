@@ -23,6 +23,7 @@ import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.LinkHitPrizeCache;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
+import com.asiainfo.draw.domain.DrawLinkExample;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.DrawPrizeExample;
 import com.asiainfo.draw.domain.LinkMember;
@@ -79,13 +80,20 @@ public class LinkServiceImpl implements LinkService {
 	private ParticipantMapper participantMapper;
 
 	@Override
-	public void initNextLink() {
+	public void initLink(Integer linkId) {
+
+		logger.info("环节初始化->尝试结束当前环节...");
+		try {
+			finishCurrentLink();
+		} catch (Exception e) {
+			logger.warn(e.toString());
+		}
+
 		logger.info("<<===========读取新的环节...");
 		// 获取下一环节
-		DrawLink currentLink = nextLink();
+		DrawLink currentLink = linkMapper.selectByPrimaryKey(linkId);
 		if (currentLink == null) {
-			logger.warn("<<==============没有下一个抽奖环节了！");
-			return;
+			throw new RuntimeException("根据环节ID:" + linkId + "获取不到抽奖环节");
 		}
 
 		logger.info("环节初始化->当前环节:{}", currentLink.getLinkName());
@@ -106,6 +114,11 @@ public class LinkServiceImpl implements LinkService {
 		// 刚初始化时，当前环节不能抽奖
 		logger.info("环节初始化->环节状态设置为：{}.", LinkState.INIT);
 		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.INIT);
+
+		// ----------------------------------------------------------------------------
+		// 修改数据库的环节状态为2(进行中)
+		currentLink.setLinkState(2);
+		linkMapper.updateByPrimaryKeySelective(currentLink);
 	}
 
 	/**
@@ -169,15 +182,6 @@ public class LinkServiceImpl implements LinkService {
 		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
 	}
 
-	@Override
-	public DrawLink nextLink() {
-		// 环节顺序最小且未开始的为下一个开始环节
-		logger.info("读取环节->下一个未开始的环节.");
-		DrawLink nextLink = linkMapper.selectNextLink();
-		logger.info("读取环节->环节名称：{}.", nextLink.getLinkName());
-		return nextLink;
-	}
-
 	/**
 	 * 根据环节ID查询环节奖品
 	 * 
@@ -224,8 +228,6 @@ public class LinkServiceImpl implements LinkService {
 		linkMapper.updateByPrimaryKey(currentLink);
 		// 清空当前缓存
 		currentLinkCache.invalidateAll();
-		// 初始化下一个环节
-		initNextLink();
 	}
 
 	@Override
@@ -244,13 +246,6 @@ public class LinkServiceImpl implements LinkService {
 			throw new StartLinkException(msg);
 		} else if (linkState == LinkState.INIT) {
 			logger.info("环节开始->把当前环节的状态设置为:{}", LinkState.RUN);
-
-			// ----------------------------------------------------------------------------
-			// 修改数据库的环节状态为2(进行中)
-			DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-			link.setLinkState(2);
-			linkMapper.updateByPrimaryKeySelective(link);
-
 			// 把当前环节的开关打开
 			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.RUN);
 			Date start = new Date();
@@ -310,6 +305,23 @@ public class LinkServiceImpl implements LinkService {
 			throw new RuntimeException(mess);
 		}
 
+	}
+
+	@Override
+	public List<DrawLink> getAll() {
+		DrawLinkExample linkExample = new DrawLinkExample();
+		return linkMapper.selectByExample(linkExample);
+	}
+
+	@Override
+	public void resetLink(Integer linkId) {
+		// 重置环节意味着，把已经结束的环节状态置为1（未开始）
+		DrawLink link = linkMapper.selectByPrimaryKey(linkId);
+		if (link == null) {
+			throw new NullPointerException("环节为空");
+		}
+		link.setLinkState(1);
+		linkMapper.updateByPrimaryKeySelective(link);
 	}
 
 }

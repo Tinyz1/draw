@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asiainfo.draw.exception.AuthenticationExceptioin;
 import com.asiainfo.draw.service.CenterService;
-import com.asiainfo.draw.util.DefaultResult;
 import com.asiainfo.draw.util.Command;
+import com.asiainfo.draw.util.DefaultResult;
 
 @Controller
 @RequestMapping("/center")
@@ -20,6 +20,31 @@ public class CenterController {
 
 	@Autowired
 	private CenterService centerService;
+
+	@RequestMapping(value = "/home.html")
+	public String home() {
+		return "center";
+	}
+
+	@RequestMapping(value = "/draw.html")
+	public String draw() {
+		return "draw";
+	}
+
+	@RequestMapping(value = "/linkCtr.html")
+	public String linkCtr() {
+		return "linkCtr";
+	}
+
+	@RequestMapping(value = "/linkSet.html")
+	public String linkSet() {
+		return "linkSet";
+	}
+
+	@RequestMapping(value = "/user.html")
+	public String user() {
+		return "user";
+	}
 
 	@RequestMapping(value = "/pick/num")
 	@ResponseBody
