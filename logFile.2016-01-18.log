@@ -1,0 +1,905 @@
+292347 [http-bio-8080-exec-5] INFO  c.a.draw.controller.LinkController - {"linkName":"dsf","prizeItems":[{"prizeName":"sdfdfd","size":"1"}]}
+2408 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+2938 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 09:39:10 CST 2016]; root of context hierarchy
+3120 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+4725 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+4743 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+7609 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+7629 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+7630 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+7632 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+7632 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+7632 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+7633 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+7633 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+7634 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+7637 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+7646 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+7646 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+7646 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+7646 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+7647 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+7648 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+7649 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+7915 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 5500 ms
+7989 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+7994 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:39:15 CST 2016]; parent: Root WebApplicationContext
+7997 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+8462 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+9033 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+9035 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+9037 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+9039 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+9041 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+9042 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+9042 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+9044 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+9045 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+9045 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+9053 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+9083 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+9086 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+9087 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+9095 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+9095 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+9096 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+9097 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+9098 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+9099 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+9099 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+9106 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+9107 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+9108 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+9109 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+11012 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:39:15 CST 2016]; parent: Root WebApplicationContext
+11163 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:39:15 CST 2016]; parent: Root WebApplicationContext
+11518 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+12179 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 4190 ms
+78883 [http-bio-8080-exec-10] INFO  c.a.draw.controller.LinkController - {"linkName":"环节测试","prizeItems":[{"prizeName":"奖品2","size":"3"},{"prizeName":"奖品1","size":"4"}]}
+78936 [http-bio-8080-exec-10] INFO  c.a.draw.controller.LinkController - LinkItem [linkName=环节测试, prizeItems=[PrizeItem [prizeName=奖品2, size=3], PrizeItem [prizeName=奖品1, size=4]]]
+330  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+545  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 09:47:21 CST 2016]; root of context hierarchy
+634  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1893 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1908 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3663 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+3678 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+3678 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+3679 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+3679 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+3679 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+3679 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+3680 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+3681 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+3685 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3691 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3691 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3692 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3693 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3694 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3901 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3566 ms
+3955 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3959 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:47:24 CST 2016]; parent: Root WebApplicationContext
+3960 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4224 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4492 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4493 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4494 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4494 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4495 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4495 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4495 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4496 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4496 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4496 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4498 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4506 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4506 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4507 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4507 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4507 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4507 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+4508 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+4508 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4509 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+4509 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4513 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4514 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4515 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+4515 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+5177 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:47:24 CST 2016]; parent: Root WebApplicationContext
+5314 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:47:24 CST 2016]; parent: Root WebApplicationContext
+5510 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5728 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1772 ms
+29366 [http-bio-8080-exec-2] INFO  c.a.draw.controller.LinkController - {"linkName":"现金奖环节","prizeItems":[{"prizeName":"1000元","size":"5"}]}
+86107 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+86109 [http-bio-8080-exec-4] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+530  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+789  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 09:49:57 CST 2016]; root of context hierarchy
+918  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+2676 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+2689 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4849 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+4864 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+4865 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+4865 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+4865 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+4865 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+4866 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+4866 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+4866 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+4869 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+4875 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+4875 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+4875 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+4876 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+4876 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+4876 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+4876 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+4876 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+4877 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+4878 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+4878 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+4878 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+5077 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 4539 ms
+5137 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+5140 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:50:02 CST 2016]; parent: Root WebApplicationContext
+5141 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+5392 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+5775 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+5777 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+5778 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+5779 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+5781 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+5781 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+5782 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+5782 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+5783 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+5783 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+5785 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+5810 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+5810 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+5811 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+5817 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+5817 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+5818 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+5818 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+5818 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+5819 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+5819 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+5830 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+5830 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+5831 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+5832 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+6744 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:50:02 CST 2016]; parent: Root WebApplicationContext
+6912 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 09:50:02 CST 2016]; parent: Root WebApplicationContext
+7102 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+7327 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 2190 ms
+525988 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+525992 [http-bio-8080-exec-10] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+387  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+594  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 10:27:02 CST 2016]; root of context hierarchy
+684  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1417 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1434 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3182 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+3197 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+3198 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+3199 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+3202 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3209 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3210 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3210 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3230 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3230 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3230 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3231 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3232 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3721 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3327 ms
+3802 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3807 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:27:05 CST 2016]; parent: Root WebApplicationContext
+3808 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4143 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4394 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4395 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4395 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4396 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4396 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4396 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4396 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4397 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4397 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4397 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4398 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4404 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4404 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4404 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4405 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4405 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4405 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+4406 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+4406 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4406 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+4407 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4410 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4411 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4411 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+4412 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+5260 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:27:05 CST 2016]; parent: Root WebApplicationContext
+5403 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:27:05 CST 2016]; parent: Root WebApplicationContext
+5568 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5748 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1946 ms
+64625 [http-bio-8080-exec-2] INFO  c.a.draw.controller.LinkController - {"linkName":"环节","prizeItems":[{"prizeName":"囧","prizeType":"二等奖","size":"24"},{"prizeName":"奖品","prizeType":"一等奖","size":"3"}]}
+499  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+720  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 10:34:46 CST 2016]; root of context hierarchy
+801  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1829 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1846 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3535 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+3549 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+3549 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+3550 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+3553 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3748 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3240 ms
+3828 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3833 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:34:49 CST 2016]; parent: Root WebApplicationContext
+3834 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4077 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4292 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4294 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4294 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4294 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4295 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4295 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4295 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4296 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4296 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4297 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4298 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4304 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4304 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4305 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4305 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4305 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4305 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+4306 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+4306 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4306 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4307 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+4309 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4309 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4310 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4310 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+4812 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:34:49 CST 2016]; parent: Root WebApplicationContext
+4946 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 10:34:49 CST 2016]; parent: Root WebApplicationContext
+5114 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5301 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1472 ms
+15615 [http-bio-8080-exec-2] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""}]}
+67604 [http-bio-8080-exec-4] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""}]}
+75885 [http-bio-8080-exec-5] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""},{"prizeName":"","prizeType":"一等奖","size":""}]}
+78234 [http-bio-8080-exec-6] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""},{"prizeName":"","prizeType":"一等奖","size":""}]}
+80354 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+80362 [http-bio-8080-exec-8] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+143542 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+143544 [http-bio-8080-exec-10] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+226844 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+226846 [http-bio-8080-exec-9] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+245282 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->尝试结束当前环节...
+245282 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+245283 [http-bio-8080-exec-3] WARN  c.a.d.service.impl.LinkServiceImpl - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+245283 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+245285 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->当前环节:抽奖(2)
+245285 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222]
+245286 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节参与人员列表默认为空.
+245286 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[]
+245286 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->剩余未抽奖人员为0.
+245286 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:0
+245286 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节中奖记录为空.
+245287 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+245287 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节摇奖记录为空.
+245287 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.shake,value:[]
+245289 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节状态设置为：INIT.
+245289 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+249198 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+252741 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+252741 [http-bio-8080-exec-6] INFO  c.a.d.s.impl.CenterServiceImpl - <<====================选择参与人员数量:4
+252747 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:0
+252748 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:4
+252749 [http-bio-8080-exec-6] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=启动选人环节成功！]
+253681 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+253688 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+253691 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+253693 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:5
+253696 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+253698 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+253701 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+253703 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+253704 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+253706 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+253708 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+253710 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:9
+253713 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253714 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253716 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253718 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253721 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253722 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253724 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253725 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253727 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253728 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253729 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253731 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253732 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253733 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253735 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+253737 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254061 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254061 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254062 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254063 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254064 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254065 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254066 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254067 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254068 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254068 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254069 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254070 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254071 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254073 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254074 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254075 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254076 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254077 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254079 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254080 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254081 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254082 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254084 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254084 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254085 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254087 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254091 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254093 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254096 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254097 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254100 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254101 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254102 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254103 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254104 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254105 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254106 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254107 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254108 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254109 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254110 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254112 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254113 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254114 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254114 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254115 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254116 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254117 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254117 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254118 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254119 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254119 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254120 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254121 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254122 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254123 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254124 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254124 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254125 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254126 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254127 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254128 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254129 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254131 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254132 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254133 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254135 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254137 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254139 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254141 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254142 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254144 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254145 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254147 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254148 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254149 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254151 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254153 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254154 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254155 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254156 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254157 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254157 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254159 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+254162 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:11
+258393 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=开始成功！]
+260041 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=结束选人成功！]
+260444 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - 14,7,13,11
+260445 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+260445 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+260450 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+260453 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+260455 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+260459 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:11
+260506 [http-bio-8080-exec-2] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=人员添加成功！]
+265363 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+265363 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.CenterServiceImpl - <<====================选择参与人员数量:2
+265364 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:4
+265364 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:6
+265365 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=启动选人环节成功！]
+265512 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+265515 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+265516 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+265517 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:5
+265526 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+265543 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+265547 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+265549 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:9
+268059 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=开始成功！]
+270908 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=结束选人成功！]
+271428 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - 6,9
+271428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+271428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+271428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+271432 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:9
+271493 [http-bio-8080-exec-2] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=人员添加成功！]
+274856 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=提交选人成功！]
+275420 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+275420 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+275428 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节奖品放入缓存中
+275428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.prizes,value:[DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=10, provider=null, providerPosition=null], DrawPrize [prizeId=8, prizeType=礼品, prizeName=年货大礼包, linkId=2, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=9, prizeType=礼品, prizeName=JBL音响, linkId=2, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=10, prizeType=礼品, prizeName=NIKE智能手环, linkId=2, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=11, prizeType=礼品, prizeName=金条, linkId=2, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=12, prizeType=礼品, prizeName=外滩观光, linkId=2, size=2, provider=null, providerPosition=null]]
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:11
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+275431 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:9
+275432 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[Participant [participantId=14, participantName=宋彬, state=100], Participant [participantId=7, participantName=赵林刚, state=2], Participant [participantId=13, participantName=唐剑飞, state=2], Participant [participantId=11, participantName=李东英, state=1], Participant [participantId=6, participantName=魏波, state=2], Participant [participantId=9, participantName=刘鹏, state=1]]
+275442 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+275445 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：6...
+275445 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==========开始创建奖池...
+275445 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<====本环节参与人员数量:6
+275446 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<============开始放入真实的奖品...
+275446 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:购物券含有奖品数量:10
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=7, prizeType=礼品, prizeName=购物券, linkId=2, size=1, provider=null, providerPosition=null]
+275447 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:年货大礼包含有奖品数量:2
+275447 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=8, prizeType=礼品, prizeName=年货大礼包, linkId=2, size=1, provider=null, providerPosition=null]
+275448 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=8, prizeType=礼品, prizeName=年货大礼包, linkId=2, size=1, provider=null, providerPosition=null]
+275448 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:JBL音响含有奖品数量:2
+275448 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=9, prizeType=礼品, prizeName=JBL音响, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=9, prizeType=礼品, prizeName=JBL音响, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:NIKE智能手环含有奖品数量:2
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=10, prizeType=礼品, prizeName=NIKE智能手环, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=10, prizeType=礼品, prizeName=NIKE智能手环, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:金条含有奖品数量:2
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=11, prizeType=礼品, prizeName=金条, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=11, prizeType=礼品, prizeName=金条, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:外滩观光含有奖品数量:2
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=12, prizeType=礼品, prizeName=外滩观光, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1945613296放入奖品:DrawPrize [prizeId=12, prizeType=礼品, prizeName=外滩观光, linkId=2, size=1, provider=null, providerPosition=null]
+275449 [http-bio-8080-exec-2] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==========奖池创建完毕...
+275449 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+275450 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.pool,value:com.asiainfo.draw.util.DefaultPrizePool@1ea86dcc
+275732 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+275735 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[Participant [participantId=14, participantName=宋彬, state=100], Participant [participantId=7, participantName=赵林刚, state=2], Participant [participantId=13, participantName=唐剑飞, state=2], Participant [participantId=11, participantName=李东英, state=1], Participant [participantId=6, participantName=魏波, state=2], Participant [participantId=9, participantName=刘鹏, state=1]]
+278283 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<========尝试启动新的抽奖环节...
+278283 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+278283 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<=============当前环节状态:INIT
+278284 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 环节开始->把当前环节的状态设置为:RUN
+278284 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:RUN
+278285 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 环节开始->环节启动时间:Mon Jan 18 10:39:23 CST 2016
+278285 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.startDate,value:Mon Jan 18 10:39:23 CST 2016
+278286 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 环节开始->中央屏幕页面跳转至中奖展示界面（LuckBubble.jsp）
+278606 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+297249 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=2, enterNumber=2222]
+297250 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<=========结束环节抽奖(2)...
+297250 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:FINISH
+297250 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.finishDate,value:Mon Jan 18 10:39:42 CST 2016
+297251 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+304194 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->尝试结束当前环节...
+304194 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+304195 [http-bio-8080-exec-2] WARN  c.a.d.service.impl.LinkServiceImpl - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+304195 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+304196 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->当前环节:抽奖(1)
+304196 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111]
+304196 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节参与人员列表默认为空.
+304196 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[]
+304196 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->剩余未抽奖人员为0.
+304196 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:0
+304196 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节中奖记录为空.
+304196 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+304196 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节摇奖记录为空.
+304197 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.shake,value:[]
+304197 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节状态设置为：INIT.
+304197 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+306116 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+308938 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+308938 [http-bio-8080-exec-10] INFO  c.a.d.s.impl.CenterServiceImpl - <<====================选择参与人员数量:3
+308939 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:0
+308939 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:3
+308939 [http-bio-8080-exec-10] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=启动选人环节成功！]
+309503 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+309505 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+309505 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+309507 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:5
+309509 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+309509 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+309511 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+309512 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+309513 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:7
+309515 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+309516 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:10
+309518 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:9
+309520 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309521 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309521 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309522 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309523 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309523 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309524 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309525 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309525 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309526 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309527 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309527 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309528 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309529 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309529 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309530 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309531 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309532 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309532 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309533 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309534 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309534 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309535 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309536 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309536 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309537 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309538 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309538 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309539 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309540 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309540 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309541 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309542 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309542 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309543 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309543 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309544 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309545 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309545 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309546 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309547 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309547 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309548 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309549 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309569 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309570 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309570 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309571 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309572 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309572 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309573 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309573 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309574 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309574 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309575 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309576 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309576 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309577 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309578 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309578 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309579 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309580 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309581 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309581 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309582 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309583 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309584 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309584 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309585 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309587 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309587 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309588 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309588 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309589 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309590 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309590 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309591 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309591 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309592 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309592 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309593 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309593 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309594 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309594 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309595 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309597 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309599 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309600 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309600 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309601 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309602 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309602 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309603 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309603 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309604 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309604 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309605 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309606 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309606 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309607 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+309610 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:11
+312671 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=开始成功！]
+313926 [http-bio-8080-exec-2] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=结束选人成功！]
+314435 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - 14,12,6
+314435 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+314435 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+314436 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:14
+314440 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+314445 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:6
+314486 [http-bio-8080-exec-2] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=人员添加成功！]
+337436 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+337437 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - <<=========结束环节抽奖(1)...
+337437 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:FINISH
+337437 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.finishDate,value:Mon Jan 18 10:40:22 CST 2016
+337437 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+350827 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+350828 [http-bio-8080-exec-10] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+376797 [http-bio-8080-exec-9] INFO  c.a.draw.controller.LinkController - {"linkName":"环节5","prizeItems":[{"prizeName":"奖品4","prizeType":"一等奖","size":"4"},{"prizeName":"奖品1","prizeType":"二等奖","size":"3"}]}
+387733 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+387734 [http-bio-8080-exec-5] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+389102 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+389103 [http-bio-8080-exec-5] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+391057 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+391058 [http-bio-8080-exec-5] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+391821 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+391824 [http-bio-8080-exec-5] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+392962 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+392963 [http-bio-8080-exec-8] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+394431 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+394432 [http-bio-8080-exec-8] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+409698 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->尝试结束当前环节...
+409699 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+409700 [http-bio-8080-exec-8] WARN  c.a.d.service.impl.LinkServiceImpl - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+409700 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+409702 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->当前环节:环节5
+409703 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=12, linkName=环节5, openState=1, linkOrder=null, linkState=1, enterNumber=null]
+409703 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节参与人员列表默认为空.
+409703 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[]
+409703 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->剩余未抽奖人员为0.
+409703 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.remainNum,value:0
+409703 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节中奖记录为空.
+409703 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+409704 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节摇奖记录为空.
+409704 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.shake,value:[]
+409704 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节状态设置为：INIT.
+409704 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+414006 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=12, linkName=环节5, openState=1, linkOrder=null, linkState=2, enterNumber=null]
+414007 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - <<=========结束环节环节5...
+414007 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:FINISH
+414007 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.finishDate,value:Mon Jan 18 10:41:39 CST 2016
+414007 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+417304 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+417305 [http-bio-8080-exec-8] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+421927 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+421930 [http-bio-8080-exec-8] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+422701 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+422702 [http-bio-8080-exec-7] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+424122 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+424123 [http-bio-8080-exec-3] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+427197 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+427199 [http-bio-8080-exec-3] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+429082 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+429084 [http-bio-8080-exec-3] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+430626 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+430627 [http-bio-8080-exec-10] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+431963 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+431964 [http-bio-8080-exec-10] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+575366 [http-bio-8080-exec-10] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""}]}
+621097 [http-bio-8080-exec-6] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""}]}
+621144 [http-bio-8080-exec-6] ERROR c.a.draw.controller.LinkController - java.lang.NullPointerException
+960792 [http-bio-8080-exec-10] INFO  c.a.draw.controller.LinkController - {"linkName":"","prizeItems":[{"prizeName":"","prizeType":"一等奖","size":""}]}
+960814 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - DrawLink [linkId=15, linkName=, openState=1, linkOrder=null, linkState=1, enterNumber=null]
+2873918 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+2873921 [http-bio-8080-exec-9] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+2922035 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+2922036 [http-bio-8080-exec-7] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+2950250 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+2950251 [http-bio-8080-exec-4] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+3112793 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+3112795 [http-bio-8080-exec-4] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+351  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+525  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Mon Jan 18 11:36:26 CST 2016]; root of context hierarchy
+625  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1585 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1599 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3373 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:叶春林含有1次中奖机会...
+3388 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:魏波含有2次中奖机会...
+3388 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:赵林刚含有2次中奖机会...
+3388 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:刘鹏含有1次中奖机会...
+3388 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:马志杰含有2次中奖机会...
+3388 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:李东英含有1次中奖机会...
+3389 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:朱帅含有1次中奖机会...
+3389 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:唐剑飞含有2次中奖机会...
+3389 [localhost-startStop-1] INFO  c.asiainfo.draw.cache.AllPickCache - <<--------------用户:宋彬含有100次中奖机会...
+3391 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3398 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3398 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+3398 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3399 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+3399 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3399 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+3399 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3399 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3400 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+3401 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3401 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+3401 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3401 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+3401 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3593 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3238 ms
+3666 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3670 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 11:36:29 CST 2016]; parent: Root WebApplicationContext
+3671 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+3941 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4204 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4206 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4207 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4207 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4208 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4208 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4208 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4209 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4209 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4209 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4211 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4218 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4219 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4219 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.start()
+4219 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4219 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4220 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish()
+4220 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/authLinkNumber]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.auth(java.lang.String)
+4221 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4221 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/hitPrize]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getLinkHitPrize(java.lang.Integer)
+4221 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4225 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4225 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.authParticipantByTelphone(java.lang.String)
+4226 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4226 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4227 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+4953 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 11:36:29 CST 2016]; parent: Root WebApplicationContext
+5126 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Mon Jan 18 11:36:29 CST 2016]; parent: Root WebApplicationContext
+5376 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5631 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1965 ms
+24120 [http-bio-8080-exec-4] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=参与人员添加成功！]
+70768 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 重新加载用户缓存->
+70770 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+70777 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 5, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+70778 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=5, participantName=叶春林, state=1]
+70778 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 6, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+70778 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波, 参与人员: Participant [participantId=6, participantName=魏波, state=2]
+70778 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 7, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+70778 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=7, participantName=赵林刚, state=2]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏, 参与人员: Participant [participantId=9, participantName=刘鹏, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=2]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李东英, 参与人员: Participant [participantId=11, participantName=李东英, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 朱帅, 参与人员: Participant [participantId=12, participantName=朱帅, state=1]
+70779 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 唐剑飞, 参与人员: Participant [participantId=13, participantName=唐剑飞, state=2]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 宋彬, 参与人员: Participant [participantId=14, participantName=宋彬, state=100]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 15, 参与人员: Participant [participantId=15, participantName=咋看, state=1]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 咋看, 参与人员: Participant [participantId=15, participantName=咋看, state=1]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 16, 参与人员: Participant [participantId=16, participantName=LOD, state=1]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: LOD, 参与人员: Participant [participantId=16, participantName=LOD, state=1]
+70780 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 17, 参与人员: Participant [participantId=17, participantName=hell, state=1]
+70781 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: hell, 参与人员: Participant [participantId=17, participantName=hell, state=1]
+70781 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 18, 参与人员: Participant [participantId=18, participantName=咋看2313, state=1]
+70781 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 咋看2313, 参与人员: Participant [participantId=18, participantName=咋看2313, state=1]
+70781 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 19, 参与人员: Participant [participantId=19, participantName=LOD2313, state=1]
+70781 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: LOD2313, 参与人员: Participant [participantId=19, participantName=LOD2313, state=1]
+70782 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 20, 参与人员: Participant [participantId=20, participantName=hell213, state=1]
+70782 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: hell213, 参与人员: Participant [participantId=20, participantName=hell213, state=1]
+70782 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+70825 [http-bio-8080-exec-7] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=参与人员添加成功！]

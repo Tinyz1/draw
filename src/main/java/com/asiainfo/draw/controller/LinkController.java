@@ -10,10 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asiainfo.draw.domain.DrawLink;
+import com.asiainfo.draw.domain.LinkItem;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.DefaultResult;
 import com.asiainfo.draw.util.ParticipantPrize;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * 环节控制器
@@ -36,11 +38,13 @@ public class LinkController {
 		DefaultResult result = null;
 		try {
 			logger.info(linkItem);
-			result = DefaultResult.newSuccessInstance(1, "环节编号验证成功！");
-		} catch (StartLinkException e) {
-			result = DefaultResult.newErrorInstance(1, e.getMessage());
+			ObjectMapper mapper = new ObjectMapper();
+			LinkItem item = mapper.readValue(linkItem, LinkItem.class);
+			linkService.add(item);
+			result = DefaultResult.newSuccessInstance(1, "环节添加成功！");
 		} catch (Exception e) {
-			result = DefaultResult.newErrorInstance(2, "环节编号验证失败！");
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "环节添加失败！");
 		}
 		return result;
 	}

@@ -160,4 +160,24 @@ public class ParticipantServiceImpl implements ParticipantService {
 		}
 	}
 
+	@Override
+	public void add(String participants) {
+		checkNotNull(participants);
+		String[] parts = participants.split(",");
+		if (parts != null && parts.length > 0) {
+			for (String part : parts) {
+				if (StringUtils.isNotBlank(part)) {
+					Participant participant = new Participant();
+					participant.setParticipantName(part);
+					participant.setState(1);
+					participantMapper.insert(participant);
+				}
+			}
+		}
+
+		// ÖØĞÂ¼ÓÔØ»º´æ
+		participantCache.reload();
+
+	}
+
 }

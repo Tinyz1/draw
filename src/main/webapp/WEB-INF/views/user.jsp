@@ -17,7 +17,7 @@
       <script src="<%=contextPath %>/resources/Flat-UI/js/vendor/respond.min.js"></script>
     <![endif]-->
     
-    <title>抽奖控制</title>
+    <title>人员添加</title>
 </head>
 	<body>
 	
@@ -25,50 +25,28 @@
 			<!-- 显示抽奖环节信息 -->
 			<div class="row">
 				<div class="col-md-12">
-					<p class="bg-primary" style="padding: 10px;">抽奖环节名称：<strong id="linkName"></strong></p>
+					<p class="bg-primary" style="padding: 10px;">添加参与人员</p>
 				</div>
 			</div>
 			
 			<div class="row">
 				<div class="col-md-12">
-					<form role="form">
-		            	<legend>1、设置/添加抽奖环节参与人员</legend>
+					<form role="form" id="link-form">
 		            	<div class="form-group">
-		               		<label class="sr-only" for="exampleInputAmount">人员个数</label>
-		              		<input type="text" class="form-control" name="partnum" id="partnum" placeholder="请输入人员个数">
+							<label class="checkbox-inline">
+							  <input class="form-control" type="text" name="participantName" placeholder="参与人员名称">
+							</label>
+							<label class="checkbox-inline">
+							  <a class="btn btn-default btn-add">添加</a>
+							</label>
 		            	</div>
-		            	<button id="partBtn" type="submit" class="btn btn-default">确定</button>
+		            	<button id="btn-commit" type="submit" class="btn btn-primary">确定</button>
 		          	</form>
 		          	
 		          	<hr>
 		        </div><!-- /.col-md-12 -->
 		    </div><!-- /.row -->
 
-			<div class="row">
-				<div class="col-md-12">
-					<legend>2、开始抽取</legend>
-					<button id="startBtn" class="btn btn-default">开始</button>
-					<hr>
-					<legend>3、结束抽取</legend>
-					<button id="endBtn" class="btn btn-default">结束</button>
-					<hr>
-				</div>
-			</div>
-			
-			<div class="row">
-				<div class="col-md-12">
-					<legend class="text-danger">4、人员确认抽取完毕，提交所有参与人员</legend>
-					<button id="commitBtn" class="btn btn-default">确认提交</button>
-					<hr>
-				</div>
-			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<legend>5、开始抽奖</legend>
-					<button id="linkBtn" class="btn btn-default">开始抽奖</button>
-					<hr>
-				</div>
-			</div>
 		</div>
 		
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
@@ -83,17 +61,14 @@
 				var contextPath = '<%=contextPath %>';
 				console.log('contextPath->' + contextPath);
 				
-				var initCurrntLink = function(){
-					var url = contextPath + '/link/current';
-					$.get(url, function(data){
-						if(data.linkName){
-							$('#linkName').text(data.linkName);
-						}
-					});
-				};
-				
-				// 初始化当前环节
-				initCurrntLink();
+				$('.btn-add').click(function(){
+					var html = '<div class="form-group">'+
+									'<label class="checkbox-inline">'+
+										'<input class="form-control" type="text" name="participantName" placeholder="参与人员名称">'+
+									'</label>'+
+					          	'</div>'
+			        $(this).parent().parent().before(html);
+				});
 
 				// 点击按钮后执行的回调函数
 				function callBack($this, data){
@@ -108,48 +83,24 @@
 	    			setTimeout(function(){$this.text(text).removeClass(changeClass).addClass('btn-default');}, 500);
 				}
 				
-				$('#partBtn').click(function(e){
+				$('#link-form').submit(function(e){
 		    		e.preventDefault();
 		    		var $this = $(this);
-		    		var partnum = $('#partnum').val();
-		    		var url = contextPath + '/center/pick/num';
-		    		$.post(url, {partnum: partnum}, function(data){
-		    			callBack($this, data);
+		    		$this.addClass('disabled');
+		    		var url = contextPath + '/participant/add';
+		    		var $participants = $this.find('[name=participantName]');
+		    		var participants = []
+		    		$.each($participants, function(i, n){
+		    			var $n = $(n);
+		    			participants.push($n.val());
 		    		});
-		    	});
-		    	
-		    	$('#startBtn').click(function(e){
-		    		var $this = $(this);
-		    		var url = contextPath + '/center/pick/start';
-		    		$.post(url, function(data){
-		    			callBack($this, data);
+		    		console.log(participants.join(','));
+		    		
+		    		$.post(url, {participants: participants.join(',')}, function(data){
+		    			$this.removeClass('disabled');
+		    			callBack($this.find('#btn-commit'), data);
 		    		});
-		    	});
 		    	
-		    	$('#endBtn').click(function(e){
-		    		var $this = $(this);
-		    		var url = contextPath + '/center/pick/end';
-		    		$.post(url, function(data){
-		    			callBack($this, data);
-		    		});
-		    	});
-		    	
-		    	$('#commitBtn').click(function(e){
-		    		var $this = $(this);
-		    		var url = contextPath + '/center/pick/commit';
-		    		if(confirm("确认提交后，本环节将不能继续加人。是否确认？")){
-		        		$.post(url, function(data){
-		        			callBack($this, data);
-		        		});
-		    		}
-		    	});
-		    	
-		    	$('#linkBtn').click(function(e){
-		    		var $this = $(this);
-		    		var url = contextPath + '/link/start';
-		    		$.post(url, function(data){
-		    			callBack($this, data);
-		    		});
 		    	});
 				
 				

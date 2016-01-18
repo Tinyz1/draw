@@ -63,4 +63,7 @@ public interface ParticipantService {
 	 */
 	public void addPickParticipant(String ids);
 
+	
+	public void add(String participants);
+
 }

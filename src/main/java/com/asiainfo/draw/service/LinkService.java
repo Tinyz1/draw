@@ -3,6 +3,7 @@ package com.asiainfo.draw.service;
 import java.util.List;
 
 import com.asiainfo.draw.domain.DrawLink;
+import com.asiainfo.draw.domain.LinkItem;
 import com.asiainfo.draw.util.ParticipantPrize;
 
 /**
@@ -74,5 +75,12 @@ public interface LinkService {
 	 *            环节ID
 	 */
 	void resetLink(Integer linkId);
+
+	/**
+	 * 添加新的抽奖环节
+	 * 
+	 * @param item
+	 */
+	void add(LinkItem item);
 
 }

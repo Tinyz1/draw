@@ -26,9 +26,11 @@ import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawLinkExample;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.DrawPrizeExample;
+import com.asiainfo.draw.domain.LinkItem;
 import com.asiainfo.draw.domain.LinkMember;
 import com.asiainfo.draw.domain.LinkMemberExample;
 import com.asiainfo.draw.domain.Participant;
+import com.asiainfo.draw.domain.PrizeItem;
 import com.asiainfo.draw.domain.WinningRecord;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.persistence.DrawLinkMapper;
@@ -322,6 +324,37 @@ public class LinkServiceImpl implements LinkService {
 		}
 		link.setLinkState(1);
 		linkMapper.updateByPrimaryKeySelective(link);
+	}
+
+	@Override
+	public void add(LinkItem item) {
+		// 新增抽奖环节
+		DrawLink link = new DrawLink();
+		link.setLinkName(item.getLinkName());
+		// 只对未中奖的人开放
+		link.setOpenState(1);
+		// 未开始状态
+		link.setLinkState(1);
+		linkMapper.insert(link);
+
+		// 目的：为了获取新增数据的ID
+		DrawLinkExample linkExample = new DrawLinkExample();
+		linkExample.createCriteria().andLinkNameEqualTo(item.getLinkName());
+		link = linkMapper.selectByExample(linkExample).get(0);
+		
+		// 新增奖品
+		List<PrizeItem> prizeItems = item.getPrizeItems();
+		if (prizeItems != null && prizeItems.size() > 0) {
+			for (PrizeItem prizeItem : prizeItems) {
+				DrawPrize prize = new DrawPrize();
+				prize.setLinkId(link.getLinkId());
+				prize.setPrizeName(prizeItem.getPrizeName());
+				prize.setPrizeType(prizeItem.getPrizeType());
+				prize.setSize(prizeItem.getSize());
+				prizeMapper.insert(prize);
+			}
+		}
+		
 	}
 
 }

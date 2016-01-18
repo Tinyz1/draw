@@ -32,23 +32,42 @@
 			<div class="row">
 				<div class="col-md-12">
 					<form role="form" id="link-form">
+					
 		            	<div class="form-group">
-		               		<label class="sr-only" for="linkName"></label>
-		              		<input type="text" class="form-control" name="linkName" id="linkName" placeholder="输入抽奖环节名称">
+		               		<label class="checkbox-inline">
+		              			<input type="text" class="form-control" name="linkName" id="linkName" placeholder="输入抽奖环节名称">
+		            		</label>
+		            		<label class="checkbox-inline">
+							  <input class="form-control" type="text" name="enterNumber" placeholder="进入环节验证码">
+							</label>
 		            	</div>
+		            	
+		            	<hr>
 		            	
 		            	<div class="form-group">
 		               		<label class="checkbox-inline">
 							  <input class="form-control" type="text" name="prizeName" placeholder="输入奖品名称">
 							</label>
 							<label class="checkbox-inline">
+							  <select class="form-control" name="prizeType">
+				                <option selected value="一等奖">一等奖</option>
+				                <option value="二等奖">二等奖</option>
+				                <option value="三等奖">三等奖</option>
+				                <option value="四等奖">四等奖</option>
+				                <option value="五等奖">五等奖</option>
+				                <option value="六等奖">六等奖</option>
+				                <option value="阳光普照奖">阳光普照奖</option>
+				                <option value="礼品">礼品</option>
+				              </select>
+							</label>
+							<label class="checkbox-inline">
 							  <input class="form-control" type="number" name="size" placeholder="选择奖品数量">
 							</label>
 							<label class="checkbox-inline">
-							  <a class="btn btn-default btn-add">继续添加</a>
+							  <a class="btn btn-default btn-add">添加</a>
 							</label>
 		            	</div>
-		            	<button id="btn-commit" type="submit" class="btn btn-primary">确定添加</button>
+		            	<button id="btn-commit" type="submit" class="btn btn-primary">确定</button>
 		          	</form>
 		          	
 		          	<hr>
@@ -72,12 +91,24 @@
 				$('.btn-add').click(function(){
 					var html = '<div class="form-group">'+
 				               		'<label class="checkbox-inline">'+
-								  		'<input class="form-control" type="text" name="prizeName" placeholder="输入奖品名称">'+
+									  '<input class="form-control" type="text" name="prizeName" placeholder="输入奖品名称">'+
+									'</label>'+
+									'<label class="checkbox-inline">'+
+									  '<select class="form-control" name="prizeType">'+
+						                '<option selected value="一等奖">一等奖</option>'+
+						                '<option value="二等奖">二等奖</option>'+
+						                '<option value="三等奖">三等奖</option>'+
+						                '<option value="四等奖">四等奖</option>'+
+						                '<option value="五等奖">五等奖</option>'+
+						                '<option value="六等奖">六等奖</option>'+
+						                '<option value="阳光普照奖">阳光普照奖</option>'+
+						                '<option value="礼品">礼品</option>'+
+						              '</select>'+
 									'</label>'+
 									'<label class="checkbox-inline">'+
 									  '<input class="form-control" type="number" name="size" placeholder="选择奖品数量">'+
 									'</label>'+
-			          			'</div>';
+				          		'</div>'
 			        $(this).parent().parent().before(html);
 				});
 
@@ -97,6 +128,7 @@
 				$('#link-form').submit(function(e){
 		    		e.preventDefault();
 		    		var $this = $(this);
+		    		$this.addClass('disabled');
 		    		var url = contextPath + '/link/add';
 		    		var linkItem = {
 		    			linkName: $this.find('[name=linkName]').val()
@@ -106,9 +138,11 @@
 		    		var prizeItems = []
 		    		$.each(prizeNames, function(i, n){
 		    			var $n = $(n);
-		    			var $num = $n.parent().next().find('[name=size]');
+		    			var $type = $n.parent().nextAll().find('[name=prizeType]');
+		    			var $num = $n.parent().nextAll().find('[name=size]');
 		    			var prizeItem = {
 		    				prizeName: $n.val(),
+		    				prizeType: $type.val(),
 		    				size: $num.val()
 		    			}
 		    			prizeItems.push(prizeItem);
@@ -117,7 +151,8 @@
 		    		console.log(linkItem);
 		    		
 		    		$.post(url, {linkItem: JSON.stringify(linkItem)}, function(data){
-		    			callBack($this, data);
+		    			$this.removeClass('disabled');
+		    			callBack($this.find('#btn-commit'), data);
 		    		});
 		    	
 		    	});

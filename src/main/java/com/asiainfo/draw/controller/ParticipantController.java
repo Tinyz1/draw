@@ -30,6 +30,21 @@ public class ParticipantController {
 	@Autowired
 	private ParticipantService participantService;
 
+	@RequestMapping(value = "/add", method = RequestMethod.POST)
+	@ResponseBody
+	public DefaultResult add(String participants) {
+		DefaultResult result = null;
+		try {
+			participantService.add(participants);
+			result = DefaultResult.newSuccessInstance(1, "参与人员添加成功！");
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, "参与人员添加失败！");
+		}
+		logger.info(result.toString());
+		return result;
+	}
+
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	@ResponseBody
 	public DefaultResult authParticipantByTelphone(String participantName) {
