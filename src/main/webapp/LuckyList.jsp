@@ -64,7 +64,6 @@
 					var arr = arrs[i];
 					html += '<li><span style="color:red;">' + arr.participantName + '</span></li>';
 				}
-
 				$("#listUl").append(html);
 			});
 		}

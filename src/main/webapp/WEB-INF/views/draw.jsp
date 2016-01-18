@@ -57,18 +57,12 @@
 			
 			<div class="row">
 				<div class="col-md-12">
-					<legend class="text-danger">4、人员确认抽取完毕，提交所有参与人员</legend>
-					<button id="commitBtn" class="btn btn-default">确认提交</button>
+					<legend class="text-danger">4、确认人员并开始抽奖</legend>
+					<button id="commitBtn" class="btn btn-default">确认开始</button>
 					<hr>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-md-12">
-					<legend>5、开始抽奖</legend>
-					<button id="linkBtn" class="btn btn-default">开始抽奖</button>
-					<hr>
-				</div>
-			</div>
+
 		</div>
 		
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->
@@ -108,6 +102,7 @@
 	    			setTimeout(function(){$this.text(text).removeClass(changeClass).addClass('btn-default');}, 500);
 				}
 				
+				// 选择抽奖人数
 				$('#partBtn').click(function(e){
 		    		e.preventDefault();
 		    		var $this = $(this);
@@ -118,6 +113,7 @@
 		    		});
 		    	});
 		    	
+				// 开始抽奖
 		    	$('#startBtn').click(function(e){
 		    		var $this = $(this);
 		    		var url = contextPath + '/center/pick/start';
@@ -126,6 +122,7 @@
 		    		});
 		    	});
 		    	
+				// 结束抽奖
 		    	$('#endBtn').click(function(e){
 		    		var $this = $(this);
 		    		var url = contextPath + '/center/pick/end';
@@ -134,10 +131,11 @@
 		    		});
 		    	});
 		    	
+				// 确认抽奖人员，并开始抽奖
 		    	$('#commitBtn').click(function(e){
 		    		var $this = $(this);
 		    		var url = contextPath + '/center/pick/commit';
-		    		if(confirm("确认提交后，本环节将不能继续加人。是否确认？")){
+		    		if(confirm("确认提交后，就可以开始摇奖了。是否确认？")){
 		        		$.post(url, function(data){
 		        			callBack($this, data);
 		        		});

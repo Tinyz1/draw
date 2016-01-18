@@ -8,11 +8,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CommandCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.service.CenterService;
+import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.Command;
 
 @Service("centerService")
@@ -28,32 +28,26 @@ public class CenterServiceImpl implements CenterService {
 	private CommandCache commandCache;
 
 	@Autowired
-	private AllPickCache allPickCache;
+	private LinkService linkService;
+
+	@Autowired
+	private CommandCache redirectCache;
 
 	@Override
 	public void pickNum(Integer partnum) {
 		checkNotNull(partnum);
-
 		// 环节未开始时才允许加人
 		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
 		if (!LinkState.INIT.equals(linkState)) {
 			throw new RuntimeException("环节已开始，不允许加人");
 		}
-
 		logger.info("<<====================选择参与人员数量:{}", partnum);
-		// 获取当前可被参与抽人环节的人数
-		int allow = allPickCache.getAll().size();
-
-		if (allow < partnum) {
-			throw new RuntimeException("当前环节最大参与人数：" + allow);
-		}
-
 		int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
 		currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, remainNum + partnum);
 
 		Command command = new Command();
 		command.setType(Command.COMMAND_REDIRECT);
-		command.setUrl("luckPerson.jsp?partnum=" + partnum + "&allow=" + allow);
+		command.setUrl("luckPerson.jsp?partnum=" + partnum);
 		commandCache.put(CommandCache.CURRENT_COMMAND, command);
 	}
 
@@ -80,9 +74,18 @@ public class CenterServiceImpl implements CenterService {
 
 	@Override
 	public void commitPicNum() {
+		
+		// 初始化奖池
+		linkService.initPool();
+
+		// 启动抽奖
+		linkService.startCurrentLink();
+
+		// 跳转至中奖展示界面
 		Command command = new Command();
-		command.setType(Command.ACTION_INIT_POOL);
-		commandCache.put(CommandCache.CURRENT_COMMAND, command);
+		command.setType(Command.COMMAND_REDIRECT);
+		command.setUrl("LuckyList.jsp");
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
 	}
 
 }

@@ -9,6 +9,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import com.asiainfo.draw.domain.DrawPrize;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
@@ -23,7 +24,7 @@ public class LinkHitPrizeCache {
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 
-	private final Cache<Integer, Map<String, String>> cache = CacheBuilder.newBuilder().build();
+	private final Cache<Integer, Map<String, DrawPrize>> cache = CacheBuilder.newBuilder().build();
 
 	/**
 	 * 记录环节用户中奖记录
@@ -31,17 +32,17 @@ public class LinkHitPrizeCache {
 	 * @param linkId
 	 * @param hitPrize
 	 */
-	public synchronized void put(Integer linkId, Map<String, String> hitPrize) {
+	public synchronized void put(Integer linkId, Map<String, DrawPrize> hitPrize) {
 		// 更新缓存
 		cache.put(linkId, hitPrize);
 	}
 
-	public Map<String, String> get(Integer linkId) {
+	public Map<String, DrawPrize> get(Integer linkId) {
 		try {
-			Map<String, String> hitPrize = cache.get(linkId, new Callable<Map<String, String>>() {
+			Map<String, DrawPrize> hitPrize = cache.get(linkId, new Callable<Map<String, DrawPrize>>() {
 				@Override
-				public Map<String, String> call() throws Exception {
-					return new HashMap<String, String>();
+				public Map<String, DrawPrize> call() throws Exception {
+					return new HashMap<String, DrawPrize>();
 				}
 			});
 			return hitPrize;

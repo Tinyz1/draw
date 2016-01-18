@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CommandCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
@@ -39,7 +38,6 @@ import com.asiainfo.draw.persistence.LinkMemberMapper;
 import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.service.RecordService;
-import com.asiainfo.draw.util.Command;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
 import com.asiainfo.draw.util.ParticipantPrize;
 import com.asiainfo.draw.util.PrizePool;
@@ -70,9 +68,6 @@ public class LinkServiceImpl implements LinkService {
 	private RecordService recordService;
 
 	@Autowired
-	private AllPickCache allPickCache;
-
-	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
 
 	@Autowired
@@ -86,7 +81,7 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("环节初始化->尝试结束当前环节...");
 		try {
-			finishCurrentLink();
+			finishLink(linkId);
 		} catch (Exception e) {
 			logger.warn(e.toString());
 		}
@@ -178,10 +173,10 @@ public class LinkServiceImpl implements LinkService {
 		currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
 
 		// 界面跳转指令
-		Command command = new Command();
+		/*Command command = new Command();
 		command.setType(Command.COMMAND_REDIRECT);
 		command.setUrl("LuckyList.jsp");
-		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
+		redirectCache.put(CommandCache.CURRENT_COMMAND, command);*/
 	}
 
 	/**
@@ -202,34 +197,45 @@ public class LinkServiceImpl implements LinkService {
 	}
 
 	@Override
-	public void finishCurrentLink() {
+	public void finishLink(Integer linkId) {
 
-		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-		logger.info("<<=========结束环节{}...", currentLink.getLinkName());
-		// 把当前环节的开关关闭
-		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
-		// 记录环节
-		currentLinkCache.put(CurrentLinkCache.CURRENT_FINISH_DATE, new Date());
-		// 把环节中奖记录写入库中
-		@SuppressWarnings("unchecked")
-		Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-		if (currentHits != null) {
-			for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
-				WinningRecord winningRecord = new WinningRecord();
-				// 中奖环节
-				winningRecord.setLinkId(currentLink.getLinkId());
-				// 用户ID
-				winningRecord.setParticipantId(hit.getKey());
-				// 奖品ID
-				winningRecord.setPrizeId(hit.getValue().getPrizeId());
-				recordService.saveRecord(winningRecord);
-			}
+		DrawLink currentLink = null;
+		try {
+			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+
 		}
-		// 把当前环节设置的状态设置为已结束
-		currentLink.setLinkState(3);
-		linkMapper.updateByPrimaryKey(currentLink);
-		// 清空当前缓存
-		currentLinkCache.invalidateAll();
+
+		// 环节标志设置为3(已结束)
+		DrawLink link = linkMapper.selectByPrimaryKey(linkId);
+		link.setLinkState(3);
+		linkMapper.updateByPrimaryKeySelective(link);
+
+		if (currentLink != null && linkId.equals(currentLink.getLinkId())) {
+			logger.info("<<=========结束环节{}...", currentLink.getLinkName());
+			// 把当前环节的开关关闭
+			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
+			// 记录环节
+			currentLinkCache.put(CurrentLinkCache.CURRENT_FINISH_DATE, new Date());
+			// 把环节中奖记录写入库中
+			@SuppressWarnings("unchecked")
+			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			if (currentHits != null) {
+				for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
+					WinningRecord winningRecord = new WinningRecord();
+					// 中奖环节
+					winningRecord.setLinkId(currentLink.getLinkId());
+					// 用户ID
+					winningRecord.setParticipantId(hit.getKey());
+					// 奖品ID
+					winningRecord.setPrizeId(hit.getValue().getPrizeId());
+					recordService.saveRecord(winningRecord);
+				}
+			}
+			// 清空当前缓存
+			currentLinkCache.invalidateAll();
+		}
+
 	}
 
 	@Override
@@ -255,28 +261,29 @@ public class LinkServiceImpl implements LinkService {
 			// 记录环节开始时间
 			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
 
-			// ----------------------------------------------------------------------------
+/*			// ----------------------------------------------------------------------------
 			logger.info("环节开始->中央屏幕页面跳转至中奖展示界面（LuckBubble.jsp）");
 			// 界面跳转指令
 			Command command = new Command();
 			command.setType(Command.COMMAND_REDIRECT);
 			command.setUrl("LuckBubble.jsp");
-			redirectCache.put(CommandCache.CURRENT_COMMAND, command);
+			redirectCache.put(CommandCache.CURRENT_COMMAND, command);*/
 		}
 	}
 
 	@Override
 	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
 		checkNotNull(linkId);
-		Map<String, String> hitPrize = linkHitPrizeCache.get(linkId);
+		Map<String, DrawPrize> hitPrize = linkHitPrizeCache.get(linkId);
 		if (hitPrize == null) {
-			hitPrize = new HashMap<String, String>();
+			hitPrize = new HashMap<String, DrawPrize>();
 		}
 
 		List<ParticipantPrize> hitPrizes = new ArrayList<ParticipantPrize>();
 		if (hitPrize != null) {
-			for (Map.Entry<String, String> hpriz : hitPrize.entrySet()) {
-				ParticipantPrize ppr = new ParticipantPrize(getLinkByLinkId(linkId).getLinkName(), hpriz.getKey(), hpriz.getValue());
+			for (Map.Entry<String, DrawPrize> hpriz : hitPrize.entrySet()) {
+				ParticipantPrize ppr = new ParticipantPrize(getLinkByLinkId(linkId).getLinkName(), hpriz.getKey(), hpriz.getValue()
+						.getPrizeType(), hpriz.getValue().getPrizeName());
 				hitPrizes.add(ppr);
 			}
 		}
@@ -341,7 +348,7 @@ public class LinkServiceImpl implements LinkService {
 		DrawLinkExample linkExample = new DrawLinkExample();
 		linkExample.createCriteria().andLinkNameEqualTo(item.getLinkName());
 		link = linkMapper.selectByExample(linkExample).get(0);
-		
+
 		// 新增奖品
 		List<PrizeItem> prizeItems = item.getPrizeItems();
 		if (prizeItems != null && prizeItems.size() > 0) {
@@ -354,7 +361,7 @@ public class LinkServiceImpl implements LinkService {
 				prizeMapper.insert(prize);
 			}
 		}
-		
+
 	}
 
 }

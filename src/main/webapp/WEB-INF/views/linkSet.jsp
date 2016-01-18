@@ -58,6 +58,7 @@
 				                <option value="六等奖">六等奖</option>
 				                <option value="阳光普照奖">阳光普照奖</option>
 				                <option value="礼品">礼品</option>
+				                <option value="现金奖">现金奖</option>
 				              </select>
 							</label>
 							<label class="checkbox-inline">
@@ -103,6 +104,7 @@
 						                '<option value="六等奖">六等奖</option>'+
 						                '<option value="阳光普照奖">阳光普照奖</option>'+
 						                '<option value="礼品">礼品</option>'+
+						                '<option value="现金奖">现金奖</option>'+
 						              '</select>'+
 									'</label>'+
 									'<label class="checkbox-inline">'+

@@ -1,12 +1,24 @@
 //4中气泡样式
 var colors = ["#f6366d", "#19a3dc", "#9057cb", "#f47119"];
 
+// 需要特别展示的奖品类型
+var main = ['现金奖', '一等奖', '二等奖', '三等奖'];
+
+function isMain(prizeType){
+	$.each(main, function(i, n){
+		if(n === prizeType){
+			return true;
+		}
+	});
+	return false;
+}
+
 /*
 name 名字
 prize 奖项
 number 唯一标识
 */
-function newDiv(name,prizeName,number) {
+function newDiv(name, prizeType, prizeName, number) {
 	var wh;
 	var delay;
 	var prize = number % 3 + 1;
@@ -30,6 +42,9 @@ function newDiv(name,prizeName,number) {
 	}
 	var html = '<div class="bubble" style="display:block" id=' + number + '><p class="number">'+name +'</p><p class="money"> ' + prizeName + '</p></div>';
 	var li2p="<li><p>"+name+"</p><p> "+ prizeName+"</p></li>";
+	if(isMain(prizeType)){
+		li2p='<li style="font-size:20px;"><p>"+name+"</p><p> "+ prizeName+"</p></li>';
+	}
 	$("#d1").append(li2p);
 	$("body").append(html);
 	var lf = Math.random() * 80 + "%";
@@ -78,7 +93,7 @@ function redirect(){
 				var prizeName = data[i].prizeName;
 				if(!contains(storeData, name)){
 					storeData.push(name);
-					newDiv(name, prizeName, storeData.length)
+					newDiv(name, data[i].prizeType, prizeName, storeData.length)
 				}
 			}
 			flag = true;
@@ -94,14 +109,6 @@ function redirect(){
 	});		
 }
 
-
-
-
-$(function() {
-	//后去当前环节数
-	var luck = "第一环节";
-	$(".header-h1").html(luck + "中奖信息");
-});
 
 
 

@@ -14,7 +14,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.asiainfo.draw.cache.AllPickCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.HitPrizeCache;
@@ -51,9 +50,6 @@ public class DrawServiceImpl implements DrawService {
 
 	@Autowired
 	private LinkHitPrizeCache linkHitPrizeCache;
-
-	@Autowired
-	private AllPickCache allPickCache;
 
 	@Autowired
 	private ParticipantMapper participantMapper;
@@ -110,18 +106,6 @@ public class DrawServiceImpl implements DrawService {
 				currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, currentShake);
 			}
 
-			// 判断用户是否还有中奖的机会
-			int times = allPickCache.get(participant.getParticipantId());
-			logger.info("用户剩下的中奖机会:{}", times);
-			if (times == 0) {
-				throw new RuntimeException("用户没有中奖的机会了！");
-			}
-			allPickCache.subTimes(participant.getParticipantId());
-			// 更新库,机会减少一次
-			participant.setState(allPickCache.get(participant.getParticipantId()));
-			logger.info("更新参与人员->参与人员：{}摇奖次数-1", participant.getParticipantName());
-			participantMapper.updateByPrimaryKeySelective(participant);
-
 			// 满足抽奖条件的人员参与抽奖
 			PrizePool pool = (PrizePool) currentLinkCache.get(CurrentLinkCache.CURRENT_POOL);
 
@@ -143,18 +127,18 @@ public class DrawServiceImpl implements DrawService {
 			currentHits.put(participant.getParticipantId(), drawPrize);
 
 			// 更新环节用户中奖记录
-			Map<String, String> hitPrize = linkHitPrizeCache.get(link.getLinkId());
+			Map<String, DrawPrize> hitPrize = linkHitPrizeCache.get(link.getLinkId());
 			if (hitPrize == null) {
-				hitPrize = new HashMap<String, String>();
+				hitPrize = new HashMap<String, DrawPrize>();
 			}
-			hitPrize.put(participantName, drawPrize.getPrizeName());
+			hitPrize.put(participantName, drawPrize);
 			linkHitPrizeCache.put(link.getLinkId(), hitPrize);
 
 			int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
 			currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, --remainNum);
 			if (!pool.hasPrize() || remainNum == 0) {
 				logger.info("<<====当前环节剩余的奖品没有了时或所有人都摇奖了，结束当前环节");
-				linkService.finishCurrentLink();
+				linkService.finishLink(link.getLinkId());
 			}
 
 			// 记录中奖记录

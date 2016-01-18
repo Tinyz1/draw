@@ -39,6 +39,8 @@
 			$.post("link/current",function (data){
 				//获取当前环节的环节ID
 				linkId = data.linkId;
+				var  linkName = data.linkName;
+				$(".header-h1").html(linkName + "中奖信息");
 			});
 		}
 	</script>

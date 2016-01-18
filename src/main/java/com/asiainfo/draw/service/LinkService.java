@@ -14,9 +14,9 @@ import com.asiainfo.draw.util.ParticipantPrize;
  */
 public interface LinkService {
 	/**
-	 * 结束当前环节
+	 * 结束环节
 	 */
-	void finishCurrentLink();
+	void finishLink(Integer linkId);
 
 	/**
 	 * 初始化环节

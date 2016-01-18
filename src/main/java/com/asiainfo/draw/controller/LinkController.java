@@ -69,7 +69,7 @@ public class LinkController {
 		return result;
 	}
 
-	@RequestMapping("/start")
+	/*@RequestMapping("/start")
 	@ResponseBody
 	public DefaultResult start() {
 		DefaultResult result = null;
@@ -83,13 +83,13 @@ public class LinkController {
 		}
 		return result;
 	}
-
+*/
 	@RequestMapping("/finish")
 	@ResponseBody
-	public DefaultResult finish() {
+	public DefaultResult finish(Integer linkId) {
 		DefaultResult result = null;
 		try {
-			linkService.finishCurrentLink();
+			linkService.finishLink(linkId);
 			result = DefaultResult.newSuccessInstance(1, "环节已经结束！");
 		} catch (StartLinkException e) {
 			result = DefaultResult.newErrorInstance(1, e.getMessage());

@@ -65,6 +65,7 @@ public class ParticipantCache implements InitializingBean {
 					Participant selParticipant = participantService.getByParticipantId(id);
 					if (selParticipant != null) {
 						put(id, selParticipant);
+						put(selParticipant.getParticipantName(), selParticipant);
 					}
 					return selParticipant;
 				}
@@ -88,6 +89,7 @@ public class ParticipantCache implements InitializingBean {
 					Participant selParticipant = participantService.getByParticipantName(name);
 					if (selParticipant != null) {
 						put(name, selParticipant);
+						put(selParticipant.getParticipantId(), selParticipant);
 					}
 					return selParticipant;
 				}

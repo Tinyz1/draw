@@ -9,8 +9,6 @@
 <%
 	// 当前选取人员个数
 	String partnum = request.getParameter("partnum");
-	// 总的可以被选择的人数
-	String allow = request.getParameter("allow");
 %>
 </head>
 <body>
@@ -77,7 +75,6 @@ function lotteryDraw(arr, number) {
 	while(personArr.length<number) {
 		var j = Math.floor(Math.random() * arr.length);
 		var con = arr[j];
-		console.log(con)
 		var i=0;
 		for(;i<personArr.length;i++){
 			if(personArr[i].participantId==con.participantId){
@@ -161,6 +158,7 @@ function init() {
 				arr.push(a);
 			}
 			isInit = true;
+			
 			for (var i = 0; i < arr.length; i++) {
 				var html = "<li class='ran' id=" + arr[i].index + ">" + arr[i].participantName + "</li>";
 				$(".listUl").append(html);

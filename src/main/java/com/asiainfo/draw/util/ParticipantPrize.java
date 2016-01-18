@@ -13,22 +13,20 @@ public class ParticipantPrize implements Serializable {
 
 	private String participantName;
 
-	private String prizeName;
+	private String prizeType;
 
+	private String prizeName;
+	
 	public ParticipantPrize() {
 		super();
 	}
 
-	public ParticipantPrize(String linkName, String participantName, String prizeName) {
+	public ParticipantPrize(String linkName, String participantName, String prizeType, String prizeName) {
 		super();
 		this.linkName = linkName;
 		this.participantName = participantName;
+		this.prizeType = prizeType;
 		this.prizeName = prizeName;
-	}
-
-	@Override
-	public String toString() {
-		return "ParticipantPrize [linkName=" + linkName + ", participantName=" + participantName + ", prizeName=" + prizeName + "]";
 	}
 
 	public String getLinkName() {
@@ -47,12 +45,26 @@ public class ParticipantPrize implements Serializable {
 		this.participantName = participantName;
 	}
 
+	public String getPrizeType() {
+		return prizeType;
+	}
+
+	public void setPrizeType(String prizeType) {
+		this.prizeType = prizeType;
+	}
+
 	public String getPrizeName() {
 		return prizeName;
 	}
 
 	public void setPrizeName(String prizeName) {
 		this.prizeName = prizeName;
+	}
+
+	@Override
+	public String toString() {
+		return "ParticipantPrize [linkName=" + linkName + ", participantName=" + participantName + ", prizeType=" + prizeType
+				+ ", prizeName=" + prizeName + "]";
 	}
 
 }
