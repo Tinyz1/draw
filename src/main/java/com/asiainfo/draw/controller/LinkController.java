@@ -49,41 +49,6 @@ public class LinkController {
 		return result;
 	}
 
-	/**
-	 * 
-	 * @param enterNmuber
-	 * @return
-	 */
-	@RequestMapping("/authLinkNumber")
-	@ResponseBody
-	public DefaultResult auth(String enterNumber) {
-		DefaultResult result = null;
-		try {
-			linkService.authLinkNumber(enterNumber);
-			result = DefaultResult.newSuccessInstance(1, "环节编号验证成功！");
-		} catch (StartLinkException e) {
-			result = DefaultResult.newErrorInstance(1, e.getMessage());
-		} catch (Exception e) {
-			result = DefaultResult.newErrorInstance(2, "环节编号验证失败！");
-		}
-		return result;
-	}
-
-	/*@RequestMapping("/start")
-	@ResponseBody
-	public DefaultResult start() {
-		DefaultResult result = null;
-		try {
-			linkService.startCurrentLink();
-			result = DefaultResult.newSuccessInstance(1, "已经启动新的环节，可以抽奖了。");
-		} catch (StartLinkException e) {
-			result = DefaultResult.newErrorInstance(1, e.getMessage());
-		} catch (Exception e) {
-			result = DefaultResult.newErrorInstance(2, "环节启动失败！");
-		}
-		return result;
-	}
-*/
 	@RequestMapping("/finish")
 	@ResponseBody
 	public DefaultResult finish(Integer linkId) {

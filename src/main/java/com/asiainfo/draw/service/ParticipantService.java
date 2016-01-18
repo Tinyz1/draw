@@ -25,14 +25,12 @@ public interface ParticipantService {
 	public Participant getByParticipantName(String participantName);
 
 	/**
-	 * 根据用户编号和用户名验证用户是否能够参与活动
+	 * 验证
 	 * 
-	 * @param participantNum
-	 *            用户编号
 	 * @param participantName
-	 *            用户名
+	 * @param enterNum
 	 */
-	public void authParticipant(String participantName);
+	public void auth(String participantName, String enterNum);
 
 	/**
 	 * 查询所有的参与人员信息。
@@ -63,7 +61,6 @@ public interface ParticipantService {
 	 */
 	public void addPickParticipant(String ids);
 
-	
 	public void add(String participants);
 
 }

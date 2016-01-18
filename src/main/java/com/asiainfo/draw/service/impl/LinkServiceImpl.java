@@ -3,13 +3,11 @@ package com.asiainfo.draw.service.impl;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -79,9 +77,9 @@ public class LinkServiceImpl implements LinkService {
 	@Override
 	public void initLink(Integer linkId) {
 
-		logger.info("环节初始化->尝试结束当前环节...");
 		try {
-			finishLink(linkId);
+			logger.info("环节初始化->尝试结束当前环节...");
+			finishCurrentLink();
 		} catch (Exception e) {
 			logger.warn(e.toString());
 		}
@@ -116,13 +114,6 @@ public class LinkServiceImpl implements LinkService {
 		// 修改数据库的环节状态为2(进行中)
 		currentLink.setLinkState(2);
 		linkMapper.updateByPrimaryKeySelective(currentLink);
-	}
-
-	/**
-	 * 重新加载当前环节
-	 */
-	public void reloadCurrentLink() {
-		currentLinkCache.invalidateAll();
 	}
 
 	/**
@@ -171,12 +162,6 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("<<===========把奖品池加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
-
-		// 界面跳转指令
-		/*Command command = new Command();
-		command.setType(Command.COMMAND_REDIRECT);
-		command.setUrl("LuckyList.jsp");
-		redirectCache.put(CommandCache.CURRENT_COMMAND, command);*/
 	}
 
 	/**
@@ -196,35 +181,43 @@ public class LinkServiceImpl implements LinkService {
 		return prizes;
 	}
 
-	@Override
-	public void finishLink(Integer linkId) {
-
+	/**
+	 * 结束当前环节
+	 */
+	private void finishCurrentLink() {
 		DrawLink currentLink = null;
 		try {
 			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		} catch (Exception e) {
-
+			logger.error("当前环节不存在！");
 		}
+		if (currentLink != null) {
+			finishLink(currentLink.getLinkId());
+		}
+	}
 
+	@Override
+	public void finishLink(Integer linkId) {
 		// 环节标志设置为3(已结束)
 		DrawLink link = linkMapper.selectByPrimaryKey(linkId);
 		link.setLinkState(3);
 		linkMapper.updateByPrimaryKeySelective(link);
 
-		if (currentLink != null && linkId.equals(currentLink.getLinkId())) {
-			logger.info("<<=========结束环节{}...", currentLink.getLinkName());
-			// 把当前环节的开关关闭
-			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
-			// 记录环节
-			currentLinkCache.put(CurrentLinkCache.CURRENT_FINISH_DATE, new Date());
-			// 把环节中奖记录写入库中
+		logger.info(link.toString());
+
+		logger.info("<<=========结束环节{}...", link.getLinkName());
+		// 把当前环节的开关关闭
+		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
+
+		// 把环节中奖记录写入库中
+		try {
 			@SuppressWarnings("unchecked")
 			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
 			if (currentHits != null) {
 				for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
 					WinningRecord winningRecord = new WinningRecord();
 					// 中奖环节
-					winningRecord.setLinkId(currentLink.getLinkId());
+					winningRecord.setLinkId(link.getLinkId());
 					// 用户ID
 					winningRecord.setParticipantId(hit.getKey());
 					// 奖品ID
@@ -232,10 +225,11 @@ public class LinkServiceImpl implements LinkService {
 					recordService.saveRecord(winningRecord);
 				}
 			}
-			// 清空当前缓存
-			currentLinkCache.invalidateAll();
+		} catch (Exception e) {
+			logger.error(e.toString());
 		}
-
+		// 清空当前缓存
+		currentLinkCache.invalidateAll();
 	}
 
 	@Override
@@ -256,18 +250,6 @@ public class LinkServiceImpl implements LinkService {
 			logger.info("环节开始->把当前环节的状态设置为:{}", LinkState.RUN);
 			// 把当前环节的开关打开
 			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.RUN);
-			Date start = new Date();
-			logger.info("环节开始->环节启动时间:{}", start);
-			// 记录环节开始时间
-			currentLinkCache.put(CurrentLinkCache.CURRENT_START_DATE, start);
-
-/*			// ----------------------------------------------------------------------------
-			logger.info("环节开始->中央屏幕页面跳转至中奖展示界面（LuckBubble.jsp）");
-			// 界面跳转指令
-			Command command = new Command();
-			command.setType(Command.COMMAND_REDIRECT);
-			command.setUrl("LuckBubble.jsp");
-			redirectCache.put(CommandCache.CURRENT_COMMAND, command);*/
 		}
 	}
 
@@ -304,19 +286,6 @@ public class LinkServiceImpl implements LinkService {
 	}
 
 	@Override
-	public void authLinkNumber(String enterNumber) {
-		checkNotNull(enterNumber);
-		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-		logger.info("当前环节进入编码：{}", currentLink.getEnterNumber());
-		if (!StringUtils.equalsIgnoreCase(enterNumber, currentLink.getEnterNumber())) {
-			String mess = "环节进入编号错误，不能参与抽奖";
-			logger.warn(mess);
-			throw new RuntimeException(mess);
-		}
-
-	}
-
-	@Override
 	public List<DrawLink> getAll() {
 		DrawLinkExample linkExample = new DrawLinkExample();
 		return linkMapper.selectByExample(linkExample);
@@ -342,6 +311,8 @@ public class LinkServiceImpl implements LinkService {
 		link.setOpenState(1);
 		// 未开始状态
 		link.setLinkState(1);
+		// 环节进入编码
+		link.setEnterNumber(item.getEnterNumber());
 		linkMapper.insert(link);
 
 		// 目的：为了获取新增数据的ID

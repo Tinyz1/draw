@@ -64,7 +64,7 @@
 	<script type="text/javascript">
 		(function($){
 			var topsArr=[];
-			$(".username").html(participantName.slice(0,1));
+			$(".username").html(participantName);
 			
 			var SHAKE_THRESHOLD = 3000;
 	 	    var last_update = 0;

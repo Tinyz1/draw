@@ -74,14 +74,35 @@ public class ParticipantServiceImpl implements ParticipantService {
 	}
 
 	@Override
-	public void authParticipant(String participantName) {
+	public void auth(String participantName, String enterNum) {
+		logger.info(participantName);
+		checkNotNull(participantName);
+		logger.info(enterNum);
+		checkNotNull(enterNum);
+
 		// 缓存中读取用户
-		Participant participant = participantCache.get(participantName);
-		if (participant == null) {
-			String message = "用户名为:{}的用户不存在！";
-			logger.error(message, participantName);
-			throw new AuthenticationExceptioin(message);
+		try {
+			Participant participant = participantCache.get(participantName);
+			if (participant == null) {
+				throw new AuthenticationExceptioin("很遗憾，您不能参与抽奖！");
+			}
+		} catch (Exception e) {
+			throw new AuthenticationExceptioin("很遗憾，您不能参与抽奖！");
 		}
+
+		DrawLink currentLink = null;
+		try {
+			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.error(e.toString());
+		}
+		if (currentLink == null) {
+			throw new AuthenticationExceptioin("抽奖环节还没有开始，请稍等！");
+		}
+		if (!StringUtils.equalsIgnoreCase(enterNum, currentLink.getEnterNumber())) {
+			throw new AuthenticationExceptioin("环节验证码错误，请确认是否输入有误！");
+		}
+
 		logger.info("用户{}校验通过", participantName);
 	}
 

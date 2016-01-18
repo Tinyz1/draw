@@ -103,7 +103,8 @@ public class DrawServiceImpl implements DrawService {
 			} else {
 				// 当前用户已经摇奖了
 				currentShake.add(participant);
-				currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, currentShake);
+				// ? currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE,
+				// currentShake);
 			}
 
 			// 满足抽奖条件的人员参与抽奖
@@ -136,6 +137,7 @@ public class DrawServiceImpl implements DrawService {
 
 			int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
 			currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, --remainNum);
+
 			if (!pool.hasPrize() || remainNum == 0) {
 				logger.info("<<====当前环节剩余的奖品没有了时或所有人都摇奖了，结束当前环节");
 				linkService.finishLink(link.getLinkId());

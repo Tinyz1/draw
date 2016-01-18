@@ -15,6 +15,12 @@ import com.asiainfo.draw.service.ParticipantService;
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
 
+/**
+ * 参与人员缓存
+ * 
+ * @author yecl
+ *
+ */
 @Component
 public class ParticipantCache implements InitializingBean {
 

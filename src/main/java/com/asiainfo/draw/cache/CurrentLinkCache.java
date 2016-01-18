@@ -19,7 +19,7 @@ import com.google.common.cache.CacheBuilder;
  *
  */
 @Component
-public class CurrentLinkCache{
+public class CurrentLinkCache {
 
 	private static final String KEY_PRE = "com.asiainfo.draw.cache.CurrentLinkCache.";
 	/**
@@ -48,16 +48,6 @@ public class CurrentLinkCache{
 		RUN, // 环节进行中
 		FINISH // 环节已结束
 	}
-
-	/**
-	 * 环节开始时间
-	 */
-	public static final String CURRENT_START_DATE = KEY_PRE + "startDate";
-
-	/**
-	 * 环节结束时间
-	 */
-	public static final String CURRENT_FINISH_DATE = KEY_PRE + "finishDate";
 
 	/**
 	 * 环节参与人

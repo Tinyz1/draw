@@ -47,10 +47,10 @@ public class ParticipantController {
 
 	@RequestMapping(value = "/auth", method = RequestMethod.POST)
 	@ResponseBody
-	public DefaultResult authParticipantByTelphone(String participantName) {
+	public DefaultResult auth(String participantName, String enterNumber) {
 		DefaultResult result = null;
 		try {
-			participantService.authParticipant(participantName);
+			participantService.auth(participantName, enterNumber);
 			result = DefaultResult.newSuccessInstance(1, "身份验证成功！");
 		} catch (AuthenticationExceptioin e) {
 			logger.error(e.toString());
