@@ -311,6 +311,9 @@ public class LinkServiceImpl implements LinkService {
 		link.setOpenState(1);
 		// 未开始状态
 		link.setLinkState(1);
+
+		link.setLinkOrder(0);
+
 		// 环节进入编码
 		link.setEnterNumber(item.getEnterNumber());
 		linkMapper.insert(link);

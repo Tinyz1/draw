@@ -88,8 +88,8 @@ function lotteryDraw(arr, number) {
 	}
 	personArr.forEach(function(item, i) {
 		var k = i % 5;
-		var lefts = ["0", "20%", "40%", "60%", "80%"];
-		var tops = ["10%", "30%", "50%", "70%"]
+		var lefts = ["-10%", "13%", "37%", "60%", "80%"];
+		var tops = ["15%", "35%", "55%", "75%"]
 		var left = lefts[k];
 		var n = Math.floor(i / 5);
 		var top = tops[n];
@@ -99,8 +99,10 @@ function lotteryDraw(arr, number) {
 			top: top
 		}, 500);
 		$(item).css({
-			fontSize: 22+"px",
-    		color:"#000"
+			fontSize: 55+"px",
+    		color:"#00008B",
+    		fontFeight:"900",
+    		fontFamily:"楷体"
 		});
 	})
 	arr.forEach(function(item) {

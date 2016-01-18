@@ -133,7 +133,8 @@
 		    		$this.addClass('disabled');
 		    		var url = contextPath + '/link/add';
 		    		var linkItem = {
-		    			linkName: $this.find('[name=linkName]').val()
+		    			linkName: $this.find('[name=linkName]').val(),
+		    			enterNumber: $this.find('[name=enterNumber]').val()
 		    		};
 		    		//console.log(param);
 		    		var prizeNames = $this.find('[name=prizeName]');
