@@ -153,7 +153,7 @@ public class LinkServiceImpl implements LinkService {
 
 			// 用户的抽奖机会-1
 			Participant participant = participantCache.get(member.getParticipantId());
-			participant.setState(participant.getState() - 1);
+			participant.setState(participant.getState() - 1 >= 0 ? participant.getState() - 1 : participant.getState());
 			participantMapper.updateByPrimaryKeySelective(participant);
 		}
 
@@ -343,7 +343,7 @@ public class LinkServiceImpl implements LinkService {
 
 		String enterNumber = item.getEnterNumber();
 		// 环节验证码为空时，默认设置为123456
-		if(StringUtils.isBlank(item.getEnterNumber())) {
+		if (StringUtils.isBlank(item.getEnterNumber())) {
 			enterNumber = "123456";
 		}
 		// 环节进入编码
