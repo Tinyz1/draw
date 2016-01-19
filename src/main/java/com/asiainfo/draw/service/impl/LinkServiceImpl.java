@@ -139,6 +139,17 @@ public class LinkServiceImpl implements LinkService {
 			throw new RuntimeException(mess);
 		}
 
+		// 如果参与人数大于奖品数
+		for (int i = 0, len = linkMembers.size() - currentPrizes.size(); i < len; i++) {
+			DrawPrize defaultPrize = null;
+			try {
+				defaultPrize = getPrizeByLink(0).get(0);
+			} catch (Exception e) {
+				logger.error(">>没有配置默认环节奖品。默认环节奖品的环节ID为0，只能配置一条数据。");
+			}
+			currentPrizes.add(defaultPrize);
+		}
+
 		List<Participant> participants = new ArrayList<Participant>();
 		for (LinkMember member : linkMembers) {
 			Participant participant = participantCache.get(member.getParticipantId());
@@ -160,7 +171,7 @@ public class LinkServiceImpl implements LinkService {
 		logger.info("<<===========初始化奖品池...");
 		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
 
-		int numberOfPeople = participants.size();
+		int numberOfPeople = linkMembers.size();
 		logger.info("<<===========当今环节参与人数：{}...", numberOfPeople);
 		PrizePool pool = poolFactory.createPrizePools(numberOfPeople, currentPrizes);
 

@@ -140,6 +140,10 @@
 			 	});
 			}
 			
+			/* $('#shakeBtn').show().click(function(){
+					shake();
+			}); */
+			
 			$(".exit").click(function(){
 				localStorage.removeItem('enterNumber');
 				window.open("mobileLuckDraw.jsp","_self");
