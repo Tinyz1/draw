@@ -315,7 +315,9 @@ public class LinkServiceImpl implements LinkService {
 	@Override
 	public List<DrawLink> getAll() {
 		DrawLinkExample linkExample = new DrawLinkExample();
-		return linkMapper.selectByExample(linkExample);
+		List<DrawLink> links = linkMapper.selectByExample(linkExample);
+		logger.info(links.toString());
+		return links;
 	}
 
 	@Override

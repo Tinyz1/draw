@@ -156,7 +156,9 @@ public class LinkController {
 	@RequestMapping("/all")
 	@ResponseBody
 	public List<DrawLink> getAllLink() {
-		return linkService.getAll();
+		List<DrawLink> links = linkService.getAll();
+		//logger.info(links.toString());
+		return links;
 	}
 
 }

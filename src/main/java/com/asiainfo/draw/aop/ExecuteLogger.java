@@ -29,17 +29,19 @@ public class ExecuteLogger {
 	}
 
 	@Around("logger()")
-	public void around(ProceedingJoinPoint pjp) throws Throwable {
+	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		Method method = signature.getMethod();
 		logger.info("{}.{}({})", pjp.getTarget().getClass().getName(), method.getName(), Arrays.toString(pjp.getArgs()));
+		Object rtn = null;
 		try {
-			Object rtn = pjp.proceed();
-			logger.info(String.valueOf(rtn));
+			rtn = pjp.proceed();
 		} catch (Throwable e) {
 			logger.error(e.toString());
 			throw e;
 		}
+		logger.info(String.valueOf(rtn));
+		return rtn;
 	}
 
 }
