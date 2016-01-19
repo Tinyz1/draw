@@ -255,6 +255,7 @@ public class LinkServiceImpl implements LinkService {
 
 	@Override
 	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
+		
 		checkNotNull(linkId);
 		Map<String, DrawPrize> hitPrize = linkHitPrizeCache.get(linkId);
 		if (hitPrize == null) {
@@ -272,11 +273,26 @@ public class LinkServiceImpl implements LinkService {
 		return hitPrizes;
 	}
 
+	/**
+	 * 根据环节ID获取抽奖环节
+	 * 
+	 * @param linkId
+	 *            环节ID
+	 * @return 抽奖环节
+	 */
 	private DrawLink getLinkByLinkId(Integer linkId) {
-		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-		if (currentLink.getLinkId().intValue() == linkId.intValue()) {
+
+		DrawLink currentLink = null;
+		try {
+			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.warn("当前环节不存在！");
+		}
+
+		if (currentLink != null && currentLink.getLinkId().intValue() == linkId.intValue()) {
 			return currentLink;
 		}
+
 		return linkMapper.selectByPrimaryKey(linkId);
 	}
 

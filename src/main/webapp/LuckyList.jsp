@@ -13,15 +13,13 @@
 		<div class="header">
 			<img src="resources/wechat-showinfo/img/bg.png">	
 			<div class="header-div">
-				<h1 class="header-h1"></h1>
 			</div>		
 		</div>
-		
 		<div class="footer">
 			<img src="resources/wechat-showinfo/img/foot.png">
 		</div>
 		
-		<div class="content list">
+		<div class="content list" id="hahh">
 			<ul class="listUl" id="listUl">
 			</ul>
 			<!-- <div class="btn-s" id="btn">
@@ -35,6 +33,11 @@
 	</div>
 	<script type="text/javascript">
 		init();
+		
+		var linkId ="";
+		var storeData = [];
+		var flag = true;
+		
 		setInterval("redirect()",1000);
 		function redirect(){
 			$.get('center/getCommand', function(data){
@@ -44,25 +47,55 @@
 					//跳转到指定页面
 					window.open(data.url,"_self");
 				}
-			});		
+			});	
+			if(flag){
+				$.post("link/hitPrize?linkId="+linkId,function (data){
+					flag = false;
+					for(var i = 0, len = data.length; i < len; i++){
+						var name = data[i].participantName;
+						var prizeName = data[i].prizeName;
+						var prizeType = data[i].prizeType;
+						if(!contains(storeData, name)){
+							storeData.push(name);
+							//$("#"+name).remove($("#"+name).find(".shake"));
+							$("#"+name).html("<div class='border-animate'>"+prizeType+"<br>"+prizeName+"</div>");
+							$("#"+name).next("img.shake").hide();
+						}
+					}
+					flag = true;
+				});
+			}
 		}
 		
+		function contains(arr, item){
+			if(arr.length){
+				for(var i = 0, len = arr.length; i < len; i++){
+					if(arr[i] == item){
+						return true;
+					}
+				}
+			}
+			return false;
+		}
 		function init(){
 			$.post("link/current",function (data){
 				// 后去当前环节数
+				linkId = data.linkId;
 				var link = data.linkName;
 				$(".header-h1").html(link + "参与人名单");
 			});
 			$.post("participant/current/pickParticipants",function (data){
 				// 获取用户名称数组
 				var arrs = data;
-				// $("#listUl").append('<li><span style="color:red;">'+
-				// arrs[0]+'</span></li>');
 				var html = "";
 				// 遍历用户数组数据
 				for (var i = 0; i < arrs.length; i++) {
 					var arr = arrs[i];
-					html += '<li><span style="color:red;">' + arr.participantName + '</span></li>';
+					html += '<li><p style="color:red;width:150px; height:30px">' + arr.participantName 
+					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
+					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
+					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
+					
 				}
 				$("#listUl").append(html);
 			});
