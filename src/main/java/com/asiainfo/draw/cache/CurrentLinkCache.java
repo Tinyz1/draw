@@ -69,10 +69,6 @@ public class CurrentLinkCache {
 	 */
 	public static final String CURRENT_SHAKE = KEY_PRE + "shake";
 
-	/**
-	 * 环节剩余未摇奖人数
-	 */
-	public static final String CURRENT_REMAIN_NUM = KEY_PRE + "remainNum";
 
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 

@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +18,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.asiainfo.draw.cache.CommandCache;
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
-import com.asiainfo.draw.cache.LinkHitPrizeCache;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawLinkExample;
@@ -36,6 +36,7 @@ import com.asiainfo.draw.persistence.LinkMemberMapper;
 import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.service.RecordService;
+import com.asiainfo.draw.util.Command;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
 import com.asiainfo.draw.util.ParticipantPrize;
 import com.asiainfo.draw.util.PrizePool;
@@ -66,23 +67,21 @@ public class LinkServiceImpl implements LinkService {
 	private RecordService recordService;
 
 	@Autowired
-	private LinkHitPrizeCache linkHitPrizeCache;
-
-	@Autowired
 	private CommandCache redirectCache;
 
 	@Autowired
 	private ParticipantMapper participantMapper;
 
+	@Autowired
+	private CommandCache commandCache;
+
 	@Override
 	public void initLink(Integer linkId) {
 
-		try {
-			logger.info("环节初始化->尝试结束当前环节...");
-			finishCurrentLink();
-		} catch (Exception e) {
-			logger.warn(e.toString());
-		}
+		logger.info("环节初始化->尝试结束当前环节...");
+		finishCurrentLink();
+		logger.info(">>清空当前环节缓存...");
+		currentLinkCache.invalidateAll();
 
 		logger.info("<<===========读取新的环节...");
 		// 获取下一环节
@@ -96,9 +95,6 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("环节初始化->环节参与人员列表默认为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, new ArrayList<Participant>());
-
-		logger.info("环节初始化->剩余未抽奖人员为0.");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, 0);
 
 		logger.info("环节初始化->环节中奖记录为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
@@ -114,6 +110,9 @@ public class LinkServiceImpl implements LinkService {
 		// 修改数据库的环节状态为2(进行中)
 		currentLink.setLinkState(2);
 		linkMapper.updateByPrimaryKeySelective(currentLink);
+
+		// 开始时，进入主界面
+		commandCache.put(CommandCache.CURRENT_COMMAND, Command.redirect("screen.jsp"));
 	}
 
 	/**
@@ -147,10 +146,15 @@ public class LinkServiceImpl implements LinkService {
 		}
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
 
-		// 把已加入参与的人员状态设置为已使用
 		for (LinkMember member : linkMembers) {
+			// 把已加入参与的人员状态设置为已使用
 			member.setState(2);
 			memberMapper.updateByPrimaryKey(member);
+
+			// 用户的抽奖机会-1
+			Participant participant = participantCache.get(member.getParticipantId());
+			participant.setState(participant.getState() - 1);
+			participantMapper.updateByPrimaryKeySelective(participant);
 		}
 
 		logger.info("<<===========初始化奖品池...");
@@ -184,52 +188,63 @@ public class LinkServiceImpl implements LinkService {
 	/**
 	 * 结束当前环节
 	 */
+	@SuppressWarnings("unchecked")
 	private void finishCurrentLink() {
 		DrawLink currentLink = null;
 		try {
 			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		} catch (Exception e) {
-			logger.error("当前环节不存在！");
+			logger.error(">>环节已结束！");
 		}
 		if (currentLink != null) {
+			// 把当前环节的开关关闭
+			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
+			Map<Integer, DrawPrize> currentHits = null;
+			try {
+				currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			} catch (Exception e) {
+				logger.warn(">>错误信息：{}", e);
+			}
+			// 记录环节中奖记录
+			if (currentHits != null && currentHits.size() > 0) {
+				List<WinningRecord> records = new ArrayList<WinningRecord>();
+				for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
+
+					WinningRecord winningRecord = new WinningRecord();
+					// 中奖环节
+					winningRecord.setLinkId(currentLink.getLinkId());
+					// 用户ID
+					winningRecord.setParticipantId(hit.getKey());
+					// 奖品ID
+					winningRecord.setPrizeId(hit.getValue().getPrizeId());
+					records.add(winningRecord);
+				}
+				logger.info(">>记录当前环节中奖记录...");
+				recordService.saveRecord(records);
+			}
+			// 清空当前缓存
+			currentLinkCache.invalidateAll();
+			// 环节状态设置为已结束
 			finishLink(currentLink.getLinkId());
 		}
 	}
 
 	@Override
 	public void finishLink(Integer linkId) {
-		// 环节标志设置为3(已结束)
+		checkNotNull(linkId);
 		DrawLink link = linkMapper.selectByPrimaryKey(linkId);
-		link.setLinkState(3);
+		link.setLinkState(3); // 环节标志设置为3(已结束)
 		linkMapper.updateByPrimaryKeySelective(link);
-
-		logger.info(link.toString());
-
-		logger.info("<<=========结束环节{}...", link.getLinkName());
-		// 把当前环节的开关关闭
-		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
-
-		// 把环节中奖记录写入库中
+		DrawLink currentLink = null;
 		try {
-			@SuppressWarnings("unchecked")
-			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-			if (currentHits != null) {
-				for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
-					WinningRecord winningRecord = new WinningRecord();
-					// 中奖环节
-					winningRecord.setLinkId(link.getLinkId());
-					// 用户ID
-					winningRecord.setParticipantId(hit.getKey());
-					// 奖品ID
-					winningRecord.setPrizeId(hit.getValue().getPrizeId());
-					recordService.saveRecord(winningRecord);
-				}
-			}
+			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		} catch (Exception e) {
-			logger.error(e.toString());
+			logger.error("当前环节不存在！");
 		}
-		// 清空当前缓存
-		currentLinkCache.invalidateAll();
+		// 存在当前环节，并且结合环节为当前环节时，把当前环节结束
+		if (currentLink != null && linkId.equals(currentLink.getLinkId())) {
+			finishCurrentLink();
+		}
 	}
 
 	@Override
@@ -253,47 +268,43 @@ public class LinkServiceImpl implements LinkService {
 		}
 	}
 
-	@Override
-	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
-		
-		checkNotNull(linkId);
-		Map<String, DrawPrize> hitPrize = linkHitPrizeCache.get(linkId);
-		if (hitPrize == null) {
-			hitPrize = new HashMap<String, DrawPrize>();
-		}
-
-		List<ParticipantPrize> hitPrizes = new ArrayList<ParticipantPrize>();
-		if (hitPrize != null) {
-			for (Map.Entry<String, DrawPrize> hpriz : hitPrize.entrySet()) {
-				ParticipantPrize ppr = new ParticipantPrize(getLinkByLinkId(linkId).getLinkName(), hpriz.getKey(), hpriz.getValue()
-						.getPrizeType(), hpriz.getValue().getPrizeName());
-				hitPrizes.add(ppr);
-			}
-		}
-		return hitPrizes;
-	}
-
 	/**
-	 * 根据环节ID获取抽奖环节
+	 * 获取当前环节用户中奖纪录
 	 * 
-	 * @param linkId
-	 *            环节ID
-	 * @return 抽奖环节
+	 * @return
 	 */
-	private DrawLink getLinkByLinkId(Integer linkId) {
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<ParticipantPrize> getCurrnetLinkHitPrize() {
 
+		List<ParticipantPrize> participantPrizes = new ArrayList<ParticipantPrize>();
+
+		// 当前环节
 		DrawLink currentLink = null;
 		try {
 			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
 		} catch (Exception e) {
-			logger.warn("当前环节不存在！");
+			logger.info("当前环节已结束！");
 		}
 
-		if (currentLink != null && currentLink.getLinkId().intValue() == linkId.intValue()) {
-			return currentLink;
+		// 当前环节进行中时，才有必要返回当前环节的中奖纪录
+		if (currentLink != null) {
+			// 环节中奖纪录
+			Map<Integer, DrawPrize> hits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+
+			for (Map.Entry<Integer, DrawPrize> hit : hits.entrySet()) {
+				// 参与人员
+				Participant participant = participantCache.get(hit.getKey());
+				// 奖品
+				DrawPrize prize = hit.getValue();
+				ParticipantPrize participantPrize = new ParticipantPrize(currentLink.getLinkName(), participant.getParticipantName(),
+						prize.getPrizeType(), prize.getPrizeName());
+				// 加入列表
+				participantPrizes.add(participantPrize);
+			}
 		}
 
-		return linkMapper.selectByPrimaryKey(linkId);
+		return participantPrizes;
 	}
 
 	@Override
@@ -330,8 +341,13 @@ public class LinkServiceImpl implements LinkService {
 
 		link.setLinkOrder(0);
 
+		String enterNumber = item.getEnterNumber();
+		// 环节验证码为空时，默认设置为123456
+		if(StringUtils.isBlank(item.getEnterNumber())) {
+			enterNumber = "123456";
+		}
 		// 环节进入编码
-		link.setEnterNumber(item.getEnterNumber());
+		link.setEnterNumber(enterNumber);
 		linkMapper.insert(link);
 
 		// 目的：为了获取新增数据的ID

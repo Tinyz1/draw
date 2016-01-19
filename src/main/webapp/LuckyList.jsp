@@ -49,7 +49,7 @@
 				}
 			});	
 			if(flag){
-				$.post("link/hitPrize?linkId="+linkId,function (data){
+				$.post("link/currentHits", function (data){
 					flag = false;
 					for(var i = 0, len = data.length; i < len; i++){
 						var name = data[i].participantName;
@@ -57,7 +57,6 @@
 						var prizeType = data[i].prizeType;
 						if(!contains(storeData, name)){
 							storeData.push(name);
-							//$("#"+name).remove($("#"+name).find(".shake"));
 							$("#"+name).html('<div class="border-animate"><strong style="color:yellow;">'+prizeType+'</strong><br><strong style="font-size:20px;font-family:楷体;">'+prizeName+'</strong></div>');
 							$("#"+name).next("img.shake").hide();
 						}

@@ -37,13 +37,11 @@ public interface LinkService {
 	void initPool();
 
 	/**
-	 * 获取环节的用户中奖记录
+	 * 获取当前环节用户中奖纪录
 	 * 
-	 * @param linkId
-	 *            环节ID
-	 * @return 用户中奖记录
+	 * @return
 	 */
-	List<ParticipantPrize> getLinkHitPrize(Integer linkId);
+	List<ParticipantPrize> getCurrnetLinkHitPrize();
 
 	/**
 	 * 获取当前环节

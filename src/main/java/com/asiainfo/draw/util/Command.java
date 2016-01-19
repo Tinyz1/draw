@@ -60,6 +60,20 @@ public class Command implements Serializable {
 		this.url = url;
 	}
 
+	/**
+	 * 创建界面跳转指令
+	 * 
+	 * @param url
+	 *            跳转URL
+	 * @return
+	 */
+	public static Command redirect(String url) {
+		Command command = new Command();
+		command.setType(Command.COMMAND_REDIRECT);
+		command.setUrl(url);
+		return command;
+	}
+
 	@Override
 	public String toString() {
 		return "Command [type=" + type + ", url=" + url + "]";

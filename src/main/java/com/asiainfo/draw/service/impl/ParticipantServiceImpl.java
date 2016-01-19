@@ -173,26 +173,16 @@ public class ParticipantServiceImpl implements ParticipantService {
 				if (StringUtils.isNotBlank(id)) {
 					Integer participantId = Integer.parseInt(id);
 					try {
-
 						Participant participant = participantCache.get(participantId);
 						if (participant == null) {
 							throw new NullPointerException("根据用户ID" + participantId + "获取不到用户信息！");
 						}
-
 						// 当前人员入库
 						LinkMember member = new LinkMember();
 						member.setLinkId(currentLink.getLinkId());
 						member.setParticipantId(participantId);
 						member.setState(1);
 						memberMapper.insert(member);
-
-						// 当前用户的抽奖机会减1
-						participant.setState(participant.getState() - 1);
-						participantMapper.updateByPrimaryKeySelective(participant);
-
-						// 重新加载缓存
-						participantCache.reload(participantId);
-
 					} catch (Exception e) {
 						logger.error("当前人员已参与抽奖，不能继续参与！");
 					}

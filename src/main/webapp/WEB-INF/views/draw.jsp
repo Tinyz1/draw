@@ -141,20 +141,9 @@
 		        		});
 		    		}
 		    	});
-		    	
-		    	$('#linkBtn').click(function(e){
-		    		var $this = $(this);
-		    		var url = contextPath + '/link/start';
-		    		$.post(url, function(data){
-		    			callBack($this, data);
-		    		});
-		    	});
-				
 				
 			})(jQuery);
 		
-		
 		</script>
-
    	</body>
 </html>

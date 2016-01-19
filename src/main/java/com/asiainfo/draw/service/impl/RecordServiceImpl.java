@@ -1,11 +1,10 @@
 package com.asiainfo.draw.service.impl;
 
-import static com.google.common.base.Preconditions.checkNotNull;
+import static com.google.common.base.Preconditions.checkArgument;
 
 import java.util.Date;
+import java.util.List;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,17 +17,21 @@ import com.asiainfo.draw.service.RecordService;
 @Transactional
 public class RecordServiceImpl implements RecordService {
 
-	private final Logger logger = LoggerFactory.getLogger(RecordServiceImpl.class);
-
 	@Autowired
 	private WinningRecordMapper recordMapper;
 
 	@Override
-	public void saveRecord(WinningRecord record) {
-		checkNotNull(record);
-		logger.info("<<-----------±£´æÖÐ½±¼ÇÂ¼£º{}" + record);
-		record.setCreateDate(new Date());
-		recordMapper.insert(record);
+	public void saveRecord(WinningRecord... records) {
+		checkArgument(records != null && records.length > 0);
+		for (WinningRecord record : records) {
+			record.setCreateDate(new Date());
+			recordMapper.insert(record);
+		}
+	}
+
+	@Override
+	public void saveRecord(List<WinningRecord> records) {
+		saveRecord(records.toArray(new WinningRecord[0]));
 	}
 
 }

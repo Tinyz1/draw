@@ -42,13 +42,8 @@ public class CenterServiceImpl implements CenterService {
 			throw new RuntimeException("环节已开始，不允许加人");
 		}
 		logger.info("<<====================选择参与人员数量:{}", partnum);
-		int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
-		currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, remainNum + partnum);
-
-		Command command = new Command();
-		command.setType(Command.COMMAND_REDIRECT);
-		command.setUrl("luckPerson.jsp?partnum=" + partnum);
-		commandCache.put(CommandCache.CURRENT_COMMAND, command);
+		// 跳转至选人界面
+		commandCache.put(CommandCache.CURRENT_COMMAND, Command.redirect("luckPerson.jsp?partnum=" + partnum));
 	}
 
 	@Override
@@ -74,7 +69,7 @@ public class CenterServiceImpl implements CenterService {
 
 	@Override
 	public void commitPicNum() {
-		
+
 		// 初始化奖池
 		linkService.initPool();
 

@@ -2,7 +2,6 @@ package com.asiainfo.draw.service.impl;
 
 import static com.google.common.base.Preconditions.checkNotNull;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -16,8 +15,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.asiainfo.draw.cache.CurrentLinkCache;
 import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
-import com.asiainfo.draw.cache.HitPrizeCache;
-import com.asiainfo.draw.cache.LinkHitPrizeCache;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
@@ -43,13 +40,7 @@ public class DrawServiceImpl implements DrawService {
 	private CurrentLinkCache currentLinkCache;
 
 	@Autowired
-	private HitPrizeCache hitPrizeCache;
-
-	@Autowired
 	private LinkService linkService;
-
-	@Autowired
-	private LinkHitPrizeCache linkHitPrizeCache;
 
 	@Autowired
 	private ParticipantMapper participantMapper;
@@ -103,8 +94,6 @@ public class DrawServiceImpl implements DrawService {
 			} else {
 				// 当前用户已经摇奖了
 				currentShake.add(participant);
-				// ? currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE,
-				// currentShake);
 			}
 
 			// 满足抽奖条件的人员参与抽奖
@@ -127,24 +116,6 @@ public class DrawServiceImpl implements DrawService {
 			// 更新当前环节中奖记录
 			currentHits.put(participant.getParticipantId(), drawPrize);
 
-			// 更新环节用户中奖记录
-			Map<String, DrawPrize> hitPrize = linkHitPrizeCache.get(link.getLinkId());
-			if (hitPrize == null) {
-				hitPrize = new HashMap<String, DrawPrize>();
-			}
-			hitPrize.put(participantName, drawPrize);
-			linkHitPrizeCache.put(link.getLinkId(), hitPrize);
-
-			int remainNum = (Integer) currentLinkCache.get(CurrentLinkCache.CURRENT_REMAIN_NUM);
-			currentLinkCache.put(CurrentLinkCache.CURRENT_REMAIN_NUM, --remainNum);
-
-			if (!pool.hasPrize() || remainNum == 0) {
-				logger.info("<<====当前环节剩余的奖品没有了时或所有人都摇奖了，结束当前环节");
-				linkService.finishLink(link.getLinkId());
-			}
-
-			// 记录中奖记录
-			hitPrizeCache.put(participant.getParticipantId(), drawPrize);
 			return prize;
 		}
 		// 环节已结束

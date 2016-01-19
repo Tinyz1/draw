@@ -123,10 +123,10 @@ public class LinkController {
 	 *            »·½ÚID
 	 * @return
 	 */
-	@RequestMapping("/hitPrize")
+	@RequestMapping("/currentHits")
 	@ResponseBody
-	public List<ParticipantPrize> getLinkHitPrize(Integer linkId) {
-		return linkService.getLinkHitPrize(linkId);
+	public List<ParticipantPrize> getCurrnetLinkHitPrize() {
+		return linkService.getCurrnetLinkHitPrize();
 	}
 
 	/**
