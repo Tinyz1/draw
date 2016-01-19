@@ -67,9 +67,6 @@ public class LinkServiceImpl implements LinkService {
 	private RecordService recordService;
 
 	@Autowired
-	private CommandCache redirectCache;
-
-	@Autowired
 	private ParticipantMapper participantMapper;
 
 	@Autowired
@@ -125,6 +122,9 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("<<===========读取新的环节奖品...");
 		List<DrawPrize> currentPrizes = getPrizeByLink(currentLink.getLinkId());
+		if (currentPrizes == null || currentPrizes.size() == 0) {
+			throw new NullPointerException("环节:" + currentLink.getLinkName() + "的奖品没有配置！");
+		}
 
 		logger.info("<<===========把当前环节奖品放入缓存中");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
@@ -139,24 +139,10 @@ public class LinkServiceImpl implements LinkService {
 			throw new RuntimeException(mess);
 		}
 
-		// 如果参与人数大于奖品数
-		for (int i = 0, len = linkMembers.size() - currentPrizes.size(); i < len; i++) {
-			DrawPrize defaultPrize = null;
-			try {
-				defaultPrize = getPrizeByLink(0).get(0);
-			} catch (Exception e) {
-				logger.error(">>没有配置默认环节奖品。默认环节奖品的环节ID为0，只能配置一条数据。");
-			}
-			currentPrizes.add(defaultPrize);
-		}
+		int numberOfPerson = linkMembers.size();
+		logger.info(">>当前参与人员数量:{}", numberOfPerson);
 
 		List<Participant> participants = new ArrayList<Participant>();
-		for (LinkMember member : linkMembers) {
-			Participant participant = participantCache.get(member.getParticipantId());
-			participants.add(participant);
-		}
-		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
-
 		for (LinkMember member : linkMembers) {
 			// 把已加入参与的人员状态设置为已使用
 			member.setState(2);
@@ -166,6 +152,27 @@ public class LinkServiceImpl implements LinkService {
 			Participant participant = participantCache.get(member.getParticipantId());
 			participant.setState(participant.getState() - 1 >= 0 ? participant.getState() - 1 : participant.getState());
 			participantMapper.updateByPrimaryKeySelective(participant);
+
+			participants.add(participant);
+		}
+		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
+
+		int numberOfPrize = 0;
+		for (DrawPrize prize : currentPrizes) {
+			numberOfPrize += prize.getSize();
+		}
+		logger.info(">>当前环节配置的奖品数量:{}", numberOfPrize);
+
+		// 如果参与人数大于奖品数
+		if (numberOfPerson > numberOfPrize) {
+			try {
+				DrawPrize defaultPrize = getPrizeByLink(0).get(0);
+				defaultPrize.setSize(numberOfPerson - numberOfPrize);
+				currentPrizes.add(defaultPrize);
+				logger.info(">>当前环节参与人员数量大于配置的奖品数量，加入默认的奖品数量:{}", numberOfPerson - numberOfPrize);
+			} catch (Exception e) {
+				logger.error(">>没有配置默认环节奖品。默认环节奖品的环节ID为0，只能配置一条数据。");
+			}
 		}
 
 		logger.info("<<===========初始化奖品池...");
@@ -173,7 +180,7 @@ public class LinkServiceImpl implements LinkService {
 
 		int numberOfPeople = linkMembers.size();
 		logger.info("<<===========当今环节参与人数：{}...", numberOfPeople);
-		PrizePool pool = poolFactory.createPrizePools(numberOfPeople, currentPrizes);
+		PrizePool pool = poolFactory.createPrizePools(currentPrizes);
 
 		logger.info("<<===========把奖品池加入缓存中...");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
@@ -308,8 +315,8 @@ public class LinkServiceImpl implements LinkService {
 				Participant participant = participantCache.get(hit.getKey());
 				// 奖品
 				DrawPrize prize = hit.getValue();
-				ParticipantPrize participantPrize = new ParticipantPrize(currentLink.getLinkName(), participant.getParticipantName(),
-						prize.getPrizeType(), prize.getPrizeName());
+				ParticipantPrize participantPrize = new ParticipantPrize(currentLink.getLinkName(),
+						participant.getParticipantName(), prize.getPrizeType(), prize.getPrizeName());
 				// 加入列表
 				participantPrizes.add(participantPrize);
 			}

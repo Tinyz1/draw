@@ -20,9 +20,7 @@ import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.exception.EnterNumberErrorException;
-import com.asiainfo.draw.persistence.ParticipantMapper;
 import com.asiainfo.draw.service.DrawService;
-import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.Draw;
 import com.asiainfo.draw.util.Prize;
 import com.asiainfo.draw.util.PrizePool;
@@ -39,12 +37,6 @@ public class DrawServiceImpl implements DrawService {
 	@Autowired
 	private CurrentLinkCache currentLinkCache;
 
-	@Autowired
-	private LinkService linkService;
-
-	@Autowired
-	private ParticipantMapper participantMapper;
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public Prize pick(String participantName, String enterNumber) {
@@ -59,7 +51,7 @@ public class DrawServiceImpl implements DrawService {
 		case INIT:
 			logger.info("<<===========当前环节未开始！");
 			return Prize.createInitPrize();
-			// 环节运行中
+		// 环节运行中
 		case RUN: {
 
 			// 信息
@@ -78,7 +70,8 @@ public class DrawServiceImpl implements DrawService {
 			checkNotNull(participant, "根据用户: %s获取不到用户信息！", participantName);
 
 			// 判断当前用户是否能够参与本环节抽奖
-			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
+			List<Participant> allowParticipants = (List<Participant>) currentLinkCache
+					.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
 			if (!allowParticipants.contains(participant)) {
 				// 对于不在人员列表的用户，直接返回不中奖
 				logger.info("用户：{}不在参与人员列表中，直接返回不中奖！", participantName);
@@ -112,13 +105,14 @@ public class DrawServiceImpl implements DrawService {
 			logger.info("<<====参与人员：{},中奖：{}", participant, prize);
 
 			// 记录环节中奖记录
-			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
+			Map<Integer, DrawPrize> currentHits = (Map<Integer, DrawPrize>) currentLinkCache
+					.get(CurrentLinkCache.CURRENT_HIT);
 			// 更新当前环节中奖记录
 			currentHits.put(participant.getParticipantId(), drawPrize);
 
 			return prize;
 		}
-		// 环节已结束
+			// 环节已结束
 		case FINISH:
 			logger.info("<<===========当前环节已结束！");
 			return Prize.createOverPrize();

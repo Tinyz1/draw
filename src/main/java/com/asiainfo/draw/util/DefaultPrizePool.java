@@ -41,16 +41,13 @@ public class DefaultPrizePool extends PrizePool {
 
 	@Override
 	public synchronized DrawPrize pop() throws NoMorePrizeException {
-		logger.info("奖池:{}拥有奖品数量:{}，用户真实的奖品数量:{}", size(), getTruePrize());
+		logger.info("奖池:{}拥有奖品数量:{}", size());
 		DrawPrize prize = null;
 		if (hasPrize()) {
 			int index = new Random().nextInt(size());
 			// 获取一个奖品
 			prize = getPrizes().remove(index);
 			logger.info("本次抽取的奖品:{}", prize);
-			if (prize != null) {
-				setTruePrize(getTruePrize() - 1);
-			}
 		} else {
 			throw new NoMorePrizeException("奖池里面没有更多的奖品了！");
 		}

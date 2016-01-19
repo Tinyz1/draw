@@ -93,7 +93,7 @@ function lotteryDraw(arr, number) {
 	personArr.forEach(function(item, i) {
 		var k = i % 5;
 		var lefts = ["-10%", "14%", "38%", "62%", "86%"];
-		var tops = ["25%", "45%", "65%", "85%"]
+		var tops = ["20%", "40%", "60%", "80%"]
 		var left = lefts[k];
 		var n = Math.floor(i / 5);
 		var top = tops[n];

@@ -15,12 +15,10 @@ public abstract class PrizePoolFactory {
 	/**
 	 * 根据抽奖人数和奖品数生成一序列的奖池。
 	 * 
-	 * @param numberOfPeople
-	 *            抽奖人数
 	 * @param prizes
 	 *            奖品数
 	 * @return 奖池
 	 */
-	public abstract PrizePool createPrizePools(int numberOfPeople, List<DrawPrize> prizes);
+	public abstract PrizePool createPrizePools(List<DrawPrize> prizes);
 
 }

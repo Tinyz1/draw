@@ -23,11 +23,6 @@ public abstract class PrizePool {
 	 */
 	private List<DrawPrize> prizes;
 
-	/**
-	 * 真实的奖品数
-	 */
-	private int truePrize;
-
 	public String getName() {
 		return name;
 	}
@@ -42,14 +37,6 @@ public abstract class PrizePool {
 
 	public void setPrizes(List<DrawPrize> prizes) {
 		this.prizes = prizes;
-	}
-
-	public int getTruePrize() {
-		return truePrize;
-	}
-
-	public void setTruePrize(int truePrize) {
-		this.truePrize = truePrize;
 	}
 
 	public PrizePool() {

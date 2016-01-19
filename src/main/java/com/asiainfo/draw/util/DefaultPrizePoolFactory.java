@@ -1,7 +1,5 @@
 package com.asiainfo.draw.util;
 
-import static com.google.common.base.Preconditions.checkArgument;
-
 import java.util.Collections;
 import java.util.List;
 
@@ -15,13 +13,9 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 	private final Logger logger = LoggerFactory.getLogger(DefaultPrizePoolFactory.class);
 
 	@Override
-	public PrizePool createPrizePools(int numberOfPeople, List<DrawPrize> prizes) {
+	public PrizePool createPrizePools(List<DrawPrize> prizes) {
 		logger.info("<<==========开始创建奖池...");
-		logger.info("<<====本环节参与人员数量:{}", numberOfPeople);
-		checkArgument(numberOfPeople > 0, "参与人数不能小于0");
-
 		PrizePool pool = new DefaultPrizePool();
-
 		if (prizes != null && prizes.size() > 0) {
 
 			logger.info("<<============开始放入真实的奖品...");
@@ -36,14 +30,9 @@ public class DefaultPrizePoolFactory extends PrizePoolFactory {
 					for (int j = 0; j < k; j++) {
 						prize.setSize(1);
 						pool.push(prize);
-						pool.setTruePrize(pool.getTruePrize() + 1);
 					}
 				}
 			}
-		}
-
-		for (int k = 0, len = numberOfPeople - pool.getTruePrize(); k < len; k++) {
-			pool.push(null);
 		}
 
 		// 打乱奖品顺序
