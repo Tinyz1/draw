@@ -15877,3 +15877,951 @@
 15380 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getAll([])
 15394 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=3, enterNumber=111222]]
 15394 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=3, enterNumber=111222]]
+406  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+608  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 19 18:13:48 CST 2016]; root of context hierarchy
+697  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1837 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1851 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3302 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3834 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.queryAllParticipant([])
+3964 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - [Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=30, participantName=王哥刚, state=3], Participant [participantId=33, participantName=ais, state=1], Participant [participantId=34, participantName=mm, state=1]]
+3967 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 2, 参与人员: Participant [participantId=2, participantName=魏波刚, state=3]
+3969 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波刚, 参与人员: Participant [participantId=2, participantName=魏波刚, state=3]
+3969 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=高婷婷, state=4]
+3969 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 高婷婷, 参与人员: Participant [participantId=12, participantName=高婷婷, state=4]
+3969 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=张三刚, state=3]
+3969 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 张三刚, 参与人员: Participant [participantId=13, participantName=张三刚, state=3]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 15, 参与人员: Participant [participantId=15, participantName=王五刚, state=4]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王五刚, 参与人员: Participant [participantId=15, participantName=王五刚, state=4]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 20, 参与人员: Participant [participantId=20, participantName=华东刚, state=3]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华东刚, 参与人员: Participant [participantId=20, participantName=华东刚, state=3]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 29, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=3]
+3970 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 梅兰芳, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=3]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 30, 参与人员: Participant [participantId=30, participantName=王哥刚, state=3]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王哥刚, 参与人员: Participant [participantId=30, participantName=王哥刚, state=3]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 33, 参与人员: Participant [participantId=33, participantName=ais, state=1]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: ais, 参与人员: Participant [participantId=33, participantName=ais, state=1]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 34, 参与人员: Participant [participantId=34, participantName=mm, state=1]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: mm, 参与人员: Participant [participantId=34, participantName=mm, state=1]
+3971 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+4193 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3783 ms
+4279 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+4284 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 18:13:52 CST 2016]; parent: Root WebApplicationContext
+4285 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4542 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4947 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4948 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4949 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4949 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4950 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4950 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4950 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4951 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4951 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4952 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4953 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4959 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4960 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4960 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4961 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4961 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish(java.lang.Integer)
+4962 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4963 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/currentHits]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getCurrnetLinkHitPrize()
+4963 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4970 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4971 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.auth(java.lang.String,java.lang.String)
+4971 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4972 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4972 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+5684 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 18:13:52 CST 2016]; parent: Root WebApplicationContext
+5802 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 18:13:52 CST 2016]; parent: Root WebApplicationContext
+5983 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+6285 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 2006 ms
+58113 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getAll([])
+58120 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=3, enterNumber=111222]]
+58120 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=3, enterNumber=111222]]
+60658 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.resetLink([10])
+60757 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+61801 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getAll([])
+61814 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=1, enterNumber=111222]]
+61815 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=1, enterNumber=111222]]
+79716 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+79757 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+81378 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+81379 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+82329 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+82330 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+82709 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+82709 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+84386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+84386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+85358 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.initLink([1])
+85359 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->尝试结束当前环节...
+85360 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+85360 [http-bio-8080-exec-4] ERROR c.a.d.service.impl.LinkServiceImpl - >>环节已结束！
+85360 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - >>清空当前环节缓存...
+85360 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节...
+85362 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->当前环节:抽奖(1)
+85362 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111]
+85362 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节参与人员列表默认为空.
+85362 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[]
+85362 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节中奖记录为空.
+85362 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+85362 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节摇奖记录为空.
+85362 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.shake,value:[]
+85364 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 环节初始化->环节状态设置为：INIT.
+85364 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+85365 [http-bio-8080-exec-4] INFO  c.asiainfo.draw.cache.CommandCache - >>放入指令 - key:com.asiainfo.draw.cache.CommandCache.command,value:Command [type=REDIRECT, url=screen.jsp]
+85366 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+85376 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+85377 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=REDIRECT, url=screen.jsp]
+86341 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getAll([])
+86347 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=1, enterNumber=111222]]
+86347 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555], DrawLink [linkId=8, linkName=现金, openState=1, linkOrder=0, linkState=1, enterNumber=123456], DrawLink [linkId=9, linkName=现金12, openState=1, linkOrder=0, linkState=1, enterNumber=], DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=1, enterNumber=111222]]
+87392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+87393 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+87800 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrentLink([])
+87801 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+87801 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+88382 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+88383 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+89384 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+89385 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+90387 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+90388 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+90681 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.pickNum([10])
+90682 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+90682 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.CenterServiceImpl - <<====================选择参与人员数量:10
+90682 [http-bio-8080-exec-7] INFO  c.asiainfo.draw.cache.CommandCache - >>放入指令 - key:com.asiainfo.draw.cache.CommandCache.command,value:Command [type=REDIRECT, url=luckPerson.jsp?partnum=10]
+90682 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+90685 [http-bio-8080-exec-7] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=启动选人环节成功！]
+91380 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+91380 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=REDIRECT, url=luckPerson.jsp?partnum=10]
+91605 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.getCurrentlinkParticipant([])
+91610 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+91615 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:魏波刚->抽奖次数为:3
+91615 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:高婷婷->抽奖次数为:4
+91615 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:张三刚->抽奖次数为:3
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:王五刚->抽奖次数为:4
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:华东刚->抽奖次数为:3
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:梅兰芳->抽奖次数为:3
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:王哥刚->抽奖次数为:3
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:ais->抽奖次数为:1
+91616 [http-bio-8080-exec-7] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户:mm->抽奖次数为:1
+91616 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - [Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=30, participantName=王哥刚, state=3], Participant [participantId=30, participantName=王哥刚, state=3], Participant [participantId=30, participantName=王哥刚, state=3], Participant [participantId=33, participantName=ais, state=1], Participant [participantId=34, participantName=mm, state=1]]
+93028 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+93029 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+93602 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+93603 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+94863 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.startPickNum([])
+94863 [http-bio-8080-exec-4] INFO  c.asiainfo.draw.cache.CommandCache - >>放入指令 - key:com.asiainfo.draw.cache.CommandCache.command,value:Command [type=PICK_START, url=null]
+94863 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+94864 [http-bio-8080-exec-4] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=开始成功！]
+95391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+95394 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=PICK_START, url=null]
+95648 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+95648 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+97382 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+97383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+97788 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.endPickNum([])
+97788 [http-bio-8080-exec-4] INFO  c.asiainfo.draw.cache.CommandCache - >>放入指令 - key:com.asiainfo.draw.cache.CommandCache.command,value:Command [type=PICK_END, url=null]
+97790 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+97792 [http-bio-8080-exec-4] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=结束选人成功！]
+98383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+98383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=PICK_END, url=null]
+98570 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.addPickParticipant([33,20,12,15,30,13,29,2,34])
+98571 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+98571 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+98578 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:33
+98615 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:20
+98620 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+98629 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:15
+98635 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:30
+98637 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+98639 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+98648 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+98679 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:29
+98680 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:2
+98691 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:34
+98704 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+98766 [http-bio-8080-exec-4] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=人员添加成功！]
+99600 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+99601 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+100605 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+100605 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+101596 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+101596 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+102602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+102602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+103610 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+103611 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+104609 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+104610 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+105601 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+105602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+106602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+106603 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+107601 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+107602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+108606 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+108607 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+109601 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+109602 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+111388 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+111388 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+112380 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+112384 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+113376 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+113377 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+114158 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.commitPicNum([])
+114160 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.initPool([])
+114160 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+114160 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========读取新的环节奖品...
+114177 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把当前环节奖品放入缓存中
+114178 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.prizes,value:[DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=10, provider=null, providerPosition=null], DrawPrize [prizeId=2, prizeType=礼品, prizeName=年货大礼包, linkId=1, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=3, prizeType=礼品, prizeName=JBL音响, linkId=1, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=4, prizeType=礼品, prizeName=金条, linkId=1, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=5, prizeType=礼品, prizeName=NIKE智能手环, linkId=1, size=2, provider=null, providerPosition=null], DrawPrize [prizeId=6, prizeType=礼品, prizeName=beats耳机, linkId=1, size=2, provider=null, providerPosition=null]]
+114182 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:33
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:20
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:15
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:30
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:29
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:2
+114183 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:34
+114184 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[Participant [participantId=33, participantName=ais, state=1], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=30, participantName=王哥刚, state=3], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=34, participantName=mm, state=1]]
+114185 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:33
+114189 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:20
+114191 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:12
+114193 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:15
+114195 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:30
+114208 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+114211 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:29
+114214 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:2
+114215 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:34
+114217 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========初始化奖品池...
+114219 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========当今环节参与人数：9...
+114219 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==========开始创建奖池...
+114219 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<====本环节参与人员数量:9
+114220 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<============开始放入真实的奖品...
+114221 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:购物券含有奖品数量:10
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114221 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=1, prizeType=礼品, prizeName=购物券, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:年货大礼包含有奖品数量:2
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=2, prizeType=礼品, prizeName=年货大礼包, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=2, prizeType=礼品, prizeName=年货大礼包, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:JBL音响含有奖品数量:2
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=3, prizeType=礼品, prizeName=JBL音响, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=3, prizeType=礼品, prizeName=JBL音响, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:金条含有奖品数量:2
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=4, prizeType=礼品, prizeName=金条, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=4, prizeType=礼品, prizeName=金条, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:NIKE智能手环含有奖品数量:2
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=5, prizeType=礼品, prizeName=NIKE智能手环, linkId=1, size=1, provider=null, providerPosition=null]
+114222 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=5, prizeType=礼品, prizeName=NIKE智能手环, linkId=1, size=1, provider=null, providerPosition=null]
+114223 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<========奖品:beats耳机含有奖品数量:2
+114223 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=6, prizeType=礼品, prizeName=beats耳机, linkId=1, size=1, provider=null, providerPosition=null]
+114223 [http-bio-8080-exec-7] INFO  c.a.draw.util.DefaultPrizePool - 奖池:DefaultPrizePool-1956488987放入奖品:DrawPrize [prizeId=6, prizeType=礼品, prizeName=beats耳机, linkId=1, size=1, provider=null, providerPosition=null]
+114223 [http-bio-8080-exec-7] INFO  c.a.d.util.DefaultPrizePoolFactory - <<==========奖池创建完毕...
+114223 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<===========把奖品池加入缓存中...
+114223 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.pool,value:com.asiainfo.draw.util.DefaultPrizePool@70dd095f
+114223 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+114224 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.startCurrentLink([])
+114224 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<========尝试启动新的抽奖环节...
+114225 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:INIT
+114225 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - <<=============当前环节状态:INIT
+114225 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - 环节开始->把当前环节的状态设置为:RUN
+114225 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 加入缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.state,value:RUN
+114225 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+114225 [http-bio-8080-exec-7] INFO  c.asiainfo.draw.cache.CommandCache - >>放入指令 - key:com.asiainfo.draw.cache.CommandCache.command,value:Command [type=REDIRECT, url=LuckyList.jsp]
+114225 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+114251 [http-bio-8080-exec-7] INFO  c.a.d.controller.CenterController - DefaultResult [returnCode=1, resultCode=1, resultMsg=提交选人成功！]
+114379 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+114379 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=REDIRECT, url=LuckyList.jsp]
+114587 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrentLink([])
+114587 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+114588 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+114590 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.getCurrentPickParticipant([])
+114591 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.participants,value:[Participant [participantId=33, participantName=ais, state=0], Participant [participantId=20, participantName=华东刚, state=2], Participant [participantId=12, participantName=高婷婷, state=3], Participant [participantId=15, participantName=王五刚, state=3], Participant [participantId=30, participantName=王哥刚, state=2], Participant [participantId=13, participantName=张三刚, state=2], Participant [participantId=29, participantName=梅兰芳, state=2], Participant [participantId=2, participantName=魏波刚, state=2], Participant [participantId=34, participantName=mm, state=0]]
+114591 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - [Participant [participantId=33, participantName=ais, state=0], Participant [participantId=20, participantName=华东刚, state=2], Participant [participantId=12, participantName=高婷婷, state=3], Participant [participantId=15, participantName=王五刚, state=3], Participant [participantId=30, participantName=王哥刚, state=2], Participant [participantId=13, participantName=张三刚, state=2], Participant [participantId=29, participantName=梅兰芳, state=2], Participant [participantId=2, participantName=魏波刚, state=2], Participant [participantId=34, participantName=mm, state=0]]
+115589 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+115589 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+115591 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+115592 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+115592 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+115592 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+116594 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+116594 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+116600 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+116600 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+116600 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+116600 [http-bio-8080-exec-7] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+118384 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+118385 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+118385 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+118385 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+118397 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+118398 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+119388 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+119388 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+119388 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+119388 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+119389 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+119389 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+120384 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+120385 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+120405 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+120406 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+120406 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+120407 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+121387 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+121388 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+121392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+121392 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+121393 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+121393 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+122379 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+122381 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+122383 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+122384 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+122384 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+122384 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+123389 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+123389 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+123389 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+123390 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+123406 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+123407 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+124388 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+124389 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+124394 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+124395 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+124395 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+124395 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+125388 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+125389 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+125389 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+125389 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+125393 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+125394 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+126093 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.auth([ais, 1111])
+126093 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - ais
+126093 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - 1111
+126093 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:ais
+126095 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+126097 [http-bio-8080-exec-2] INFO  c.a.d.s.impl.ParticipantServiceImpl - 用户ais校验通过
+126097 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - null
+126098 [http-bio-8080-exec-2] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=1, resultCode=1, resultMsg=身份验证成功！]
+126387 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+126428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+126428 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+126428 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+126628 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+126628 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+127386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+127387 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+127387 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+127387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+127387 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+127388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+128383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+128385 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+128404 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+128405 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+128405 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+128405 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+129400 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+129400 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+129403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+129403 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+129404 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+129404 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+130384 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+130389 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+130391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+130392 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+130392 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+130392 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+131384 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+131385 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+131401 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+131402 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+131403 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+131403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+132391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+132391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+132395 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+132395 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+132396 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+132396 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+133380 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+133380 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+133380 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+133380 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+133382 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+133383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+134392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+134393 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+134394 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+134395 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+134395 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+134395 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+135384 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+135385 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+135408 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+135409 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+135409 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+135409 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+136377 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+136379 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+136407 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+136407 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+136407 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+136407 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+137389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+137389 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+137390 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+137390 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+137396 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+137397 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+138385 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+138385 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+138386 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+138386 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+138386 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+138387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+139398 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+139398 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+139399 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+139399 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+139405 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+139406 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+140388 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+140389 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+140390 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+140390 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+140390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+140398 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+141386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+141386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+141387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+141387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+141387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+141388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+142386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+142386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+142386 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+142387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+142387 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+142387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+143379 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+143379 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+143387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+143387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+143388 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+143388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+144381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+144381 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+144381 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+144381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+144382 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+144382 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+145388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+145388 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+145389 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+145389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+145393 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+145394 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+146387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+146387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+146388 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+146388 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+146388 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+146389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+147385 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+147385 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+147395 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+147395 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+147395 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+147395 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+148397 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+148397 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+148397 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+148408 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+148408 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+148408 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+149388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+149389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+149392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+149392 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+149392 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+149392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+150395 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+150396 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+150407 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+150407 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+150408 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+150408 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+151380 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+151380 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+151380 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+151380 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+151381 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+151381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+152390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+152391 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+152391 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+152391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+152391 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+152392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+153388 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+153389 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+153406 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+153406 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+153406 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+153407 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+154386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+154387 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+154409 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+154410 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+154410 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+154410 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+155383 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+155383 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+155386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+155386 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+155387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+155387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+156386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+156386 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+156389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+156390 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+156390 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+156390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+157383 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+157384 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+157384 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+157384 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+157392 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+157392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+158392 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+158393 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+158393 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+158393 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+158402 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+158402 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+159379 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+159379 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+159379 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+159379 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+159380 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+159380 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+160388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+160393 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+160393 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+160393 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+160395 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+160395 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+161389 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+161389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+161390 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+161390 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+161390 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+161390 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+162390 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+162391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+162395 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+162395 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+162395 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+162395 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+163386 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+163387 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+163400 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+163400 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+163400 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+163401 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+164391 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+164391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+164392 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+164392 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+164392 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+164392 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+165384 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+165384 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+165384 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+165384 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+165384 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+165385 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+166379 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+166379 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+166412 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+166412 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+166413 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+166413 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+167380 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+167380 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+167380 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+167380 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+167380 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+167380 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+168386 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+168387 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+168402 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+168403 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+168403 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+168403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+169387 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+169388 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+169393 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+169393 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+169394 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+169394 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+170394 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+170395 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+170401 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+170402 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+170402 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+170403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+171394 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+171395 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+171399 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+171400 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+171400 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+171400 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+172382 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+172382 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+172382 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+172383 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+172383 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+172383 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+173394 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+173394 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+173394 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+173396 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+173396 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+173396 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+174388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+174389 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+174389 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+174389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+174392 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+174393 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+175381 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+175382 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+175396 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+175396 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+175396 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+175396 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+176382 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+176385 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+176397 [http-bio-8080-exec-2] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+176396 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+176397 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+176397 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+177391 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+177391 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+177391 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+177392 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+177403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+177403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+178394 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+178395 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+178398 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+178401 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+178401 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+178403 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+179383 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+179384 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+179408 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+179408 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+179408 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+179408 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+180384 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+180384 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+180403 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+180403 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+180404 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+180404 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+181383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+181383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+181388 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+181388 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+181388 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+181388 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+182389 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+182389 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+182390 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+182390 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+182391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+182391 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+183392 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+183395 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+183397 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+183397 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+183403 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+183403 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+184396 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+184397 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+184397 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+184397 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+184399 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+184400 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+185384 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+185385 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+185395 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+185396 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+185396 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+185396 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+186383 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+186383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+186383 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+186383 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+186384 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+186384 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+187387 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+187387 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+187407 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+187408 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+187408 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+187408 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+188397 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+188397 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+188400 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+188400 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+188401 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+188401 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+189386 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+189387 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+189400 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+189400 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+189401 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+189401 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+190387 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+190388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+190402 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+190402 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+190402 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+190402 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+191387 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+191388 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+191388 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+191388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+191389 [http-bio-8080-exec-6] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+191389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+192388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+192388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+192395 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+192395 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+192396 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+192396 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+193390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+193390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+193395 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+193395 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+193395 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+193396 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+194387 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+194387 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+194387 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+194388 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+194396 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+194396 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+195392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+195392 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+195392 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+195392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+195396 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+195397 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+196386 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+196386 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+196395 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+196395 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+196395 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+196395 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+197388 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+197388 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+197389 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+197389 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+197398 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+197398 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+198381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+198381 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+198381 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+198381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+198384 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+198384 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+199385 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+199385 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+199393 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+199393 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+199394 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+199394 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+200391 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+200391 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+200391 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+200392 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+200392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+200392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+201385 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+201385 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+201399 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+201399 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+201400 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+201400 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+202389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+202389 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+202390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+202390 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+202391 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+202391 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+203388 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+203388 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+203388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+203388 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+203389 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+203389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+204392 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+204394 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+204395 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+204398 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+204399 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+204399 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+205397 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+205397 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+205397 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+205398 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+205399 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+205399 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+206379 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+206381 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+206398 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+206398 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+206398 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+206398 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+207383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+207383 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+207383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+207383 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+207383 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+207384 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+208400 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+208400 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+208402 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+208402 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+208402 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+208402 [http-bio-8080-exec-10] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+209393 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+209394 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+209400 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+209400 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+209400 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+209400 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+210389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+210390 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+210407 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+210408 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+210408 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+210408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+211391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+211391 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+211392 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+211392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+211408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+211408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+212382 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+212382 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+212383 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+212383 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+212383 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+212383 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+213385 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+213385 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+213399 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+213399 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+213400 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+213400 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+214386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+214387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+214387 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+214387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+214398 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+214399 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+215387 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+215388 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+215403 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+215403 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+215403 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+215403 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+216387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+216391 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+216408 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+216408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+216409 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+216410 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+217387 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+217388 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+217401 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+217402 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+217402 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+217402 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+218394 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+218395 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+218401 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+218402 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+218402 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+218402 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+219391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+219392 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+219405 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+219405 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+219406 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+219406 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+220396 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+220396 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+220408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+220408 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+220408 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+220408 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+221389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+221389 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+221398 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+221398 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+221398 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+221398 [http-bio-8080-exec-5] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+222389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+222389 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+222406 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+222406 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+222406 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+222406 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+223399 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+223400 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+223400 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+223400 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+223405 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+223405 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+224388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+224388 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+224400 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+224400 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+224400 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+224400 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+225391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+225391 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+225391 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+225391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - []
+225398 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+225398 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+226384 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.LinkServiceImpl.getCurrnetLinkHitPrize([])
+226386 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.CenterServiceImpl.getCommand([])
+226391 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+226391 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Command [type=NULL, url=null]
+226391 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{}
+226392 [http-bio-8080-exec-9] INFO  com.asiainfo.draw.aop.ExecuteLogger - []

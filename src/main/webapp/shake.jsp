@@ -55,7 +55,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<!-- <button id="shakeBtn">摇一摇</button> -->
+				<button id="shakeBtn" style="display: none;">摇一摇</button>
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -73,7 +73,9 @@
 	 	    if (window.DeviceMotionEvent) {
 	 	        window.addEventListener('devicemotion', deviceMotionHandler, false);
 	 	    } else {
-	 	        alert('本设备不支持devicemotion事件');
+	 	        $('#shakeBtn').show().click(function(){
+					shake();
+				});
 	 	    }
 
 	 	    function deviceMotionHandler(e) {
@@ -142,10 +144,6 @@
 				localStorage.removeItem('enterNumber');
 				window.open("mobileLuckDraw.jsp","_self");
 			})
-			
-			/* $('#shakeBtn').click(function(){
-				shake();
-			}); */
 			
 			$(".leaf img").each(function(i){
 				topsArr.push($(this).css("top"));
