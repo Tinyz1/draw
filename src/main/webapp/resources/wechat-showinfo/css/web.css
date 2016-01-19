@@ -373,7 +373,7 @@ input:-moz-placeholder {
   100% { -ms-transform:rotateX(0deg)  rotateY(0) rotatez(0) ; }
 }
 .border-animate{
-  -webkit-animation: border 100ms infinite linear;
+  -webkit-animation: border 200ms infinite linear;
    -moz-animation: border 100ms infinite linear;
       animation: border 100ms infinite linear;
       border: 5px dashed #CCC;

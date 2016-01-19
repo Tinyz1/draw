@@ -58,7 +58,7 @@
 						if(!contains(storeData, name)){
 							storeData.push(name);
 							//$("#"+name).remove($("#"+name).find(".shake"));
-							$("#"+name).html("<div class='border-animate'>"+prizeType+"<br>"+prizeName+"</div>");
+							$("#"+name).html('<div class="border-animate"><strong style="color:yellow;">'+prizeType+'</strong><br><strong style="font-size:20px;font-family:楷体;">'+prizeName+'</strong></div>');
 							$("#"+name).next("img.shake").hide();
 						}
 					}
