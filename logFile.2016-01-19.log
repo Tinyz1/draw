@@ -15464,3 +15464,194 @@
 186660 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=10, linkName=最后的现金, openState=1, linkOrder=0, linkState=2, enterNumber=111222]
 186660 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.hit,value:{13=DrawPrize [prizeId=48, prizeType=现金奖, prizeName=1000元, linkId=10, size=1, provider=null, providerPosition=null]}
 186660 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员ID:13
+415  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+631  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 19 17:01:33 CST 2016]; root of context hierarchy
+732  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1612 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1625 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3010 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3634 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 2, 参与人员: Participant [participantId=2, participantName=魏波刚, state=3]
+3638 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波刚, 参与人员: Participant [participantId=2, participantName=魏波刚, state=3]
+3638 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=高婷婷, state=4]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 高婷婷, 参与人员: Participant [participantId=12, participantName=高婷婷, state=4]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=张三刚, state=3]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 张三刚, 参与人员: Participant [participantId=13, participantName=张三刚, state=3]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 15, 参与人员: Participant [participantId=15, participantName=王五刚, state=4]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王五刚, 参与人员: Participant [participantId=15, participantName=王五刚, state=4]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 20, 参与人员: Participant [participantId=20, participantName=华东刚, state=3]
+3639 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华东刚, 参与人员: Participant [participantId=20, participantName=华东刚, state=3]
+3640 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 29, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=3]
+3640 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 梅兰芳, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=3]
+3640 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 30, 参与人员: Participant [participantId=30, participantName=王哥刚, state=3]
+3640 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王哥刚, 参与人员: Participant [participantId=30, participantName=王哥刚, state=3]
+3640 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3823 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3402 ms
+3885 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3889 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:01:37 CST 2016]; parent: Root WebApplicationContext
+3891 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4138 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4430 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4432 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4433 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4433 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4434 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4434 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4435 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4435 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4436 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4436 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4438 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4444 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4444 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4445 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4445 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4446 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish(java.lang.Integer)
+4446 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4447 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/currentHits]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getCurrnetLinkHitPrize()
+4447 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4456 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4457 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.auth(java.lang.String,java.lang.String)
+4458 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4458 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4459 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+5404 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:01:37 CST 2016]; parent: Root WebApplicationContext
+5547 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:01:37 CST 2016]; parent: Root WebApplicationContext
+5744 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5995 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 2110 ms
+37327 [http-bio-8080-exec-9] INFO  c.a.d.s.impl.ParticipantServiceImpl - 张三刚
+37328 [http-bio-8080-exec-9] INFO  c.a.d.s.impl.ParticipantServiceImpl - 12313
+37328 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:张三刚
+37344 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+37344 [http-bio-8080-exec-9] ERROR c.a.d.s.impl.ParticipantServiceImpl - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+37347 [http-bio-8080-exec-9] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 抽奖环节还没有开始，请稍等！
+37348 [http-bio-8080-exec-9] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=1, resultMsg=抽奖环节还没有开始，请稍等！]
+312  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+487  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 19 17:03:35 CST 2016]; root of context hierarchy
+540  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1363 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1381 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3000 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3783 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@1c4de065,args->[]
+3948 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - [Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=30, participantName=王哥刚, state=3]]
+3952 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+4158 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3842 ms
+4227 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+4231 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:03:38 CST 2016]; parent: Root WebApplicationContext
+4232 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4509 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4820 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4822 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4823 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4823 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4823 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4824 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4824 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4824 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4825 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4826 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4827 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4834 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4835 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4836 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4836 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4837 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish(java.lang.Integer)
+4837 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4838 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4838 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/currentHits]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getCurrnetLinkHitPrize()
+4843 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4844 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.auth(java.lang.String,java.lang.String)
+4849 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4850 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4851 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+5557 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:03:38 CST 2016]; parent: Root WebApplicationContext
+5707 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:03:38 CST 2016]; parent: Root WebApplicationContext
+5897 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+6122 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1895 ms
+31753 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@1c4de065,args->[张三刚, 12313]
+31755 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - 张三刚
+31755 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - 12313
+31755 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:张三刚
+31769 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 查询数据库->用户名称:{}
+31770 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@1c4de065,args->[张三刚]
+31773 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<==========根据用户名称:张三刚获取到用户:Participant [participantId=13, participantName=张三刚, state=3].
+31774 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - Participant [participantId=13, participantName=张三刚, state=3]
+31776 [http-bio-8080-exec-1] ERROR com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+31777 [http-bio-8080-exec-1] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+31778 [http-bio-8080-exec-1] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=1, resultMsg=很遗憾，您不能参与抽奖！]
+111847 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@1c4de065,args->[张三刚, 12313]
+111849 [http-bio-8080-exec-3] INFO  c.a.d.s.impl.ParticipantServiceImpl - 张三刚
+111850 [http-bio-8080-exec-3] INFO  c.a.d.s.impl.ParticipantServiceImpl - 12313
+111850 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:张三刚
+111850 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 查询数据库->用户名称:{}
+111850 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@1c4de065,args->[张三刚]
+111857 [http-bio-8080-exec-3] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<==========根据用户名称:张三刚获取到用户:Participant [participantId=13, participantName=张三刚, state=3].
+111857 [http-bio-8080-exec-3] INFO  com.asiainfo.draw.aop.ExecuteLogger - Participant [participantId=13, participantName=张三刚, state=3]
+111858 [http-bio-8080-exec-3] ERROR com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+111860 [http-bio-8080-exec-3] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+111860 [http-bio-8080-exec-3] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=1, resultMsg=很遗憾，您不能参与抽奖！]
+458  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+705  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Tue Jan 19 17:07:00 CST 2016]; root of context hierarchy
+827  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1856 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1869 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+3275 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3811 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@26d42d5c,args->[]
+3942 [localhost-startStop-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - [Participant [participantId=2, participantName=魏波刚, state=3], Participant [participantId=12, participantName=高婷婷, state=4], Participant [participantId=13, participantName=张三刚, state=3], Participant [participantId=15, participantName=王五刚, state=4], Participant [participantId=20, participantName=华东刚, state=3], Participant [participantId=29, participantName=梅兰芳, state=3], Participant [participantId=30, participantName=王哥刚, state=3]]
+3944 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+4127 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3661 ms
+4179 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+4184 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:07:04 CST 2016]; parent: Root WebApplicationContext
+4185 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4394 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4680 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4682 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4682 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4683 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4683 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4684 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4684 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4685 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4685 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4686 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4687 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4695 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4696 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4696 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4696 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4697 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish(java.lang.Integer)
+4697 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4698 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4698 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/currentHits]}" onto public java.util.List<com.asiainfo.draw.util.ParticipantPrize> com.asiainfo.draw.controller.LinkController.getCurrnetLinkHitPrize()
+4704 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4704 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.auth(java.lang.String,java.lang.String)
+4705 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4706 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4706 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+5440 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:07:04 CST 2016]; parent: Root WebApplicationContext
+5570 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Tue Jan 19 17:07:04 CST 2016]; parent: Root WebApplicationContext
+5762 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5973 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1794 ms
+12017 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@26d42d5c,args->[张三刚, 12313]
+12018 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - 张三刚
+12018 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - 12313
+12018 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:张三刚
+12029 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 查询数据库->用户名称:{}
+12030 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl@26d42d5c,args->[张三刚]
+12032 [http-bio-8080-exec-1] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<==========根据用户名称:张三刚获取到用户:Participant [participantId=13, participantName=张三刚, state=3].
+12033 [http-bio-8080-exec-1] INFO  com.asiainfo.draw.aop.ExecuteLogger - Participant [participantId=13, participantName=张三刚, state=3]
+12035 [http-bio-8080-exec-1] ERROR com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+12036 [http-bio-8080-exec-1] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+12037 [http-bio-8080-exec-1] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=1, resultMsg=很遗憾，您不能参与抽奖！]
+426465 [http-bio-8080-exec-3] ERROR c.a.d.c.ParticipantController - java.lang.ClassCastException: com.asiainfo.draw.service.impl.ParticipantServiceImpl cannot be cast to java.lang.Class
+426466 [http-bio-8080-exec-3] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=2, resultMsg=身份验证失败！]
+452480 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.auth([张三刚, 12313])
+452481 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - 张三刚
+452481 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - 12313
+452482 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取用户缓存->参与人员名称:张三刚
+452482 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 查询数据库->用户名称:{}
+452483 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.service.impl.ParticipantServiceImpl.getByParticipantName([张三刚])
+452491 [http-bio-8080-exec-4] INFO  c.a.d.s.impl.ParticipantServiceImpl - <<==========根据用户名称:张三刚获取到用户:Participant [participantId=13, participantName=张三刚, state=3].
+452492 [http-bio-8080-exec-4] INFO  com.asiainfo.draw.aop.ExecuteLogger - Participant [participantId=13, participantName=张三刚, state=3]
+452492 [http-bio-8080-exec-4] ERROR com.asiainfo.draw.aop.ExecuteLogger - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+452495 [http-bio-8080-exec-4] ERROR c.a.d.c.ParticipantController - com.asiainfo.draw.exception.AuthenticationExceptioin: 很遗憾，您不能参与抽奖！
+452496 [http-bio-8080-exec-4] INFO  c.a.d.c.ParticipantController - DefaultResult [returnCode=2, resultCode=1, resultMsg=很遗憾，您不能参与抽奖！]
