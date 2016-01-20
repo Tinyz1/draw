@@ -19,9 +19,11 @@
 		<div class="footer">
 			<img src="resources/image/foot.png">
 		</div>
+		
+		<h3 style="width: 100%;text-align:center;font-size:60px;color:red;font-family:楷体;margin:30px auto;z-index: 100;position: fixed;height: 50px;">中奖人员</h3>
 		<div class="content list">
 			<img class="smallImg" src="resources/image/w2016.png">
-			<ul class="listUl">
+			<ul class="listUl" style="width: 90%">
 			</ul>
 			<!-- <div class="btn-s">
 				开始抽奖
@@ -93,7 +95,7 @@ function lotteryDraw(arr, number) {
 	personArr.forEach(function(item, i) {
 		var k = i % 5;
 		var lefts = ["-10%", "14%", "38%", "62%", "86%"];
-		var tops = ["20%", "40%", "60%", "80%"]
+		var tops = ["13%", "33%", "53%", "73%"]
 		var left = lefts[k];
 		var n = Math.floor(i / 5);
 		var top = tops[n];
@@ -104,12 +106,11 @@ function lotteryDraw(arr, number) {
 		}, 500);
 		$(item).css({
 			fontSize: 45+"px",
-    		color:"red",
+    		color:"black",
     		fontFamily:"楷体",
-    		border:"1px solid #ccc",
+    		borderRight:"1px solid red",
 			height: "53px",
-			width: "154px",
-			borderRadius: "20px"
+			width: "154px"
 		});
 	})
 	arr.forEach(function(item) {

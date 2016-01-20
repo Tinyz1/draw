@@ -57,7 +57,7 @@
 						var prizeType = data[i].prizeType;
 						if(!contains(storeData, name)){
 							storeData.push(name);
-							$("#"+name).html('<div class="border-animate"><strong style="color:yellow;">'+prizeType+'</strong><br><strong style="font-size:20px;font-family:楷体;">'+prizeName+'</strong></div>');
+							$("#"+name).html('<div><strong style="color: yellow;display: inline-block;text-align: center;line-height: 36px;width: 125px;font-size: 25px;">'+prizeName+'</strong></div>');
 							$("#"+name).next("img.shake").hide();
 						}
 					}
@@ -90,7 +90,7 @@
 				// 遍历用户数组数据
 				for (var i = 0; i < arrs.length; i++) {
 					var arr = arrs[i];
-					html += '<li><p style="color:red;width:150px; height:30px">' + arr.participantName 
+					html += '<li style="margin:10px 0 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
 					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
 					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
 					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';

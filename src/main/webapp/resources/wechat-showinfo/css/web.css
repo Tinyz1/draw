@@ -222,20 +222,20 @@ position:relative;
 
 .footP{
   width: 169px;
-right: 42px;
-bottom: 13px;
+right: 65px;
+bottom: 10px;
 position: fixed;
-font-size: 10px;
+font-size: 12px;
 color: #FFF;
 }
 
 .footH{
-  right: 20px;
-bottom: 13px;
+  right: 5px;
+bottom: 10px;
 position: fixed;
 color: #FFF;
 font-weight: normal;
-font-size: 10px;
+font-size: 12px;
 }
 .li-img{
 	width: 119px;
