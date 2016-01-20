@@ -32,7 +32,7 @@ public class ExecuteLogger {
 	public Object around(ProceedingJoinPoint pjp) throws Throwable {
 		MethodSignature signature = (MethodSignature) pjp.getSignature();
 		Method method = signature.getMethod();
-		logger.info("{}.{}({})", pjp.getTarget().getClass().getName(), method.getName(), Arrays.toString(pjp.getArgs()));
+		logger.debug("{}.{}({})", pjp.getTarget().getClass().getName(), method.getName(), Arrays.toString(pjp.getArgs()));
 		Object rtn = null;
 		try {
 			rtn = pjp.proceed();
@@ -40,7 +40,7 @@ public class ExecuteLogger {
 			logger.error(e.toString());
 			throw e;
 		}
-		logger.info(String.valueOf(rtn));
+		logger.debug(String.valueOf(rtn));
 		return rtn;
 	}
 

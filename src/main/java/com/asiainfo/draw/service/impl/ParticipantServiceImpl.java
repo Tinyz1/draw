@@ -1,5 +1,6 @@
 package com.asiainfo.draw.service.impl;
 
+import static com.google.common.base.Preconditions.checkArgument;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
@@ -19,12 +20,11 @@ import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.LinkMember;
-import com.asiainfo.draw.domain.LinkMemberExample;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.domain.ParticipantExample;
 import com.asiainfo.draw.exception.AuthenticationExceptioin;
-import com.asiainfo.draw.persistence.LinkMemberMapper;
 import com.asiainfo.draw.persistence.ParticipantMapper;
+import com.asiainfo.draw.service.LinkMemberService;
 import com.asiainfo.draw.service.ParticipantService;
 
 @Service("participantService")
@@ -43,7 +43,7 @@ public class ParticipantServiceImpl implements ParticipantService {
 	private CurrentLinkCache currentLinkCache;
 
 	@Autowired
-	private LinkMemberMapper memberMapper;
+	private LinkMemberService memberService;
 
 	@Override
 	@Transactional(readOnly = true)
@@ -60,17 +60,6 @@ public class ParticipantServiceImpl implements ParticipantService {
 		logger.info("<<==========根据用户名称:{}获取到用户:{}.", participantName, participant);
 		return participant;
 
-	}
-
-	/**
-	 * 只查询中奖机会大于等于1次的用户
-	 */
-	@Override
-	@Transactional(readOnly = true)
-	public List<Participant> queryAllParticipant() {
-		ParticipantExample participantExample = new ParticipantExample();
-		participantExample.createCriteria().andStateGreaterThanOrEqualTo(1);
-		return participantMapper.selectByExample(participantExample);
 	}
 
 	@Override
@@ -115,80 +104,97 @@ public class ParticipantServiceImpl implements ParticipantService {
 	@Override
 	public List<Participant> getCurrentlinkParticipant() {
 
-		ParticipantExample participantExample = new ParticipantExample();
-		// 抽奖机会大于0
-		participantExample.createCriteria().andStateGreaterThan(0);
-		List<Participant> participants = participantMapper.selectByExample(participantExample);
+		DrawLink link = null;
+		try {
+			link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.info(">>当前环节不存在！详细信息:{}", e);
+		}
 
 		// 返回数据
 		List<Participant> values = new ArrayList<Participant>();
+		if (link != null) {
+			// 抽奖机会大于0
+			ParticipantExample participantExample = new ParticipantExample();
+			participantExample.createCriteria().andStateGreaterThan(0);
+			List<Participant> participants = participantMapper.selectByExample(participantExample);
 
-		// 已经选择的参与人员不能再次选择。即使还有抽奖机会
-		DrawLink link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-
-		LinkMemberExample memberExample = new LinkMemberExample();
-		memberExample.createCriteria().andLinkIdEqualTo(link.getLinkId()).andStateEqualTo(1);
-		List<LinkMember> members = memberMapper.selectByExample(memberExample);
-
-		Set<Integer> memSet = new HashSet<Integer>();
-		for (LinkMember member : members) {
-			memSet.add(member.getParticipantId());
-		}
-
-		for (Participant participant : participants) {
-			if (memSet.contains(participant.getParticipantId())) {
-				logger.info("用户:{}已在本环节抽奖人员中，不进行再次选取。");
-				continue;
-			} else {
-				logger.info("用户:{}->抽奖次数为:{}", participant.getParticipantName(), participant.getState());
-				for (int i = 0; i < participant.getState(); i++) {
-					values.add(participant);
+			List<LinkMember> members = memberService.getMemberByLinkIdAndState(link.getLinkId(), null);
+			Set<Integer> memberIds = new HashSet<Integer>();
+			if (members != null && members.size() > 0) {
+				for (LinkMember member : members) {
+					memberIds.add(member.getParticipantId());
 				}
 			}
-		}
 
+			for (Participant participant : participants) {
+				if (!memberIds.contains(participant.getParticipantId())) {
+					logger.info("用户:{}->抽奖次数为:{}", participant.getParticipantName(), participant.getState());
+					for (int i = 0, len = participant.getState(); i < len; i++) {
+						values.add(participant);
+					}
+				}
+			}
+
+		}
 		return values;
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
 	public List<Participant> getCurrentPickParticipant() {
-		return (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
+		DrawLink currentLink = null;
+		try {
+			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.error("当前环节不存在！");
+		}
+		checkNotNull(currentLink);
+		List<LinkMember> members = memberService.getMemberByLinkIdAndState(currentLink.getLinkId(), LinkMember.STATE_CONFIRM);
+
+		List<Participant> participants = new ArrayList<Participant>();
+		if (members != null && members.size() > 0) {
+			for (LinkMember member : members) {
+				Integer participantId = member.getParticipantId();
+				participants.add(participantCache.get(participantId));
+			}
+		}
+		return participants;
 	}
 
 	@Override
 	public void addPickParticipant(String ids) {
 		checkNotNull(ids);
-		// 环节未开始时才允许加人
-		LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
-		if (!LinkState.INIT.equals(linkState)) {
-			throw new RuntimeException("环节已开始，不允许加人");
+		DrawLink link = null;
+		try {
+			link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.info(">>当前环节不存在！详细信息:{}", e);
 		}
-
-		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-
-		String[] idss = ids.split(",");
-		if (idss != null && idss.length > 0) {
-			for (String id : idss) {
-				if (StringUtils.isNotBlank(id)) {
-					Integer participantId = Integer.parseInt(id);
-					try {
-						Participant participant = participantCache.get(participantId);
-						if (participant == null) {
-							throw new NullPointerException("根据用户ID" + participantId + "获取不到用户信息！");
+		if (link != null) {
+			// 环节未开始时才允许加人
+			LinkState linkState = (LinkState) currentLinkCache.get(CurrentLinkCache.CURRENT_STATE);
+			if (!LinkState.INIT.equals(linkState)) {
+				throw new RuntimeException("环节已开始，不允许加人");
+			}
+			String[] idss = ids.split(",");
+			if (idss != null && idss.length > 0) {
+				List<LinkMember> members = new ArrayList<LinkMember>();
+				for (String id : idss) {
+					if (StringUtils.isNotBlank(id)) {
+						Participant participant = participantCache.get(Integer.parseInt(id));
+						if (participant != null) {
+							// 加入环节参与人员表中。状态为未确认
+							LinkMember member = new LinkMember();
+							member.setLinkId(link.getLinkId());
+							member.setLinkName(link.getLinkName());
+							member.setParticipantId(participant.getParticipantId());
+							member.setParticipantName(participant.getParticipantName());
+							members.add(member);
 						}
-						// 当前人员入库
-						LinkMember member = new LinkMember();
-						member.setLinkId(currentLink.getLinkId());
-						member.setParticipantId(participantId);
-						member.setState(1);
-						memberMapper.insert(member);
-					} catch (Exception e) {
-						logger.error("当前人员已参与抽奖，不能继续参与！");
 					}
 				}
+				memberService.create(members);
 			}
-
 		}
 	}
 
@@ -206,10 +212,25 @@ public class ParticipantServiceImpl implements ParticipantService {
 				}
 			}
 		}
-
 		// 重新加载缓存
 		participantCache.reload();
+	}
 
+	@Override
+	public void subShakeTime(List<Participant> participants) {
+		checkArgument(participants != null && participants.size() > 0);
+		for (Participant participant : participants) {
+			checkNotNull(participant);
+			participant.setState(participant.getState() - 1 >= 0 ? participant.getState() - 1 : participant.getState());
+			participantMapper.updateByPrimaryKeySelective(participant);
+		}
+	}
+
+	@Override
+	public List<Participant> queryAllParticipant() {
+		ParticipantExample participantExample = new ParticipantExample();
+		participantExample.createCriteria().andStateGreaterThan(0);
+		return participantMapper.selectByExample(participantExample);
 	}
 
 }

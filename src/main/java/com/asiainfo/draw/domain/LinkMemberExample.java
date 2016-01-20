@@ -1,6 +1,7 @@
 package com.asiainfo.draw.domain;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class LinkMemberExample {
@@ -224,6 +225,76 @@ public class LinkMemberExample {
             return (Criteria) this;
         }
 
+        public Criteria andLinkNameIsNull() {
+            addCriterion("link_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameIsNotNull() {
+            addCriterion("link_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameEqualTo(String value) {
+            addCriterion("link_name =", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameNotEqualTo(String value) {
+            addCriterion("link_name <>", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameGreaterThan(String value) {
+            addCriterion("link_name >", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameGreaterThanOrEqualTo(String value) {
+            addCriterion("link_name >=", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameLessThan(String value) {
+            addCriterion("link_name <", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameLessThanOrEqualTo(String value) {
+            addCriterion("link_name <=", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameLike(String value) {
+            addCriterion("link_name like", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameNotLike(String value) {
+            addCriterion("link_name not like", value, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameIn(List<String> values) {
+            addCriterion("link_name in", values, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameNotIn(List<String> values) {
+            addCriterion("link_name not in", values, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameBetween(String value1, String value2) {
+            addCriterion("link_name between", value1, value2, "linkName");
+            return (Criteria) this;
+        }
+
+        public Criteria andLinkNameNotBetween(String value1, String value2) {
+            addCriterion("link_name not between", value1, value2, "linkName");
+            return (Criteria) this;
+        }
+
         public Criteria andParticipantIdIsNull() {
             addCriterion("participant_id is null");
             return (Criteria) this;
@@ -281,6 +352,196 @@ public class LinkMemberExample {
 
         public Criteria andParticipantIdNotBetween(Integer value1, Integer value2) {
             addCriterion("participant_id not between", value1, value2, "participantId");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameIsNull() {
+            addCriterion("participant_name is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameIsNotNull() {
+            addCriterion("participant_name is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameEqualTo(String value) {
+            addCriterion("participant_name =", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameNotEqualTo(String value) {
+            addCriterion("participant_name <>", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameGreaterThan(String value) {
+            addCriterion("participant_name >", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameGreaterThanOrEqualTo(String value) {
+            addCriterion("participant_name >=", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameLessThan(String value) {
+            addCriterion("participant_name <", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameLessThanOrEqualTo(String value) {
+            addCriterion("participant_name <=", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameLike(String value) {
+            addCriterion("participant_name like", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameNotLike(String value) {
+            addCriterion("participant_name not like", value, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameIn(List<String> values) {
+            addCriterion("participant_name in", values, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameNotIn(List<String> values) {
+            addCriterion("participant_name not in", values, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameBetween(String value1, String value2) {
+            addCriterion("participant_name between", value1, value2, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andParticipantNameNotBetween(String value1, String value2) {
+            addCriterion("participant_name not between", value1, value2, "participantName");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIsNull() {
+            addCriterion("create_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIsNotNull() {
+            addCriterion("create_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateEqualTo(Date value) {
+            addCriterion("create_date =", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotEqualTo(Date value) {
+            addCriterion("create_date <>", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThan(Date value) {
+            addCriterion("create_date >", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("create_date >=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThan(Date value) {
+            addCriterion("create_date <", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateLessThanOrEqualTo(Date value) {
+            addCriterion("create_date <=", value, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateIn(List<Date> values) {
+            addCriterion("create_date in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotIn(List<Date> values) {
+            addCriterion("create_date not in", values, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateBetween(Date value1, Date value2) {
+            addCriterion("create_date between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andCreateDateNotBetween(Date value1, Date value2) {
+            addCriterion("create_date not between", value1, value2, "createDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateIsNull() {
+            addCriterion("confirm_date is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateIsNotNull() {
+            addCriterion("confirm_date is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateEqualTo(Date value) {
+            addCriterion("confirm_date =", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateNotEqualTo(Date value) {
+            addCriterion("confirm_date <>", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateGreaterThan(Date value) {
+            addCriterion("confirm_date >", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateGreaterThanOrEqualTo(Date value) {
+            addCriterion("confirm_date >=", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateLessThan(Date value) {
+            addCriterion("confirm_date <", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateLessThanOrEqualTo(Date value) {
+            addCriterion("confirm_date <=", value, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateIn(List<Date> values) {
+            addCriterion("confirm_date in", values, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateNotIn(List<Date> values) {
+            addCriterion("confirm_date not in", values, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateBetween(Date value1, Date value2) {
+            addCriterion("confirm_date between", value1, value2, "confirmDate");
+            return (Criteria) this;
+        }
+
+        public Criteria andConfirmDateNotBetween(Date value1, Date value2) {
+            addCriterion("confirm_date not between", value1, value2, "confirmDate");
             return (Criteria) this;
         }
 

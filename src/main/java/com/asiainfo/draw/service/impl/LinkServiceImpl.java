@@ -22,16 +22,15 @@ import com.asiainfo.draw.domain.DrawPrize;
 import com.asiainfo.draw.domain.DrawPrizeExample;
 import com.asiainfo.draw.domain.LinkItem;
 import com.asiainfo.draw.domain.LinkMember;
-import com.asiainfo.draw.domain.LinkMemberExample;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.domain.PrizeItem;
 import com.asiainfo.draw.domain.WinningRecord;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.persistence.DrawLinkMapper;
 import com.asiainfo.draw.persistence.DrawPrizeMapper;
-import com.asiainfo.draw.persistence.LinkMemberMapper;
-import com.asiainfo.draw.persistence.ParticipantMapper;
+import com.asiainfo.draw.service.LinkMemberService;
 import com.asiainfo.draw.service.LinkService;
+import com.asiainfo.draw.service.ParticipantService;
 import com.asiainfo.draw.service.RecordService;
 import com.asiainfo.draw.util.Command;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
@@ -51,7 +50,7 @@ public class LinkServiceImpl implements LinkService {
 	private DrawPrizeMapper prizeMapper;
 
 	@Autowired
-	private LinkMemberMapper memberMapper;
+	private LinkMemberService memberService;
 
 	@Autowired
 	private CurrentLinkCache currentLinkCache;
@@ -63,7 +62,7 @@ public class LinkServiceImpl implements LinkService {
 	private RecordService recordService;
 
 	@Autowired
-	private ParticipantMapper participantMapper;
+	private ParticipantService participantService;
 
 	@Autowired
 	private CommandCache commandCache;
@@ -86,9 +85,6 @@ public class LinkServiceImpl implements LinkService {
 		logger.info("环节初始化->当前环节:{}", currentLink.getLinkName());
 		currentLinkCache.put(CurrentLinkCache.CURRENT_LINK, currentLink);
 
-		logger.info("环节初始化->环节参与人员列表默认为空.");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, new ArrayList<Participant>());
-
 		// 刚初始化时，当前环节不能抽奖
 		logger.info("环节初始化->环节状态设置为：{}.", LinkState.INIT);
 		currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.INIT);
@@ -108,72 +104,62 @@ public class LinkServiceImpl implements LinkService {
 	@Override
 	public void initPool() {
 
-		DrawLink currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-
-		logger.info("<<===========读取新的环节奖品...");
-		List<DrawPrize> currentPrizes = getPrizeByLink(currentLink.getLinkId());
-		if (currentPrizes == null || currentPrizes.size() == 0) {
-			throw new NullPointerException("环节:" + currentLink.getLinkName() + "的奖品没有配置！");
+		DrawLink link = null;
+		try {
+			link = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
+		} catch (Exception e) {
+			logger.info(">>当前环节不存在！详细信息:{}", e);
 		}
+		if (link != null) {
 
-		logger.info("<<===========把当前环节奖品放入缓存中");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_PRIZES, currentPrizes);
-
-		// 初始化当前环节参与人员
-		LinkMemberExample memberExample = new LinkMemberExample();
-		memberExample.createCriteria().andLinkIdEqualTo(currentLink.getLinkId()).andStateEqualTo(1);
-		List<LinkMember> linkMembers = memberMapper.selectByExample(memberExample);
-		if (linkMembers == null || linkMembers.size() == 0) {
-			String mess = "抽奖参与人员不能为空";
-			logger.info(mess);
-			throw new RuntimeException(mess);
-		}
-
-		int numberOfPerson = linkMembers.size();
-		logger.info(">>当前参与人员数量:{}", numberOfPerson);
-
-		List<Participant> participants = new ArrayList<Participant>();
-		for (LinkMember member : linkMembers) {
-			// 把已加入参与的人员状态设置为已使用
-			member.setState(2);
-			memberMapper.updateByPrimaryKey(member);
-
-			// 用户的抽奖机会-1
-			Participant participant = participantCache.get(member.getParticipantId());
-			participant.setState(participant.getState() - 1 >= 0 ? participant.getState() - 1 : participant.getState());
-			participantMapper.updateByPrimaryKeySelective(participant);
-
-			participants.add(participant);
-		}
-		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, participants);
-
-		int numberOfPrize = 0;
-		for (DrawPrize prize : currentPrizes) {
-			numberOfPrize += prize.getSize();
-		}
-		logger.info(">>当前环节配置的奖品数量:{}", numberOfPrize);
-
-		// 如果参与人数大于奖品数
-		if (numberOfPerson > numberOfPrize) {
-			try {
-				DrawPrize defaultPrize = getPrizeByLink(0).get(0);
-				defaultPrize.setSize(numberOfPerson - numberOfPrize);
-				currentPrizes.add(defaultPrize);
-				logger.info(">>当前环节参与人员数量大于配置的奖品数量，加入默认的奖品数量:{}", numberOfPerson - numberOfPrize);
-			} catch (Exception e) {
-				logger.error(">>没有配置默认环节奖品。默认环节奖品的环节ID为0，只能配置一条数据。");
+			List<DrawPrize> prizes = getPrizeByLink(link.getLinkId());
+			if (prizes == null || prizes.size() == 0) {
+				logger.warn("环节:{}没有配置奖品！", link.getLinkName());
+				prizes = new ArrayList<DrawPrize>();
 			}
+			int numberOfPrize = 0;
+			for (DrawPrize prize : prizes) {
+				if (prize != null) {
+					numberOfPrize += prize.getSize();
+				}
+			}
+			logger.info(">>当前环节配置的奖品数量:{}", numberOfPrize);
+
+			/* 确认抽奖用户 */
+			List<LinkMember> members = memberService.getMemberByLinkIdAndState(link.getLinkId(), LinkMember.STATE_CREATE);
+			if (members == null || members.size() == 0) {
+				throw new RuntimeException("抽奖参与人员不能为空");
+			}
+			int numberOfPerson = members.size();
+			logger.info(">>当前参与人员数量:{}", numberOfPerson);
+			memberService.confirm(members);
+
+			/* 抽奖机会减少1次 */
+			List<Participant> participants = new ArrayList<Participant>();
+			for (LinkMember member : members) {
+				participants.add(participantCache.get(member.getParticipantId()));
+			}
+			participantService.subShakeTime(participants);
+
+			// 如果参与人数大于奖品数
+			if (numberOfPerson > numberOfPrize) {
+				try {
+					DrawPrize prize = getPrizeByLink(0).get(0);
+					prize.setSize(numberOfPerson - numberOfPrize);
+					prizes.add(prize);
+					logger.info(">>当前环节参与人员数量大于配置的奖品数量，加入默认的奖品数量:{}", numberOfPerson - numberOfPrize);
+				} catch (Exception e) {
+					logger.error(">>没有配置默认环节奖品。默认环节奖品的环节ID为0，只能配置一条数据。");
+				}
+			}
+
+			logger.info("<<===========初始化奖品池...");
+			PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
+			PrizePool pool = poolFactory.createPrizePools(prizes);
+
+			logger.info("<<===========把奖品池加入缓存中...");
+			currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
 		}
-
-		logger.info("<<===========初始化奖品池...");
-		PrizePoolFactory poolFactory = new DefaultPrizePoolFactory();
-
-		int numberOfPeople = linkMembers.size();
-		logger.info("<<===========当今环节参与人数：{}...", numberOfPeople);
-		PrizePool pool = poolFactory.createPrizePools(currentPrizes);
-
-		logger.info("<<===========把奖品池加入缓存中...");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_POOL, pool);
 	}
 
 	/**

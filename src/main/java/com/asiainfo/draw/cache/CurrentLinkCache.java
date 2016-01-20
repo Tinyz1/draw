@@ -49,17 +49,6 @@ public class CurrentLinkCache {
 		FINISH // 环节已结束
 	}
 
-	/**
-	 * 环节参与人
-	 */
-	public static final String CURRENT_PARTICIPANTS = KEY_PRE + "participants";
-
-	/**
-	 * 环节奖品
-	 */
-	public static final String CURRENT_PRIZES = KEY_PRE + "prizes";
-
-
 	private final Logger logger = LoggerFactory.getLogger(ParticipantCache.class);
 
 	@Autowired

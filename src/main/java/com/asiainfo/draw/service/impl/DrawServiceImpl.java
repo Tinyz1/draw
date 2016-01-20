@@ -14,9 +14,11 @@ import com.asiainfo.draw.cache.CurrentLinkCache.LinkState;
 import com.asiainfo.draw.cache.ParticipantCache;
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.DrawPrize;
+import com.asiainfo.draw.domain.LinkMember;
 import com.asiainfo.draw.domain.Participant;
 import com.asiainfo.draw.domain.WinningRecord;
 import com.asiainfo.draw.service.DrawService;
+import com.asiainfo.draw.service.LinkMemberService;
 import com.asiainfo.draw.service.RecordService;
 import com.asiainfo.draw.util.Draw;
 import com.asiainfo.draw.util.Prize;
@@ -35,7 +37,9 @@ public class DrawServiceImpl implements DrawService {
 	@Autowired
 	private RecordService recordService;
 
-	@SuppressWarnings("unchecked")
+	@Autowired
+	private LinkMemberService memberService;
+
 	@Override
 	public Prize pick(String participantName, String enterNumber) {
 
@@ -53,8 +57,7 @@ public class DrawServiceImpl implements DrawService {
 			checkNotNull(participant);
 
 			// 判断当前用户是否能够参与本环节抽奖
-			List<Participant> allowParticipants = (List<Participant>) currentLinkCache.get(CurrentLinkCache.CURRENT_PARTICIPANTS);
-			if (!allowParticipants.contains(participant)) {
+			if (!memberService.isLinkContainMember(link.getLinkId(), participant.getParticipantId(), LinkMember.STATE_CONFIRM)) {
 				return Prize.createMissPrize();
 			}
 

@@ -33,13 +33,6 @@ public interface ParticipantService {
 	public void auth(String participantName, String enterNum);
 
 	/**
-	 * 查询所有的参与人员信息。
-	 * 
-	 * @return
-	 */
-	public List<Participant> queryAllParticipant();
-
-	/**
 	 * 获取可进行抽人的人员
 	 * 
 	 * @return
@@ -62,5 +55,19 @@ public interface ParticipantService {
 	public void addPickParticipant(String ids);
 
 	public void add(String participants);
+
+	/**
+	 * 选择的用户抽奖机会减少1次
+	 * 
+	 * @param participants
+	 */
+	void subShakeTime(List<Participant> participants);
+
+	/**
+	 * 查询抽奖机会大于1的用户
+	 * 
+	 * @return
+	 */
+	public List<Participant> queryAllParticipant();
 
 }
