@@ -3,60 +3,93 @@ package com.asiainfo.draw.domain;
 import java.util.Date;
 
 public class WinningRecord {
-	private Integer recordId;
+    private Integer recordId;
 
-	private Integer linkId;
+    private Integer participantId;
 
-	private Integer prizeId;
+    private String participantName;
 
-	private Integer participantId;
+    private Integer linkId;
 
-	private Date createDate;
+    private String linkName;
 
-	public Integer getRecordId() {
-		return recordId;
-	}
+    private Integer prizeId;
 
-	public void setRecordId(Integer recordId) {
-		this.recordId = recordId;
-	}
+    private String prizeType;
 
-	public Integer getLinkId() {
-		return linkId;
-	}
+    private String prizeName;
 
-	public void setLinkId(Integer linkId) {
-		this.linkId = linkId;
-	}
+    private Date createDate;
 
-	public Integer getPrizeId() {
-		return prizeId;
-	}
+    public Integer getRecordId() {
+        return recordId;
+    }
 
-	public void setPrizeId(Integer prizeId) {
-		this.prizeId = prizeId;
-	}
+    public void setRecordId(Integer recordId) {
+        this.recordId = recordId;
+    }
 
-	public Integer getParticipantId() {
-		return participantId;
-	}
+    public Integer getParticipantId() {
+        return participantId;
+    }
 
-	public void setParticipantId(Integer participantId) {
-		this.participantId = participantId;
-	}
+    public void setParticipantId(Integer participantId) {
+        this.participantId = participantId;
+    }
 
-	public Date getCreateDate() {
-		return createDate;
-	}
+    public String getParticipantName() {
+        return participantName;
+    }
 
-	public void setCreateDate(Date createDate) {
-		this.createDate = createDate;
-	}
+    public void setParticipantName(String participantName) {
+        this.participantName = participantName == null ? null : participantName.trim();
+    }
 
-	@Override
-	public String toString() {
-		return "WinningRecord [recordId=" + recordId + ", linkId=" + linkId + ", prizeId=" + prizeId + ", participantId=" + participantId
-				+ ", createDate=" + createDate + "]";
-	}
+    public Integer getLinkId() {
+        return linkId;
+    }
 
+    public void setLinkId(Integer linkId) {
+        this.linkId = linkId;
+    }
+
+    public String getLinkName() {
+        return linkName;
+    }
+
+    public void setLinkName(String linkName) {
+        this.linkName = linkName == null ? null : linkName.trim();
+    }
+
+    public Integer getPrizeId() {
+        return prizeId;
+    }
+
+    public void setPrizeId(Integer prizeId) {
+        this.prizeId = prizeId;
+    }
+
+    public String getPrizeType() {
+        return prizeType;
+    }
+
+    public void setPrizeType(String prizeType) {
+        this.prizeType = prizeType == null ? null : prizeType.trim();
+    }
+
+    public String getPrizeName() {
+        return prizeName;
+    }
+
+    public void setPrizeName(String prizeName) {
+        this.prizeName = prizeName == null ? null : prizeName.trim();
+    }
+
+    public Date getCreateDate() {
+        return createDate;
+    }
+
+    public void setCreateDate(Date createDate) {
+        this.createDate = createDate;
+    }
 }

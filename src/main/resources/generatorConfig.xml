@@ -53,7 +53,7 @@
 		</javaClientGenerator>
 		
 		<!-- tables -->
-		<table tableName="link_member" />
+		<table tableName="winning_record" />
 		 
 	</context>
 </generatorConfiguration>
