@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.LinkItem;
-import com.asiainfo.draw.util.ParticipantPrize;
+import com.asiainfo.draw.domain.WinningRecord;
 
 /**
  * 环节服务接口
@@ -41,7 +41,7 @@ public interface LinkService {
 	 * 
 	 * @return
 	 */
-	List<ParticipantPrize> getCurrnetLinkHitPrize();
+	List<WinningRecord> getCurrnetLinkHitPrize();
 
 	/**
 	 * 获取当前环节

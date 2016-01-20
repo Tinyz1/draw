@@ -3,10 +3,7 @@ package com.asiainfo.draw.service.impl;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
-import java.util.Map;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -38,7 +35,6 @@ import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.service.RecordService;
 import com.asiainfo.draw.util.Command;
 import com.asiainfo.draw.util.DefaultPrizePoolFactory;
-import com.asiainfo.draw.util.ParticipantPrize;
 import com.asiainfo.draw.util.PrizePool;
 import com.asiainfo.draw.util.PrizePoolFactory;
 
@@ -92,12 +88,6 @@ public class LinkServiceImpl implements LinkService {
 
 		logger.info("环节初始化->环节参与人员列表默认为空.");
 		currentLinkCache.put(CurrentLinkCache.CURRENT_PARTICIPANTS, new ArrayList<Participant>());
-
-		logger.info("环节初始化->环节中奖记录为空.");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_HIT, new HashMap<Integer, DrawPrize>());
-
-		logger.info("环节初始化->环节摇奖记录为空.");
-		currentLinkCache.put(CurrentLinkCache.CURRENT_SHAKE, new HashSet<Integer>());
 
 		// 刚初始化时，当前环节不能抽奖
 		logger.info("环节初始化->环节状态设置为：{}.", LinkState.INIT);
@@ -206,7 +196,6 @@ public class LinkServiceImpl implements LinkService {
 	/**
 	 * 结束当前环节
 	 */
-	@SuppressWarnings("unchecked")
 	private void finishCurrentLink() {
 		DrawLink currentLink = null;
 		try {
@@ -217,29 +206,6 @@ public class LinkServiceImpl implements LinkService {
 		if (currentLink != null) {
 			// 把当前环节的开关关闭
 			currentLinkCache.put(CurrentLinkCache.CURRENT_STATE, LinkState.FINISH);
-			Map<Integer, DrawPrize> currentHits = null;
-			try {
-				currentHits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-			} catch (Exception e) {
-				logger.warn(">>错误信息：{}", e);
-			}
-			// 记录环节中奖记录
-			if (currentHits != null && currentHits.size() > 0) {
-				List<WinningRecord> records = new ArrayList<WinningRecord>();
-				for (Map.Entry<Integer, DrawPrize> hit : currentHits.entrySet()) {
-
-					WinningRecord winningRecord = new WinningRecord();
-					// 中奖环节
-					winningRecord.setLinkId(currentLink.getLinkId());
-					// 用户ID
-					winningRecord.setParticipantId(hit.getKey());
-					// 奖品ID
-					winningRecord.setPrizeId(hit.getValue().getPrizeId());
-					records.add(winningRecord);
-				}
-				logger.info(">>记录当前环节中奖记录...");
-				recordService.saveRecord(records);
-			}
 			// 清空当前缓存
 			currentLinkCache.invalidateAll();
 			// 环节状态设置为已结束
@@ -291,12 +257,8 @@ public class LinkServiceImpl implements LinkService {
 	 * 
 	 * @return
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<ParticipantPrize> getCurrnetLinkHitPrize() {
-
-		List<ParticipantPrize> participantPrizes = new ArrayList<ParticipantPrize>();
-
+	public List<WinningRecord> getCurrnetLinkHitPrize() {
 		// 当前环节
 		DrawLink currentLink = null;
 		try {
@@ -304,25 +266,13 @@ public class LinkServiceImpl implements LinkService {
 		} catch (Exception e) {
 			logger.info("当前环节已结束！");
 		}
-
+		List<WinningRecord> records = new ArrayList<WinningRecord>();
 		// 当前环节进行中时，才有必要返回当前环节的中奖纪录
 		if (currentLink != null) {
 			// 环节中奖纪录
-			Map<Integer, DrawPrize> hits = (Map<Integer, DrawPrize>) currentLinkCache.get(CurrentLinkCache.CURRENT_HIT);
-
-			for (Map.Entry<Integer, DrawPrize> hit : hits.entrySet()) {
-				// 参与人员
-				Participant participant = participantCache.get(hit.getKey());
-				// 奖品
-				DrawPrize prize = hit.getValue();
-				ParticipantPrize participantPrize = new ParticipantPrize(currentLink.getLinkName(),
-						participant.getParticipantName(), prize.getPrizeType(), prize.getPrizeName());
-				// 加入列表
-				participantPrizes.add(participantPrize);
-			}
+			records = recordService.getRecordByParticipantNameAndLinkId(null, currentLink.getLinkId());
 		}
-
-		return participantPrizes;
+		return records;
 	}
 
 	@Override

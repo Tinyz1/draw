@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.asiainfo.draw.domain.DrawLink;
 import com.asiainfo.draw.domain.LinkItem;
+import com.asiainfo.draw.domain.WinningRecord;
 import com.asiainfo.draw.exception.StartLinkException;
 import com.asiainfo.draw.service.LinkService;
 import com.asiainfo.draw.util.DefaultResult;
-import com.asiainfo.draw.util.ParticipantPrize;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -125,7 +125,7 @@ public class LinkController {
 	 */
 	@RequestMapping("/currentHits")
 	@ResponseBody
-	public List<ParticipantPrize> getCurrnetLinkHitPrize() {
+	public List<WinningRecord> getCurrnetLinkHitPrize() {
 		return linkService.getCurrnetLinkHitPrize();
 	}
 
@@ -157,7 +157,7 @@ public class LinkController {
 	@ResponseBody
 	public List<DrawLink> getAllLink() {
 		List<DrawLink> links = linkService.getAll();
-		//logger.info(links.toString());
+		// logger.info(links.toString());
 		return links;
 	}
 

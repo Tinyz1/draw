@@ -37,6 +37,6 @@ public interface RecordService {
 	 *            环节ID
 	 * @return 中奖记录
 	 */
-	List<WinningRecord> getRecordByParticipantNameAndLinkId(String partcipantName, Integer linkId);
+	List<WinningRecord> getRecordByParticipantNameAndLinkId(String participantName, Integer linkId);
 
 }

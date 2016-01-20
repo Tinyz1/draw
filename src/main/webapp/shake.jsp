@@ -140,9 +140,9 @@
 			 	});
 			}
 			
-			/* $('#shakeBtn').show().click(function(){
-					shake();
-			}); */
+			$('#shakeBtn').show().click(function(){
+				shake();
+			});
 			
 			$(".exit").click(function(){
 				localStorage.removeItem('enterNumber');

@@ -39,11 +39,11 @@ public class RecordServiceImpl implements RecordService {
 
 	@Override
 	@Transactional(readOnly = true)
-	public List<WinningRecord> getRecordByParticipantNameAndLinkId(String partcipantName, Integer linkId) {
+	public List<WinningRecord> getRecordByParticipantNameAndLinkId(String participantName, Integer linkId) {
 		WinningRecordExample recordExample = new WinningRecordExample();
 		Criteria criteria = recordExample.createCriteria();
-		if (StringUtils.isNotBlank(partcipantName)) {
-			criteria.andParticipantNameLike(partcipantName.trim() + "%");
+		if (StringUtils.isNotBlank(participantName)) {
+			criteria.andParticipantNameLike(participantName.trim() + "%");
 		}
 		if (linkId != null) {
 			criteria.andLinkIdEqualTo(linkId);

@@ -22,12 +22,12 @@ public final class Prize implements Serializable {
 	/**
 	 * 未中奖规格
 	 */
-	public static final String SPEC_MISS = "再接再厉";
+	public static final String SPEC_MISS = "很遗憾";
 
 	/**
 	 * 未中奖信息
 	 */
-	public static final String MESS_MISS = "使劲摇还是要有的，万一中奖了呢？";
+	public static final String MESS_MISS = "您不能参与当前抽奖环节！";
 
 	/**
 	 * 当前抽奖环节已结束
@@ -38,7 +38,7 @@ public final class Prize implements Serializable {
 	 * 当前抽奖环节未开始
 	 */
 	public static final int INIT = 4;
-	
+
 	/**
 	 * 其他信息
 	 */
