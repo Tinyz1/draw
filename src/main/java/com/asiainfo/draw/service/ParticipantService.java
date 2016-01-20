@@ -1,6 +1,7 @@
 package com.asiainfo.draw.service;
 
 import java.util.List;
+import java.util.Set;
 
 import com.asiainfo.draw.domain.Participant;
 
@@ -61,7 +62,7 @@ public interface ParticipantService {
 	 * 
 	 * @param participants
 	 */
-	void subShakeTime(List<Participant> participants);
+	void subShakeTime(Set<Participant> participants);
 
 	/**
 	 * 查询抽奖机会大于1的用户

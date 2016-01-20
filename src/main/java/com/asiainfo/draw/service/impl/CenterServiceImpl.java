@@ -69,18 +69,12 @@ public class CenterServiceImpl implements CenterService {
 
 	@Override
 	public void commitPicNum() {
-
 		// 初始化奖池
 		linkService.initPool();
-
 		// 启动抽奖
 		linkService.startCurrentLink();
-
 		// 跳转至中奖展示界面
-		Command command = new Command();
-		command.setType(Command.COMMAND_REDIRECT);
-		command.setUrl("LuckyList.jsp");
-		redirectCache.put(CommandCache.CURRENT_COMMAND, command);
+		redirectCache.put(CommandCache.CURRENT_COMMAND, Command.redirect("LuckyList.jsp"));
 	}
 
 }

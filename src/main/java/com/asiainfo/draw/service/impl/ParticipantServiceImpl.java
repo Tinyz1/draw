@@ -64,11 +64,8 @@ public class ParticipantServiceImpl implements ParticipantService {
 
 	@Override
 	public void auth(String participantName, String enterNum) {
-		logger.info(participantName);
 		checkNotNull(participantName);
-		logger.info(enterNum);
 		checkNotNull(enterNum);
-
 		// 缓存中读取用户
 		try {
 			Participant participant = participantCache.get(participantName);
@@ -148,14 +145,14 @@ public class ParticipantServiceImpl implements ParticipantService {
 		} catch (Exception e) {
 			logger.error("当前环节不存在！");
 		}
-		checkNotNull(currentLink);
-		List<LinkMember> members = memberService.getMemberByLinkIdAndState(currentLink.getLinkId(), LinkMember.STATE_CONFIRM);
 
 		List<Participant> participants = new ArrayList<Participant>();
-		if (members != null && members.size() > 0) {
-			for (LinkMember member : members) {
-				Integer participantId = member.getParticipantId();
-				participants.add(participantCache.get(participantId));
+		if (currentLink != null) {
+			List<LinkMember> members = memberService.getMemberByLinkIdAndState(currentLink.getLinkId(), LinkMember.STATE_CONFIRM);
+			if (members != null && members.size() > 0) {
+				for (LinkMember member : members) {
+					participants.add(participantCache.get( member.getParticipantId()));
+				}
 			}
 		}
 		return participants;
@@ -217,11 +214,13 @@ public class ParticipantServiceImpl implements ParticipantService {
 	}
 
 	@Override
-	public void subShakeTime(List<Participant> participants) {
+	public void subShakeTime(Set<Participant> participants) {
 		checkArgument(participants != null && participants.size() > 0);
 		for (Participant participant : participants) {
 			checkNotNull(participant);
-			participant.setState(participant.getState() - 1 >= 0 ? participant.getState() - 1 : participant.getState());
+			int times = participant.getState();
+			times--;
+			participant.setState(times);
 			participantMapper.updateByPrimaryKeySelective(participant);
 		}
 	}

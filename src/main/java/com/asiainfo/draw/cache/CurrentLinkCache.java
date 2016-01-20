@@ -57,7 +57,6 @@ public class CurrentLinkCache {
 	private Cache<String, Object> cache = CacheBuilder.newBuilder().build();
 
 	public synchronized void put(String key, Object value) {
-		logger.info("加入缓存->key:{},value:{}", key, value);
 		cache.put(key, value);
 	}
 
@@ -73,7 +72,6 @@ public class CurrentLinkCache {
 		} catch (ExecutionException e) {
 			logger.error(e.toString());
 		}
-		logger.info("获取缓存->key:{},value:{}", key, value);
 		return value;
 	}
 

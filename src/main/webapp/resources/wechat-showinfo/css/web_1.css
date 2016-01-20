@@ -62,28 +62,29 @@ html, body {
 }
 
 .content>img {
-	width: 472px;
-	left: 50%;
-	top: 2%;
-	margin-left: -236px;
-	position: fixed;
+	width: 500px;
+    left: 48%;
+    top: 15%;
+    margin-left: -236px;
+    position: fixed;
 }
 
 .content>p {
-	width: 169px;
-	left: 50%;
-	top: 80%;
-	margin-left: -85px;
-	position: fixed;
-	font-size: 18px;
+	width: 200px;
+    left: 49%;
+    top: 80%;
+    margin-left: -85px;
+    position: fixed;
+    font-size: 20px;
 }
 
 .content>h1 {
-	width: 290px;
-	left: 50%;
-	top: 85%;
-	margin-left: -142px;
-	position: fixed;
+	width: 400px;
+    left: 45%;
+    top: 85%;
+    margin-left: -142px;
+    position: fixed;
+    font-size: 40px;
 }
 
 .btn-s {

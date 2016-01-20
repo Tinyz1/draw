@@ -87,13 +87,19 @@
 				// 获取用户名称数组
 				var arrs = data;
 				var html = "";
-				// 遍历用户数组数据
-				for (var i = 0; i < arrs.length; i++) {
-					var arr = arrs[i];
-					html += '<li style="margin:10px 0 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
+				if(arrs.length === 20){
+					for (var i = 0; i < arrs.length; i++) {
+						var arr = arrs[i];
+						html += '<li style="margin:10px 0 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
+						+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
+						+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
+					}
+				}else if(arrs.length === 2){
+					
+				}else if(arrs.length === 3){
+					
+				}else if(arrs.length === 10){
 					
 				}
 				$("#listUl").append(html);

@@ -3,7 +3,9 @@ package com.asiainfo.draw.service.impl;
 import static com.google.common.base.Preconditions.checkNotNull;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
@@ -135,7 +137,7 @@ public class LinkServiceImpl implements LinkService {
 			memberService.confirm(members);
 
 			/* 抽奖机会减少1次 */
-			List<Participant> participants = new ArrayList<Participant>();
+			Set<Participant> participants = new HashSet<Participant>();
 			for (LinkMember member : members) {
 				participants.add(participantCache.get(member.getParticipantId()));
 			}
@@ -175,7 +177,6 @@ public class LinkServiceImpl implements LinkService {
 		// 环节ID相等
 		prizeExample.createCriteria().andLinkIdEqualTo(linkId);
 		List<DrawPrize> prizes = prizeMapper.selectByExample(prizeExample);
-		logger.debug("<<==查询条件：linkId->{}，查询结果：{}", linkId, prizes);
 		return prizes;
 	}
 
@@ -205,16 +206,6 @@ public class LinkServiceImpl implements LinkService {
 		DrawLink link = linkMapper.selectByPrimaryKey(linkId);
 		link.setLinkState(3); // 环节标志设置为3(已结束)
 		linkMapper.updateByPrimaryKeySelective(link);
-		DrawLink currentLink = null;
-		try {
-			currentLink = (DrawLink) currentLinkCache.get(CurrentLinkCache.CURRENT_LINK);
-		} catch (Exception e) {
-			logger.error("当前环节不存在！");
-		}
-		// 存在当前环节，并且结合环节为当前环节时，把当前环节结束
-		if (currentLink != null && linkId.equals(currentLink.getLinkId())) {
-			finishCurrentLink();
-		}
 	}
 
 	@Override
@@ -270,7 +261,6 @@ public class LinkServiceImpl implements LinkService {
 	public List<DrawLink> getAll() {
 		DrawLinkExample linkExample = new DrawLinkExample();
 		List<DrawLink> links = linkMapper.selectByExample(linkExample);
-		logger.info(links.toString());
 		return links;
 	}
 
@@ -308,7 +298,7 @@ public class LinkServiceImpl implements LinkService {
 
 		// 目的：为了获取新增数据的ID
 		DrawLinkExample linkExample = new DrawLinkExample();
-		linkExample.createCriteria().andLinkNameEqualTo(item.getLinkName());
+		linkExample.createCriteria().andLinkNameEqualTo(item.getLinkName()).andEnterNumberEqualTo(link.getEnterNumber());
 		link = linkMapper.selectByExample(linkExample).get(0);
 
 		// 新增奖品

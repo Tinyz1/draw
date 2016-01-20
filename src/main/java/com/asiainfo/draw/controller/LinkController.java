@@ -37,7 +37,6 @@ public class LinkController {
 	public DefaultResult add(String linkItem) {
 		DefaultResult result = null;
 		try {
-			logger.info(linkItem);
 			ObjectMapper mapper = new ObjectMapper();
 			LinkItem item = mapper.readValue(linkItem, LinkItem.class);
 			linkService.add(item);
@@ -156,9 +155,7 @@ public class LinkController {
 	@RequestMapping("/all")
 	@ResponseBody
 	public List<DrawLink> getAllLink() {
-		List<DrawLink> links = linkService.getAll();
-		// logger.info(links.toString());
-		return links;
+		return linkService.getAll();
 	}
 
 }
