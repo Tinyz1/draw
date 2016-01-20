@@ -6144,3 +6144,357 @@
 205356 [http-bio-8080-exec-11] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
 206362 [http-bio-8080-exec-11] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
 207359 [http-bio-8080-exec-11] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111]
+287  [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization started
+430  [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing Root WebApplicationContext: startup date [Wed Jan 20 14:24:25 CST 2016]; root of context hierarchy
+481  [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/root-context.xml]
+1296 [localhost-startStop-1] INFO  o.s.c.s.PropertySourcesPlaceholderConfigurer - Loading properties file from class path resource [jdbc.properties]
+1309 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+2825 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 开始加载用户缓存->
+3552 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 1, 参与人员: Participant [participantId=1, participantName=赵林刚, state=2]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵林刚, 参与人员: Participant [participantId=1, participantName=赵林刚, state=2]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 2, 参与人员: Participant [participantId=2, participantName=魏波刚, state=1]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 魏波刚, 参与人员: Participant [participantId=2, participantName=魏波刚, state=1]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 4, 参与人员: Participant [participantId=4, participantName=汪小峰, state=1]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 汪小峰, 参与人员: Participant [participantId=4, participantName=汪小峰, state=1]
+3556 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 9, 参与人员: Participant [participantId=9, participantName=刘鹏刚, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 刘鹏刚, 参与人员: Participant [participantId=9, participantName=刘鹏刚, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 10, 参与人员: Participant [participantId=10, participantName=马志杰, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 马志杰, 参与人员: Participant [participantId=10, participantName=马志杰, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 11, 参与人员: Participant [participantId=11, participantName=蒋亚芹, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 蒋亚芹, 参与人员: Participant [participantId=11, participantName=蒋亚芹, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 12, 参与人员: Participant [participantId=12, participantName=高婷婷, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 高婷婷, 参与人员: Participant [participantId=12, participantName=高婷婷, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 13, 参与人员: Participant [participantId=13, participantName=张三刚, state=1]
+3557 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 张三刚, 参与人员: Participant [participantId=13, participantName=张三刚, state=1]
+3558 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 14, 参与人员: Participant [participantId=14, participantName=李四刚, state=1]
+3558 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 李四刚, 参与人员: Participant [participantId=14, participantName=李四刚, state=1]
+3558 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 15, 参与人员: Participant [participantId=15, participantName=王五刚, state=2]
+3558 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王五刚, 参与人员: Participant [participantId=15, participantName=王五刚, state=2]
+3558 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 16, 参与人员: Participant [participantId=16, participantName=赵六刚, state=2]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 赵六刚, 参与人员: Participant [participantId=16, participantName=赵六刚, state=2]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 17, 参与人员: Participant [participantId=17, participantName=小王刚, state=2]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小王刚, 参与人员: Participant [participantId=17, participantName=小王刚, state=2]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 18, 参与人员: Participant [participantId=18, participantName=小赵刚, state=2]
+3559 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小赵刚, 参与人员: Participant [participantId=18, participantName=小赵刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 19, 参与人员: Participant [participantId=19, participantName=小李刚, state=1]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小李刚, 参与人员: Participant [participantId=19, participantName=小李刚, state=1]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 20, 参与人员: Participant [participantId=20, participantName=华东刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华东刚, 参与人员: Participant [participantId=20, participantName=华东刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 21, 参与人员: Participant [participantId=21, participantName=华南刚, state=2]
+3560 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华南刚, 参与人员: Participant [participantId=21, participantName=华南刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 22, 参与人员: Participant [participantId=22, participantName=华北刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华北刚, 参与人员: Participant [participantId=22, participantName=华北刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 23, 参与人员: Participant [participantId=23, participantName=华西刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 华西刚, 参与人员: Participant [participantId=23, participantName=华西刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 24, 参与人员: Participant [participantId=24, participantName=袁成刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 袁成刚, 参与人员: Participant [participantId=24, participantName=袁成刚, state=2]
+3561 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 25, 参与人员: Participant [participantId=25, participantName=小风刚, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小风刚, 参与人员: Participant [participantId=25, participantName=小风刚, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 26, 参与人员: Participant [participantId=26, participantName=谢霆锋, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 谢霆锋, 参与人员: Participant [participantId=26, participantName=谢霆锋, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 27, 参与人员: Participant [participantId=27, participantName=王宝强, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王宝强, 参与人员: Participant [participantId=27, participantName=王宝强, state=1]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 28, 参与人员: Participant [participantId=28, participantName=小小刚, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小小刚, 参与人员: Participant [participantId=28, participantName=小小刚, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 29, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=2]
+3562 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 梅兰芳, 参与人员: Participant [participantId=29, participantName=梅兰芳, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 30, 参与人员: Participant [participantId=30, participantName=王哥刚, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 王哥刚, 参与人员: Participant [participantId=30, participantName=王哥刚, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 31, 参与人员: Participant [participantId=31, participantName=小子, state=1]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 小子, 参与人员: Participant [participantId=31, participantName=小子, state=1]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 32, 参与人员: Participant [participantId=32, participantName=叶春林, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: 叶春林, 参与人员: Participant [participantId=32, participantName=叶春林, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 33, 参与人员: Participant [participantId=33, participantName=ais, state=2]
+3563 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: ais, 参与人员: Participant [participantId=33, participantName=ais, state=2]
+3564 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员ID: 34, 参与人员: Participant [participantId=34, participantName=mm, state=2]
+3564 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 写入缓存->参与人员姓名: mm, 参与人员: Participant [participantId=34, participantName=mm, state=2]
+3564 [localhost-startStop-1] INFO  c.a.draw.cache.ParticipantCache - 加载用户缓存结束->
+3783 [localhost-startStop-1] INFO  o.s.web.context.ContextLoader - Root WebApplicationContext: initialization completed in 3492 ms
+3849 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization started
+3853 [localhost-startStop-1] INFO  o.s.w.c.s.XmlWebApplicationContext - Refreshing WebApplicationContext for namespace 'appServlet-servlet': startup date [Wed Jan 20 14:24:28 CST 2016]; parent: Root WebApplicationContext
+3854 [localhost-startStop-1] INFO  o.s.b.f.xml.XmlBeanDefinitionReader - Loading XML bean definitions from ServletContext resource [/WEB-INF/spring/appServlet/servlet-context.xml]
+4131 [localhost-startStop-1] INFO  o.s.b.f.a.AutowiredAnnotationBeanPostProcessor - JSR-330 'javax.inject.Inject' annotation found and supported for autowiring
+4444 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/user.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.user()
+4446 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/home.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.home()
+4446 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkSet.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkSet()
+4447 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/linkCtr.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.linkCtr()
+4447 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/person.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.person()
+4448 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/prizeuser.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.prizeuser()
+4448 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/draw.html]}" onto public java.lang.String com.asiainfo.draw.controller.CenterController.draw()
+4448 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/start]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickStart()
+4449 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/end]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickEnd()
+4449 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/commit]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickCommit()
+4450 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/pick/num]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.CenterController.pickNum(java.lang.Integer)
+4450 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/center/getCommand]}" onto public com.asiainfo.draw.util.Command com.asiainfo.draw.controller.CenterController.getCommand()
+4453 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/draw/pick]}" onto public com.asiainfo.draw.util.Prize com.asiainfo.draw.controller.DrawController.pick(java.lang.String,java.lang.String)
+4461 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/add]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.add(java.lang.String)
+4462 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/init]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.init(java.lang.Integer)
+4462 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/reset]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.reset(java.lang.Integer)
+4463 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/current]}" onto public com.asiainfo.draw.domain.DrawLink com.asiainfo.draw.controller.LinkController.current()
+4463 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/finish]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.finish(java.lang.Integer)
+4464 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/all]}" onto public java.util.List<com.asiainfo.draw.domain.DrawLink> com.asiainfo.draw.controller.LinkController.getAllLink()
+4464 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/initPool]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.LinkController.initPool()
+4465 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/link/currentHits]}" onto public java.util.List<com.asiainfo.draw.domain.WinningRecord> com.asiainfo.draw.controller.LinkController.getCurrnetLinkHitPrize()
+4468 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/member/link/{linkId}],methods=[GET]}" onto public java.util.List<com.asiainfo.draw.domain.LinkMember> com.asiainfo.draw.controller.MemberController.getMemberByLinkAndState(java.lang.Integer)
+4472 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/add],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.add(java.lang.String)
+4473 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/auth],methods=[POST]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.auth(java.lang.String,java.lang.String)
+4474 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/participants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentlinkParticipant()
+4474 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/pickParticipants]}" onto public java.util.List<com.asiainfo.draw.domain.Participant> com.asiainfo.draw.controller.ParticipantController.getCurrentPickParticipant()
+4475 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/participant/current/addPickParticipant]}" onto public com.asiainfo.draw.util.DefaultResult com.asiainfo.draw.controller.ParticipantController.addPickParticipant(java.lang.String)
+4476 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerMapping - Mapped "{[/record/query]}" onto public java.util.List<com.asiainfo.draw.domain.WinningRecord> com.asiainfo.draw.controller.RecordController.add(java.lang.String,java.lang.Integer)
+5129 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Wed Jan 20 14:24:28 CST 2016]; parent: Root WebApplicationContext
+5260 [localhost-startStop-1] INFO  o.s.w.s.m.m.a.RequestMappingHandlerAdapter - Looking for @ControllerAdvice: WebApplicationContext for namespace 'appServlet-servlet': startup date [Wed Jan 20 14:24:28 CST 2016]; parent: Root WebApplicationContext
+5449 [localhost-startStop-1] INFO  o.s.w.s.h.SimpleUrlHandlerMapping - Mapped URL path [/resources/**] onto handler 'org.springframework.web.servlet.resource.ResourceHttpRequestHandler#0'
+5677 [localhost-startStop-1] INFO  o.s.web.servlet.DispatcherServlet - FrameworkServlet 'appServlet': initialization completed in 1827 ms
+6049 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6050 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6049 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6057 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6061 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6061 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6306 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6306 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6324 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6325 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6331 [http-bio-8080-exec-2] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6332 [http-bio-8080-exec-2] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6355 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6355 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6370 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6370 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6389 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6389 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6390 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6391 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6397 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6398 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6425 [http-bio-8080-exec-3] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6425 [http-bio-8080-exec-3] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6434 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6434 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+6923 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+6924 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+7922 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+7923 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+8923 [http-bio-8080-exec-7] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+8924 [http-bio-8080-exec-7] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+9184 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+9184 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+10920 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+10920 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+11922 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+11922 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+12922 [http-bio-8080-exec-8] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+12923 [http-bio-8080-exec-8] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+13924 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+13924 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+14449 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=2, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+14926 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+14927 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+15921 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+15921 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+16923 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+16924 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+17926 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+17926 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+18925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+18925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+19925 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+19925 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+20921 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+20921 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+21925 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+21926 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+22921 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+22921 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+22955 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+22955 [http-bio-8080-exec-4] ERROR c.a.d.service.impl.LinkServiceImpl - 当前环节不存在！
+23912 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=3, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+23926 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+23926 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+24921 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+24921 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+25631 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+25922 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+25922 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+26925 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+26925 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+27932 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+27932 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+28920 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+28921 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+29922 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+29922 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+30928 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+30929 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+31923 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+31924 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+32926 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+32926 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+33925 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+33925 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+34792 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+34921 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+34922 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+35922 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+35923 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+36925 [http-bio-8080-exec-4] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+36926 [http-bio-8080-exec-4] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+37921 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+37921 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+38924 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+38924 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+39922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+39922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+40921 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+40921 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+41924 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+41925 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+42923 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+42924 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+43921 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+43921 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+44925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+44925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+45922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+45922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+46929 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+46930 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+47925 [http-bio-8080-exec-5] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+47925 [http-bio-8080-exec-5] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+48926 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+48926 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+49926 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+49926 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+50921 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+50922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+51925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+51925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+52926 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+52927 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+53925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+53925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+54924 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+54924 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+55924 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+55924 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+56921 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+56922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+57926 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+57927 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+58930 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+58930 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+59925 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+59925 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+60922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+60923 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+61922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+61923 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+62921 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+62921 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+63921 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+63921 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+64920 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+64921 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+65924 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+65925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+66923 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+66923 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+67925 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+67925 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+68925 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+68925 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+69868 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+69925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+69926 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+70923 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+70923 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+71926 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+71926 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+72922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+72922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+73923 [http-bio-8080-exec-10] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+73923 [http-bio-8080-exec-10] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+74929 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+74930 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+75926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+75927 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+76922 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+76922 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+77925 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+77925 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+78921 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+78921 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+79927 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+79927 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+80925 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+80925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+81923 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+81923 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+82926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+82926 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+83924 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+83924 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+84928 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+84928 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+85431 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+85929 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+85930 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+86647 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+86922 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+86922 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+87744 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+87926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+87926 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+88471 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+88926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+88927 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+88978 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+89463 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+89925 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+89959 [http-bio-8080-exec-6] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+89960 [http-bio-8080-exec-6] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+90412 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+90774 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+90926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+90926 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+91221 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+91622 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+91924 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+91924 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+92081 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+92721 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+92922 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+92922 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+93925 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+93926 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+94925 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+94925 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+95925 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+95925 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+96930 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+96930 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+97928 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+97928 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+98758 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+98759 [http-bio-8080-exec-9] ERROR com.asiainfo.draw.aop.ExecuteLogger - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+98761 [http-bio-8080-exec-9] ERROR c.a.draw.controller.LinkController - java.lang.ClassCastException: java.lang.String cannot be cast to com.asiainfo.draw.domain.DrawLink
+98922 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+98922 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+99927 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+99927 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+100925 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+100926 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+101729 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+101923 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+101923 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+102490 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+102927 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+102928 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+103355 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - [DrawLink [linkId=1, linkName=抽奖(1), openState=1, linkOrder=1, linkState=1, enterNumber=1111], DrawLink [linkId=2, linkName=抽奖(2), openState=1, linkOrder=2, linkState=1, enterNumber=2222], DrawLink [linkId=3, linkName=抽奖(3), openState=1, linkOrder=3, linkState=1, enterNumber=3333], DrawLink [linkId=4, linkName=抽奖(4), openState=1, linkOrder=4, linkState=1, enterNumber=4444], DrawLink [linkId=5, linkName=抽奖(5), openState=1, linkOrder=5, linkState=1, enterNumber=5555]]
+103926 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+103926 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+104926 [http-bio-8080-exec-9] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+104926 [http-bio-8080-exec-9] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！
+105930 [http-bio-8080-exec-1] INFO  c.a.draw.cache.ParticipantCache - 获取缓存->key:com.asiainfo.draw.cache.CurrentLinkCache.link,value:
+105930 [http-bio-8080-exec-1] INFO  c.a.d.service.impl.LinkServiceImpl - 当前环节已结束！

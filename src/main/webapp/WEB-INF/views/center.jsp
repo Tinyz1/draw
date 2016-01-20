@@ -23,6 +23,8 @@
 					  <li role="presentation"><a href="#draw">抽奖控制</a></li>
 					  <li role="presentation"><a href="#linkSet">环节配置</a></li>
 					  <li role="presentation"><a href="#user">人员配置</a></li>
+					  <li role="presentation"><a href="#prizeuser">中奖记录</a></li>
+					  <li role="presentation"><a href="#person">环节人员</a></li>
 					</ul>
 				</div>
 				
@@ -77,6 +79,16 @@
 						case 'user':{
 							console.log('人员配置');
 							setIframeSrc('user.html');
+							break;
+						}
+						case 'prizeuser':{
+							console.log('中奖查询');
+							setIframeSrc('prizeuser.html');
+							break;
+						}
+						case 'person':{
+							console.log('环节人员查询');
+							setIframeSrc('person.html');
 							break;
 						}
 	   				}

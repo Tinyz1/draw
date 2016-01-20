@@ -45,7 +45,16 @@ public class CenterController {
 	public String user() {
 		return "user";
 	}
-
+	@RequestMapping(value = "/prizeuser.html")
+	public String prizeuser() {
+		return "prizeuser";
+	}
+	@RequestMapping(value = "/person.html")
+	public String person() {
+		return "person";
+	}
+	
+	
 	@RequestMapping(value = "/pick/num")
 	@ResponseBody
 	public DefaultResult pickNum(Integer partnum) {
