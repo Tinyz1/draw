@@ -75,19 +75,30 @@
 				});
 			}
 			
+			var btn = function(link){
+				switch (link){
+				case 1:{
+					return "未确认";
+					break;
+				}
+				case 2:{
+					return "已确认";
+					break;
+				}
+				}
+			}
 			
 			$('#submit').click(function(){
-				var name = $("#name").val();
 				var select = $("#select").val() == '请选择环节' ? '' :$("#select").val();
-				var url = '<%=contextPath%>' + '/record/query';
+				var url = '<%=contextPath%>' + '/member/link/'+select;
 				var html = "";
-				$.post(url,{"partcipantName":name,"linkId":select}, function(data) {
+				$.get(url,function(data) {
 					if(data.length > 0){
 						$.each(data, function(i, n){
 							html += '<tr>'+
 										'<td>'+n.linkName+'</td>'+
 										'<td>'+n.participantName+'</td>'+
-										'<td>'+n.state+'</td>'+
+										'<td>'+btn(n.state)+'</td>'+
 										'</tr>';
 						});
 						$('#allLink').html(html);
