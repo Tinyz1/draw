@@ -139,7 +139,8 @@ public class LinkServiceImpl implements LinkService {
 			/* 抽奖机会减少1次 */
 			Set<Participant> participants = new HashSet<Participant>();
 			for (LinkMember member : members) {
-				participants.add(participantCache.get(member.getParticipantId()));
+				Participant participant = participantService.getByParticipantId(member.getParticipantId());
+				participants.add(participant);
 			}
 			participantService.subShakeTime(participants);
 

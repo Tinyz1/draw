@@ -6,17 +6,15 @@
 	<title>获奖人员展示</title>
 	<script src="resources/wechat-showinfo/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/wechat-showinfo/css/web.css">
+	<script src="resources/js/login.js"></script>
 </head>
 <body>
 	<div class="wrap">
 	
 		<div class="header">
-			<img src="resources/wechat-showinfo/img/bg.png">	
+			<img src="resources/image/bg-prize2.jpg">	
 			<div class="header-div">
 			</div>		
-		</div>
-		<div class="footer">
-			<img src="resources/wechat-showinfo/img/foot.png">
 		</div>
 		
 		<div class="content list" id="hahh">
@@ -27,27 +25,45 @@
 			</div> -->
 		</div>
 		
-		<p class="footP">CMC&BDX上海年会</p>
-		<h1 class="footH">万众一信 · 筑梦起航</h1>
-		
 	</div>
 	<script type="text/javascript">
+	
+		var storage = getLocalStorage();
+		var identity = storage.getItem('identity');
+	
+		var command = false;
+		if(identity === null){
+			var identity = prompt('您的身份?');
+			if(identity === ''){
+				identity = 'guest';
+			}else{
+				storage.setItem('identity', identity);
+			}
+			command = true;
+		}else{
+			command = true;
+		}
 		init();
 		
 		var linkId ="";
 		var storeData = [];
+		
+		var arrs = [];
+		
 		var flag = true;
 		
 		setInterval("redirect()",1000);
 		function redirect(){
-			$.get('center/getCommand', function(data){
-				if(data.type == 'NULL'){
-					// 空指令，不做任何事情
-				}else if(data.type == 'REDIRECT'){
-					//跳转到指定页面
-					window.open(data.url,"_self");
-				}
-			});	
+			if(command){
+				$.get('center/getCommand/' + identity, function(data){
+					if(data.type == 'NULL'){
+						// 空指令，不做任何事情
+					}else if(data.type == 'REDIRECT'){
+						//跳转到指定页面
+						window.open(data.url,"_self");
+					}
+				});	
+			}
 			if(flag){
 				$.post("link/currentHits", function (data){
 					flag = false;
@@ -57,8 +73,36 @@
 						var prizeType = data[i].prizeType;
 						if(!contains(storeData, name)){
 							storeData.push(name);
-							$("#"+name).html('<div><strong style="color: yellow;display: inline-block;text-align: center;line-height: 36px;width: 125px;font-size: 25px;">'+prizeName+'</strong></div>');
-							$("#"+name).next("img.shake").hide();
+							// <strong style="color: yellow;display: inline-block;text-indent:17px;line-height: 36px;width: 125px;font-size: 25px;">'+prizeName+'</strong>
+							// 每一行显示四个字符
+							var str = prizeName.split(" ");
+							var prize = "";
+							if(str.length){
+								var len = arrs.length;
+								if(len === 2){
+									for(var i = 0; i < str.length; i++){
+										prize += '<p style="color: yellow;line-height: 45px;text-indent:15px;width: 125px;font-size: 27px;">'+ str[i] +'</p>'
+									}
+								}else if(len === 3){
+									for(var i = 0; i < str.length; i++){
+										prize += '<p style="color: yellow;line-height: 35px;text-indent:-5px;width: 125px;font-size: 26px;">'+ str[i] +'</p>'
+									}
+								}else if(len === 4){
+									for(var i = 0; i < str.length; i++){
+										prize += '<p style="color: yellow;line-height: 32px;text-indent:-5px;width: 125px;font-size: 25px;">'+ str[i] +'</p>'
+									}
+								}else if(len === 8){
+									for(var i = 0; i < str.length; i++){
+										prize += '<p style="color: yellow;line-height: 28px;text-indent:-10px;width: 125px;font-size: 23px;">'+ str[i] +'</p>'
+									}
+								}else{
+									for(var i = 0; i < str.length; i++){
+										prize += '<p style="color: yellow;line-height: 23px;text-indent:-20px;width: 125px;font-size: 20px;">'+ str[i] +'</p>'
+									}
+								}
+							}
+							$("#"+name).html('<div>'+prize+'</div>');
+							$("#"+name).next().next("img.shake").hide();
 						}
 					}
 					flag = true;
@@ -85,56 +129,60 @@
 			});
 			$.post("participant/current/pickParticipants",function (data){
 				// 获取用户名称数组
-				var arrs = data;
+				arrs = data;
 				var html = "";
 				if(arrs.length === 2){
-					var arr = arrs[0];
-					html += '<li style="width:100%;margin:90px 42%; 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
-					
-					var arr = arrs[1];
-					html += '<li style="width:100%;margin:90px 42%; 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
-					
+					for (var i = 0; i < arrs.length; i++) {
+						var arr = arrs[i];
+						html += '<li style="width:40%;left:45px"><p id='+arr.participantName+' style="width:320px; height:95px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:150px; height:30px; text-align:center;letter-space:5px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:110px" /></li>';
+					}
+					$("#listUl").addClass("martop-3");
 				}else if(arrs.length === 3){
-					
-					var arr = arrs[0];
-					html += '<li style="width:100%;margin:90px 42%; 90px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
-					
-					var arr = arrs[1];
-					html += '<li style=";margin:50px 100px 80px 26%;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
-					
-					var arr = arrs[2];
-					html += '<li style="margin:50px 10% 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-					+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-					+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-					+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
-					
+					for (var i = 0; i < arrs.length; i++) {
+						var arr = arrs[i];
+						html += '<li style="width:25%;left:28px"><p id='+arr.participantName+' style="width:260px; height:95px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:120px; height:30px; text-align:center;letter-space:5px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:87px" /></li>';
+					}
+					$("#listUl").addClass("martop-3");
+				}else if(arrs.length === 4){
+					for (var i = 0; i < arrs.length; i++) {
+						var arr = arrs[i];
+						html += '<li style="width:22%;left:"><p id='+arr.participantName+' style="width:235px; height:80px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:120px; height:30px; text-align:center;letter-space:5px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:83px" /></li>';
+					}
+					$("#listUl").addClass("martop-4");
+				}else if(arrs.length === 8){
+					for (var i = 0; i < arrs.length; i++) {
+						var arr = arrs[i];
+						html += '<li style="width:22%;margin-bottom:100px;"><p id='+arr.participantName+' style="width:235px; height:60px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:120px; height:30px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:80px;"></li>';
+					}
+					$("#listUl").addClass("martop-8");
 				}else if(arrs.length === 10){
 					for (var i = 0; i < arrs.length; i++) {
 						var arr = arrs[i];
-						html += '<li style="margin:90px 0 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-						+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-						+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-						+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
+						html += '<li style="margin-bottom: 100px;"><p id='+arr.participantName+' style="width:207px; height:50px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:85px; height:30px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
 					}
+					$("#listUl").addClass("martop-10");
 				}else{
 					for (var i = 0; i < arrs.length; i++) {
 						var arr = arrs[i];
-						html += '<li style="margin:10px 0 80px 0;"><p style="color:#000;width:150px; height:30px">' + arr.participantName 
-						+ '</p><p id='+arr.participantName+' style="width:150px; height:75px;'
-						+'background:url(resources/image/sred.png) no-repeat;background-size:cover">'
-						+'</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
+						html += '<li><p id='+arr.participantName+' style="width:207px; height:50px;'
+						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
+						+'</p><p style="color:#000;width:85px; height:30px">' + arr.participantName 
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
 					}
 				}
 				$("#listUl").append(html);

@@ -62,6 +62,15 @@
 					<hr>
 				</div>
 			</div>
+			
+			
+			<div class="row">
+				<div class="col-md-12">
+					<legend class="text-danger">一键抽奖（警告！！！！危险！！！！）</legend>
+					<button id="oneclick" class="btn btn-danger">不要点击我</button>
+					<hr>
+				</div>
+			</div>
 
 		</div>
 		
@@ -141,6 +150,17 @@
 		        		});
 		    		}
 		    	});
+				
+				// 一键抽奖
+				$('#oneclick').click(function(){
+					var $this = $(this);
+		    		var url = contextPath + '/center/manual';
+		    		if(confirm("你确定要这么做吗？")){
+		        		$.post(url, function(data){
+		        			callBack($this, data);
+		        		});
+		    		}
+				});
 				
 			})(jQuery);
 		

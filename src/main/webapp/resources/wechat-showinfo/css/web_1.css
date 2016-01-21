@@ -31,7 +31,7 @@ html, body {
 .header>img {
 	width: 100%;
 	position: fixed;
-	top: -20%;
+	
 }
 
 .header-div {
@@ -350,4 +350,7 @@ input:-moz-placeholder {
 .ran {
 	position: absolute;
 	left: 110%;
+}
+.content.no-bg{
+	background: rgba(255, 255, 255, 0);
 }

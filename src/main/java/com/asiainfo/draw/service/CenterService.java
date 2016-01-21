@@ -32,6 +32,11 @@ public interface CenterService {
 	 * 
 	 * @return
 	 */
-	Command getCommand();
+	Command getCommand(String identity);
+
+	/**
+	 * Ò»¼ü³é½±
+	 */
+	void manual();
 
 }

@@ -6,6 +6,7 @@
 	<title>CMC&BDX上海年会</title>
 	<script src="resources/wechat-showinfo/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/wechat-showinfo/css/web_1.css">
+	<script src="resources/js/login.js"></script>
 </head>
 <body>
 	<div class="wrap">
@@ -22,15 +23,34 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+	
+		var storage = getLocalStorage();
+		var identity = storage.getItem('identity');
+		
+		var command = false;
+		if(identity === null){
+			var identity = prompt('您的身份?');
+			if(identity === ''){
+				identity = 'guest';
+			}else{
+				storage.setItem('identity', identity);
+			}
+			command = true;
+		}else{
+			command = true;
+		}
+	
 		setInterval("redirect()",1000);
 		function redirect(){
-			$.get('center/getCommand', function(data){
-				if(data.type == 'NULL'){
-					// 空指令，不做任何事情
-				}else if(data.type == 'REDIRECT'){
-					window.open(data.url,"_self");
-				}
-			});
+			if(command){
+				$.get('center/getCommand/' + identity, function(data){
+					if(data.type == 'NULL'){
+						// 空指令，不做任何事情
+					}else if(data.type == 'REDIRECT'){
+						window.open(data.url,"_self");
+					}
+				});
+			}
 		}
 	
 	</script>

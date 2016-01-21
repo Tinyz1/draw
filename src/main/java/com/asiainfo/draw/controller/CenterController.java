@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -45,16 +46,17 @@ public class CenterController {
 	public String user() {
 		return "user";
 	}
+
 	@RequestMapping(value = "/prizeuser.html")
 	public String prizeuser() {
 		return "prizeuser";
 	}
+
 	@RequestMapping(value = "/person.html")
 	public String person() {
 		return "person";
 	}
-	
-	
+
 	@RequestMapping(value = "/pick/num")
 	@ResponseBody
 	public DefaultResult pickNum(Integer partnum) {
@@ -73,10 +75,33 @@ public class CenterController {
 		return result;
 	}
 
-	@RequestMapping("/getCommand")
+	@RequestMapping("/getCommand/{identity}")
 	@ResponseBody
-	public Command getCommand() {
-		return centerService.getCommand();
+	public Command getCommand(@PathVariable String identity) {
+		return centerService.getCommand(identity);
+	}
+
+	/**
+	 * Ò»¼ü³é½±
+	 * 
+	 * @return
+	 */
+	@RequestMapping("/manual")
+	@ResponseBody
+	public DefaultResult manual() {
+		DefaultResult result = null;
+		try {
+			centerService.manual();
+			result = DefaultResult.newSuccessInstance(1, "³é½±³É¹¦£¡");
+		} catch (AuthenticationExceptioin e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(1, e.getMessage());
+		} catch (Exception e) {
+			logger.error(e.toString());
+			result = DefaultResult.newErrorInstance(2, "³é½±Ê§°Ü£¡");
+		}
+		logger.info(result.toString());
+		return result;
 	}
 
 	@RequestMapping(value = "/pick/start")

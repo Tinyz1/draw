@@ -151,7 +151,7 @@ public class ParticipantServiceImpl implements ParticipantService {
 			List<LinkMember> members = memberService.getMemberByLinkIdAndState(currentLink.getLinkId(), LinkMember.STATE_CONFIRM);
 			if (members != null && members.size() > 0) {
 				for (LinkMember member : members) {
-					participants.add(participantCache.get( member.getParticipantId()));
+					participants.add(participantCache.get(member.getParticipantId()));
 				}
 			}
 		}
@@ -206,11 +206,11 @@ public class ParticipantServiceImpl implements ParticipantService {
 					participant.setParticipantName(part);
 					participant.setState(1);
 					participantMapper.insert(participant);
+					// 重新加载缓存
+					participantCache.reload(part);
 				}
 			}
 		}
-		// 重新加载缓存
-		participantCache.reload();
 	}
 
 	@Override
@@ -222,6 +222,8 @@ public class ParticipantServiceImpl implements ParticipantService {
 			times--;
 			participant.setState(times);
 			participantMapper.updateByPrimaryKeySelective(participant);
+			// 修改用户时，重新加载缓存
+			participantCache.reload(participant.getParticipantId());
 		}
 	}
 

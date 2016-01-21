@@ -6,6 +6,7 @@
 	<title>人员选择</title>
 	<script src="resources/js/jquery-1.10.2.min.js"></script>
 	<link rel="stylesheet" href="resources/wechat-showinfo/css/web_1.css">
+	<script src="resources/js/login.js"></script>
 <%
 	// 当前选取人员个数
 	String partnum = request.getParameter("partnum");
@@ -14,14 +15,10 @@
 <body>
 	<div class="wrap">
 		<div class="header">
-			<img src="resources/image/bg.png">
-		</div>
-		<div class="footer">
-			<img src="resources/image/foot.png">
+			<img src="resources/image/bg-prize.jpg">
 		</div>
 		
-		<h3 style="width: 100%;text-align:center;font-size:60px;color:red;font-family:楷体;margin:30px auto;z-index: 100;position: fixed;height: 50px;">中奖人员</h3>
-		<div class="content list">
+		<div class="content no-bg list ">
 			<img class="smallImg" src="resources/image/w2016.png">
 			<ul class="listUl" style="width: 90%">
 			</ul>
@@ -29,11 +26,25 @@
 				开始抽奖
 			</div> -->
 		</div>
-			<p class="footP">CMC&BDX上海年会</p>
-			<h1 class="footH">万众一信 · 筑梦起航</h1>
 	</div>
 </body>
 <script type="text/javascript">
+
+var storage = getLocalStorage();
+var identity = storage.getItem('identity');
+
+var command = false;
+if(identity === null){
+	var identity = prompt('您的身份?');
+	if(identity === ''){
+		identity = 'guest';
+	}else{
+		storage.setItem('identity', identity);
+	}
+	command = true;
+}else{
+	command = true;
+}
 
 var partnum = <%=partnum %>;
 
@@ -46,19 +57,21 @@ var timer=[];
 init();
 
 function redirect() {
-	$.get('center/getCommand', function(data) {
-		if (data.type == 'NULL') {
-			// 空指令，不做任何事情
-		} else if (data.type == "INIT_POOL") {
-			$.post("link/initPool");
-		} else if (data.type == 'REDIRECT') {
-			window.open(data.url, "_self");
-		} else if (data.type == 'PICK_START') {
-			start();
-		} else if (data.type == 'PICK_END') {
-			endCommand();
-		}
-	});
+	if(command){
+		$.get('center/getCommand/' + identity, function(data) {
+			if (data.type == 'NULL') {
+				// 空指令，不做任何事情
+			} else if (data.type == "INIT_POOL") {
+				$.post("link/initPool");
+			} else if (data.type == 'REDIRECT') {
+				window.open(data.url, "_self");
+			} else if (data.type == 'PICK_START') {
+				start();
+			} else if (data.type == 'PICK_END') {
+				endCommand();
+			}
+		});
+	}
 }
 function endCommand() {
 	for(var i=0;i<arr.length;i++){
@@ -93,10 +106,16 @@ function lotteryDraw(arr, number) {
 		}
 	}
 	personArr.forEach(function(item, i) {
-		var k = i % 5;
-		var lefts = ["-10%", "14%", "38%", "62%", "86%"];
+		var k = i % 4;
+		var n = Math.floor(i / 4);
+		var lefts = ["0%", "24%", "49%", "73%"];
+		var tops;
 		if(personArr.length === 10){
-			var tops = ["25%", "60%"];
+			tops = ["20%","40%", "60%"];
+		}else if(personArr.length === 8){
+			tops = ["30%","50%"];
+		}else if(personArr.length === 4){
+			tops = ["35%"];
 		}else if(personArr.length === 2){
 			var k = i % 2;
 			var lefts = ["15%", "60%"];
@@ -105,12 +124,10 @@ function lotteryDraw(arr, number) {
 			var k = i % 3;
 			var lefts = ["8%", "38%", "68%"];
 			var tops = ["40%"];
-		}
-		else{
-			var tops = ["13%", "33%", "53%", "73%"]
+		}else{
+			var tops = ["13%", "26%", "39%", "52%","65%"]
 		}
 		var left = lefts[k];
-		var n = Math.floor(i / 5);
 		var top = tops[n];
 		item = "#" + item.index;
 		$(item).animate({
@@ -118,10 +135,9 @@ function lotteryDraw(arr, number) {
 			top: top
 		}, 500);
 		$(item).css({
-			fontSize: 45+"px",
+			fontSize: 35 + "px",
     		color:"black",
     		fontFamily:"楷体",
-    		borderRight:"1px solid red",
 			height: "53px",
 			width: "154px"
 		});

@@ -53,7 +53,7 @@
 					<p class="text-warning">注意：启动新的环节，会结束当前环节！</p>
 				</div>
 			</div>
-
+			
 		</div>
 		
 		<!-- jQuery (necessary for Flat UI's JavaScript plugins) -->

@@ -86,6 +86,7 @@ public class DrawServiceImpl implements DrawService {
 			record.setPrizeName(drawPrize.getPrizeName()); // 奖品名称
 			record.setPrizeType(drawPrize.getPrizeType()); // 奖品类型
 			recordService.saveRecord(record);
+			// ------------------------------------------------------
 
 			// 返回奖品
 			return new Prize(Prize.HIT, drawPrize.getPrizeType(), drawPrize.getPrizeName());
