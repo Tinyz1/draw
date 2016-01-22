@@ -43,6 +43,7 @@
 		}else{
 			command = true;
 		}
+		
 		init();
 		
 		var linkId ="";
@@ -67,43 +68,47 @@
 			if(flag){
 				$.post("link/currentHits", function (data){
 					flag = false;
-					for(var i = 0, len = data.length; i < len; i++){
-						var name = data[i].participantName;
-						var prizeName = data[i].prizeName;
-						var prizeType = data[i].prizeType;
-						if(!contains(storeData, name)){
-							storeData.push(name);
-							// <strong style="color: yellow;display: inline-block;text-indent:17px;line-height: 36px;width: 125px;font-size: 25px;">'+prizeName+'</strong>
-							// 每一行显示四个字符
-							var str = prizeName.split(" ");
-							var prize = "";
-							if(str.length){
-								var len = arrs.length;
-								if(len === 2){
-									for(var i = 0; i < str.length; i++){
-										prize += '<p style="color: yellow;line-height: 45px;text-indent:15px;width: 125px;font-size: 27px;">'+ str[i] +'</p>'
-									}
-								}else if(len === 3){
-									for(var i = 0; i < str.length; i++){
-										prize += '<p style="color: yellow;line-height: 35px;text-indent:-5px;width: 125px;font-size: 26px;">'+ str[i] +'</p>'
-									}
-								}else if(len === 4){
-									for(var i = 0; i < str.length; i++){
-										prize += '<p style="color: yellow;line-height: 32px;text-indent:-5px;width: 125px;font-size: 25px;">'+ str[i] +'</p>'
-									}
-								}else if(len === 8){
-									for(var i = 0; i < str.length; i++){
-										prize += '<p style="color: yellow;line-height: 28px;text-indent:-10px;width: 125px;font-size: 23px;">'+ str[i] +'</p>'
-									}
-								}else{
-									for(var i = 0; i < str.length; i++){
-										prize += '<p style="color: yellow;line-height: 23px;text-indent:-20px;width: 125px;font-size: 20px;">'+ str[i] +'</p>'
+					try{
+						for(var i = 0, len = data.length; i < len; i++){
+							var name = data[i].participantName;
+							var prizeName = data[i].prizeName;
+							var prizeType = data[i].prizeType;
+							if(!contains(storeData, name)){
+								storeData.push(name);
+								// <strong style="color: yellow;display: inline-block;text-indent:17px;line-height: 36px;width: 125px;font-size: 25px;">'+prizeName+'</strong>
+								// 每一行显示四个字符
+								var str = prizeName.split(" ");
+								var prize = "";
+								if(str.length){
+									var len = arrs.length;
+									if(len === 2){
+										for(var j = 0; j < str.length; j++){
+											prize += '<p style="color: yellow;line-height: 45px;text-indent:15px;width: 125px;font-size: 27px;">'+ str[j] +'</p>'
+										}
+									}else if(len === 3){
+										for(var j = 0; j < str.length; j++){
+											prize += '<p style="color: yellow;line-height: 35px;text-indent:-5px;width: 125px;font-size: 26px;">'+ str[j] +'</p>'
+										}
+									}else if(len === 4){
+										for(var j = 0; j < str.length; j++){
+											prize += '<p style="color: yellow;line-height: 32px;text-indent:-5px;width: 125px;font-size: 25px;">'+ str[j] +'</p>'
+										}
+									}else if(len === 8){
+										for(var j = 0; j < str.length; j++){
+											prize += '<p style="color: yellow;line-height: 28px;text-indent:-10px;width: 125px;font-size: 23px;">'+ str[j] +'</p>'
+										}
+									}else{
+										for(var j = 0; j < str.length; j++){
+											prize += '<p style="color:yellow;line-height: 23px;text-indent:-20px;width: 125px;font-size: 20px;">'+ str[j] +'</p>'
+										}
 									}
 								}
+								$("#"+name).html('<div>'+prize+'</div>');
+								$("#"+name).next().next("img.shake").hide();
 							}
-							$("#"+name).html('<div>'+prize+'</div>');
-							$("#"+name).next().next("img.shake").hide();
 						}
+					}catch(err){
+						console.log(err);
 					}
 					flag = true;
 				});

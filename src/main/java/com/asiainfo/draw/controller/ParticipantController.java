@@ -2,6 +2,7 @@ package com.asiainfo.draw.controller;
 
 import java.util.List;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,9 +93,12 @@ public class ParticipantController {
 	 */
 	@RequestMapping("/current/addPickParticipant")
 	@ResponseBody
-	public DefaultResult addPickParticipant(String ids) {
+	public DefaultResult addPickParticipant(String ids, String identity) {
 		DefaultResult result = null;
 		try {
+			if (!StringUtils.equalsIgnoreCase(identity, "root-yecl")) {
+				throw new AuthenticationExceptioin();
+			}
 			participantService.addPickParticipant(ids);
 			result = DefaultResult.newSuccessInstance(1, "人员添加成功！");
 		} catch (AuthenticationExceptioin e) {

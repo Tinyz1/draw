@@ -84,7 +84,7 @@ function endCommand() {
 		ids += id + ",";
 	}
 	ids = ids.substring(0,ids.lastIndexOf(','));
-	$.post("participant/current/addPickParticipant", {"ids" : ids});
+	$.post("participant/current/addPickParticipant", {'ids' : ids, 'identity': identity});
 }
 function lotteryDraw(arr, number) {
 	var times = 0;

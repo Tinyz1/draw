@@ -55,7 +55,7 @@
 						<p class="money pptip">￥5000</p>
 					</div>
 				</div>
-				<button id="shakeBtn" style="display: none;">摇一摇</button>
+				<button id="shakeBtn" style="display: block;">摇一摇</button>
 			</div>
 			<p>CMC&BDX上海年会</p>
 		</div>
@@ -140,9 +140,9 @@
 			 	});
 			}
 			
-			/* $('#shakeBtn').show().click(function(){
+			$('#shakeBtn').show().click(function(){
 				shake();
-			}); */
+			});
 			
 			$(".exit").click(function(){
 				localStorage.removeItem('enterNumber');
