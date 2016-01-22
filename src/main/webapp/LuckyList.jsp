@@ -83,7 +83,7 @@
 									var len = arrs.length;
 									if(len === 2){
 										for(var j = 0; j < str.length; j++){
-											prize += '<p style="color: yellow;line-height: 45px;text-indent:15px;width: 125px;font-size: 27px;">'+ str[j] +'</p>'
+											prize += '<p style="color: yellow;line-height: 45px;text-indent:13px;width: 145px;font-size: 30px;">'+ str[j] +'</p>'
 										}
 									}else if(len === 3){
 										for(var j = 0; j < str.length; j++){
@@ -91,7 +91,7 @@
 										}
 									}else if(len === 4){
 										for(var j = 0; j < str.length; j++){
-											prize += '<p style="color: yellow;line-height: 32px;text-indent:-5px;width: 125px;font-size: 25px;">'+ str[j] +'</p>'
+											prize += '<p style="color: yellow;line-height: 32px;text-indent:-15px;width: 130px;font-size: 25px;">'+ str[j] +'</p>'
 										}
 									}else if(len === 8){
 										for(var j = 0; j < str.length; j++){
@@ -99,7 +99,7 @@
 										}
 									}else{
 										for(var j = 0; j < str.length; j++){
-											prize += '<p style="color:yellow;line-height: 23px;text-indent:-20px;width: 125px;font-size: 20px;">'+ str[j] +'</p>'
+											prize += '<p style="color:yellow;line-height: 23px;text-indent:-15px;width: 115px;font-size: 20px;">'+ str[j] +'</p>'
 										}
 									}
 								}
@@ -160,7 +160,7 @@
 						html += '<li style="width:22%;left:"><p id='+arr.participantName+' style="width:235px; height:80px;'
 						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
 						+'</p><p style="color:#000;width:120px; height:30px; text-align:center;letter-space:5px">' + arr.participantName 
-						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:83px" /></li>';
+						+ '</p><img src="resources/image/sshake.png" class="li-img shake" style="width:80px" /></li>';
 					}
 					$("#listUl").addClass("martop-4");
 				}else if(arrs.length === 8){
@@ -177,7 +177,7 @@
 						var arr = arrs[i];
 						html += '<li style="margin-bottom: 100px;"><p id='+arr.participantName+' style="width:207px; height:50px;'
 						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
-						+'</p><p style="color:#000;width:85px; height:30px">' + arr.participantName 
+						+'</p><p style="color:#000;width:100px; height:40px">' + arr.participantName 
 						+ '</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
 					}
 					$("#listUl").addClass("martop-10");
@@ -186,7 +186,7 @@
 						var arr = arrs[i];
 						html += '<li><p id='+arr.participantName+' style="width:207px; height:50px;'
 						+'background:url(resources/image/sred.png) no-repeat;background-size:50%">'
-						+'</p><p style="color:#000;width:85px; height:30px">' + arr.participantName 
+						+'</p><p style="color:#000;width:100px; height:30px;">' + arr.participantName 
 						+ '</p><img src="resources/image/sshake.png" class="li-img shake"/></li>';
 					}
 				}
